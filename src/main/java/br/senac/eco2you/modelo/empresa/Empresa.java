@@ -5,25 +5,15 @@ import br.senac.eco2you.modelo.usuario.Usuario;
 
 public class Empresa extends Usuario {
 	
-	private String nome;
 	private String cnpj;
 	private String horarioFuncionamento;
 	private Endereco endereco;
  
-	public Empresa(String nome, String cnpj, String horarioFuncionamento, Endereco endereco) {
- 
-		setNome(nome);
+	public Empresa(String cnpj, String horarioFuncionamento, Endereco endereco) {
+
 		setCnpj(cnpj);
 		setHorarioFuncionamento(horarioFuncionamento);
  
-	}
- 
-	public String getNome() {
-		return nome;
-	}
- 
-	public void setNome(String nome) {
-		this.nome = nome;
 	}
  
 	public String getCnpj() {
