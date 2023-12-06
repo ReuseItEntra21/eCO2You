@@ -1,6 +1,9 @@
 package br.senac.eco2you.modelo.empresa;
 
-public class Empresa {
+import br.senac.eco2you.modelo.endereco.Endereco;
+import br.senac.eco2you.modelo.usuario.Usuario;
+
+public class Empresa extends Usuario {
 	
 	private String nome;
 	private String cnpj;

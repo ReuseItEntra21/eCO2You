@@ -1,9 +1,10 @@
 package br.senac.eco2you.modelo.armazem;
 import java.util.List;
 
-import StatusArmazem;
+import br.senac.eco2you.modelagem.enumeracao.statusArmazem.StatusArmazem;
+import br.senac.eco2you.modelo.empresa.Empresa;
 
-public class Armazem {
+public class Armazem extends Empresa{
 	private long capacidadeArmazenagem;
 	private StatusArmazem statusArmazem;
 	private List<deposito> listaDepositos;

@@ -1,7 +1,8 @@
 package br.senac.eco2you.modelo.pessoa;
 
+import br.senac.eco2you.modelo.usuario.Usuario;
 
-public class Pessoa {
+public class Pessoa extends Usuario{
 
 	private String sobrenome;
 	private String apelido;

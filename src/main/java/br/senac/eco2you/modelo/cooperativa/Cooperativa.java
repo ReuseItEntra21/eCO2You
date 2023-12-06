@@ -1,6 +1,11 @@
 package br.senac.eco2you.modelo.cooperativa;
 
-public class Cooperativa {
+import java.util.List;
+
+import br.senac.eco2you.modelo.empresa.Empresa;
+import br.senac.eco2you.modelo.retirada.Retirada;
+
+public class Cooperativa extends Empresa{
 	private int capacidadeColeta;
 	private List<Retirada> listaRetiradas;
  
