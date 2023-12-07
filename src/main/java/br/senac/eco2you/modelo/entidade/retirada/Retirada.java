@@ -1,5 +1,6 @@
 package br.senac.eco2you.modelo.entidade.retirada;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +11,16 @@ import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
 
 @Entity
 @Table(name = "retiradas")
-public class Retirada {
+public class Retirada implements Serializable{
  
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
+    private Long id;
+    
     @Column(name = "data", nullable = false)
     private LocalDate data;
  
