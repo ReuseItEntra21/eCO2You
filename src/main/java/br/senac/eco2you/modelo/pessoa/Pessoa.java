@@ -1,19 +1,24 @@
 package br.senac.eco2you.modelo.pessoa;
 
+import br.senac.eco2you.modelo.endereco.Endereco;
 import br.senac.eco2you.modelo.usuario.Usuario;
 
-public class Pessoa extends Usuario{
+public abstract class Pessoa extends Usuario{
 
 	private String sobrenome;
 	private String apelido;
+	private int idade;
 	private String cpf;
-	private String datanascimento;
+	private String dataNascimento;
 
-	public Pessoa(String nome, int idade, String endereco, String datanascimento, String cpf, String apelido) {
-		this.sobrenome = nome;
+	public Pessoa(String nome,  String email, String senha, Endereco endereco, String sobrenome, String apelido, int idade,  String cpf, String dataNascimento) {
+		
+		super(nome, email, senha, endereco);
+		this.sobrenome = sobrenome;
 		this.apelido = apelido;
+		this.idade = idade;
 		this.cpf = cpf;
-		this.datanascimento = datanascimento;
+		this.dataNascimento = dataNascimento;
 	}
 
 	public Pessoa() {
@@ -35,6 +40,14 @@ public class Pessoa extends Usuario{
 	public void setApelido(String apelido) {
 		this.apelido = apelido;
 	}
+	
+	public int getIdade() {
+		return idade;
+	}
+	
+	public void setIdade(int idade) {
+		this.idade = idade;
+	}
 
 	public String getCpf() {
 		return cpf;
@@ -45,10 +58,10 @@ public class Pessoa extends Usuario{
 	}
 
 	public String getDatanascimento() {
-		return datanascimento;
+		return dataNascimento;
 	}
 
-	public void setDatanascimento(String datanascimento) {
-		this.datanascimento = datanascimento;
+	public void setDatanascimento(String dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 }

@@ -3,14 +3,14 @@ package br.senac.eco2you.modelo.empresa;
 import br.senac.eco2you.modelo.endereco.Endereco;
 import br.senac.eco2you.modelo.usuario.Usuario;
 
-public class Empresa extends Usuario {
+public abstract class Empresa extends Usuario {
 	
 	private String cnpj;
 	private String horarioFuncionamento;
-	private Endereco endereco;
  
-	public Empresa(String cnpj, String horarioFuncionamento, Endereco endereco) {
+	public Empresa(String nome,  String email, String senha, Endereco endereco, String cnpj, String horarioFuncionamento) {
 
+		super(nome, email, senha, endereco);
 		setCnpj(cnpj);
 		setHorarioFuncionamento(horarioFuncionamento);
  
@@ -32,11 +32,4 @@ public class Empresa extends Usuario {
 		this.horarioFuncionamento = horarioFuncionamento;
 	}
  
-	public Endereco getEndereco() {
-		return endereco;
-	}
- 
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
 }
