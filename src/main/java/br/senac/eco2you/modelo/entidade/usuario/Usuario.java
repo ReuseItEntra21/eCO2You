@@ -1,4 +1,4 @@
-package br.senac.eco2you.modelo.usuario;
+package br.senac.eco2you.modelo.entidade.usuario;
 
 import br.senac.eco2you.modelo.endereco.Endereco;
 

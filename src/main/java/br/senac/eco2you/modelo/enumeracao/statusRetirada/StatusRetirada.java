@@ -1,4 +1,4 @@
-package br.senac.eco2you.modelagem.enumeracao.statusRetirada;
+package br.senac.eco2you.modelo.enumeracao.statusRetirada;
 
 public enum StatusRetirada {
 

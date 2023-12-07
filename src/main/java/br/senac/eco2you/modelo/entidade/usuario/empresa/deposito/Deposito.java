@@ -1,4 +1,4 @@
-package br.senac.eco2you.modelo.deposito;
+package br.senac.eco2you.modelo.entidade.usuario.empresa.deposito;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
