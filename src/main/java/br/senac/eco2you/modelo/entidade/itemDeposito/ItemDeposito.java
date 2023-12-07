@@ -2,6 +2,16 @@ package br.senac.eco2you.modelo.entidade.itemDeposito;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
 import br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel;
 
 @Entity
@@ -14,7 +24,7 @@ public class ItemDeposito implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_reciclavel")
 	private Reciclavel reciclavel;
 
