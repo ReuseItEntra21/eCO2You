@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import br.senac.eco2you.modelo.endereco.Endereco;
+import br.senac.eco2you.modelo.entidade.endereco.Endereco;
 import br.senac.eco2you.modelo.entidade.usuario.Usuario;
 
 public abstract class Pessoa extends Usuario implements Serializable {
