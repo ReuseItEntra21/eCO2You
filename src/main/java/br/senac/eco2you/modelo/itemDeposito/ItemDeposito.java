@@ -1,13 +1,15 @@
 package br.senac.eco2you.modelo.itemDeposito;
 
+import br.senac.eco2you.modelo.reciclavel.Reciclavel;
+
 public class ItemDeposito {
 	
-	 private Reciclavel reciclavel;
-		private int quantidadeReciclaveis;
+	private Reciclavel reciclavel;
+	private int quantidadeReciclaveis;
 	 
 		public ItemDeposito(Reciclavel reciclavel, int quantidadeReciclaveis) {
 			setReciclavel(reciclavel);
-			this.quantidadeReciclaveis = quantidadeReciclaveis;
+			setQuantidadeReciclaveis(quantidadeReciclaveis);;
 	 
 		}
 	 
