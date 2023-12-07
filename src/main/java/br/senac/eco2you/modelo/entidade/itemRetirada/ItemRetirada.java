@@ -1,4 +1,4 @@
-package br.senac.eco2you.modelo.itemRetirada;
+package br.senac.eco2you.modelo.entidade.itemRetirada;
 
 
 public class ItemRetirada {
