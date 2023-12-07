@@ -1,11 +1,11 @@
-package br.senac.eco2you.modelo.entidade.empresa.armazem;
+package br.senac.eco2you.modelo.entidade.usuario.empresa.armazem;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import br.senac.eco2you.modelo.endereco.Endereco;
+import br.senac.eco2you.modelo.entidade.deposito.Deposito;
 import br.senac.eco2you.modelo.entidade.empresa.Empresa;
-import br.senac.eco2you.modelo.entidade.usuario.empresa.deposito.Deposito;
 import br.senac.eco2you.modelo.enumeracao.statusArmazem.StatusArmazem;
 
 public class Armazem extends Empresa {

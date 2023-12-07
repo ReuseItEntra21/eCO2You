@@ -5,7 +5,7 @@ import java.util.List;
 
 import br.senac.eco2you.modelo.endereco.Endereco;
 import br.senac.eco2you.modelo.entidade.empresa.Empresa;
-import br.senac.eco2you.modelo.retirada.Retirada;
+import br.senac.eco2you.modelo.entidade.retirada.Retirada;
 
 public class Cooperativa extends Empresa {
 	private int capacidadeColeta;

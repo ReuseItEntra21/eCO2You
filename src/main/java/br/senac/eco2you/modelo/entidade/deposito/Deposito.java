@@ -1,12 +1,12 @@
-package br.senac.eco2you.modelo.entidade.usuario.empresa.deposito;
+package br.senac.eco2you.modelo.entidade.deposito;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.senac.eco2you.modelo.entidade.empresa.armazem.Armazem;
+import br.senac.eco2you.modelo.entidade.itemDeposito.ItemDeposito;
+import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
-import br.senac.eco2you.modelo.itemDeposito.ItemDeposito;
 
 public class Deposito {
 

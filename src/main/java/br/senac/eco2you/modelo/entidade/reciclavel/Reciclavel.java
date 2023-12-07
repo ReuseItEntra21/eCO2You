@@ -1,4 +1,4 @@
-package br.senac.eco2you.modelo.reciclavel;
+package br.senac.eco2you.modelo.entidade.reciclavel;
 
 public class Reciclavel {
 

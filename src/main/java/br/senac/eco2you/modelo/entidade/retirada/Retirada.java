@@ -1,12 +1,12 @@
-package br.senac.eco2you.modelo.retirada;
+package br.senac.eco2you.modelo.entidade.retirada;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.senac.eco2you.modelo.entidade.empresa.armazem.Armazem;
+import br.senac.eco2you.modelo.entidade.itemRetirada.ItemRetirada;
+import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
-import br.senac.eco2you.modelo.itemRetirada.ItemRetirada;
 
 public class Retirada {
 

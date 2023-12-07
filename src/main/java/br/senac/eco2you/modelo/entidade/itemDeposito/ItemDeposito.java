@@ -1,6 +1,6 @@
-package br.senac.eco2you.modelo.itemDeposito;
+package br.senac.eco2you.modelo.entidade.itemDeposito;
 
-import br.senac.eco2you.modelo.reciclavel.Reciclavel;
+import br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel;
 
 public class ItemDeposito {
 	
