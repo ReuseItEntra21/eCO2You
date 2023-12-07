@@ -1,7 +1,12 @@
 package br.senac.eco2you.modelo.retirada;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+
+import br.senac.eco2you.modelo.entidade.empresa.armazem.Armazem;
+import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
+import br.senac.eco2you.modelo.itemRetirada.ItemRetirada;
 
 public class Retirada {
 
@@ -10,11 +15,12 @@ public class Retirada {
 	private Armazem armazem;
 	private List<ItemRetirada> listaItemRetiradas;
 
-	public Retirada(LocalDate data, Cooperativa cooperativa, Armazem armazem, List<ItemRetirada> listaItemRetiradas) {
+	public Retirada(LocalDate data, Cooperativa cooperativa, Armazem armazem) {
 		this.data = data;
 		this.cooperativa = cooperativa;
 		this.armazem = armazem;
-		this.listaItemRetiradas = listaItemRetiradas;
+		listaItemRetiradas = new ArrayList<>();
+		
 	}
 
 	public LocalDate getData() {
@@ -45,8 +51,14 @@ public class Retirada {
 		return listaItemRetiradas;
 	}
 
-	public void setListaItemRetiradas(List<ItemRetirada> listaItemRetiradas) {
-		this.listaItemRetiradas = listaItemRetiradas;
+	public boolean inserirItemRetirada(ItemRetirada itemRetirada) {
+		return listaItemRetiradas.add(itemRetirada);
+
+	}
+
+	public boolean removerDeposito(ItemRetirada itemRetirada) {
+		return listaItemRetiradas.remove(itemRetirada);
+
 	}
 
 }
