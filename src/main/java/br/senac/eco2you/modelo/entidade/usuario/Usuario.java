@@ -18,7 +18,7 @@ import br.senac.eco2you.modelo.endereco.Endereco;
 @Entity
 @Table(name = "usuario")
 public abstract class Usuario implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 
 	public Usuario() {
@@ -34,21 +34,16 @@ public abstract class Usuario implements Serializable {
 
 	@Column(name = "email_usuario", length = 45, nullable = false, unique = true)
 	private String email;
-	
-	@Column(name = "cpf_usuario", length = 14, nullable = false, unique = true)
-	private String cpf;
-	
+
 	@Column(name = "senha_usuario", length = 25, nullable = false, unique = false)
 	private String senha;
-	
+
 	@OneToOne(fetch = FetchType.LAZY)
 	@MapsId
 	@JoinColumn(name = "id_endereco")
-	
+
 	private Endereco endereco;
 
-	
-	
 	public Usuario(String nome, String email, String senha, Endereco endereco) {
 		this.nome = nome;
 		this.email = email;
