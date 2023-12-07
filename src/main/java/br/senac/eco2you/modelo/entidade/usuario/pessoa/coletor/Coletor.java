@@ -1,10 +1,10 @@
-package br.senac.eco2you.modelo.coletor;
+package br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor;
 
 import java.util.List;
 
-import br.senac.eco2you.modelo.deposito.Deposito;
 import br.senac.eco2you.modelo.endereco.Endereco;
-import br.senac.eco2you.modelo.pessoa.Pessoa;
+import br.senac.eco2you.modelo.entidade.usuario.empresa.deposito.Deposito;
+import br.senac.eco2you.modelo.entidade.usuario.pessoa.Pessoa;
 
 public class Coletor extends Pessoa {
 

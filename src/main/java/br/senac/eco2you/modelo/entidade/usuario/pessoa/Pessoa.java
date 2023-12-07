@@ -1,7 +1,7 @@
-package br.senac.eco2you.modelo.pessoa;
+package br.senac.eco2you.modelo.entidade.usuario.pessoa;
 
 import br.senac.eco2you.modelo.endereco.Endereco;
-import br.senac.eco2you.modelo.usuario.Usuario;
+import br.senac.eco2you.modelo.entidade.usuario.Usuario;
 
 public abstract class Pessoa extends Usuario{
 

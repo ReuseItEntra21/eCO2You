@@ -1,7 +1,7 @@
-package br.senac.eco2you.modelo.empresa;
+package br.senac.eco2you.modelo.entidade.empresa;
 
 import br.senac.eco2you.modelo.endereco.Endereco;
-import br.senac.eco2you.modelo.usuario.Usuario;
+import br.senac.eco2you.modelo.entidade.usuario.Usuario;
 
 public abstract class Empresa extends Usuario {
 	
