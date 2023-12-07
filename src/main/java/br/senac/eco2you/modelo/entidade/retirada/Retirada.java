@@ -38,8 +38,8 @@ public class Retirada implements Serializable{
     @JoinColumn(name = "id_cooperativa")
     private Cooperativa cooperativa;
  
-    @Column(name = "armazem_id", nullable = false)
-    private Integer armazemId;
+    @Column(name = "id_armazem", nullable = false)
+    private Armazem armazem;
  
     @OneToMany(mappedBy = "retirada")
     private List<ItemRetirada> listaItemRetiradas;
