@@ -2,7 +2,7 @@ package br.senac.eco2you.modelo.usuario;
 
 import br.senac.eco2you.modelo.endereco.Endereco;
 
-public class Usuario {
+public abstract class Usuario {
 
 	public Usuario() {}
 
