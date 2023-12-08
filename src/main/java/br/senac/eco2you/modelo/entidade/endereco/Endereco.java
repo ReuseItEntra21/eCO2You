@@ -1,4 +1,4 @@
-package br.senac.eco2you.modelo.endereco;
+package br.senac.eco2you.modelo.entidade.endereco;
 
 import java.io.Serializable;
 
