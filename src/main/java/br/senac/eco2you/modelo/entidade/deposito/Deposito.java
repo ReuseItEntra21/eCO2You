@@ -1,6 +1,7 @@
 package br.senac.eco2you.modelo.entidade.deposito;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +36,8 @@ public class Deposito implements Serializable{
 	@Column(name = "id_deposito")
 	private Long id;
 	
-	private LocalDate data;
+	@Column(name = "Data", nullable = false)
+	private Date data;
 	
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_armazem",  nullable = false, unique = true)
@@ -54,7 +56,7 @@ public class Deposito implements Serializable{
 	public Deposito() {}
 
 	public Deposito(LocalDate data, Armazem armazem, Coletor coletor) {
-		setData(data);
+		setData(getData());;
 		setArmazem(armazem);
 		setColetor(coletor);
 		listaItemDeposito = new ArrayList<>();
@@ -85,11 +87,11 @@ public class Deposito implements Serializable{
 		this.armazem = armazem;
 	}
 
-	public LocalDate getData() {
+	public Date getData() {
 		return data;
 	}
 
-	public void setData(LocalDate data) {
+	public void setData(Date data) {
 		this.data = data;
 	}
 
