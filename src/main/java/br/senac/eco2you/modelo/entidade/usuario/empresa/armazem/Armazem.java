@@ -7,6 +7,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -16,8 +18,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import br.senac.eco2you.modelo.entidade.deposito.Deposito;
-import br.senac.eco2you.modelo.entidade.empresa.Empresa;
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
+import br.senac.eco2you.modelo.entidade.usuario.empresa.Empresa;
 import br.senac.eco2you.modelo.enumeracao.statusArmazem.StatusArmazem;
 
 @Entity
@@ -35,7 +37,7 @@ public class Armazem extends Empresa implements Serializable {
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "status_armazem")
-	private StatusArmazem statusArmazem;
+	@Enumerated(EnumType.STRING)private StatusArmazem statusArmazem;
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "armazem_deposito", joinColumns = @JoinColumn(name = "id_armazem"), inverseJoinColumns = @JoinColumn(name = "id_deposito"))

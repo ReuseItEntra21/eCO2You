@@ -1,5 +1,5 @@
 package br.senac.eco2you.modelo.entidade.retirada;
-
+ 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,14 +20,14 @@ import javax.persistence.Table;
 import br.senac.eco2you.modelo.entidade.itemRetirada.ItemRetirada;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
-import br.senac.eco2you.modelo.enumeracao.statusArmazem.StatusArmazem;
-
+import br.senac.eco2you.modelo.enumeracao.statusRetirada.StatusRetirada;
+ 
 @Entity
 @Table(name = "retirada")
 public class Retirada implements Serializable{
  
 	private static final long serialVersionUID = 1L;
-
+ 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_retirada")
@@ -46,14 +46,12 @@ public class Retirada implements Serializable{
     @OneToMany(mappedBy = "retirada")
     private List<ItemRetirada> listaItemRetiradas;
     
-    
-    @Enumerated(EnumType.STRING)
-    private StatusArmazem statusArmazem;
-    
+    @Enumerated(EnumType.STRING)private StatusRetirada statusDeRetirada;
     
     public Retirada() {}
  
-    public Retirada(String data, Cooperativa cooperativa, Armazem armazem) {
+    public Retirada(String data, Cooperativa cooperativa, Armazem armazem, StatusRetirada statusDeRetirada) {
+    	setStatusDeRetirada(statusDeRetirada);
         setData(data);
         setCooperativa(cooperativa);
         setArmazem(armazem);
@@ -95,15 +93,7 @@ public class Retirada implements Serializable{
     public List<ItemRetirada> getListaItemRetiradas() {
         return listaItemRetiradas;
     }
-    
-    public StatusArmazem getStatusArmazem() {
-		return statusArmazem;
-	}
-    
-    public void setStatusArmazem(StatusArmazem statusArmazem) {
-		this.statusArmazem = statusArmazem;
-	}
-    
+ 
     public boolean inserirItemRetirada(ItemRetirada itemRetirada) {
         return listaItemRetiradas.add(itemRetirada);
  
@@ -114,6 +104,14 @@ public class Retirada implements Serializable{
  
     }
  
+    public StatusRetirada getStatusDeRetirada() {
+		return statusDeRetirada;
+	}
+    
+    public void setStatusDeRetirada(StatusRetirada statusDeRetirada) {
+		this.statusDeRetirada = statusDeRetirada;
+	}
+    
     @Override
     public String toString() {
         return "Retirada [data=" + data + ", cooperativa=" + cooperativa + ", armazem=" + armazem + ", listaItemRetiradas="
