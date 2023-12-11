@@ -14,9 +14,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import br.senac.eco2you.modelo.entidade.empresa.Empresa;
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
 import br.senac.eco2you.modelo.entidade.retirada.Retirada;
+import br.senac.eco2you.modelo.entidade.usuario.empresa.Empresa;
 
 @Entity
 @Table(name = "cooperativa")
