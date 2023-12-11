@@ -1,13 +1,37 @@
 package br.senac.eco2you.modelo.entidade.reciclavel;
 
-public class Reciclavel {
+import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "reciclavel")
+public class Reciclavel implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	@Column(name = "Nome_reciclavel", length = 25, nullable = false, unique = false)
 	private String nome;
+
+	@Column(name = "Tipo_reciclavel", length = 25, nullable = false, unique = false)
 	private String tipo;
+
+	@Column(name = "Pontos_de_carbono", nullable = false, unique = false)
 	private double pontosCarbono;
+
+	@Column(name = "Peso", nullable = false, unique = false)
 	private double peso;
+
+	@Column(name = "Volume", nullable = false, unique = false)
 	private double volume;
+
+	@Column(name = "Nome_reciclavel", length = 200, nullable = false, unique = false)
 	private String instrucaoReciclavel;
+
+	public Reciclavel() {
+	}
 
 	public Reciclavel(String nome, String tipo, double pontosCarbono, double peso, double volume,
 			String instrucaoReciclavel) {
