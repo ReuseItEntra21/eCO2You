@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +20,7 @@ import javax.persistence.Table;
 import br.senac.eco2you.modelo.entidade.itemRetirada.ItemRetirada;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
+import br.senac.eco2you.modelo.enumeracao.statusArmazem.StatusArmazem;
 
 @Entity
 @Table(name = "retirada")
@@ -42,6 +45,11 @@ public class Retirada implements Serializable{
  
     @OneToMany(mappedBy = "retirada")
     private List<ItemRetirada> listaItemRetiradas;
+    
+    
+    @Enumerated(EnumType.STRING)
+    private StatusArmazem statusArmazem;
+    
     
     public Retirada() {}
  
@@ -87,7 +95,15 @@ public class Retirada implements Serializable{
     public List<ItemRetirada> getListaItemRetiradas() {
         return listaItemRetiradas;
     }
- 
+    
+    public StatusArmazem getStatusArmazem() {
+		return statusArmazem;
+	}
+    
+    public void setStatusArmazem(StatusArmazem statusArmazem) {
+		this.statusArmazem = statusArmazem;
+	}
+    
     public boolean inserirItemRetirada(ItemRetirada itemRetirada) {
         return listaItemRetiradas.add(itemRetirada);
  
