@@ -18,9 +18,9 @@ import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import br.senac.eco2you.modelo.endereco.Endereco;
 import br.senac.eco2you.modelo.entidade.deposito.Deposito;
 import br.senac.eco2you.modelo.entidade.empresa.Empresa;
+import br.senac.eco2you.modelo.entidade.endereco.Endereco;
 import br.senac.eco2you.modelo.enumeracao.statusArmazem.StatusArmazem;
 
 @Entity
