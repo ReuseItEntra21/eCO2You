@@ -1,14 +1,41 @@
 package br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.senac.eco2you.modelo.endereco.Endereco;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
 import br.senac.eco2you.modelo.entidade.empresa.Empresa;
+import br.senac.eco2you.modelo.entidade.endereco.Endereco;
 import br.senac.eco2you.modelo.entidade.retirada.Retirada;
 
-public class Cooperativa extends Empresa {
+@Entity
+@Table(name = "cooperativa")
+public class Cooperativa extends Empresa implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_cooperativa")
+	private Long id;
+
+	@Column(name = "capacidade_coleta_cooperativa", length = 25, nullable = false, unique = false)
 	private int capacidadeColeta;
+	
+	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@JoinTable(name = "cooperativa_retirada", joinColumns = @JoinColumn(name = "id_cooperativa"), inverseJoinColumns = @JoinColumn(name = "id_retirada"))
 	private List<Retirada> listaRetiradas;
 
 	public Cooperativa(String nome, String email, String senha, Endereco endereco, String cnpj,
@@ -17,6 +44,16 @@ public class Cooperativa extends Empresa {
 		setCapacidadeColeta(capacidadeColeta);
 		listaRetiradas = new ArrayList<>();
 
+	}
+	
+	public Cooperativa () {}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public int getCapacidadeColeta() {
