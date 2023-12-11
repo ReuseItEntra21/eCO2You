@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
@@ -16,9 +14,8 @@ public abstract class Pessoa extends Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_pessoa")
-	private long id;
+	@Column(name = "id_usuario")
+	private Long id;
 
 	@Column(name = "sobrenome_pessoa", length = 25, nullable = false, unique = false)
 	private String sobrenome;
@@ -32,7 +29,7 @@ public abstract class Pessoa extends Usuario implements Serializable {
 	@Column(name = "cpf_pessoa", length = 14, nullable = false, unique = true)
 	private String cpf;
 
-	@Column(name = "dataNascimento_usuario", nullable = false, unique = false)
+	@Column(name = "data_nascimento_usuario", nullable = false, unique = false)
 	private Date dataNascimento;
 
 	public Pessoa(String nome, String email, String senha, Endereco endereco, String sobrenome, String apelido,
@@ -48,7 +45,15 @@ public abstract class Pessoa extends Usuario implements Serializable {
 
 	public Pessoa() {
 	}
+	
+	public Long getId() {
+		return id;
+	}
 
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
 	public String getSobrenome() {
 		return sobrenome;
 	}

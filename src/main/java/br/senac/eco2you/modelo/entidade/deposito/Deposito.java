@@ -17,7 +17,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import br.senac.eco2you.modelo.entidade.itemDeposito.ItemDeposito;
@@ -36,7 +35,7 @@ public class Deposito implements Serializable{
 	@Column(name = "id_deposito")
 	private Long id;
 	
-	@Column(name = "Data", nullable = false)
+	@Column(name = "data_deposito", nullable = false)
 	private Date data;
 	
 	@ManyToMany(fetch = FetchType.LAZY)
@@ -48,7 +47,7 @@ public class Deposito implements Serializable{
 	private Coletor coletor;
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	@JoinTable(name = "Deposito_itemDeposito", joinColumns = @JoinColumn(name = "id_deposito"), inverseJoinColumns = @JoinColumn(name = "id_itemDeposito"))	
+	@JoinTable(name = "deposito_item_deposito", joinColumns = @JoinColumn(name = "id_deposito"), inverseJoinColumns = @JoinColumn(name = "id_item_deposito"))	
 	private List<ItemDeposito> listaItemDeposito;
 
 

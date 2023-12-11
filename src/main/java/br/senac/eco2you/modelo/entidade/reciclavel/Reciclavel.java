@@ -12,24 +12,24 @@ public class Reciclavel implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "Nome_reciclavel", length = 25, nullable = false, unique = false)
+	@Column(name = "nome_reciclavel", length = 25, nullable = false, unique = false)
 	private String nome;
 
-	@Column(name = "Tipo_reciclavel", length = 25, nullable = false, unique = false)
+	@Column(name = "tipo_reciclavel", length = 25, nullable = false, unique = false)
 	private String tipo;
 
-	@Column(name = "Pontos_de_carbono", nullable = false, unique = false)
+	@Column(name = "pontos_de_carbono", nullable = false, unique = false)
 	private double pontosCarbono;
 
-	@Column(name = "Peso", nullable = false, unique = false)
+	@Column(name = "peso", nullable = false, unique = false)
 	private double peso;
 
-	@Column(name = "Volume", nullable = false, unique = false)
+	@Column(name = "volume", nullable = false, unique = false)
 	private double volume;
 
-	@Column(name = "Nome_reciclavel", length = 200, nullable = false, unique = false)
+	@Column(name = "nome_reciclavel", length = 200, nullable = false, unique = false)
 	private String instrucaoReciclavel;
-
+	
 	public Reciclavel() {
 	}
 
@@ -41,7 +41,6 @@ public class Reciclavel implements Serializable {
 		this.peso = peso;
 		this.volume = volume;
 		this.instrucaoReciclavel = instrucaoReciclavel;
-
 	}
 
 	public String getNome() {
@@ -91,5 +90,4 @@ public class Reciclavel implements Serializable {
 	public void setVolume(double volume) {
 		this.volume = volume;
 	}
-
 }

@@ -1,7 +1,6 @@
 package br.senac.eco2you.modelo.entidade.retirada;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +30,7 @@ public class Retirada implements Serializable{
 	@Column(name = "id_retirada")
     private Long id;
     
-    @Column(name = "data", nullable = false, unique = false)
+    @Column(name = "data_retirada", nullable = false, unique = false)
     private String data;
  
     @OneToOne(fetch = FetchType.LAZY)
@@ -53,6 +52,14 @@ public class Retirada implements Serializable{
         listaItemRetiradas = new ArrayList<>();
     }
  
+    public Long getId() {
+		return id;
+	}
+    
+    public void setId(Long id) {
+		this.id = id;
+	}
+    
     public Cooperativa getCooperativa() {
         return cooperativa;
     }
