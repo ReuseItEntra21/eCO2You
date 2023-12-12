@@ -1,4 +1,4 @@
-package br.senac.eco2you.modelo.entidade.usuario.empresa;
+package br.senac.eco2you.modelo.entidade.empresa;
 
 import java.io.Serializable;
 
