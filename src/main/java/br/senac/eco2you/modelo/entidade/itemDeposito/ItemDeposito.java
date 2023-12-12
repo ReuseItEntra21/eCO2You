@@ -31,7 +31,7 @@ public class ItemDeposito implements Serializable {
 	@Column(name = "quantidade_reciclaveis")
 	private int quantidadeReciclaveis;
 
-	  public ItemDeposito() {}
+	public ItemDeposito() {}
 	
 	public ItemDeposito(Reciclavel reciclavel, int quantidadeReciclaveis) {
 		setReciclavel(reciclavel);
