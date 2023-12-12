@@ -1,15 +1,22 @@
 package br.senac.eco2you.modelo.dao.reciclavel;
 
+import java.util.List;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
+import br.senac.eco2you.modelo.entidade.endereco.Endereco;
 import br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel;
 
 public class ReciclavelDAOImpl implements ReciclavelDAO {
-	
+
 	public void inserirReciclavel(Reciclavel reciclavel) {
 		Session sessao = null;
 
@@ -39,7 +46,7 @@ public class ReciclavelDAOImpl implements ReciclavelDAO {
 	}
 
 	public void deletarReciclavel(Reciclavel reciclavel) {
-		
+
 		Session sessao = null;
 
 		try {
@@ -65,11 +72,11 @@ public class ReciclavelDAOImpl implements ReciclavelDAO {
 				sessao.close();
 			}
 		}
-		
+
 	}
 
 	public void atualizarReciclavel(Reciclavel reciclavel) {
-		
+
 		Session sessao = null;
 
 		try {
@@ -96,7 +103,46 @@ public class ReciclavelDAOImpl implements ReciclavelDAO {
 			}
 		}
 	}
-	
+
+	public List<Reciclavel> recuperarReciclaveis() {
+
+		Session sessao = null;
+		List<Reciclavel> reciclaveis = null;
+
+		try {
+
+			sessao = conectarBanco().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Reciclavel> criteria = construtor.createQuery(Reciclavel.class);
+			Root<Reciclavel> raizReciclavel = criteria.from(Reciclavel.class);
+
+			criteria.select(raizReciclavel);
+
+			reciclaveis = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return reciclaveis;
+	}
+
 	private SessionFactory conectarBanco() {
 
 		Configuration configuracao = new Configuration();
@@ -118,7 +164,8 @@ public class ReciclavelDAOImpl implements ReciclavelDAO {
 
 		configuracao.configure("hibernate.cfg.xml");
 
-		ServiceRegistry servico = new StandardServiceRegistryBuilder().applySettings(configuracao.getProperties()).build();
+		ServiceRegistry servico = new StandardServiceRegistryBuilder().applySettings(configuracao.getProperties())
+				.build();
 		SessionFactory fabricaSessao = configuracao.buildSessionFactory(servico);
 
 		return fabricaSessao;
