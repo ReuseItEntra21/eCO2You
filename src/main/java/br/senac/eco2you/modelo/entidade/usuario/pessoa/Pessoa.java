@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.Column;
-import javax.persistence.Id;
 
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
 import br.senac.eco2you.modelo.entidade.usuario.Usuario;
@@ -12,10 +11,6 @@ import br.senac.eco2you.modelo.entidade.usuario.Usuario;
 public abstract class Pessoa extends Usuario implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
-	@Id
-	@Column(name = "id_usuario")
-	private Long id;
 
 	@Column(name = "sobrenome_pessoa", length = 25, nullable = false, unique = false)
 	private String sobrenome;
@@ -44,14 +39,6 @@ public abstract class Pessoa extends Usuario implements Serializable {
 	}
 
 	public Pessoa() {
-	}
-	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 	
 	public String getSobrenome() {

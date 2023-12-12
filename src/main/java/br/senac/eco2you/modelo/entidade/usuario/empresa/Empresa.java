@@ -4,9 +4,6 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
@@ -17,11 +14,6 @@ import br.senac.eco2you.modelo.entidade.usuario.Usuario;
 public abstract class Empresa extends Usuario implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_empresa")
-	private Long id;
 
 	@Column(name = "cnpj_empresa", length = 14, nullable = false, unique = false)
 	private String cnpj;
@@ -38,14 +30,6 @@ public abstract class Empresa extends Usuario implements Serializable {
 	}
 	
 	public Empresa() {}
-	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
  
 	public String getCnpj() {
 		return cnpj;
