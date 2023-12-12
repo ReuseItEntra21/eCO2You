@@ -1,5 +1,7 @@
 package br.senac.eco2you.modelo.dao.reciclavel;
 
+import java.util.List;
+
 import br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel;
 
 public interface ReciclavelDAO {
@@ -9,5 +11,6 @@ public interface ReciclavelDAO {
 	void deletarReciclavel(Reciclavel reciclavel);
 
 	void atualizarReciclavel(Reciclavel reciclavel);
-
+	
+	List<Reciclavel> recuperarReciclaveis();
 }
