@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Join;
+import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
@@ -14,14 +16,22 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
+import exemplo.modelo.entidade.cliente.Cliente;
+import exemplo.modelo.entidade.contato.Contato;
+import exemplo.modelo.factory.conexao.ConexaoFactory;
 
 public class CooperativaDAOImpl implements CooperativaDAO{
 
+	private ConexaoFactory fabrica;
+
+	public ClienteDAOImpl() {
+		fabrica = new ConexaoFactory();
+	
 	public List<Cooperativa> buscarUsuariosPorNome(String nome) {
 		Session sessao = null;
 
 		try {
-			sessao = conectarBanco().openSession();
+			sessao = fabrica.getConexao().openSession();
 			sessao.beginTransaction();
 
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
@@ -46,33 +56,43 @@ public class CooperativaDAOImpl implements CooperativaDAO{
 		}
 
 		return Collections.emptyList();
-	}
-
-	private SessionFactory conectarBanco() {
-
-		Configuration configuracao = new Configuration();
-
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.deposito.Deposito.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.endereco.Endereco.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.itemDeposito.ItemDeposito.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.itemRetirada.ItemRetirada.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.retirada.Retirada.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.Usuario.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.empresa.Empresa.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.pessoa.Pessoa.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.enumeracao.statusArmazem.StatusArmazem.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.enumeracao.statusRetirada.StatusRetirada.class);
-
-		configuracao.configure("hibernate.cfg.xml");
-		ServiceRegistry servico = new StandardServiceRegistryBuilder().applySettings(configuracao.getProperties())
-				.build();
-		SessionFactory fabricaSessao = configuracao.buildSessionFactory(servico);
-
-		return fabricaSessao;
-	}
 	
+		public List<Cooperativa> buscarUsuariosPeloBairro(String nome) {
+			Session sessao = null;
+			Cooperativa cooperativa = null;
+
+			
+			try {
+				sessao = fabrica.getConexao().openSession();
+				sessao.beginTransaction();
+
+				CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+				CriteriaQuery<Cooperativa> criteria = construtor.createQuery(Cooperativa.class);
+				Root<Cooperativa> raizCooperativa = criteria.from(Cooperativa.class);
+
+				Join<Cooperativa, Endereco> juncaoEndereco = raizCooperativa.join(Cooperativa_.endereco);
+
+				ParameterExpression<String> bairroEndereco = construtor.parameter(String.class);
+				criteria.where(construtor.equal(juncaoEndereco.get(Endereco_.BAIRRO), bairroEndereco));
+				
+				cooperativa = sessao.createQuery(criteria).setParameter(bairroEndereco, endereco.getBairro()).getSingleResult();
+				
+				sessao.getTransaction().commit();
+
+			} catch (Exception sqlException) {
+
+				sqlException.printStackTrace();
+				if (sessao.getTransaction() != null) {
+					sessao.getTransaction().rollback();
+				}
+
+			} finally {
+				if (sessao != null) {
+					sessao.close();
+				}
+			}
+
+			return cooperativa;
+	
+	}
 }
