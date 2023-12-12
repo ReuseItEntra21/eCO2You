@@ -4,15 +4,23 @@
 	<session-factory>
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/vendas?createDatabaseIfNotExist=true</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/eCO2You?createDatabaseIfNotExist=true</property>
 		<property name="hbm2ddl.auto">update</property>
-		<property name="hibernate.connection.username">admin</property>
-		<property name="hibernate.connection.password">password</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
 		<property name="show_sql">true</property>
 		<property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
-		<mapping class="exemplo.modelo.entidade.cliente.Cliente" />
-		<mapping class="exemplo.modelo.entidade.contato.Contato" />
-		<mapping class="exemplo.modelo.entidade.endereco.Endereco" />
-		<mapping class="exemplo.modelo.entidade.pedido.Pedido" />
+		<mapping class="br.senac.eco2you.modelo.entidade.deposito.Deposito" />
+		<mapping class="br.senac.eco2you.modelo.entidade.endereco.Endereco" />
+		<mapping class="br.senac.eco2you.modelo.entidade.itemDeposito.ItemDeposito" />
+		<mapping class="br.senac.eco2you.modelo.entidade.itemRetirada.ItemRetirada" />
+		<mapping class="br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel" />
+		<mapping class="br.senac.eco2you.modelo.entidade.retirada.Retirada" />
+		<mapping class="br.senac.eco2you.modelo.entidade.usuario.Usuario" />
+		<mapping class="br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem" />
+		<mapping class="br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa" />
+		<mapping class="br.senac.eco2you.modelo.entidade.usuario.empresa.Empresa" />
+		<mapping class="br.senac.eco2you.modelo.entidade.usuario.pessoa.Pessoa" />
+		<mapping class="br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor" />
 	</session-factory>
 </hibernate-configuration>
