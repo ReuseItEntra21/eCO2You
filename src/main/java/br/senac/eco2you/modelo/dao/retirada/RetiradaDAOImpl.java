@@ -1,4 +1,4 @@
-package br.senac.eco2you.modelo.dao.reciclavel;
+package br.senac.eco2you.modelo.dao.retirada;
 
 import java.util.List;
 
@@ -12,39 +12,11 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
-import br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel;
+import br.senac.eco2you.modelo.entidade.retirada.Retirada;
 
-public class ReciclavelDAOImpl implements ReciclavelDAO {
+public class RetiradaDAOImpl implements RetiradaDAO {
 
-	public void inserirReciclavel(Reciclavel reciclavel) {
-		Session sessao = null;
-
-		try {
-
-			sessao = conectarBanco().openSession();
-			sessao.beginTransaction();
-
-			sessao.save(reciclavel);
-
-			sessao.getTransaction().commit();
-
-		} catch (Exception sqlException) {
-
-			sqlException.printStackTrace();
-
-			if (sessao.getTransaction() != null) {
-				sessao.getTransaction().rollback();
-			}
-
-		} finally {
-
-			if (sessao != null) {
-				sessao.close();
-			}
-		}
-	}
-
-	public void deletarReciclavel(Reciclavel reciclavel) {
+	public void inserirRetirada(Retirada retirada) {
 
 		Session sessao = null;
 
@@ -53,7 +25,7 @@ public class ReciclavelDAOImpl implements ReciclavelDAO {
 			sessao = conectarBanco().openSession();
 			sessao.beginTransaction();
 
-			sessao.delete(reciclavel);
+			sessao.save(retirada);
 
 			sessao.getTransaction().commit();
 
@@ -74,7 +46,7 @@ public class ReciclavelDAOImpl implements ReciclavelDAO {
 
 	}
 
-	public void atualizarReciclavel(Reciclavel reciclavel) {
+	public void deletarRetirada(Retirada retirada) {
 
 		Session sessao = null;
 
@@ -83,7 +55,7 @@ public class ReciclavelDAOImpl implements ReciclavelDAO {
 			sessao = conectarBanco().openSession();
 			sessao.beginTransaction();
 
-			sessao.update(reciclavel);
+			sessao.delete(retirada);
 
 			sessao.getTransaction().commit();
 
@@ -101,12 +73,43 @@ public class ReciclavelDAOImpl implements ReciclavelDAO {
 				sessao.close();
 			}
 		}
+
 	}
 
-	public List<Reciclavel> recuperarReciclaveis() {
+	public void atualizarRetirada(Retirada retirada) {
 
 		Session sessao = null;
-		List<Reciclavel> reciclaveis = null;
+
+		try {
+
+			sessao = conectarBanco().openSession();
+			sessao.beginTransaction();
+
+			sessao.update(retirada);
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+	}
+
+	public List<Retirada> recuperarRetirada() {
+
+		Session sessao = null;
+		List<Retirada> retiradas = null;
 
 		try {
 
@@ -115,12 +118,12 @@ public class ReciclavelDAOImpl implements ReciclavelDAO {
 
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 
-			CriteriaQuery<Reciclavel> criteria = construtor.createQuery(Reciclavel.class);
-			Root<Reciclavel> raizReciclavel = criteria.from(Reciclavel.class);
+			CriteriaQuery<Retirada> criteria = construtor.createQuery(Retirada.class);
+			Root<Retirada> raizCliente = criteria.from(Retirada.class);
 
-			criteria.select(raizReciclavel);
+			criteria.select(raizCliente);
 
-			reciclaveis = sessao.createQuery(criteria).getResultList();
+			retiradas = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
 
@@ -139,7 +142,8 @@ public class ReciclavelDAOImpl implements ReciclavelDAO {
 			}
 		}
 
-		return reciclaveis;
+		return retiradas;
+
 	}
 
 	private SessionFactory conectarBanco() {
@@ -169,5 +173,4 @@ public class ReciclavelDAOImpl implements ReciclavelDAO {
 
 		return fabricaSessao;
 	}
-
 }
