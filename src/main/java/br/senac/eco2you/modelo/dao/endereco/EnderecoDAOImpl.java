@@ -1,11 +1,5 @@
 package br.senac.eco2you.modelo.dao.endereco;
 
-import java.util.List;
-
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
-
 import org.hibernate.Session;
 
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
@@ -104,45 +98,6 @@ public class EnderecoDAOImpl implements EnderecoDAO {
 				sessao.close();
 			}
 		}
-	}
-
-	public List<Endereco> recuperarEnderecos() {
-
-		Session sessao = null;
-		List<Endereco> clientes = null;
-
-		try {
-
-			sessao = fabrica.getConexao().openSession();
-			sessao.beginTransaction();
-
-			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-
-			CriteriaQuery<Endereco> criteria = construtor.createQuery(Endereco.class);
-			Root<Endereco> raizCliente = criteria.from(Endereco.class);
-
-			criteria.select(raizCliente);
-
-			clientes = sessao.createQuery(criteria).getResultList();
-
-			sessao.getTransaction().commit();
-
-		} catch (Exception sqlException) {
-
-			sqlException.printStackTrace();
-
-			if (sessao.getTransaction() != null) {
-				sessao.getTransaction().rollback();
-			}
-
-		} finally {
-
-			if (sessao != null) {
-				sessao.close();
-			}
-		}
-
-		return clientes;
 	}
 
 }
