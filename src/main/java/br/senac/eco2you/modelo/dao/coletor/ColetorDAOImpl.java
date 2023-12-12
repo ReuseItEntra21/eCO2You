@@ -1,4 +1,4 @@
-package br.senac.eco2you.modelo.dao.usuario;
+package br.senac.eco2you.modelo.dao.coletor;
 
 import java.util.Collections;
 import java.util.List;
@@ -14,24 +14,10 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
 import br.senac.eco2you.modelo.entidade.usuario.Usuario;
+import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
 
-public class UsuarioDAOImpl implements UsuarioDAO {
+public class ColetorDAOImpl implements ColetorDAO {
 
-	public void inserirUsuario(Usuario usuario) {
-
-	}
-
-	public void deletarUsuario(Usuario usuario) {
-
-	}
-
-	public void atualizarUsuario(Usuario usuario) {
-
-	}
-
-	public Usuario buscarPorId(Long id) {
-		return null;
-	}
 
 	public Usuario buscarPorEmail(String email) {
 		Session sessao = null;
@@ -41,8 +27,8 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			sessao.beginTransaction();
 
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-			CriteriaQuery<Usuario> criteria = construtor.createQuery(Usuario.class);
-			Root<Usuario> raizUsuario = criteria.from(Usuario.class);
+			CriteriaQuery<Coletor> criteria = construtor.createQuery(Coletor.class);
+			Root<Coletor> raizUsuario = criteria.from(Coletor.class);
 
 			criteria.select(raizUsuario).where(construtor.equal(raizUsuario.get("email"), email));
 
@@ -64,7 +50,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		return null;
 	}
 
-	public List<Usuario> buscarUsuariosPorNome(String nome) {
+	public List<Coletor> buscarUsuariosPorNome(String nome) {
 		Session sessao = null;
 
 		try {
@@ -72,8 +58,8 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			sessao.beginTransaction();
 
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-			CriteriaQuery<Usuario> criteria = construtor.createQuery(Usuario.class);
-			Root<Usuario> raizUsuario = criteria.from(Usuario.class);
+			CriteriaQuery<Coletor> criteria = construtor.createQuery(Coletor.class);
+			Root<Coletor> raizUsuario = criteria.from(Coletor.class);
 
 			criteria.select(raizUsuario).where(construtor.like(raizUsuario.get("nome"), "%" + nome + "%"));
 
@@ -120,6 +106,13 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		SessionFactory fabricaSessao = configuracao.buildSessionFactory(servico);
 
 		return fabricaSessao;
+
+	}
+
+	
+	public Usuario buscarPorId(Long id) {
+		
+		return null;
 	}
 
 }
