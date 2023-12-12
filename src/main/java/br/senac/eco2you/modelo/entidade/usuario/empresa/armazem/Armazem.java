@@ -10,7 +10,6 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -27,10 +26,6 @@ import br.senac.eco2you.modelo.enumeracao.statusArmazem.StatusArmazem;
 public class Armazem extends Empresa implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	
-	@Id
-	@Column(name = "id_empresa")
-	private Long id;
 	
 	@Column(name = "capacidade_armazenagem_armazem", nullable = false, unique = false)
 	private long capacidadeArmazenagem;
@@ -54,14 +49,6 @@ public class Armazem extends Empresa implements Serializable {
 	}
 	
 	public Armazem () {}
-	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public long getCapacidadeArmazenagem() {
 		return capacidadeArmazenagem;

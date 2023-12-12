@@ -8,7 +8,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -23,10 +22,6 @@ import br.senac.eco2you.modelo.entidade.usuario.empresa.Empresa;
 public class Cooperativa extends Empresa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
-	@Id
-	@Column(name = "id_empresa")
-	private Long id;
 
 	@Column(name = "capacidade_coleta_cooperativa", length = 25, nullable = false, unique = false)
 	private int capacidadeColeta;
@@ -44,14 +39,6 @@ public class Cooperativa extends Empresa implements Serializable {
 	}
 	
 	public Cooperativa () {}
-	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public int getCapacidadeColeta() {
 		return capacidadeColeta;
