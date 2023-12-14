@@ -1,14 +1,13 @@
 package br.senac.eco2you.modelo.dao.reciclavel;
  
 import java.util.List;
- 
+
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
- 
+
 import org.hibernate.Session;
- 
+
 import br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel;
 import br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel_;
 import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
@@ -119,14 +118,12 @@ public class ReciclavelDAOImpl implements ReciclavelDAO {
 			sessao.beginTransaction();
  
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
- 
 			CriteriaQuery<Reciclavel> criteria = construtor.createQuery(Reciclavel.class);
 			Root<Reciclavel> raizReciclavel = criteria.from(Reciclavel.class);
  
-			ParameterExpression<String> nomeReciclavel = construtor.parameter(String.class);
-			criteria.select(raizReciclavel).where(construtor.equal((Reciclavel_.NOME), nomeReciclavel));
+			criteria.select(raizReciclavel).where(construtor.like(raizReciclavel.get(nome), "%" + nome + "%"));
  
-			reciclaveis = sessao.createQuery(criteria).setParameter(nomeReciclavel, nome);
+			reciclaveis = sessao.createQuery(criteria).getResultList();
  
 			sessao.getTransaction().commit();
  
