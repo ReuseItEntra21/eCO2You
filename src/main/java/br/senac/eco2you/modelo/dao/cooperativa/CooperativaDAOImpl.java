@@ -1,6 +1,5 @@
 package br.senac.eco2you.modelo.dao.cooperativa;
 
-import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -10,25 +9,24 @@ import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
 
+import br.senac.eco2you.modelo.entidade.endereco.Endereco;
+import br.senac.eco2you.modelo.entidade.endereco.Endereco_;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
-import exemplo.modelo.entidade.cliente.Cliente;
-import exemplo.modelo.entidade.contato.Contato;
-import exemplo.modelo.factory.conexao.ConexaoFactory;
+import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa_;
+import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
 
-public class CooperativaDAOImpl implements CooperativaDAO{
+public class CooperativaDAOImpl implements CooperativaDAO {
 
 	private ConexaoFactory fabrica;
 
-	public ClienteDAOImpl() {
+	public CooperativaDAOImpl() {
 		fabrica = new ConexaoFactory();
-	
-	public List<Cooperativa> buscarUsuariosPorNome(String nome) {
+	}
+
+	public Cooperativa buscarCooperativaPorNome(String nome) {
 		Session sessao = null;
+		Cooperativa cooperativa = null;
 
 		try {
 			sessao = fabrica.getConexao().openSession();
@@ -40,7 +38,7 @@ public class CooperativaDAOImpl implements CooperativaDAO{
 
 			criteria.select(raizCooperativa).where(construtor.like(raizCooperativa.get("nome"), "%" + nome + "%"));
 
-			return sessao.createQuery(criteria).getResultList();
+			cooperativa = sessao.createQuery(criteria).uniqueResult();
 
 		} catch (Exception sqlException) {
 
@@ -55,44 +53,44 @@ public class CooperativaDAOImpl implements CooperativaDAO{
 			}
 		}
 
-		return Collections.emptyList();
-	
-		public List<Cooperativa> buscarUsuariosPeloBairro(String nome) {
-			Session sessao = null;
-			Cooperativa cooperativa = null;
+		return cooperativa;
+	}
 
-			
-			try {
-				sessao = fabrica.getConexao().openSession();
-				sessao.beginTransaction();
+	public List<Cooperativa> buscarCooperativasPeloBairro(String bairro) {
+		Session sessao = null;
+		List<Cooperativa> cooperativas = null;
 
-				CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-				CriteriaQuery<Cooperativa> criteria = construtor.createQuery(Cooperativa.class);
-				Root<Cooperativa> raizCooperativa = criteria.from(Cooperativa.class);
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
 
-				Join<Cooperativa, Endereco> juncaoEndereco = raizCooperativa.join(Cooperativa_.endereco);
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Cooperativa> criteria = construtor.createQuery(Cooperativa.class);
+			Root<Cooperativa> raizCooperativa = criteria.from(Cooperativa.class);
 
-				ParameterExpression<String> bairroEndereco = construtor.parameter(String.class);
-				criteria.where(construtor.equal(juncaoEndereco.get(Endereco_.BAIRRO), bairroEndereco));
-				
-				cooperativa = sessao.createQuery(criteria).setParameter(bairroEndereco, endereco.getBairro()).getSingleResult();
-				
-				sessao.getTransaction().commit();
+			Join<Cooperativa, Endereco> juncaoEndereco = raizCooperativa.join(Cooperativa_.endereco);
 
-			} catch (Exception sqlException) {
+			ParameterExpression<String> bairroEndereco = construtor.parameter(String.class);
+			criteria.where(construtor.equal(juncaoEndereco.get(Endereco_.BAIRRO), bairroEndereco));
 
-				sqlException.printStackTrace();
-				if (sessao.getTransaction() != null) {
-					sessao.getTransaction().rollback();
-				}
+			cooperativas = sessao.createQuery(criteria).setParameter(bairroEndereco, bairro).getResultList();
 
-			} finally {
-				if (sessao != null) {
-					sessao.close();
-				}
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
 			}
 
-			return cooperativa;
-	
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return cooperativas;
+
 	}
 }
