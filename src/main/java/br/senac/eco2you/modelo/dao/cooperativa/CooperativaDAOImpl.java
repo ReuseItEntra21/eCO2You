@@ -1,5 +1,6 @@
 package br.senac.eco2you.modelo.dao.cooperativa;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -24,9 +25,9 @@ public class CooperativaDAOImpl implements CooperativaDAO {
 		fabrica = new ConexaoFactory();
 	}
 
-	public Cooperativa buscarCooperativaPorNome(String nome) {
+	public List<Cooperativa> buscarCooperativaPorNome(String nome) {
 		Session sessao = null;
-		Cooperativa cooperativa = null;
+		List<Cooperativa> cooperativas = new ArrayList<Cooperativa>();
 
 		try {
 			sessao = fabrica.getConexao().openSession();
@@ -36,9 +37,9 @@ public class CooperativaDAOImpl implements CooperativaDAO {
 			CriteriaQuery<Cooperativa> criteria = construtor.createQuery(Cooperativa.class);
 			Root<Cooperativa> raizCooperativa = criteria.from(Cooperativa.class);
 
-			criteria.select(raizCooperativa).where(construtor.like(raizCooperativa.get("nome"), "%" + nome + "%"));
+			criteria.select(raizCooperativa).where(construtor.like(raizCooperativa.get(nome), "%" + nome + "%"));
 
-			cooperativa = sessao.createQuery(criteria).uniqueResult();
+			cooperativas = sessao.createQuery(criteria).getResultList();
 
 		} catch (Exception sqlException) {
 
@@ -53,12 +54,12 @@ public class CooperativaDAOImpl implements CooperativaDAO {
 			}
 		}
 
-		return cooperativa;
+		return cooperativas;
 	}
 
 	public List<Cooperativa> buscarCooperativasPeloBairro(String bairro) {
 		Session sessao = null;
-		List<Cooperativa> cooperativas = null;
+		List<Cooperativa> cooperativas = new ArrayList<>();
 
 		try {
 			sessao = fabrica.getConexao().openSession();
