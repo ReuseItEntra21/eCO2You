@@ -1,74 +1,115 @@
 package br.senac.eco2you.modelo.dao.usuario;
 
-import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
 
 import br.senac.eco2you.modelo.entidade.usuario.Usuario;
+import br.senac.eco2you.modelo.entidade.usuario.Usuario_;
+import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
 
 public class UsuarioDAOImpl implements UsuarioDAO {
+	private ConexaoFactory fabrica;
+	private Usuario usuario;
+
+	public UsuarioDAOImpl() {
+		fabrica = new ConexaoFactory();
+	}
 
 	public void inserirUsuario(Usuario usuario) {
-
-	}
-
-	public void deletarUsuario(Usuario usuario) {
-
-	}
-
-	public void atualizarUsuario(Usuario usuario) {
-
-	}
-
-	public Usuario buscarPorId(Long id) {
-		return null;
-	}
-
-	public Usuario buscarPorEmail(String email) {
 		Session sessao = null;
 
 		try {
-			sessao = conectarBanco().openSession();
+
+			sessao = fabrica.getConexao().openSession();
 			sessao.beginTransaction();
 
-			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-			CriteriaQuery<Usuario> criteria = construtor.createQuery(Usuario.class);
-			Root<Usuario> raizUsuario = criteria.from(Usuario.class);
+			sessao.save(usuario);
 
-			criteria.select(raizUsuario).where(construtor.equal(raizUsuario.get("email"), email));
-
-			return sessao.createQuery(criteria).uniqueResult();
+			sessao.getTransaction().commit();
 
 		} catch (Exception sqlException) {
 
 			sqlException.printStackTrace();
+
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
+
 			if (sessao != null) {
 				sessao.close();
 			}
 		}
+	}
 
-		return null;
+	public void deletarUsuario(Usuario usuario) {
+		Session sessao = null;
+
+		try {
+
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			sessao.delete(usuario);
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+	}
+
+	public void atualizarUsuario(Usuario usuario) {
+		Session sessao = null;
+
+		try {
+
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			sessao.update(usuario);
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
 	}
 
 	public List<Usuario> buscarUsuariosPorNome(String nome) {
 		Session sessao = null;
 
 		try {
-			sessao = conectarBanco().openSession();
+			sessao = fabrica.getConexao().openSession();
 			sessao.beginTransaction();
 
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
@@ -91,35 +132,50 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 				sessao.close();
 			}
 		}
+		return null;
 
-		return Collections.emptyList();
 	}
 
-	private SessionFactory conectarBanco() {
+	public Usuario buscarUsuarioPorEmailESenha(String email, String senha) {
 
-		Configuration configuracao = new Configuration();
+		Session sessao = null;
+		usuario = null;
 
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.deposito.Deposito.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.endereco.Endereco.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.itemDeposito.ItemDeposito.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.itemRetirada.ItemRetirada.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.retirada.Retirada.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.Usuario.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.empresa.Empresa.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.pessoa.Pessoa.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.enumeracao.statusArmazem.StatusArmazem.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.enumeracao.statusRetirada.StatusRetirada.class);
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
 
-		configuracao.configure("hibernate.cfg.xml");
-		ServiceRegistry servico = new StandardServiceRegistryBuilder().applySettings(configuracao.getProperties())
-				.build();
-		SessionFactory fabricaSessao = configuracao.buildSessionFactory(servico);
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Usuario> criteria = construtor.createQuery(Usuario.class);
+			Root<Usuario> raizUsuario = criteria.from(Usuario.class);
 
-		return fabricaSessao;
+			criteria.select(raizUsuario).where(construtor.equal(raizUsuario.get(Usuario_.EMAIL), email),
+					construtor.equal(raizUsuario.get(Usuario_.SENHA), senha));
+
+			Predicate predicateUsuarioSenha = construtor.equal(raizUsuario.get(Usuario_.SENHA), senha);
+			Predicate predicateUsuarioEmail = construtor.equal(raizUsuario.get(Usuario_.EMAIL), email);
+			Predicate predicateUsuarioLogin = construtor.and(predicateUsuarioSenha, predicateUsuarioEmail);
+
+			criteria.where(predicateUsuarioLogin);
+
+			Usuario usuario = sessao.createQuery(criteria).getSingleResult();
+
+			return usuario;
+
+		} catch (Exception sqlException) {
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return usuario;
 	}
 
 }
