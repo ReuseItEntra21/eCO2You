@@ -38,7 +38,7 @@ public class Deposito implements Serializable{
 	@Column(name = "data_deposito", nullable = false)
 	private Date data;
 	
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_armazem",  nullable = false, unique = true)
 	private Armazem armazem;
 	
