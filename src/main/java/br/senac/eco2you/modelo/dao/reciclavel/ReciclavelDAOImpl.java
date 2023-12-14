@@ -10,6 +10,7 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
  
 import br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel;
+import br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel_;
 import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
  
 public class ReciclavelDAOImpl implements ReciclavelDAO {

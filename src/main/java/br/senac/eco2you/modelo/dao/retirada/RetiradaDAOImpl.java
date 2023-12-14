@@ -1,4 +1,3 @@
-[15:32] HENRIQUE OLBRISCH SOARES
 package br.senac.eco2you.modelo.dao.retirada;
 
 import java.time.LocalDate;
@@ -6,25 +5,16 @@ import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
-
 import javax.persistence.criteria.CriteriaQuery;
-
 import javax.persistence.criteria.Join;
-
 import javax.persistence.criteria.ParameterExpression;
-
 import javax.persistence.criteria.Root;
-
 import org.hibernate.Session;
-
 import br.senac.eco2you.modelo.entidade.retirada.Retirada;
-
+import br.senac.eco2you.modelo.entidade.retirada.Retirada_;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
-
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
-
 import br.senac.eco2you.modelo.enumeracao.statusRetirada.StatusRetirada;
-
 import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
 
 public class RetiradaDAOImpl implements RetiradaDAO {
