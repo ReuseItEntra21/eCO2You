@@ -1,173 +1,150 @@
 package br.senac.eco2you.modelo.dao.reciclavel;
-
+ 
 import java.util.List;
-
+ 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
-
+ 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-
+ 
 import br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel;
-
+import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
+ 
 public class ReciclavelDAOImpl implements ReciclavelDAO {
-
+ 
+	private ConexaoFactory fabrica;
+	
+	public ReciclavelDAOImpl() {
+		fabrica = new ConexaoFactory();
+	}
+	
 	public void inserirReciclavel(Reciclavel reciclavel) {
 		Session sessao = null;
-
+ 
 		try {
-
-			sessao = conectarBanco().openSession();
+ 
+			sessao = fabrica.getConexao().openSession();
 			sessao.beginTransaction();
-
+ 
 			sessao.save(reciclavel);
-
+ 
 			sessao.getTransaction().commit();
-
+ 
 		} catch (Exception sqlException) {
-
+ 
 			sqlException.printStackTrace();
-
+ 
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
-
+ 
 		} finally {
-
+ 
 			if (sessao != null) {
 				sessao.close();
 			}
 		}
 	}
-
+ 
 	public void deletarReciclavel(Reciclavel reciclavel) {
-
+ 
 		Session sessao = null;
-
+ 
 		try {
-
-			sessao = conectarBanco().openSession();
+ 
+			sessao = fabrica.getConexao().openSession();
 			sessao.beginTransaction();
-
+ 
 			sessao.delete(reciclavel);
-
+ 
 			sessao.getTransaction().commit();
-
+ 
 		} catch (Exception sqlException) {
-
+ 
 			sqlException.printStackTrace();
-
+ 
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
-
+ 
 		} finally {
-
+ 
 			if (sessao != null) {
 				sessao.close();
 			}
 		}
-
+ 
 	}
-
+ 
 	public void atualizarReciclavel(Reciclavel reciclavel) {
-
+ 
 		Session sessao = null;
-
+ 
 		try {
-
-			sessao = conectarBanco().openSession();
+ 
+			sessao = fabrica.getConexao().openSession();
 			sessao.beginTransaction();
-
+ 
 			sessao.update(reciclavel);
-
+ 
 			sessao.getTransaction().commit();
-
+ 
 		} catch (Exception sqlException) {
-
+ 
 			sqlException.printStackTrace();
-
+ 
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
-
+ 
 		} finally {
-
+ 
 			if (sessao != null) {
 				sessao.close();
 			}
 		}
 	}
-
-	public List<Reciclavel> recuperarReciclaveis() {
-
+ 
+	public List<Reciclavel> buscarReciclavelPeloNome(String nome) {
+ 
 		Session sessao = null;
 		List<Reciclavel> reciclaveis = null;
-
+ 
 		try {
-
-			sessao = conectarBanco().openSession();
+			
+			sessao = fabrica.getConexao().openSession();
 			sessao.beginTransaction();
-
+ 
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-
+ 
 			CriteriaQuery<Reciclavel> criteria = construtor.createQuery(Reciclavel.class);
 			Root<Reciclavel> raizReciclavel = criteria.from(Reciclavel.class);
-
-			criteria.select(raizReciclavel);
-
-			reciclaveis = sessao.createQuery(criteria).getResultList();
-
+ 
+			ParameterExpression<String> nomeReciclavel = construtor.parameter(String.class);
+			criteria.select(raizReciclavel).where(construtor.equal((Reciclavel_.NOME), nomeReciclavel));
+ 
+			reciclaveis = sessao.createQuery(criteria).setParameter(nomeReciclavel, nome);
+ 
 			sessao.getTransaction().commit();
-
+ 
 		} catch (Exception sqlException) {
-
+ 
 			sqlException.printStackTrace();
-
+ 
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
-
+ 
 		} finally {
-
+ 
 			if (sessao != null) {
 				sessao.close();
 			}
 		}
-
+ 
 		return reciclaveis;
 	}
-
-	private SessionFactory conectarBanco() {
-
-		Configuration configuracao = new Configuration();
-
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.deposito.Deposito.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.endereco.Endereco.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.itemDeposito.ItemDeposito.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.itemRetirada.ItemRetirada.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.retirada.Retirada.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.Usuario.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.empresa.Empresa.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.pessoa.Pessoa.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.enumeracao.statusArmazem.StatusArmazem.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.enumeracao.statusRetirada.StatusRetirada.class);
-
-		configuracao.configure("hibernate.cfg.xml");
-
-		ServiceRegistry servico = new StandardServiceRegistryBuilder().applySettings(configuracao.getProperties())
-				.build();
-		SessionFactory fabricaSessao = configuracao.buildSessionFactory(servico);
-
-		return fabricaSessao;
-	}
-
+ 
 }
