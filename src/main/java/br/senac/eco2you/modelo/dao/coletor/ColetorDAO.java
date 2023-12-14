@@ -1,8 +1,10 @@
 package br.senac.eco2you.modelo.dao.coletor;
 
-import br.senac.eco2you.modelo.entidade.usuario.Usuario;
+import java.util.List;
+
+import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
 
 public interface ColetorDAO {
 
-	Usuario buscarPorId(Long id);
-}
+	List <Coletor> buscarColetorPorNome(String nome);
+	}
