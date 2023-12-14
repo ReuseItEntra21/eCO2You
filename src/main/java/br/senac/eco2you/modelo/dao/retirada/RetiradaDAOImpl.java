@@ -1,20 +1,28 @@
 package br.senac.eco2you.modelo.dao.retirada;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Join;
+import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
 
 import br.senac.eco2you.modelo.entidade.retirada.Retirada;
+import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
+import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
+import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
 
 public class RetiradaDAOImpl implements RetiradaDAO {
+
+	private ConexaoFactory fabrica;
+
+	public RetiradaDAOImpl() {
+		fabrica = new ConexaoFactory();
+	}
 
 	public void inserirRetirada(Retirada retirada) {
 
@@ -22,7 +30,7 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 
 		try {
 
-			sessao = conectarBanco().openSession();
+			sessao = fabrica.getConexao().openSession();
 			sessao.beginTransaction();
 
 			sessao.save(retirada);
@@ -52,7 +60,7 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 
 		try {
 
-			sessao = conectarBanco().openSession();
+			sessao = fabrica.getConexao().openSession();
 			sessao.beginTransaction();
 
 			sessao.delete(retirada);
@@ -82,7 +90,7 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 
 		try {
 
-			sessao = conectarBanco().openSession();
+			sessao = fabrica.getConexao().openSession();
 			sessao.beginTransaction();
 
 			sessao.update(retirada);
@@ -106,24 +114,26 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 
 	}
 
-	public List<Retirada> recuperarRetirada() {
+	public List<Retirada> buscarRetiradapelaData() {
 
 		Session sessao = null;
 		List<Retirada> retiradas = null;
 
 		try {
 
-			sessao = conectarBanco().openSession();
+			sessao = fabrica.getConexao().openSession();
 			sessao.beginTransaction();
 
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 
 			CriteriaQuery<Retirada> criteria = construtor.createQuery(Retirada.class);
-			Root<Retirada> raizCliente = criteria.from(Retirada.class);
+			Root<Retirada> raizRetirada = criteria.from(Retirada.class);
 
-			criteria.select(raizCliente);
+			ParameterExpression<LocalDate> dataRetirada = construtor.parameter(LocalDate.class);
+			criteria.where(construtor.equal((Retirada_.DATA), dataRetirada));
+			criteria.select(raizRetirada);
 
-			retiradas = sessao.createQuery(criteria).getResultList();
+			retiradas = sessao.createQuery(criteria).setParameter(dataRetirada, data);
 
 			sessao.getTransaction().commit();
 
@@ -146,31 +156,131 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 
 	}
 
-	private SessionFactory conectarBanco() {
+	public List<Retirada> buscarRetiradapelaCooperativa() {
 
-		Configuration configuracao = new Configuration();
+		Session sessao = null;
+		List<Retirada> retiradas = null;
 
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.deposito.Deposito.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.endereco.Endereco.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.itemDeposito.ItemDeposito.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.itemRetirada.ItemRetirada.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.retirada.Retirada.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.Usuario.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.empresa.Empresa.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.pessoa.Pessoa.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.enumeracao.statusArmazem.StatusArmazem.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.enumeracao.statusRetirada.StatusRetirada.class);
+		try {
 
-		configuracao.configure("hibernate.cfg.xml");
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
 
-		ServiceRegistry servico = new StandardServiceRegistryBuilder().applySettings(configuracao.getProperties())
-				.build();
-		SessionFactory fabricaSessao = configuracao.buildSessionFactory(servico);
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 
-		return fabricaSessao;
+			CriteriaQuery<Retirada> criteria = construtor.createQuery(Retirada.class);
+			Root<Retirada> raizCooperativa = criteria.from(Retirada.class);
+			
+			Join<Retirada, Cooperativa> juncaoRetiradaCooperativa = raizCooperativa.join(Retirada_.cooperativa);
+
+			ParameterExpression<String> nomeCooperativa = construtor.parameter(String.class);
+			criteria.where(construtor.equal(juncaoRetiradaCooperativa.get(Armazem_.NOME), nomeCooperativa));
+
+			retiradas = sessao.createQuery(criteria).setParameter(nomeCooperativa, nome);
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return retiradas;
+
+	}
+	
+	public List<Retirada> buscarRetiradapeloArmazem() {
+
+		Session sessao = null;
+		List<Retirada> retiradas = null;
+
+		try {
+
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Retirada> criteria = construtor.createQuery(Retirada.class);
+			Root<Retirada> raizCooperativa = criteria.from(Retirada.class);
+			
+			Join<Retirada, Armazem> juncaoRetiradaArmazem = raizCooperativa.join(Retirada_.armazem);
+
+			ParameterExpression<String> nomeArmazem = construtor.parameter(String.class);
+			criteria.where(construtor.equal(juncaoRetiradaArmazem.get(Armazem_.NOME), nomeArmazem));
+
+			retiradas = sessao.createQuery(criteria).setParameter(nomeArmazem, nome);
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return retiradas;
+
+	}
+	
+	public List<Retirada> buscarRetiradapeloStatusRetirada() {
+		
+		Session sessao = null;
+		List<Retirada> retiradas = null;
+
+		try {
+
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Retirada> criteria = construtor.createQuery(Retirada.class);
+			Root<Retirada> raizRetirada = criteria.from(Retirada.class);
+
+			ParameterExpression<StatusRetirada> statusDeRetiradaRetirada = construtor.parameter(StatusRetirada.enum);
+			criteria.where(construtor.equal((Retirada_.STATUSDERETIRADA), statusDeRetiradaRetirada));
+			criteria.select(raizRetirada);
+
+			retiradas = sessao.createQuery(criteria).setParameter(statusDeRetiradaRetirada, statusDeRetirada);
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return retiradas;
+		
 	}
 }

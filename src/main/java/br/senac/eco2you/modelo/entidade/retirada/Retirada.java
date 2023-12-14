@@ -1,9 +1,10 @@
 package br.senac.eco2you.modelo.entidade.retirada;
  
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
+ 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -16,7 +17,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
+ 
 import br.senac.eco2you.modelo.entidade.itemRetirada.ItemRetirada;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
@@ -34,7 +35,7 @@ public class Retirada implements Serializable{
     private Long id;
     
     @Column(name = "data_retirada", nullable = false, unique = false)
-    private String data;
+    private LocalDate data;
  
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_cooperativa")
@@ -50,7 +51,7 @@ public class Retirada implements Serializable{
     
     public Retirada() {}
  
-    public Retirada(String data, Cooperativa cooperativa, Armazem armazem, StatusRetirada statusDeRetirada) {
+    public Retirada(LocalDate data, Cooperativa cooperativa, Armazem armazem, StatusRetirada statusDeRetirada) {
     	setStatusDeRetirada(statusDeRetirada);
         setData(data);
         setCooperativa(cooperativa);
@@ -82,11 +83,11 @@ public class Retirada implements Serializable{
         this.armazem = armazem;
     }
  
-    public String getData() {
+    public LocalDate getData() {
         return data;
     }
  
-    public void setData(String data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
  

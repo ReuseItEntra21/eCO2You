@@ -12,6 +12,11 @@ public interface RetiradaDAO {
 
 	void atualizarRetirada(Retirada retirada);
 
-	List<Retirada> recuperarRetirada();
-	
+	List<Retirada> buscarRetiradapelaData();
+
+	List<Retirada> buscarRetiradapelaCooperativa();
+
+	List<Retirada> buscarRetiradapeloArmazem();
+
+	List<Retirada> buscarRetiradapeloStatusRetirada();
 }
