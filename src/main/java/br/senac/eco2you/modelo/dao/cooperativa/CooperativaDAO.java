@@ -9,5 +9,6 @@ public interface CooperativaDAO {
 	List<Cooperativa> buscarCooperativaPorNome(String nome);
 
 	List<Cooperativa> buscarCooperativasPeloBairro(String nome);
-
+	
+	List<Cooperativa> buscarCooperativasPelaCidade(String cidade);
 }
