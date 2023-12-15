@@ -100,7 +100,7 @@ public class Retirada implements Serializable{
  
     }
  
-    public boolean removerDeposito(ItemRetirada itemRetirada) {
+    public boolean removerItemRetirada(ItemRetirada itemRetirada) {
         return listaItemRetiradas.remove(itemRetirada);
  
     }
