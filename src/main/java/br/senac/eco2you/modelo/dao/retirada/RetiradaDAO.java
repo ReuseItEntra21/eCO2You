@@ -14,11 +14,11 @@ public interface RetiradaDAO {
  
 	void atualizarRetirada(Retirada retirada);
  
-	List<Retirada> buscarRetiradapelaData(LocalDate dat);
+	List<Retirada> buscarRetiradaPelaData(LocalDate data);
  
-	List<Retirada> buscarRetiradapelaCooperativa(String nome);
+	List<Retirada> buscarRetiradaPelaCooperativa(String nome);
  
-	List<Retirada> buscarRetiradapeloArmazem(String nome);
+	List<Retirada> buscarRetiradaPeloArmazem(String nome);
  
-	List<Retirada> buscarRetiradapeloStatusRetirada(StatusRetirada statusDeRetirada);
+	List<Retirada> buscarRetiradaPeloStatusRetirada(StatusRetirada statusDeRetirada);
 }

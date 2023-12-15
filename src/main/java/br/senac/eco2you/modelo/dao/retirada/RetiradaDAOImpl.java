@@ -137,7 +137,7 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 
 	}
 
-	public List<Retirada> buscarRetiradapelaData(LocalDate data) {
+	public List<Retirada> buscarRetiradaPelaData(LocalDate data) {
 		
 		Session sessao = null;
 		List<Retirada> retiradas = null;
@@ -182,7 +182,7 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 
 	}
 
-	public List<Retirada> buscarRetiradapelaCooperativa(String nome) {
+	public List<Retirada> buscarRetiradaPelaCooperativa(String nome) {
 
 		Session sessao = null;
 
@@ -235,7 +235,7 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 
 	}
 
-	public List<Retirada> buscarRetiradapeloArmazem(String nome) {
+	public List<Retirada> buscarRetiradaPeloArmazem(String nome) {
 
 		Session sessao = null;
 
@@ -289,7 +289,7 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 
 	}
 
-public List<Retirada> buscarRetiradaPeloStatusRetirada(StatusRetirada statusDaRetirada) {
+public List<Retirada> buscarRetiradaPeloStatusRetirada(StatusRetirada statusRetirada) {
 
 		Session sessao = null;
 		List<Retirada> retiradas = null;
