@@ -1,6 +1,8 @@
 package br.senac.eco2you.modelo.entidade.itemDeposito;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,16 +28,16 @@ public class ItemDeposito implements Serializable {
 
 	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_reciclavel")
-	private Reciclavel reciclavel;
+	private List<Reciclavel> reciclaveis;
 
 	@Column(name = "quantidade_reciclaveis")
 	private int quantidadeReciclaveis;
 
 	public ItemDeposito() {}
 	
-	public ItemDeposito(Reciclavel reciclavel, int quantidadeReciclaveis) {
-		setReciclavel(reciclavel);
+	public ItemDeposito( int quantidadeReciclaveis) {
 		setQuantidadeReciclaveis(quantidadeReciclaveis);
+		reciclaveis = new ArrayList<>();
 
 	}
 
@@ -46,15 +48,17 @@ public class ItemDeposito implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
+ 
+    public boolean inserirReciclavel(Reciclavel reciclavel) {
+        return reciclaveis.add(reciclavel);
+ 
+    }
+ 
+    public boolean removerRecilavel(Reciclavel reciclavel) {
+        return reciclaveis.remove(reciclavel);
+ 
+    }
 	
-	public Reciclavel getReciclavel() {
-		return reciclavel;
-	}
-
-	public void setReciclavel(Reciclavel reciclavel) {
-		this.reciclavel = reciclavel;
-	}
-
 	public int getQuantidadeReciclaveis() {
 		return quantidadeReciclaveis;
 	}
