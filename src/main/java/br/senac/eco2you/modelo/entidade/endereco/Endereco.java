@@ -46,10 +46,10 @@ public class Endereco implements Serializable {
 	@Column(name = "logradouro_endereco", length = 45, nullable = false, unique = true)
 	private String logradouro;
 
-	@Column(name = "apto_endereco", length = 25, nullable = false, unique = false)
+	@Column(name = "apto_endereco", length = 25, nullable = true, unique = false)
 	private String aptoEndereco;
 
-	@Column(name = "bloco_endereco", length = 25, nullable = false, unique = false)
+	@Column(name = "bloco_endereco", length = 25, nullable = true, unique = false)
 	private String blocoEndereco;
 
 	public Endereco(String cep, String rua, int numeroResidencia, String complemento, String telefone, String bairro,
@@ -58,19 +58,6 @@ public class Endereco implements Serializable {
 		this.rua = rua;
 		this.numeroResidencia = numeroResidencia;
 		this.complemento = complemento;
-		this.telefone = telefone;
-		this.bairro = bairro;
-		this.cidade = cidade;
-		this.logradouro = logradouro;
-		this.aptoEndereco = aptoEndereco;
-		this.blocoEndereco = blocoEndereco;
-	}
-	
-	public Endereco(String cep, String rua, int numeroResidencia, String telefone, String bairro,
-			String cidade, String logradouro, String aptoEndereco, String blocoEndereco) {
-		this.cep = cep;
-		this.rua = rua;
-		this.numeroResidencia = numeroResidencia;
 		this.telefone = telefone;
 		this.bairro = bairro;
 		this.cidade = cidade;
