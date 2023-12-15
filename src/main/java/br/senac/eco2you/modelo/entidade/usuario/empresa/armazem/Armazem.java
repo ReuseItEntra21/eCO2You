@@ -13,7 +13,6 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import br.senac.eco2you.modelo.entidade.deposito.Deposito;
@@ -30,9 +29,9 @@ public class Armazem extends Empresa implements Serializable {
 	@Column(name = "capacidade_armazenagem_armazem", nullable = false, unique = false)
 	private long capacidadeArmazenagem;
 	
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "status_armazem")
-	@Enumerated(EnumType.STRING)private StatusArmazem statusArmazem;
+	@Enumerated(EnumType.STRING)
+	@Column(name = "status_armazem", nullable = false, unique = false)
+	private StatusArmazem statusArmazem;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "armazem_deposito", joinColumns = @JoinColumn(name = "id_armazem"), inverseJoinColumns = @JoinColumn(name = "id_deposito"))
