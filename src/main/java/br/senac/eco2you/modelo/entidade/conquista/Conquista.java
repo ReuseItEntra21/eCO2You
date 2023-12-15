@@ -24,8 +24,12 @@ public class Conquista implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_conquista")
 	private Long id;
-	@Column(name = "ponto_deposito", nullable = false)
+	@Column(name = "pontos_conquista", nullable = false)
 	private double pontosDeposito;
+	@Column(name = "nome_conquista", nullable = false)
+	private String nome;
+	@Column(name = "descricao_conquista", nullable = false)
+	private String descricao;
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_deposito", nullable = false, unique = true)
@@ -35,9 +39,11 @@ public class Conquista implements Serializable {
 	public Conquista() {
 	}
 	
-	public Conquista(double pontosDeposito, Deposito deposito) {
+	public Conquista(double pontosDeposito, Deposito deposito, String descricao, String nome) {
 		setPontosDeposito(pontosDeposito);
 		setDeposito(deposito);
+		setDescricao(descricao);
+		setNome(nome);
 	}
 	
 	public Long getId() {
@@ -62,5 +68,21 @@ public class Conquista implements Serializable {
 	
 	public void setDeposito(Deposito deposito) {
 		this.deposito = deposito;
+	}
+	
+	public String getDescricao() {
+		return descricao;
+	}
+	
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 }
