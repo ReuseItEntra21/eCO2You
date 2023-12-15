@@ -14,7 +14,7 @@ public class Main {
 		EnderecoDAO enderecoDAO = new EnderecoDAOImpl();
 		enderecoDAO.inserirEndereco(endereco);
 
-		System.out.println(endereco.getBairro());
+		System.out.println(endereco.getCidade());
 
 	}
 }
