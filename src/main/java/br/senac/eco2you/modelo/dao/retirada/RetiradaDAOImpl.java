@@ -1,30 +1,23 @@
-[15:32] HENRIQUE OLBRISCH SOARES
+
 package br.senac.eco2you.modelo.dao.retirada;
 
 import java.time.LocalDate;
-
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
-
 import javax.persistence.criteria.CriteriaQuery;
-
 import javax.persistence.criteria.Join;
-
 import javax.persistence.criteria.ParameterExpression;
-
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
 import br.senac.eco2you.modelo.entidade.retirada.Retirada;
-
+import br.senac.eco2you.modelo.entidade.retirada.Retirada_;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
-
+import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem_;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
-
 import br.senac.eco2you.modelo.enumeracao.statusRetirada.StatusRetirada;
-
 import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
 
 public class RetiradaDAOImpl implements RetiradaDAO {
@@ -148,26 +141,21 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 	public List<Retirada> buscarRetiradapelaData(LocalDate data) {
 
 		Session sessao = null;
-
 		List<Retirada> retiradas = null;
 
 		try {
 
 			sessao = fabrica.getConexao().openSession();
-
 			sessao.beginTransaction();
 
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-
 			CriteriaQuery<Retirada> criteria = construtor.createQuery(Retirada.class);
-
 			Root<Retirada> raizRetirada = criteria.from(Retirada.class);
-
 			ParameterExpression<LocalDate> dataRetirada = construtor.parameter(LocalDate.class);
 
-			criteria.select(raizRetirada).where(construtor.equal((Retirada_.DATA), dataRetirada));
+			criteria.select(raizRetirada).where(construtor.equal(raizRetirada, dataRetirada));
 
-			retiradas = sessao.createQuery(criteria).setParameter(dataRetirada, data);
+			retiradas = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
 
@@ -211,15 +199,16 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 
 			CriteriaQuery<Retirada> criteria = construtor.createQuery(Retirada.class);
 
-			Root<Retirada> raizCooperativa = criteria.from(Retirada.class);
+			Root<Retirada> raizRetirada = criteria.from(Retirada.class);
 
-			Join<Retirada, Cooperativa> juncaoRetiradaCooperativa = raizCooperativa.join(Retirada_.cooperativa);
+			Join<Retirada, Cooperativa> juncaoRetiradaCooperativa = raizRetirada.join(Retirada_.cooperativa);
 
 			ParameterExpression<String> nomeCooperativa = construtor.parameter(String.class);
 
-			criteria.select(raizCooperativa).where(construtor.equal(juncaoRetiradaCooperativa.get(Armazem_.NOME), nomeCooperativa));
+			criteria.select(raizRetirada)
+					.where(construtor.like(juncaoRetiradaCooperativa.get(Armazem_.nome), nomeCooperativa));
 
-			retiradas = sessao.createQuery(criteria).setParameter(nomeCooperativa, nome);
+			retiradas = sessao.createQuery(criteria).setParameter(nomeCooperativa, nome).getResultList();
 
 			sessao.getTransaction().commit();
 
@@ -269,9 +258,10 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 
 			ParameterExpression<String> nomeArmazem = construtor.parameter(String.class);
 
-			criteria.select(raizCooperativa).where(construtor.equal(juncaoRetiradaArmazem.get(Armazem_.NOME), nomeArmazem));
+			criteria.select(raizCooperativa)
+					.where(construtor.equal(juncaoRetiradaArmazem.get(Armazem_.NOME), nomeArmazem));
 
-			retiradas = sessao.createQuery(criteria).setParameter(nomeArmazem, nome);
+			retiradas = sessao.createQuery(criteria).setParameter(nomeArmazem, nome).getResultList();
 
 			sessao.getTransaction().commit();
 
@@ -299,54 +289,38 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 
 	}
 
-	public List<Retirada> buscarRetiradapeloStatusRetirada(StatusRetirada statusDeRetirada) {
-
+	public List<Retirada> buscarRetiradapeloStatusRetirada(StatusRetirada statusRetirada) {
 		Session sessao = null;
-
 		List<Retirada> retiradas = null;
 
 		try {
-
 			sessao = fabrica.getConexao().openSession();
-
 			sessao.beginTransaction();
 
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-
 			CriteriaQuery<Retirada> criteria = construtor.createQuery(Retirada.class);
-
 			Root<Retirada> raizRetirada = criteria.from(Retirada.class);
+			ParameterExpression<StatusRetirada> statusDeRetirada = construtor.parameter(StatusRetirada.class);
 
-			ParameterExpression<StatusRetirada> statusDeRetiradaRetirada = construtor.parameter(StatusRetirada.enum);
-
-			criteria.select(raizRetirada).where(construtor.equal((Retirada_.STATUSDERETIRADA), statusDeRetiradaRetirada));
-
-			retiradas = sessao.createQuery(criteria).setParameter(statusDeRetiradaRetirada, statusDeRetirada);
+			criteria.select(raizRetirada)
+					.where(construtor.equal(raizRetirada.get(Retirada_.STATUS_DE_RETIRADA), statusDeRetirada));
+			retiradas = sessao.createQuery(criteria).setParameter(statusDeRetirada, statusRetirada).getResultList();
 
 			sessao.getTransaction().commit();
 
 		} catch (Exception sqlException) {
-
 			sqlException.printStackTrace();
 
 			if (sessao.getTransaction() != null) {
-
 				sessao.getTransaction().rollback();
-
 			}
 
 		} finally {
-
 			if (sessao != null) {
-
 				sessao.close();
-
 			}
-
 		}
 
 		return retiradas;
-
 	}
-
 }
