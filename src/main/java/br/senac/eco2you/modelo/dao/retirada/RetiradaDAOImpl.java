@@ -1,4 +1,3 @@
-
 package br.senac.eco2you.modelo.dao.retirada;
 
 import java.time.LocalDate;
@@ -139,7 +138,7 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 	}
 
 	public List<Retirada> buscarRetiradapelaData(LocalDate data) {
-
+		
 		Session sessao = null;
 		List<Retirada> retiradas = null;
 
@@ -209,6 +208,7 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 
 			retiradas = sessao.createQuery(criteria).setParameter(nomeCooperativa, nome).getResultList();
 
+			
 			sessao.getTransaction().commit();
 
 		} catch (Exception sqlException) {
@@ -257,10 +257,12 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 
 			ParameterExpression<String> nomeArmazem = construtor.parameter(String.class);
 
-			criteria.select(raizCooperativa).where(construtor.equal(juncaoRetiradaArmazem.get(Armazem_.NOME), nomeArmazem));
+			criteria.select(raizCooperativa)
+					.where(construtor.equal(juncaoRetiradaArmazem.get(Armazem_.NOME), nomeArmazem));
 
 			retiradas = sessao.createQuery(criteria).setParameter(nomeArmazem, nome).getResultList();
 
+			
 			sessao.getTransaction().commit();
 
 		} catch (Exception sqlException) {
@@ -287,7 +289,8 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 
 	}
 
-	public List<Retirada> buscarRetiradapeloStatusRetirada(StatusRetirada statusRetirada) {
+public List<Retirada> buscarRetiradaPeloStatusRetirada(StatusRetirada statusDaRetirada) {
+
 		Session sessao = null;
 		List<Retirada> retiradas = null;
 
