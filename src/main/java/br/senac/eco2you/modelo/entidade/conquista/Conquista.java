@@ -32,8 +32,11 @@ public class Conquista implements Serializable {
 	private String descricao;
 	
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_deposito", nullable = false, unique = true)
+	@JoinColumn(name = "id_deposito", nullable = false, unique = false)
 	private Deposito deposito;
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_coletor", nullable = false, unique = false)
+	private Deposito coletor;
 	
 	
 	public Conquista() {
