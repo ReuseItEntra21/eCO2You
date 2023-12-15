@@ -93,4 +93,41 @@ public List<Armazem> buscarArmazemPeloBairro(String bairro) {
  
 }
  
+public List<Armazem> buscarArmazemPeloCidade(String cidade) {
+	Session sessao = null;
+	List<Armazem> armazens = null;
+ 
+	try {
+		sessao = fabrica.getConexao().openSession();
+		sessao.beginTransaction();
+ 
+		CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+		CriteriaQuery<Armazem> criteria = construtor.createQuery(Armazem.class);
+		Root<Armazem> raizArmazem = criteria.from(Armazem.class);
+ 
+		Join<Armazem, Endereco> juncaoEndereco = raizArmazem.join(Armazem_.endereco);
+		ParameterExpression<String> cidadeEndereco = construtor.parameter(String.class);
+		criteria.where(construtor.equal(juncaoEndereco.get(Endereco_.CIDADE), cidadeEndereco));
+		armazens = sessao.createQuery(criteria).setParameter(cidadeEndereco, cidade).getResultList();
+ 
+		
+		sessao.getTransaction().commit();
+ 
+	} catch (Exception sqlException) {
+ 
+		sqlException.printStackTrace();
+		if (sessao.getTransaction() != null) {
+			sessao.getTransaction().rollback();
+		}
+ 
+	} finally {
+		if (sessao != null) {
+			sessao.close();
+		}
+	}
+ 
+	return armazens;
+ 
+}
+
 }
