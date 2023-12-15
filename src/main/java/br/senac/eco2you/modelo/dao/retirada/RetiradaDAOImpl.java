@@ -205,8 +205,7 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 
 			ParameterExpression<String> nomeCooperativa = construtor.parameter(String.class);
 
-			criteria.select(raizRetirada)
-					.where(construtor.like(juncaoRetiradaCooperativa.get(Armazem_.nome), nomeCooperativa));
+			criteria.select(raizRetirada).where(construtor.like(juncaoRetiradaCooperativa.get(Armazem_.nome), nomeCooperativa));
 
 			retiradas = sessao.createQuery(criteria).setParameter(nomeCooperativa, nome).getResultList();
 
@@ -258,8 +257,7 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 
 			ParameterExpression<String> nomeArmazem = construtor.parameter(String.class);
 
-			criteria.select(raizCooperativa)
-					.where(construtor.equal(juncaoRetiradaArmazem.get(Armazem_.NOME), nomeArmazem));
+			criteria.select(raizCooperativa).where(construtor.equal(juncaoRetiradaArmazem.get(Armazem_.NOME), nomeArmazem));
 
 			retiradas = sessao.createQuery(criteria).setParameter(nomeArmazem, nome).getResultList();
 
@@ -302,8 +300,7 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 			Root<Retirada> raizRetirada = criteria.from(Retirada.class);
 			ParameterExpression<StatusRetirada> statusDeRetirada = construtor.parameter(StatusRetirada.class);
 
-			criteria.select(raizRetirada)
-					.where(construtor.equal(raizRetirada.get(Retirada_.STATUS_DE_RETIRADA), statusDeRetirada));
+			criteria.select(raizRetirada).where(construtor.equal(raizRetirada.get(Retirada_.STATUS_DE_RETIRADA), statusDeRetirada));
 			retiradas = sessao.createQuery(criteria).setParameter(statusDeRetirada, statusRetirada).getResultList();
 
 			sessao.getTransaction().commit();
