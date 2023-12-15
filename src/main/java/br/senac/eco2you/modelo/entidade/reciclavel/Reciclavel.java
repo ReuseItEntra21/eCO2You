@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
@@ -11,6 +14,11 @@ import javax.persistence.Table;
 public class Reciclavel implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_reciclavel")
+	private Long id;
 
 	@Column(name = "nome_reciclavel", length = 25, nullable = false, unique = false)
 	private String nome;
@@ -29,9 +37,6 @@ public class Reciclavel implements Serializable {
 
 	@Column(name = "nome_reciclavel", length = 200, nullable = false, unique = false)
 	private String instrucaoReciclavel;
-	
-	public Reciclavel() {
-	}
 
 	public Reciclavel(String nome, String tipo, double pontosCarbono, double peso, double volume,
 			String instrucaoReciclavel) {
@@ -41,6 +46,17 @@ public class Reciclavel implements Serializable {
 		this.peso = peso;
 		this.volume = volume;
 		this.instrucaoReciclavel = instrucaoReciclavel;
+	}
+
+	public Reciclavel() {
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNome() {
