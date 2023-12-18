@@ -1,5 +1,6 @@
 package br.senac.eco2you.modelo.entidade.retirada;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -33,7 +34,7 @@ public class Retirada implements Serializable{
     private Long id;
     
     @Column(name = "data_retirada", nullable = false, unique = false)
-    private Date data;
+    private LocalDate data;
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_cooperativa")
     private Cooperativa cooperativa;
@@ -46,9 +47,8 @@ public class Retirada implements Serializable{
     @Enumerated(EnumType.STRING)private StatusRetirada statusDeRetirada;
     
     public Retirada() {}
-    public Retirada(Date data, Cooperativa cooperativa, Armazem armazem, StatusRetirada statusDeRetirada) {
+    public Retirada(Cooperativa cooperativa, Armazem armazem, StatusRetirada statusDeRetirada) {
     	setStatusDeRetirada(statusDeRetirada);
-        setData(data);
         setCooperativa(cooperativa);
         setArmazem(armazem);
         listaItemRetiradas = new ArrayList<>();
@@ -73,10 +73,10 @@ public class Retirada implements Serializable{
     public void setArmazem(Armazem armazem) {
         this.armazem = armazem;
     }
-    public Date getData() {
+    public LocalDate getData() {
         return data;
     }
-    public void setData(Date data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
     public List<ItemRetirada> getListaItemRetiradas() {
