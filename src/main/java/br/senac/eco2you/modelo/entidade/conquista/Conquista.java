@@ -42,7 +42,7 @@ public class Conquista implements Serializable {
 	public Conquista() {
 	}
 	
-	public Conquista(double pontosDeposito, Deposito deposito, String descricao, String nome) {
+	public Conquista(float pontosDeposito, Deposito deposito, String descricao, String nome) {
 		setPontosDeposito(pontosDeposito);
 		setDeposito(deposito);
 		setDescricao(descricao);
