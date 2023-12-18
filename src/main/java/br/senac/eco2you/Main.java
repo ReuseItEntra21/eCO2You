@@ -1,16 +1,11 @@
 package br.senac.eco2you;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 
-import br.senac.eco2you.modelo.dao.armazem.ArmazemDAO;
-import br.senac.eco2you.modelo.dao.armazem.ArmazemDAOImpl;
-import br.senac.eco2you.modelo.dao.coletor.ColetorDAO;
-import br.senac.eco2you.modelo.dao.coletor.ColetorDAOImpl;
 import br.senac.eco2you.modelo.dao.conquista.ConquistaDAO;
 import br.senac.eco2you.modelo.dao.conquista.ConquistaDAOImpl;
-import br.senac.eco2you.modelo.dao.cooperativa.CooperativaDAO;
-import br.senac.eco2you.modelo.dao.cooperativa.CooperativaDAOImpl;
 import br.senac.eco2you.modelo.dao.deposito.DepositoDAO;
 import br.senac.eco2you.modelo.dao.deposito.DepositoDAOImpl;
 import br.senac.eco2you.modelo.dao.endereco.EnderecoDAO;
@@ -32,11 +27,8 @@ import br.senac.eco2you.modelo.entidade.itemDeposito.ItemDeposito;
 import br.senac.eco2you.modelo.entidade.itemRetirada.ItemRetirada;
 import br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel;
 import br.senac.eco2you.modelo.entidade.retirada.Retirada;
-import br.senac.eco2you.modelo.entidade.usuario.Usuario;
-import br.senac.eco2you.modelo.entidade.usuario.empresa.Empresa;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
-import br.senac.eco2you.modelo.entidade.usuario.pessoa.Pessoa;
 import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
 import br.senac.eco2you.modelo.enumeracao.statusArmazem.StatusArmazem;
 import br.senac.eco2you.modelo.enumeracao.statusDeposito.StatusDeposito;
@@ -46,57 +38,68 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Endereco endereco = new Endereco("89050-000", "Av. Brasil", 610, "SENAC", "(47) 93035-9999", "Ponta Aguda",
+		SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
+
+		//=============================================================================================================
+		Endereco endereco01 = new Endereco("89050-000", "Av. Brasil", 610, "SENAC", "(47) 93035-9999", "Ponta Aguda",
 				"Blumenau", "Brasil", "0", "0");
 		EnderecoDAO enderecoDAO = new EnderecoDAOImpl();
-		enderecoDAO.inserirEndereco(endereco);
-		System.out.println(endereco.getCidade());
+		enderecoDAO.inserirEndereco(endereco01);
 
-		Conquista conquista = new Conquista(100, new Deposito(), "Conquistar 100 pontos", "Conquista 100");
-		ConquistaDAO conquistaDAO = new ConquistaDAOImpl();
-		conquistaDAO.inserirConquista(conquista);
+		Coletor coletor01 = new Coletor("Carlos", "Matos", "joao.silva@gmail.com", "123456", endereco01, "Carlão Gameplays",
+				30, "123.456.789-01", (Date) formatoData.parse("23/11/2015"));
+		UsuarioDAO usuarioDAO = new UsuarioDAOImpl();
+		usuarioDAO.inserirUsuario(coletor01);
+		
+		//=============================================================================================================
+		Endereco endereco02 = new Endereco("88050-000", "Av. USA", 8934, "SENAI", "(47) 1234-9999", "Vorstad",
+				"Blumenau", "Brasil", "0", "0");
+		enderecoDAO.inserirEndereco(endereco02);
 
-		Deposito deposito = new Deposito(LocalDate.now(), new Armazem(), new Coletor(), StatusDeposito.LIVRE);
-		DepositoDAO depositoDAO = new DepositoDAOImpl();
-		depositoDAO.inserirDeposito(deposito);
+		Armazem armazem01 = new Armazem("Giassi", "giassi@gmail.com", "123456",endereco02 ,
+				"12.345.678/9012-34", "Segunda a sexta-feira, das 8h às 18h", 1000, StatusArmazem.LIVRE);
+		usuarioDAO.inserirUsuario(armazem01);
+		
+		//=============================================================================================================
+		
+		Endereco endereco03 = new Endereco("88050-999", "Av. Beira Rio", 8934, "prédio", "(47) 9876-9999", "Vorstad",
+				"Blumenau", "Brasil", "0", "0");
+		enderecoDAO.inserirEndereco(endereco03);
 
-		ItemDeposito itemDeposito = new ItemDeposito(10);
+		Cooperativa cooperativa01 = new Cooperativa("Coaca-Cola", "coca.cola@gmail.com", "123456", endereco03, "12.345.678/9012-34", "Segunda a sexta-feira, das 8h às 18h", 100);
+		usuarioDAO.inserirUsuario(cooperativa01);
+		
+		//=============================================================================================================
+		
+		Reciclavel reciclavel01 = new Reciclavel("Garrafa PET", "Plástico", 0.05, 0.2, 0.5, "Limpe antes de reciclar");
+		ReciclavelDAO reciclavelDAO = new ReciclavelDAOImpl();
+		reciclavelDAO.inserirReciclavel(reciclavel01);
+		
+		ItemDeposito itemDeposito01 = new ItemDeposito(10);
+		itemDeposito01.inserirReciclavel(reciclavel01);
 		ItemDepositoDAO itemDepositoDAO = new ItemDepositoDAOImpl();
-		itemDepositoDAO.inserirItemDeposito(itemDeposito);
+		itemDepositoDAO.inserirItemDeposito(itemDeposito01);
+		
+		Deposito deposito01 = new Deposito(LocalDate.now(), armazem01, coletor01, StatusDeposito.CONCLUIDO);
+		deposito01.inserirItemDeposito(itemDeposito01);
+		DepositoDAO depositoDAO = new DepositoDAOImpl();
+		depositoDAO.inserirDeposito(deposito01);
+
+		Conquista conquista01 = new Conquista(100, deposito01, "Primeiro Depósito", "Conquista 100");
+		ConquistaDAO conquistaDAO = new ConquistaDAOImpl();
+		conquistaDAO.inserirConquista(conquista01);
+
+		//=============================================================================================================
 
 		ItemRetirada itemRetirada = new ItemRetirada("plástico", 5.2);
 		ItemRetiradaDAO itemRetiradaDAO = new ItemRetiradaDAOImpl();
 		itemRetiradaDAO.inserirItemRetirada(itemRetirada);
 
-		Reciclavel reciclavel = new Reciclavel("Garrafa PET", "Plástico", 0.05, 0.2, 0.5, "Limpe antes de reciclar");
-		ReciclavelDAO reciclavelDAO = new ReciclavelDAOImpl();
-		reciclavelDAO.inserirReciclavel(reciclavel);
-
-		Retirada retirada = new Retirada(LocalDate.of(2023, 12, 20), new Cooperativa(), new Armazem(),
+		Retirada retirada = new Retirada(LocalDate.of(2023, 12, 20), cooperativa01, armazem01,
 				StatusRetirada.EM_ANDAMENTO);
+		retirada.inserirItemRetirada(itemRetirada);
 		RetiradaDAO retiradaDAO = new RetiradaDAOImpl();
 		retiradaDAO.inserirRetirada(retirada);
 
-		Usuario usuario = new Usuario("João da Silva", "joao.silva@example.com", "123456", new Endereco());
-		UsuarioDAO usuarioDAO = new UsuarioDAOImpl();
-		usuarioDAO.inserirUsuario(usuario);
-
-		Empresa empresa = new Empresa("Empresa ABC", "empresa.abc@example.com", "123456", new Endereco(),
-				"12.345.678/9012-34", "Segunda a sexta-feira, das 8h às 18h");
-		 
-		Armazem armazem = new Armazem("Armazém ABC", "armazem.abc@example.com", "123456", new Endereco("89050-000", "Av. Brasil", 610, "SENAC", "(47) 93035-9999", "Ponta Aguda",
-				"Blumenau", "Brasil", "0", "0"), "12.345.678/9012-34", "Segunda a sexta-feira, das 8h às 18h", 1000, StatusArmazem.LIVRE);
-		ArmazemDAO armazemDAO = new ArmazemDAOImpl();
-		
-        Cooperativa cooperativa = new Cooperativa("Cooperativa ABC", "cooperativa.abc@example.com", "123456", new Endereco(), "12.345.678/9012-34", "Segunda a sexta-feira, das 8h às 18h", 100);
-        CooperativaDAO CooperativaDAO = new CooperativaDAOImpl();
-		
-        Pessoa pessoa = new Pessoa("João da Silva", "joao.silva@example.com", "123456", new Endereco(), "Silva", "Joãozinho", 30, "123.456.789-01", new java.sql.Date(93,9,1));
-	
-        Coletor coletor = new Coletor("João da Silva", "joao.silva@example.com", "123456", new Endereco(), "Silva", "Joãozinho", 30, "123.456.789-01", new java.sql.Date(93, 0, 1));
-        ColetorDAO coletorDAO = new ColetorDAOImpl();
-		
-        
-		
 	}
 }
