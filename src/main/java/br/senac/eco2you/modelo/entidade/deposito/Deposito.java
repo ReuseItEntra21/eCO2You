@@ -3,6 +3,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,6 +18,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 import br.senac.eco2you.modelo.entidade.itemDeposito.ItemDeposito;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
@@ -41,7 +43,7 @@ public class Deposito implements Serializable{
 	private Armazem armazem;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_coletor", nullable = false, unique = true)
+	@JoinColumn(name = "id_coletor",  nullable = false, unique = true)
 	private Coletor coletor;
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
