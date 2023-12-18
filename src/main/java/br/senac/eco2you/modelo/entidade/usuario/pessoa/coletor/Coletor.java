@@ -1,62 +1,60 @@
 package br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor;
-
+ 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+ 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
+ 
 import br.senac.eco2you.modelo.entidade.conquista.Conquista;
 import br.senac.eco2you.modelo.entidade.deposito.Deposito;
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
 import br.senac.eco2you.modelo.entidade.usuario.pessoa.Pessoa;
-
+ 
 @Entity
 @Table(name = "coletor")
 public class Coletor extends Pessoa implements Serializable {
-
+ 
 	private static final long serialVersionUID = 1L;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "id_coletor", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Deposito> listaDepositos;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "id_coletor", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Conquista> listaConquistas;
-
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "coletor", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Deposito> depositos = new ArrayList<Deposito>();
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "coletor", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Conquista> conquistas = new ArrayList<Conquista>();
+ 
 	public Coletor(String nome, String sobrenome, String email, String senha, Endereco endereco, String apelido,
 			int idade, String cpf, Date date) {
 		super(nome, email, senha, endereco, sobrenome, apelido, idade, cpf, date);
-		listaDepositos = new ArrayList<>();
-		listaConquistas = new ArrayList<>();
 	}
-
+ 
 	public Coletor() {
 	}
-
-	public List<Deposito> getListaDepositos() {
-		return listaDepositos;
+ 
+	public List<Deposito> getDepositos() {
+		return depositos;
 	}
-
-	public boolean inserirDeposito(Deposito deposito) {
-		return listaDepositos.add(deposito);
+ 
+	public void adicionarPedido(Deposito deposito) {
+		this.depositos.add(deposito);
 	}
-
-	public boolean removerDeposito(Deposito deposito) {
-		return listaDepositos.remove(deposito);
+	
+	public void removerDeposito(Deposito deposito) {
+		this.depositos.remove(deposito);
 	}
-
+ 
 	public List<Conquista> getListaConquistas() {
-		return listaConquistas;
+		return conquistas;
 	}
-
-	public boolean inserirConquista(Conquista conquista) {
-		return listaConquistas.add(conquista);
+ 
+	public void inserirConquista(Conquista conquista) {
+		this.conquistas.add(conquista);
 	}
-
-	public boolean removerConquista(Conquista conquista) {
-		return listaConquistas.remove(conquista);
+ 
+	public void removerConquista(Conquista conquista) {
+		this.conquistas.remove(conquista);
 	}
 }
