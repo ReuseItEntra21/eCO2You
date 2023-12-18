@@ -23,13 +23,13 @@ public class Coletor extends Pessoa implements Serializable {
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "coletor_deposito", joinColumns = @JoinColumn(name = "id_coletor"), inverseJoinColumns = @JoinColumn(name = "id_deposito"))
 	private List<Deposito> listaDepositos;
-	private List<Conquista> listaConquista;
+	private List<Conquista> listaConquistas;
 
 	public Coletor(String nome, String sobrenome, String email, String senha, Endereco endereco, String apelido,
 			int idade, String cpf, Date dataNascimento) {
 		super(nome, email, senha, endereco, sobrenome, apelido, idade, cpf, dataNascimento);
 		listaDepositos = new ArrayList<>();
-		listaConquista = new ArrayList<>();
+		listaConquistas = new ArrayList<>();
 	}
 	public Coletor() {}
 	public List<Deposito> getListaDepositos() {
@@ -41,13 +41,13 @@ public class Coletor extends Pessoa implements Serializable {
 	public boolean removerDeposito(Deposito deposito) {
 		return listaDepositos.remove(deposito);
 	}
-	public List<Conquista> getListaConquista() {
-		return listaConquista;
+	public List<Conquista> getListaConquistas() {
+		return listaConquistas;
 	}
 	public boolean inserirConquista(Conquista conquista) {
-		return listaConquista.add(conquista);
+		return listaConquistas.add(conquista);
 	}
 	public boolean removerConquista(Conquista conquista) {
-		return listaConquista.remove(conquista);
+		return listaConquistas.remove(conquista);
 	}
 }
