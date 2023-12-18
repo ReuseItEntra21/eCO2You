@@ -32,7 +32,7 @@ public class Conquista implements Serializable {
 	private String descricao;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_coletor",  nullable = false, unique = true)
+	@JoinColumn(name = "id_coletor")
 	private Coletor coletor;
 	
 	

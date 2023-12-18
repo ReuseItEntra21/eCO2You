@@ -43,7 +43,7 @@ public class Deposito implements Serializable{
 	private Armazem armazem;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_coletor",  nullable = false, unique = true)
+	@JoinColumn(name = "id_coletor")
 	private Coletor coletor;
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
