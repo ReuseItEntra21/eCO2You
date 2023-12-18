@@ -22,7 +22,8 @@ public class Coletor extends Pessoa implements Serializable {
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "coletor_deposito", joinColumns = @JoinColumn(name = "id_coletor"), inverseJoinColumns = @JoinColumn(name = "id_deposito"))
 	private List<Deposito> listaDepositos;
-	public Coletor(String nome, String email, String senha, Endereco endereco, String sobrenome, String apelido,
+
+	public Coletor(String nome, String sobrenome, String email, String senha, Endereco endereco, String apelido,
 			int idade, String cpf, Date dataNascimento) {
 		super(nome, email, senha, endereco, sobrenome, apelido, idade, cpf, dataNascimento);
 		listaDepositos = new ArrayList<>();
