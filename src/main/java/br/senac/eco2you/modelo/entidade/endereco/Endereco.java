@@ -11,8 +11,10 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
+
 @Table(name = "endereco", uniqueConstraints = {
 		@UniqueConstraint(columnNames = {"cidade_endereco", "bairro_endereco", "logradouro_endereco", "numero_endereco" }) })
+
 public class Endereco implements Serializable {
 
 	private static final long serialVersionUID = -4670801511598712280L;

@@ -9,10 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import br.senac.eco2you.modelo.entidade.deposito.Deposito;
+import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
 
 @Entity
 @Table(name = "conquista")
@@ -42,13 +42,11 @@ public class Conquista implements Serializable {
 	@JoinColumn(name = "id_coletor", nullable = false, unique = false)
 	private Deposito coletor;
 	
-	
 	public Conquista() {
 	}
 	
-	public Conquista(float pontosConquista, Deposito deposito, String descricao, String nome) {
+	public Conquista(float pontosConquista, String descricao, String nome) {
 		setPontosConquista(pontosConquista);
-		setDeposito(deposito);
 		setDescricao(descricao);
 		setNome(nome);
 	}
@@ -67,14 +65,6 @@ public class Conquista implements Serializable {
 	
 	public void setPontosConquista(double pontosConquista) {
 		this.pontosConquista = pontosConquista;
-	}
-	
-	public Deposito getDeposito() {
-		return deposito;
-	}
-	
-	public void setDeposito(Deposito deposito) {
-		this.deposito = deposito;
 	}
 	
 	public String getDescricao() {
