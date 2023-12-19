@@ -4,10 +4,15 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import br.senac.eco2you.modelo.entidade.itemDeposito.ItemDeposito;
 
 @Entity
 @Table(name = "reciclavel")
@@ -37,15 +42,20 @@ public class Reciclavel implements Serializable {
 
 	@Column(name = "instrucao_reciclavel", length = 200, nullable = false)
 	private String instrucaoReciclavel;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_item_deposito")
+	private ItemDeposito itemdeposito;
 
 	public Reciclavel(String nome, String tipo, double pontosCarbono, double peso, double volume,
-			String instrucaoReciclavel) {
+			String instrucaoReciclavel, ItemDeposito itemdeposito) {
 		this.nome = nome;
 		this.tipo = tipo;
 		this.pontosCarbono = pontosCarbono;
 		this.peso = peso;
 		this.volume = volume;
 		this.instrucaoReciclavel = instrucaoReciclavel;
+		this.itemdeposito = itemdeposito;
 	}
 
 	public Reciclavel() {
@@ -105,5 +115,12 @@ public class Reciclavel implements Serializable {
 
 	public void setVolume(double volume) {
 		this.volume = volume;
+	}
+	public ItemDeposito getItemdeposito() {
+		return itemdeposito;
+	}
+	
+	public void setItemdeposito(ItemDeposito itemdeposito) {
+		this.itemdeposito = itemdeposito;
 	}
 }
