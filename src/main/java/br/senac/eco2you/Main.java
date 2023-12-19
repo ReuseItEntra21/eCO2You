@@ -106,9 +106,9 @@ public class Main {
 				"Blumenau", "Brasil", "0", "0");
 		enderecoDAO.inserirEndereco(endereco03);
 
-		Cooperativa cooperativa01 = new Cooperativa("Coaca-Cola", "coca.cola@gmail.com", "123456", endereco03,
-				"12.345.678/9012-34", "Segunda a sexta-feira, das 8h às 18h", 100);
-		usuarioDAO.inserirUsuario(cooperativa01);
+//		Cooperativa cooperativa01 = new Cooperativa("Coaca-Cola", "coca.cola@gmail.com", "123456", endereco03,
+//				"12.345.678/9012-34", "Segunda a sexta-feira, das 8h às 18h", 100);
+//		usuarioDAO.inserirUsuario(cooperativa01);
 
 		// =============================================================================================================
 

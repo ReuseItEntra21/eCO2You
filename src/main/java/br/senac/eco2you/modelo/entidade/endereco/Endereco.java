@@ -11,14 +11,16 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "endereco"/*, uniqueConstraints = {
-		@UniqueConstraint(columnNames = { "logradouro_endereco", "numero_endereco" }) }*/)
+
+@Table(name = "endereco", uniqueConstraints = {
+		@UniqueConstraint(columnNames = {"cidade_endereco", "bairro_endereco", "logradouro_endereco", "numero_endereco" }) })
+
 public class Endereco implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -4670801511598712280L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id_endereco")
 	private Long id;
 
