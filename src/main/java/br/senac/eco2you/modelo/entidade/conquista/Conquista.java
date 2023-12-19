@@ -9,10 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
+import br.senac.eco2you.modelo.entidade.deposito.Deposito;
 
 @Entity
 @Table(name = "conquista")

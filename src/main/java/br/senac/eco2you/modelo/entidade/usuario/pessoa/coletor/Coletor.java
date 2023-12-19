@@ -21,17 +21,18 @@ import br.senac.eco2you.modelo.entidade.usuario.pessoa.Pessoa;
 public class Coletor extends Pessoa implements Serializable {
  
 	private static final long serialVersionUID = 1L;
+	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "coletor", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Deposito> depositos = new ArrayList<Deposito>();
+	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "coletor", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Conquista> conquistas = new ArrayList<Conquista>();
- 
+	
+	public Coletor() {}
+	
 	public Coletor(String nome, String sobrenome, String email, String senha, Endereco endereco, String apelido,
 			int idade, String cpf, Date date) {
 		super(nome, email, senha, endereco, sobrenome, apelido, idade, cpf, date);
-	}
- 
-	public Coletor() {
 	}
  
 	public List<Deposito> getDepositos() {

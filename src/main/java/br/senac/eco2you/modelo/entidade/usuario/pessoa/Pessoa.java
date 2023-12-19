@@ -16,21 +16,23 @@ public abstract class Pessoa extends Usuario implements Serializable {
  
 	private static final long serialVersionUID = 1L;
  
-	@Column(name = "sobrenome_pessoa", length = 25, nullable = false, unique = false)
+	@Column(name = "sobrenome_pessoa", length = 25, nullable = false)
 	private String sobrenome;
  
-	@Column(name = "apelido_pessoa", length = 10, nullable = true, unique = true)
+	@Column(name = "apelido_pessoa", length = 10)
 	private String apelido;
  
-	@Column(name = "idade_pessoa", nullable = false, unique = false)
+	@Column(name = "idade_pessoa", nullable = false)
 	private int idade;
  
-	@Column(name = "cpf_pessoa", length = 14, nullable = false, unique = true)
+	@Column(name = "cpf_pessoa", length = 14, nullable = false)
 	private String cpf;
  
-	@Column(name = "data_nascimento_usuario", nullable = false, unique = false)
+	@Column(name = "data_nascimento_usuario", nullable = false)
 	private Date dataNascimento;
- 
+	
+	public Pessoa() {}
+	
 	public Pessoa(String nome, String email, String senha, Endereco endereco, String sobrenome, String apelido,
 			int idade, String cpf, Date dataNascimento) {
  
@@ -42,8 +44,6 @@ public abstract class Pessoa extends Usuario implements Serializable {
 		this.dataNascimento = dataNascimento;
 	}
  
-	public Pessoa() {
-	}
 	public String getSobrenome() {
 		return sobrenome;
 	}
