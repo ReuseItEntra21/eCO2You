@@ -20,10 +20,10 @@ public class ItemRetirada implements Serializable {
 	@Column(name = "id_item_retirada")
 	private Long id;
 	
-	@Column(name = "material_item_retirada", length = 25, nullable = false, unique = false)
+	@Column(name = "material_item_retirada", length = 25, nullable = false)
 	private String material;
 	
-	@Column(name = "peso_item_retirada", nullable = false, unique = false)
+	@Column(name = "peso_item_retirada", nullable = false)
 	private double peso;
 
 	public ItemRetirada(String material, double peso) {

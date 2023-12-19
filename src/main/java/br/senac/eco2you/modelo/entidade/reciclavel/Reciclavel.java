@@ -20,22 +20,22 @@ public class Reciclavel implements Serializable {
 	@Column(name = "id_reciclavel")
 	private Long id;
 
-	@Column(name = "nome_reciclavel", length = 25, nullable = false, unique = false)
+	@Column(name = "nome_reciclavel", length = 25, nullable = false)
 	private String nome;
 
-	@Column(name = "tipo_reciclavel", length = 25, nullable = false, unique = false)
+	@Column(name = "tipo_reciclavel", length = 25, nullable = false)
 	private String tipo;
 
-	@Column(name = "pontos_carbono_reciclavel", nullable = false, unique = false)
+	@Column(name = "pontos_carbono_reciclavel", nullable = false)
 	private double pontosCarbono;
 
-	@Column(name = "peso_reciclavel", nullable = false, unique = false)
+	@Column(name = "peso_reciclavel", nullable = false)
 	private double peso;
 
-	@Column(name = "volume_reciclavel", nullable = false, unique = false)
+	@Column(name = "volume_reciclavel", nullable = false)
 	private double volume;
 
-	@Column(name = "instrucao_reciclavel", length = 200, nullable = false, unique = false)
+	@Column(name = "instrucao_reciclavel", length = 200, nullable = false)
 	private String instrucaoReciclavel;
 
 	public Reciclavel(String nome, String tipo, double pontosCarbono, double peso, double volume,
