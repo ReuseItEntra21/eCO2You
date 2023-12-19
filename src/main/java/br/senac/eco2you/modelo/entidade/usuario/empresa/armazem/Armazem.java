@@ -26,28 +26,25 @@ public class Armazem extends Empresa implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Column(name = "capacidade_armazenagem_armazem", nullable = false, unique = false)
+	@Column(name = "capacidade_armazenagem_armazem", nullable = false)
 	private long capacidadeArmazenagem;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(name = "status_armazem", nullable = false, unique = false)
+	@Column(name = "status_armazem", nullable = false)
 	private StatusArmazem statusArmazem;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "armazem_deposito", joinColumns = @JoinColumn(name = "id_armazem"), inverseJoinColumns = @JoinColumn(name = "id_deposito"))
 	private List<Deposito> listaDepositos;
+	
+	public Armazem () {}
 
-	public Armazem(String nome, String email, String senha, Endereco endereco, String cnpj, String horarioFuncionamento,
-			long capacidadeArmazem, StatusArmazem statusArmazem) {
-
+	public Armazem(String nome, String email, String senha, Endereco endereco, String cnpj, String horarioFuncionamento, long capacidadeArmazem, StatusArmazem statusArmazem) {
 		super(nome, email, senha, endereco, cnpj, horarioFuncionamento);
 		setCapacidadeArmazenagem(capacidadeArmazem);
 		setStatusArmazem(statusArmazem);
 		listaDepositos = new ArrayList<>();
-
 	}
-	
-	public Armazem () {}
 
 	public long getCapacidadeArmazenagem() {
 		return capacidadeArmazenagem;

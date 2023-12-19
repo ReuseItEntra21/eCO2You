@@ -2,7 +2,6 @@ package br.senac.eco2you.modelo.entidade.retirada;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
  
 import javax.persistence.CascadeType;
@@ -24,22 +23,28 @@ import br.senac.eco2you.modelo.entidade.itemRetirada.ItemRetirada;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
 import br.senac.eco2you.modelo.enumeracao.statusRetirada.StatusRetirada;
+
 @Entity
 @Table(name = "retirada")
 public class Retirada implements Serializable{
+	
 	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_retirada")
     private Long id;
     
-    @Column(name = "data_retirada", nullable = false, unique = false)
+    @Column(name = "data_retirada", nullable = false)
     private LocalDate data;
-    @OneToOne(fetch = FetchType.LAZY)
+    
+    @OneToOne
     @JoinColumn(name = "id_cooperativa")
     private Cooperativa cooperativa;
+    
     @Column(name = "id_armazem", nullable = false)
     private Armazem armazem;
+    
     @OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "retirada_itemRetirada", joinColumns = @JoinColumn(name = "id_retirada"), inverseJoinColumns = @JoinColumn(name = "id_itemRetirada"))
 	private List<ItemRetirada> listaItemRetiradas;
@@ -95,10 +100,4 @@ public class Retirada implements Serializable{
     public void setStatusDeRetirada(StatusRetirada statusDeRetirada) {
 		this.statusDeRetirada = statusDeRetirada;
 	}
-    
-    @Override
-    public String toString() {
-        return "Retirada [data=" + data + ", cooperativa=" + cooperativa + ", armazem=" + armazem + ", listaItemRetiradas="
-                + listaItemRetiradas + "]";
-    }
 }

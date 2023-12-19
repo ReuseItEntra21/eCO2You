@@ -12,8 +12,18 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 
-@Table(name = "endereco", uniqueConstraints = {
-		@UniqueConstraint(columnNames = {"cidade_endereco", "bairro_endereco", "logradouro_endereco", "numero_endereco" }) })
+@Table(
+	name = "endereco",
+	uniqueConstraints = {
+		@UniqueConstraint(columnNames = {
+			"cidade_endereco",
+			"bairro_endereco",
+			"logradouro_endereco",
+			"numero_endereco"
+			}
+		)
+	}
+)
 
 public class Endereco implements Serializable {
 
@@ -24,19 +34,19 @@ public class Endereco implements Serializable {
 	@Column(name = "id_endereco")
 	private Long id;
 
-	@Column(name = "cep_endereco", length = 9, nullable = false, unique = false)
+	@Column(name = "cep_endereco", length = 9, nullable = false)
 	private String cep;
 
-	@Column(name = "rua_endereco", length = 45, nullable = false, unique = false)
+	@Column(name = "rua_endereco", length = 45, nullable = false)
 	private String rua;
 
-	@Column(name = "numero_endereco", nullable = false, unique = false)
+	@Column(name = "numero_endereco", nullable = false)
 	private int numeroResidencia;
 
-	@Column(name = "complemento_endereco", length = 45, nullable = true)
+	@Column(name = "complemento_endereco", length = 45)
 	private String complemento;
 
-	@Column(name = "telefone_endereco", length = 15, nullable = true)
+	@Column(name = "telefone_endereco", length = 15)
 	private String telefone;
 
 	@Column(name = "bairro_endereco", length = 25, nullable = false)
@@ -48,10 +58,10 @@ public class Endereco implements Serializable {
 	@Column(name = "logradouro_endereco", length = 45, nullable = false)
 	private String logradouro;
 
-	@Column(name = "apto_endereco", length = 25, nullable = true)
+	@Column(name = "apto_endereco", length = 25)
 	private String aptoEndereco;
 
-	@Column(name = "bloco_endereco", length = 25, nullable = true, unique = false)
+	@Column(name = "bloco_endereco", length = 25)
 	private String blocoEndereco;
 
 	public Endereco(String cep, String rua, int numeroResidencia, String complemento, String telefone, String bairro,
