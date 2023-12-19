@@ -48,14 +48,14 @@ public class Reciclavel implements Serializable {
 	private ItemDeposito itemdeposito;
 
 	public Reciclavel(String nome, String tipo, double pontosCarbono, double peso, double volume,
-			String instrucaoReciclavel, ItemDeposito itemdeposito) {
+			String instrucaoReciclavel) {
 		this.nome = nome;
 		this.tipo = tipo;
 		this.pontosCarbono = pontosCarbono;
 		this.peso = peso;
 		this.volume = volume;
 		this.instrucaoReciclavel = instrucaoReciclavel;
-		this.itemdeposito = itemdeposito;
+
 	}
 
 	public Reciclavel() {

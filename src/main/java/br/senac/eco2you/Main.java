@@ -306,10 +306,7 @@ public class Main {
 			0.05, 
 			0.2, 
 			0.5, 
-
-			"Limpe antes de reciclar"
-
-			);
+			"Limpe antes de reciclar");
 		ReciclavelDAO reciclavelDAO = new ReciclavelDAOImpl();
 		reciclavelDAO.inserirReciclavel(reciclavel01);
 
