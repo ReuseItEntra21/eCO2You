@@ -17,10 +17,10 @@ import javax.persistence.UniqueConstraint;
 
 public class Endereco implements Serializable {
 
-	private static final long serialVersionUID = -4670801511598712280L;
+	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_endereco")
 	private Long id;
 
@@ -33,22 +33,22 @@ public class Endereco implements Serializable {
 	@Column(name = "numero_endereco", nullable = false, unique = false)
 	private int numeroResidencia;
 
-	@Column(name = "complemento_endereco", length = 45, nullable = true, unique = false)
+	@Column(name = "complemento_endereco", length = 45, nullable = true)
 	private String complemento;
 
-	@Column(name = "telefone_endereco", length = 15, nullable = true, unique = false)
+	@Column(name = "telefone_endereco", length = 15, nullable = true)
 	private String telefone;
 
-	@Column(name = "bairro_endereco", length = 25, nullable = false, unique = false)
+	@Column(name = "bairro_endereco", length = 25, nullable = false)
 	private String bairro;
 
-	@Column(name = "cidade_endereco", length = 25, nullable = false, unique = false)
+	@Column(name = "cidade_endereco", length = 25, nullable = false)
 	private String cidade;
 
 	@Column(name = "logradouro_endereco", length = 45, nullable = false)
 	private String logradouro;
 
-	@Column(name = "apto_endereco", length = 25, nullable = true, unique = false)
+	@Column(name = "apto_endereco", length = 25, nullable = true)
 	private String aptoEndereco;
 
 	@Column(name = "bloco_endereco", length = 25, nullable = true, unique = false)

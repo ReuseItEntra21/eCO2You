@@ -38,11 +38,11 @@ public class Deposito implements Serializable{
 	@Column(name = "data_deposito", nullable = false)
 	private LocalDate data;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "id_armazem",  nullable = false, unique = true)
 	private Armazem armazem;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "id_coletor")
 	private Coletor coletor;
 	
@@ -50,9 +50,10 @@ public class Deposito implements Serializable{
 	@JoinTable(name = "deposito_item_deposito", joinColumns = @JoinColumn(name = "id_deposito"), inverseJoinColumns = @JoinColumn(name = "id_item_deposito"))	
 	private List<ItemDeposito> listaItemDeposito;
 	
-	@Enumerated(EnumType.STRING)private StatusDeposito statusDeDeposito;
-	public Deposito() {}
+	@Enumerated(EnumType.STRING)
+	private StatusDeposito statusDeDeposito;
 	
+	public Deposito() {}
 	
 	public Deposito(Armazem armazem, Coletor coletor, StatusDeposito statusDeDeposito) {
 		setArmazem(armazem);
