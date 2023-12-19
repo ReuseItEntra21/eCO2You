@@ -12,6 +12,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import br.senac.eco2you.modelo.entidade.deposito.Deposito;
+import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
 
 @Entity
 @Table(name = "conquista")
@@ -34,8 +35,8 @@ public class Conquista implements Serializable {
 	private String descricao;
 	
 	@OneToOne
-	@JoinColumn(name = "id_deposito", nullable = false)
-	private Deposito deposito;
+	@JoinColumn(name = "id_usuario", nullable = false)
+	private Coletor coletor;
 	
 	public Conquista() {
 	}
