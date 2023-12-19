@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -34,13 +33,9 @@ public class Conquista implements Serializable {
 	@Column(name = "descricao_conquista", nullable = false)
 	private String descricao;
 	
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_deposito", nullable = false, unique = false)
+	@OneToOne
+	@JoinColumn(name = "id_deposito", nullable = false)
 	private Deposito deposito;
-	
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_coletor", nullable = false, unique = false)
-	private Deposito coletor;
 	
 	public Conquista() {
 	}

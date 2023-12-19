@@ -21,9 +21,7 @@ public class EnderecoDAOImpl implements EnderecoDAO {
 
 			sessao = fabrica.getConexao().openSession();
 			sessao.beginTransaction();
-
 			sessao.save(endereco);
-
 			sessao.getTransaction().commit();
 
 		} catch (Exception sqlException) {
@@ -50,9 +48,7 @@ public class EnderecoDAOImpl implements EnderecoDAO {
 
 			sessao = fabrica.getConexao().openSession();
 			sessao.beginTransaction();
-
 			sessao.delete(endereco);
-
 			sessao.getTransaction().commit();
 
 		} catch (Exception sqlException) {
@@ -79,9 +75,7 @@ public class EnderecoDAOImpl implements EnderecoDAO {
 
 			sessao = fabrica.getConexao().openSession();
 			sessao.beginTransaction();
-
 			sessao.update(endereco);
-
 			sessao.getTransaction().commit();
 
 		} catch (Exception sqlException) {
@@ -99,5 +93,4 @@ public class EnderecoDAOImpl implements EnderecoDAO {
 			}
 		}
 	}
-
 }
