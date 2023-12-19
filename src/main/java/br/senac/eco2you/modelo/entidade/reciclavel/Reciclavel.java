@@ -13,6 +13,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import br.senac.eco2you.modelo.entidade.itemDeposito.ItemDeposito;
+import br.senac.eco2you.modelo.entidade.itemRetirada.ItemRetirada;
 	
 @Entity
 @Table(name = "reciclavel")
@@ -45,6 +46,9 @@ public class Reciclavel implements Serializable {
 	
 	@ManyToMany(mappedBy = "reciclaveis")
 	private List<ItemDeposito> itensDepositos = new ArrayList<ItemDeposito>();
+	
+	@ManyToMany(mappedBy = "reciclaveis")
+	private List<ItemRetirada> itensRetiradas = new ArrayList<ItemRetirada>();
 	 
 	public Reciclavel(String nome, String tipo, double pontosCarbono, double peso, double volume,
 			String instrucaoReciclavel) {
@@ -126,6 +130,19 @@ public class Reciclavel implements Serializable {
  
     public void removerRecilavel(ItemDeposito itemDeposito) {
         this.itensDepositos.remove(itemDeposito);
+ 
+    }
+    
+    public List<ItemRetirada> getItemRetirada() {
+		return itensRetiradas;
+	}
+
+	public void inserirReciclavel(ItemRetirada itemRetirada) {
+		this.itensRetiradas.add(itemRetirada);
+	}
+ 
+    public void removerRecilavel(ItemRetirada itemRetirada) {
+        this.itensRetiradas.remove(itemRetirada);
  
     }
 }
