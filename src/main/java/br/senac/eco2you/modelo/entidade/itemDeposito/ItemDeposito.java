@@ -4,13 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -24,11 +24,11 @@ public class ItemDeposito implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_item_deposito")
 	private Long id;
 
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_reciclavel")
-	private List<Reciclavel> reciclaveis;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "id_reciclavel", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Reciclavel> reciclaveis = new ArrayList<Reciclavel>();
 
 	@Column(name = "quantidade_reciclaveis")
 	private int quantidadeReciclaveis;
@@ -37,8 +37,6 @@ public class ItemDeposito implements Serializable {
 	
 	public ItemDeposito( int quantidadeReciclaveis) {
 		setQuantidadeReciclaveis(quantidadeReciclaveis);
-		reciclaveis = new ArrayList<>();
-
 	}
 
 	public Long getId() {
@@ -49,13 +47,16 @@ public class ItemDeposito implements Serializable {
 		this.id = id;
 	}
  
-    public boolean inserirReciclavel(Reciclavel reciclavel) {
-        return reciclaveis.add(reciclavel);
+	public List<Reciclavel> getReciclavel() {
+		return reciclaveis;
+	}
+
+	public void inserirReciclavel(Reciclavel reciclavel) {
+		this.reciclaveis.add(reciclavel);
+	}
  
-    }
- 
-    public boolean removerRecilavel(Reciclavel reciclavel) {
-        return reciclaveis.remove(reciclavel);
+    public void removerRecilavel(Reciclavel reciclavel) {
+        this.reciclaveis.remove(reciclavel);
  
     }
 	

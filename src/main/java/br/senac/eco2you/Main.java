@@ -299,18 +299,22 @@ public class Main {
 		conquistaDAO3.inserirConquista(conquista03);
 
 		// =============================================================================================================
+
 		Reciclavel reciclavel01 = new Reciclavel(
 			"Garrafa PET", 
 			"Plástico", 
 			0.05, 
 			0.2, 
 			0.5, 
+
 			"Limpe antes de reciclar"
+
 			);
 		ReciclavelDAO reciclavelDAO = new ReciclavelDAOImpl();
 		reciclavelDAO.inserirReciclavel(reciclavel01);
 
 		ItemDeposito itemDeposito01 = new ItemDeposito(10);
+
 		itemDeposito01.inserirReciclavel(reciclavel01);
 		ItemDepositoDAO itemDepositoDAO = new ItemDepositoDAOImpl();
 		itemDepositoDAO.inserirItemDeposito(itemDeposito01);
@@ -339,6 +343,7 @@ public class Main {
 			StatusRetirada.EM_ANDAMENTO
 			);
 		retirada.inserirItemRetirada(itemRetirada);
+
 		RetiradaDAO retiradaDAO = new RetiradaDAOImpl();
 		retiradaDAO.inserirRetirada(retirada);
 
