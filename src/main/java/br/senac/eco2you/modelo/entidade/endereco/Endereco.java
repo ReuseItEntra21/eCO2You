@@ -12,13 +12,13 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "endereco", uniqueConstraints = {
-		@UniqueConstraint(columnNames = { "logradouro_endereco", "numero_endereco" }) })
+		@UniqueConstraint(columnNames = {"cidade_endereco", "bairro_endereco", "logradouro_endereco", "numero_endereco" }) })
 public class Endereco implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -4670801511598712280L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id_endereco")
 	private Long id;
 
@@ -43,7 +43,7 @@ public class Endereco implements Serializable {
 	@Column(name = "cidade_endereco", length = 25, nullable = false, unique = false)
 	private String cidade;
 
-	@Column(name = "logradouro_endereco", length = 45, nullable = false, unique = true)
+	@Column(name = "logradouro_endereco", length = 45, nullable = false)
 	private String logradouro;
 
 	@Column(name = "apto_endereco", length = 25, nullable = true, unique = false)

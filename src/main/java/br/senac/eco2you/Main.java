@@ -46,19 +46,19 @@ public class Main {
 		EnderecoDAO enderecoDAO = new EnderecoDAOImpl();
 		enderecoDAO.inserirEndereco(endereco01);
 
-		Coletor coletor01 = new Coletor("Carlos", "Matos", "joao.silva@gmail.com", "123456", endereco01,
-				"Carlão Gameplays", 30, "123.456.789-01", formatoData.parse("02/08/1970"));
-		UsuarioDAO usuarioDAO = new UsuarioDAOImpl();
-		usuarioDAO.inserirUsuario(coletor01);
+//		Coletor coletor01 = new Coletor("Carlos", "Matos", "joao.silva@gmail.com", "123456", endereco01,
+//				"Carlão Gameplays", 30, "123.456.789-01", formatoData.parse("02/08/1970"));
+//		UsuarioDAO usuarioDAO = new UsuarioDAOImpl();
+//		usuarioDAO.inserirUsuario(coletor01);
 
 		// =============================================================================================================
 		Endereco endereco02 = new Endereco("88050-000", "Av. USA", 8934, "SENAI", "(47) 1234-9999", "Vorstad",
 				"Blumenau", "Brasil", "0", "0");
 		enderecoDAO.inserirEndereco(endereco02);
 
-		Armazem armazem01 = new Armazem("Giassi", "giassi@gmail.com", "123456", endereco02, "12.345.678/9012-34",
-				"Segunda a sexta-feira, das 8h às 18h", 1000, StatusArmazem.LIVRE);
-		usuarioDAO.inserirUsuario(armazem01);
+//		Armazem armazem01 = new Armazem("Giassi", "giassi@gmail.com", "123456", endereco02, "12.345.678/9012-34",
+//				"Segunda a sexta-feira, das 8h às 18h", 1000, StatusArmazem.LIVRE);
+//		usuarioDAO.inserirUsuario(armazem01);
 
 		// =============================================================================================================
 
@@ -66,40 +66,40 @@ public class Main {
 				"Blumenau", "Brasil", "0", "0");
 		enderecoDAO.inserirEndereco(endereco03);
 
-		Cooperativa cooperativa01 = new Cooperativa("Coaca-Cola", "coca.cola@gmail.com", "123456", endereco03,
-				"12.345.678/9012-34", "Segunda a sexta-feira, das 8h às 18h", 100);
-		usuarioDAO.inserirUsuario(cooperativa01);
+//		Cooperativa cooperativa01 = new Cooperativa("Coaca-Cola", "coca.cola@gmail.com", "123456", endereco03,
+//				"12.345.678/9012-34", "Segunda a sexta-feira, das 8h às 18h", 100);
+//		usuarioDAO.inserirUsuario(cooperativa01);
 
 		// =============================================================================================================
 
-		Reciclavel reciclavel01 = new Reciclavel("Garrafa PET", "Plástico", 0.05, 0.2, 0.5, "Limpe antes de reciclar");
-		ReciclavelDAO reciclavelDAO = new ReciclavelDAOImpl();
-		reciclavelDAO.inserirReciclavel(reciclavel01);
-
-		ItemDeposito itemDeposito01 = new ItemDeposito(10);
-		itemDeposito01.inserirReciclavel(reciclavel01);
-		ItemDepositoDAO itemDepositoDAO = new ItemDepositoDAOImpl();
-		itemDepositoDAO.inserirItemDeposito(itemDeposito01);
-
-		Deposito deposito01 = new Deposito(armazem01, coletor01, StatusDeposito.CONCLUIDO);
-		deposito01.inserirItemDeposito(itemDeposito01);
-		DepositoDAO depositoDAO = new DepositoDAOImpl();
-		depositoDAO.inserirDeposito(deposito01);
-
-		Conquista conquista01 = new Conquista(100, deposito01, "Primeiro Depósito", "Conquista 100");
-		ConquistaDAO conquistaDAO = new ConquistaDAOImpl();
-		conquistaDAO.inserirConquista(conquista01);
-
-		// =============================================================================================================
-
-		ItemRetirada itemRetirada = new ItemRetirada("plástico", 5.2);
-		ItemRetiradaDAO itemRetiradaDAO = new ItemRetiradaDAOImpl();
-		itemRetiradaDAO.inserirItemRetirada(itemRetirada);
-
-		Retirada retirada = new Retirada(cooperativa01, armazem01, StatusRetirada.EM_ANDAMENTO);
-		retirada.inserirItemRetirada(itemRetirada);
-		RetiradaDAO retiradaDAO = new RetiradaDAOImpl();
-		retiradaDAO.inserirRetirada(retirada);
+//		Reciclavel reciclavel01 = new Reciclavel("Garrafa PET", "Plástico", 0.05, 0.2, 0.5, "Limpe antes de reciclar");
+//		ReciclavelDAO reciclavelDAO = new ReciclavelDAOImpl();
+//		reciclavelDAO.inserirReciclavel(reciclavel01);
+//
+//		ItemDeposito itemDeposito01 = new ItemDeposito(10);
+//		itemDeposito01.inserirReciclavel(reciclavel01);
+//		ItemDepositoDAO itemDepositoDAO = new ItemDepositoDAOImpl();
+//		itemDepositoDAO.inserirItemDeposito(itemDeposito01);
+//
+//		Deposito deposito01 = new Deposito(armazem01, coletor01, StatusDeposito.CONCLUIDO);
+//		deposito01.inserirItemDeposito(itemDeposito01);
+//		DepositoDAO depositoDAO = new DepositoDAOImpl();
+//		depositoDAO.inserirDeposito(deposito01);
+//
+//		Conquista conquista01 = new Conquista(100, deposito01, "Primeiro Depósito", "Conquista 100");
+//		ConquistaDAO conquistaDAO = new ConquistaDAOImpl();
+//		conquistaDAO.inserirConquista(conquista01);
+//
+//		// =============================================================================================================
+//
+//		ItemRetirada itemRetirada = new ItemRetirada("plástico", 5.2);
+//		ItemRetiradaDAO itemRetiradaDAO = new ItemRetiradaDAOImpl();
+//		itemRetiradaDAO.inserirItemRetirada(itemRetirada);
+//
+//		Retirada retirada = new Retirada(cooperativa01, armazem01, StatusRetirada.EM_ANDAMENTO);
+//		retirada.inserirItemRetirada(itemRetirada);
+//		RetiradaDAO retiradaDAO = new RetiradaDAOImpl();
+//		retiradaDAO.inserirRetirada(retirada);
 
 	}
 }

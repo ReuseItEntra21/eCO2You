@@ -24,16 +24,20 @@ public class Conquista implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_conquista")
 	private Long id;
+	
 	@Column(name = "pontos_conquista", nullable = false)
 	private double pontosConquista;
+	
 	@Column(name = "nome_conquista", nullable = false)
 	private String nome;
+	
 	@Column(name = "descricao_conquista", nullable = false)
 	private String descricao;
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_deposito", nullable = false, unique = false)
 	private Deposito deposito;
+	
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_coletor", nullable = false, unique = false)
 	private Deposito coletor;
