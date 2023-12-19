@@ -1,19 +1,19 @@
 package br.senac.eco2you.modelo.entidade.reciclavel;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import br.senac.eco2you.modelo.entidade.itemDeposito.ItemDeposito;
-
+	
 @Entity
 @Table(name = "reciclavel")
 public class Reciclavel implements Serializable {
@@ -43,10 +43,9 @@ public class Reciclavel implements Serializable {
 	@Column(name = "instrucao_reciclavel", length = 200, nullable = false)
 	private String instrucaoReciclavel;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_item_deposito")
-	private ItemDeposito itemdeposito;
-
+	@ManyToMany(mappedBy = "reciclaveis")
+	private List<ItemDeposito> itensDepositos = new ArrayList<ItemDeposito>();
+	 
 	public Reciclavel(String nome, String tipo, double pontosCarbono, double peso, double volume,
 			String instrucaoReciclavel) {
 		this.nome = nome;
@@ -116,11 +115,17 @@ public class Reciclavel implements Serializable {
 	public void setVolume(double volume) {
 		this.volume = volume;
 	}
-	public ItemDeposito getItemdeposito() {
-		return itemdeposito;
-	}
 	
-	public void setItemdeposito(ItemDeposito itemdeposito) {
-		this.itemdeposito = itemdeposito;
+	public List<ItemDeposito> getItemDeposito() {
+		return itensDepositos;
 	}
+
+	public void inserirReciclavel(ItemDeposito itemDeposito) {
+		this.itensDepositos.add(itemDeposito);
+	}
+ 
+    public void removerRecilavel(ItemDeposito itemDeposito) {
+        this.itensDepositos.remove(itemDeposito);
+ 
+    }
 }

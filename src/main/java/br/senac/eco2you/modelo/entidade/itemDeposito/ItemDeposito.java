@@ -11,7 +11,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel;
@@ -27,9 +29,10 @@ public class ItemDeposito implements Serializable {
 	@Column(name = "id_item_deposito")
 	private Long id;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "id_reciclavel", cascade = CascadeType.ALL, orphanRemoval = true)
+	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@JoinTable(name = "item_deposito_reciclavel", joinColumns = @JoinColumn(name = "id_item_deposito"), inverseJoinColumns = @JoinColumn(name = "id_reciclavel"))
 	private List<Reciclavel> reciclaveis = new ArrayList<Reciclavel>();
-
+	
 	@Column(name = "quantidade_reciclaveis")
 	private int quantidadeReciclaveis;
 
