@@ -7,12 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import br.senac.eco2you.modelo.entidade.deposito.Deposito;
-import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
 
 @Entity
 @Table(name = "conquista")
@@ -34,9 +29,7 @@ public class Conquista implements Serializable {
 	@Column(name = "descricao_conquista", nullable = false)
 	private String descricao;
 	
-	@OneToOne
-	@JoinColumn(name = "id_usuario", nullable = false)
-	private Coletor coletor;
+	
 	
 	public Conquista() {
 	}
