@@ -136,7 +136,7 @@ public class Main {
 			"giassi@gmail.com", 
 			"123456", 
 			endereco02, 
-			"29320241000108",
+			"29.345.678/9012-34",
 			"Segunda a sexta-feira, das 8h às 18h", 
 			100,
 			StatusArmazem.LIVRE);
@@ -169,19 +169,18 @@ public class Main {
 		usuarioDAO.inserirUsuario(cooperativa01);
 
 		// =============================================================================================================
-
+		ItemDeposito itemDeposito01 = new ItemDeposito();
 		Reciclavel reciclavel01 = new Reciclavel(
 			"Garrafa PET", 
 			"Plástico", 
 			0.05, 
 			0.2, 
 			0.5, 
-			"Limpe antes de reciclar"
+			"Limpe antes de reciclar", itemDeposito01
 			);
 		ReciclavelDAO reciclavelDAO = new ReciclavelDAOImpl();
 		reciclavelDAO.inserirReciclavel(reciclavel01);
 
-		ItemDeposito itemDeposito01 = new ItemDeposito(10);
 		itemDeposito01.inserirReciclavel(reciclavel01);
 		ItemDepositoDAO itemDepositoDAO = new ItemDepositoDAOImpl();
 		itemDepositoDAO.inserirItemDeposito(itemDeposito01);
