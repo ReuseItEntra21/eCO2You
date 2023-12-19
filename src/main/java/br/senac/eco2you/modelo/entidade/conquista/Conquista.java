@@ -1,7 +1,9 @@
 package br.senac.eco2you.modelo.entidade.conquista;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -16,6 +19,7 @@ import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
 
 @Entity
 @Table(name = "conquista")
+
 public class Conquista implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -34,9 +38,9 @@ public class Conquista implements Serializable {
 	@Column(name = "descricao_conquista", nullable = false)
 	private String descricao;
 	
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_usuario", nullable = false)
-	private Coletor coletor;
+	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@JoinTable(name = "conquista", joinColumns = @JoinColumn(name = "id_conquista"), inverseJoinColumns = @JoinColumn(name = "id_coletor"))
+	private List<Coletor> coletor;
 	
 	public Conquista() {
 	}
