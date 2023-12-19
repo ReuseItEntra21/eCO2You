@@ -15,7 +15,7 @@ public abstract class Empresa extends Usuario implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "cnpj_empresa", length = 14, nullable = false)
+	@Column(name = "cnpj_empresa", length = 18, nullable = false)
 	private String cnpj;
 	
 	@Column(name = "horario_funcionamento_empresa", length = 50, nullable = false)

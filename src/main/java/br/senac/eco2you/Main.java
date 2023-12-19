@@ -163,6 +163,7 @@ public class Main {
 			StatusRetirada.EM_ANDAMENTO
 			);
 		retirada.inserirItemRetirada(itemRetirada);
+		
 		RetiradaDAO retiradaDAO = new RetiradaDAOImpl();
 		retiradaDAO.inserirRetirada(retirada);
 
