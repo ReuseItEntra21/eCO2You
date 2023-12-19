@@ -23,22 +23,20 @@ public class Cooperativa extends Empresa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "capacidade_coleta_cooperativa", length = 25, nullable = false, unique = false)
+	@Column(name = "capacidade_retirada_cooperativa", length = 25, nullable = false)
 	private int capacidadeColeta;
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "cooperativa_retirada", joinColumns = @JoinColumn(name = "id_cooperativa"), inverseJoinColumns = @JoinColumn(name = "id_retirada"))
 	private List<Retirada> listaRetiradas;
+	
+	public Cooperativa () {}
 
-	public Cooperativa(String nome, String email, String senha, Endereco endereco, String cnpj,
-			String horarioFuncionamento, int capacidadeColeta) {
+	public Cooperativa(String nome, String email, String senha, Endereco endereco, String cnpj, String horarioFuncionamento, int capacidadeColeta) {
 		super(nome, email, senha, endereco, cnpj, horarioFuncionamento);
 		setCapacidadeColeta(capacidadeColeta);
 		listaRetiradas = new ArrayList<>();
-
 	}
-	
-	public Cooperativa () {}
 
 	public int getCapacidadeColeta() {
 		return capacidadeColeta;

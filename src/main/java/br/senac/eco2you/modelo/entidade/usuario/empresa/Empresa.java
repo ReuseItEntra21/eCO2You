@@ -16,17 +16,16 @@ public abstract class Empresa extends Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "cnpj_empresa", length = 18, nullable = false, unique = false)
+
 	private String cnpj;
 	
-	@Column(name = "horario_funcionamento_empresa", length = 25, nullable = false, unique = false)
+	@Column(name = "horario_funcionamento_empresa", length = 50, nullable = false)
 	private String horarioFuncionamento;
  
 	public Empresa(String nome,  String email, String senha, Endereco endereco, String cnpj, String horarioFuncionamento) {
-
 		super(nome, email, senha, endereco);
 		setCnpj(cnpj);
 		setHorarioFuncionamento(horarioFuncionamento);
- 
 	}
 	
 	public Empresa() {}
