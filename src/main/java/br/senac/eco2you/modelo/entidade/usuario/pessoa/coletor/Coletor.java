@@ -4,13 +4,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
- 
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
- 
+
 import br.senac.eco2you.modelo.entidade.conquista.Conquista;
 import br.senac.eco2you.modelo.entidade.deposito.Deposito;
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
@@ -23,15 +24,18 @@ public class Coletor extends Pessoa implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "coletor", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Deposito> depositos = new ArrayList<Deposito>();
+	private List<Deposito> depositos;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "coletor", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Conquista> conquistas = new ArrayList<Conquista>();
+	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	private List<Conquista> conquistas;
 	
 	public Coletor() {}
 	
 	public Coletor(String nome, String sobrenome, String email, String senha, Endereco endereco, String apelido, int idade, String cpf, Date date) {
+		
 		super(nome, email, senha, endereco, sobrenome, apelido, idade, cpf, date);
+		conquistas = new ArrayList<Conquista>();
+		depositos = new ArrayList<Deposito>();
 	}
  
 	public List<Deposito> getDepositos() {
