@@ -8,9 +8,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -28,20 +25,17 @@ public class Coletor extends Pessoa implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "coletor", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Deposito> depositos;
 	
-	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	@JoinTable(name = "conquista", joinColumns = @JoinColumn(name = "id_cliente"), inverseJoinColumns = @JoinColumn(name = "id_conquista"))
+	@OneToMany(
+			fetch = FetchType.LAZY,  mappedBy = "coletor", cascade = { CascadeType.PERSIST, CascadeType.MERGE }
+	)
 	private List<Conquista> conquistas;
-	
-//	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-//	private List<Conquista> conquistas;
-	
+
 	public Coletor() {}
 	
 	public Coletor(String nome, String sobrenome, String email, String senha, Endereco endereco, String apelido, int idade, String cpf, Date date) {
-		
 		super(nome, email, senha, endereco, sobrenome, apelido, idade, cpf, date);
-		conquistas = new ArrayList<Conquista>();
-		depositos = new ArrayList<Deposito>();
+		conquistas = new ArrayList<>();
+		depositos = new ArrayList<>();
 	}
  
 	public List<Deposito> getDepositos() {

@@ -1,20 +1,11 @@
 package br.senac.eco2you.modelo.entidade.reciclavel;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import br.senac.eco2you.modelo.entidade.itemDeposito.ItemDeposito;
-import br.senac.eco2you.modelo.entidade.itemRetirada.ItemRetirada;
-	
+
 @Entity
 @Table(name = "reciclavel")
 public class Reciclavel implements Serializable {
@@ -43,22 +34,30 @@ public class Reciclavel implements Serializable {
 
 	@Column(name = "instrucao_reciclavel", length = 200, nullable = false)
 	private String instrucaoReciclavel;
+
+	@ManyToOne
+	@JoinColumn(name = "id_item_deposito", nullable = false)
+	private ItemDeposito itemDeposito;
 	
-	@ManyToMany(mappedBy = "reciclaveis")
-	private List<ItemDeposito> itensDepositos = new ArrayList<ItemDeposito>();
-	
-	@ManyToMany(mappedBy = "reciclaveis")
+	/*@ManyToMany(mappedBy = "reciclaveis")
 	private List<ItemRetirada> itensRetiradas = new ArrayList<ItemRetirada>();
-	 
-	public Reciclavel(String nome, String tipo, double pontosCarbono, double peso, double volume,
-			String instrucaoReciclavel) {
+	 */
+	public Reciclavel(
+			String nome,
+			String tipo,
+			double pontosCarbono,
+			double peso,
+			double volume,
+			String instrucaoReciclavel,
+			ItemDeposito itemDeposito
+	) {
 		this.nome = nome;
 		this.tipo = tipo;
 		this.pontosCarbono = pontosCarbono;
 		this.peso = peso;
 		this.volume = volume;
 		this.instrucaoReciclavel = instrucaoReciclavel;
-
+		this.itemDeposito = itemDeposito;
 	}
 
 	public Reciclavel() {
@@ -119,30 +118,9 @@ public class Reciclavel implements Serializable {
 	public void setVolume(double volume) {
 		this.volume = volume;
 	}
-	
-	public List<ItemDeposito> getItemDeposito() {
-		return itensDepositos;
-	}
 
-	public void inserirReciclavel(ItemDeposito itemDeposito) {
-		this.itensDepositos.add(itemDeposito);
-	}
- 
-    public void removerRecilavel(ItemDeposito itemDeposito) {
-        this.itensDepositos.remove(itemDeposito);
- 
-    }
-    
-    public List<ItemRetirada> getItemRetirada() {
-		return itensRetiradas;
-	}
+	public ItemDeposito getItemDeposito() { return itemDeposito; }
 
-	public void inserirReciclavel(ItemRetirada itemRetirada) {
-		this.itensRetiradas.add(itemRetirada);
-	}
- 
-    public void removerRecilavel(ItemRetirada itemRetirada) {
-        this.itensRetiradas.remove(itemRetirada);
- 
-    }
+	public void setItemDeposito(ItemDeposito itemDeposito) { this.itemDeposito = itemDeposito; }
+
 }
