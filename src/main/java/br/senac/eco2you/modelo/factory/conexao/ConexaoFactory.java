@@ -24,10 +24,6 @@ public class ConexaoFactory {
 		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa.class);
 		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.pessoa.Pessoa.class);
 		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.enumeracao.statusArmazem.StatusArmazem.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.enumeracao.statusRetirada.StatusRetirada.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.enumeracao.statusDeposito.StatusDeposito.class);
- 
 		
 		configuracao.configure("hibernate.cfg.xml");
  
