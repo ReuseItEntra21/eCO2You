@@ -1,25 +1,11 @@
 package br.senac.eco2you.modelo.entidade.conquista;
 
 import java.io.Serializable;
-import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-
+import javax.persistence.*;
 import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
 
 @Entity
 @Table(name = "conquista")
-
 public class Conquista implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -37,18 +23,19 @@ public class Conquista implements Serializable {
 	
 	@Column(name = "descricao_conquista", nullable = false)
 	private String descricao;
-	
-	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	@JoinTable(name = "conquista", joinColumns = @JoinColumn(name = "id_conquista"), inverseJoinColumns = @JoinColumn(name = "id_coletor"))
-	private List<Coletor> coletor;
+
+	@ManyToOne
+	@JoinColumn(name = "id_coletor", nullable = false)
+	private Coletor coletor;
 	
 	public Conquista() {
 	}
 	
-	public Conquista(float pontosConquista, String descricao, String nome) {
+	public Conquista(float pontosConquista, String descricao, String nome, Coletor coletor) {
 		setPontosConquista(pontosConquista);
 		setDescricao(descricao);
 		setNome(nome);
+		setColetor(coletor);
 	}
 	
 	public Long getId() {
@@ -82,4 +69,9 @@ public class Conquista implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+	public Coletor getColetor() { return coletor; }
+
+	public void setColetor(Coletor coletor) { this.coletor = coletor; }
+
 }

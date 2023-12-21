@@ -137,7 +137,7 @@ public class Main {
 				8934,
 				"SENAI",
 				"(47) 1234-9999",
-				"Vorstad",
+				"Água Verde",
 				"Blumenau",
 				"Brasil",
 				"0","0");
@@ -207,7 +207,7 @@ public class Main {
 				"Av. Beira Rio",
 				8934, "prédio",
 				"(47) 9876-9999",
-				"Vorstad",
+				"Badenfurt",
 				"Blumenau",
 				"Brasil",
 				"0",
@@ -280,41 +280,48 @@ public class Main {
 		Conquista conquista01 = new Conquista(
 				100,
 				"Primeiro Depósito",
-				"Conquista 100");
+				"Conquista 100",
+				coletor01
+		);
 		ConquistaDAO conquistaDAO = new ConquistaDAOImpl();
 		conquistaDAO.inserirConquista(conquista01);
 
 		Conquista conquista02 = new Conquista(
 				200,
 				"Segundo Depósito",
-				"Conquista 200");
+				"Conquista 200",
+				coletor02);
 		ConquistaDAO conquistaDAO2 = new ConquistaDAOImpl();
 		conquistaDAO2.inserirConquista(conquista02);
 
 		Conquista conquista03 = new Conquista(
 				300,
 				"Terceiro Depósito",
-				"Conquista 300");
+				"Conquista 300",
+				coletor03);
 		ConquistaDAO conquistaDAO3 = new ConquistaDAOImpl();
 		conquistaDAO3.inserirConquista(conquista03);
 
 		// =============================================================================================================
 
+		ItemDeposito itemDeposito01 = new ItemDeposito(10);
+		ItemDepositoDAO itemDepositoDAO = new ItemDepositoDAOImpl();
+		itemDepositoDAO.inserirItemDeposito(itemDeposito01);
+
 		Reciclavel reciclavel01 = new Reciclavel(
-			"Garrafa PET", 
-			"Plástico", 
-			0.05, 
-			0.2, 
-			0.5, 
-			"Limpe antes de reciclar");
+				"Garrafa PET",
+				"Plástico",
+				0.05,
+				0.2,
+				0.5,
+				"Limpe antes de reciclar",
+				itemDeposito01
+		);
 		ReciclavelDAO reciclavelDAO = new ReciclavelDAOImpl();
 		reciclavelDAO.inserirReciclavel(reciclavel01);
 
-		ItemDeposito itemDeposito01 = new ItemDeposito(10);
-
 		itemDeposito01.inserirReciclavel(reciclavel01);
-		ItemDepositoDAO itemDepositoDAO = new ItemDepositoDAOImpl();
-		itemDepositoDAO.inserirItemDeposito(itemDeposito01);
+
 
 		Deposito deposito01 = new Deposito(
 			armazem01,
