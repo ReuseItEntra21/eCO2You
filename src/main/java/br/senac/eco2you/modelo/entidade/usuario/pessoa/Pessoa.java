@@ -14,8 +14,8 @@ import br.senac.eco2you.modelo.entidade.usuario.Usuario;
 @Table(name = "pessoa")
 public abstract class Pessoa extends Usuario implements Serializable {
  
-	private static final long serialVersionUID = 1L;
- 
+	private static final long serialVersionUID = -4637919020144760089L;
+
 	@Column(name = "sobrenome_pessoa", length = 25, nullable = false)
 	private String sobrenome;
  

@@ -13,7 +13,7 @@ import br.senac.eco2you.modelo.entidade.usuario.Usuario;
 @Table(name = "empresa")
 public abstract class Empresa extends Usuario implements Serializable {
 	
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -8515242038787027028L;
 
 	@Column(name = "cnpj_empresa", length = 18, nullable = false)
 	private String cnpj;

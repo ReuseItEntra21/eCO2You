@@ -20,7 +20,7 @@ import br.senac.eco2you.modelo.entidade.endereco.Endereco;
 @Table(name = "usuario")
 public abstract class Usuario implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 580102791024779122L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

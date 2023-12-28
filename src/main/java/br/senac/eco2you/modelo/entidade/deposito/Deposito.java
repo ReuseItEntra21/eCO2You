@@ -28,8 +28,8 @@ import br.senac.eco2you.modelo.enumeracao.statusDeposito.StatusDeposito;
 @Table(name = "deposito")
 public class Deposito implements Serializable{
 	
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = -6676369981205101107L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_deposito")
