@@ -10,7 +10,7 @@ import br.senac.eco2you.modelo.entidade.itemDeposito.ItemDeposito;
 @Table(name = "reciclavel")
 public class Reciclavel implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -390400605209105761L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

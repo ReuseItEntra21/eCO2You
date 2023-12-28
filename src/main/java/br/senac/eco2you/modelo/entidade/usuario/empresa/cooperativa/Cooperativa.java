@@ -21,7 +21,7 @@ import br.senac.eco2you.modelo.entidade.usuario.empresa.Empresa;
 @Table(name = "cooperativa")
 public class Cooperativa extends Empresa implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 465965115724800581L;
 
 	@Column(name = "capacidade_retirada_cooperativa", length = 25, nullable = false)
 	private int capacidadeColeta;

@@ -21,8 +21,8 @@ import br.senac.eco2you.modelo.entidade.usuario.pessoa.Pessoa;
 @Table(name = "coletor")
 public class Coletor extends Pessoa implements Serializable {
  
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = -7208351556519329959L;
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "coletor", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Deposito> depositos;
 

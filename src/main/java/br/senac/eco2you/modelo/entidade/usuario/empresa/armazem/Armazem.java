@@ -24,8 +24,8 @@ import br.senac.eco2you.modelo.enumeracao.statusArmazem.StatusArmazem;
 @Table(name = "armazem")
 public class Armazem extends Empresa implements Serializable {
 	
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = -8488573033851194367L;
+
 	@Column(name = "capacidade_armazenagem_armazem", nullable = false)
 	private long capacidadeArmazenagem;
 	

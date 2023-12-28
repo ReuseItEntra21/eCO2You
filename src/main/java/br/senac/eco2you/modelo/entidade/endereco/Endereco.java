@@ -27,7 +27,7 @@ import javax.persistence.UniqueConstraint;
 
 public class Endereco implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -4670801511598712280L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

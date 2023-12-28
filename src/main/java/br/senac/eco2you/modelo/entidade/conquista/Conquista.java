@@ -13,8 +13,8 @@ import javax.persistence.Table;
 @Table(name = "Conquista")
 public class Conquista implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = -2658698851963417185L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_conquista")
