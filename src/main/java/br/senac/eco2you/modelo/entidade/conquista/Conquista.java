@@ -39,6 +39,11 @@ public class Conquista implements Serializable {
 		
 	}
 	
+	public Conquista(String descricao, String nome) {
+		setDescricao(descricao);
+		setNome(nome);
+	}
+	
 	public Long getId() {
 		return id;
 	}

@@ -48,7 +48,7 @@ public class Deposito implements Serializable{
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "deposito_item_deposito", joinColumns = @JoinColumn(name = "id_deposito"), inverseJoinColumns = @JoinColumn(name = "id_item_deposito"))	
-	private List<ItemDeposito> listaItemDeposito;
+	private List<ItemDeposito> itensDeposito;
 	
 	@Enumerated(EnumType.STRING)
 	private StatusDeposito statusDeDeposito;
@@ -59,7 +59,7 @@ public class Deposito implements Serializable{
 		setArmazem(armazem);
 		setColetor(coletor);
 		setStatusDeDeposito(statusDeDeposito);
-		listaItemDeposito = new ArrayList<>();
+		itensDeposito = new ArrayList<>();
 	}
 	
 	public Long getId() {
@@ -95,15 +95,15 @@ public class Deposito implements Serializable{
 	}
 	
 	public List<ItemDeposito> getItemDeposito() {
-		return listaItemDeposito;
+		return itensDeposito;
 	}
 	
 	public boolean inserirItemDeposito(ItemDeposito itemDeposito) {
-		return listaItemDeposito.add(itemDeposito);
+		return itensDeposito.add(itemDeposito);
 	}
 	
 	public boolean removerDeposito(ItemDeposito itemDeposito) {
-		return listaItemDeposito.remove(itemDeposito);
+		return itensDeposito.remove(itemDeposito);
 	}
 	
 	public StatusDeposito getStatusDeDeposito() {

@@ -27,7 +27,7 @@ public class Armazem extends Empresa implements Serializable {
 	private static final long serialVersionUID = -8488573033851194367L;
 
 	@Column(name = "capacidade_armazenagem_armazem", nullable = false)
-	private long capacidadeArmazenagem;
+	private float capacidadeArmazenagem;
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name = "status_armazem", nullable = false)
@@ -39,18 +39,18 @@ public class Armazem extends Empresa implements Serializable {
 	
 	public Armazem () {}
 
-	public Armazem(String nome, String email, String senha, Endereco endereco, String cnpj, String horarioFuncionamento, long capacidadeArmazem, StatusArmazem statusArmazem) {
+	public Armazem(String nome, String email, String senha, Endereco endereco, String cnpj, String horarioFuncionamento, float capacidadeArmazem, StatusArmazem statusArmazem) {
 		super(nome, email, senha, endereco, cnpj, horarioFuncionamento);
 		setCapacidadeArmazenagem(capacidadeArmazem);
 		setStatusArmazem(statusArmazem);
 		listaDepositos = new ArrayList<>();
 	}
 
-	public long getCapacidadeArmazenagem() {
+	public float getCapacidadeArmazenagem() {
 		return capacidadeArmazenagem;
 	}
 
-	public void setCapacidadeArmazenagem(long capacidadeArmazenagem) {
+	public void setCapacidadeArmazenagem(float capacidadeArmazenagem) {
 		this.capacidadeArmazenagem = capacidadeArmazenagem;
 	}
 
