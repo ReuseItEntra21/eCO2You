@@ -8,6 +8,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -20,21 +21,18 @@ import br.senac.eco2you.modelo.entidade.usuario.pessoa.Pessoa;
 @Table(name = "coletor")
 public class Coletor extends Pessoa implements Serializable {
  
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = -7208351556519329959L;
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "coletor", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Deposito> depositos;
-	
-	@OneToMany(
-			fetch = FetchType.LAZY,  mappedBy = "coletor", cascade = { CascadeType.PERSIST, CascadeType.MERGE }
-	)
-	private List<Conquista> conquistas;
+
+	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	private List<Conquista> conquistas = new ArrayList<Conquista>();
 
 	public Coletor() {}
 	
 	public Coletor(String nome, String sobrenome, String email, String senha, Endereco endereco, String apelido, int idade, String cpf, Date date) {
 		super(nome, email, senha, endereco, sobrenome, apelido, idade, cpf, date);
-		conquistas = new ArrayList<>();
 		depositos = new ArrayList<>();
 	}
  

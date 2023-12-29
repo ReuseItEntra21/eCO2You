@@ -27,9 +27,9 @@ import br.senac.eco2you.modelo.enumeracao.statusRetirada.StatusRetirada;
 @Entity
 @Table(name = "retirada")
 public class Retirada implements Serializable{
-	
-	private static final long serialVersionUID = 1L;
-	
+
+	private static final long serialVersionUID = -3121183828192723362L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_retirada")

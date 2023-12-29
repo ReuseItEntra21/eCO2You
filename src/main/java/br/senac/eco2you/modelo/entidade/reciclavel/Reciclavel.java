@@ -2,7 +2,14 @@ package br.senac.eco2you.modelo.entidade.reciclavel;
 
 import java.io.Serializable;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import br.senac.eco2you.modelo.entidade.itemDeposito.ItemDeposito;
 
@@ -10,7 +17,7 @@ import br.senac.eco2you.modelo.entidade.itemDeposito.ItemDeposito;
 @Table(name = "reciclavel")
 public class Reciclavel implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -390400605209105761L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

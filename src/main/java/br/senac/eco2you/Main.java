@@ -41,7 +41,7 @@ public class Main {
 
 
 		// =============================================================================================================
-		
+//		
 		Endereco endereco01 = new Endereco(
 				"89050-000",
 				"Av. Brasil",
@@ -129,8 +129,8 @@ public class Main {
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(coletor03);
 
-		// =============================================================================================================
-		
+////		// =============================================================================================================
+//		
 		Endereco endereco04 = new Endereco(
 				"88050-000",
 				"Av. USA",
@@ -142,7 +142,7 @@ public class Main {
 				"Brasil",
 				"0","0");
 		enderecoDAO.inserirEndereco(endereco04);
-		
+//		
 		Armazem armazem01 = new Armazem(
 				"Giassi",
 				"giassi@gmail.com",
@@ -280,8 +280,7 @@ public class Main {
 		Conquista conquista01 = new Conquista(
 				100,
 				"Primeiro Depósito",
-				"Conquista 100",
-				coletor01
+				"Conquista 100"
 		);
 		ConquistaDAO conquistaDAO = new ConquistaDAOImpl();
 		conquistaDAO.inserirConquista(conquista01);
@@ -289,67 +288,67 @@ public class Main {
 		Conquista conquista02 = new Conquista(
 				200,
 				"Segundo Depósito",
-				"Conquista 200",
-				coletor02);
+				"Conquista 200"
+				);
 		ConquistaDAO conquistaDAO2 = new ConquistaDAOImpl();
 		conquistaDAO2.inserirConquista(conquista02);
 
 		Conquista conquista03 = new Conquista(
 				300,
 				"Terceiro Depósito",
-				"Conquista 300",
-				coletor03);
+				"Conquista 300"
+				);
 		ConquistaDAO conquistaDAO3 = new ConquistaDAOImpl();
 		conquistaDAO3.inserirConquista(conquista03);
 
-		// =============================================================================================================
+//		// =============================================================================================================
 
-		ItemDeposito itemDeposito01 = new ItemDeposito(10);
-		ItemDepositoDAO itemDepositoDAO = new ItemDepositoDAOImpl();
-		itemDepositoDAO.inserirItemDeposito(itemDeposito01);
+//		ItemDeposito itemDeposito01 = new ItemDeposito(10);
+//		ItemDepositoDAO itemDepositoDAO = new ItemDepositoDAOImpl();
+//		itemDepositoDAO.inserirItemDeposito(itemDeposito01);
+//
+//		Reciclavel reciclavel01 = new Reciclavel(
+//				"Garrafa PET",
+//				"Plástico",
+//				0.05,
+//				0.2,
+//				0.5,
+//				"Limpe antes de reciclar",
+//				itemDeposito01
+//		);
+//		ReciclavelDAO reciclavelDAO = new ReciclavelDAOImpl();
+//		reciclavelDAO.inserirReciclavel(reciclavel01);
+//
+//		itemDeposito01.inserirReciclavel(reciclavel01);
+//
+//
+//		Deposito deposito01 = new Deposito(
+//			armazem01,
+//			coletor01,
+//			StatusDeposito.CONCLUIDO
+//		);
+//		deposito01.inserirItemDeposito(itemDeposito01);
+//		DepositoDAO depositoDAO = new DepositoDAOImpl();
+//		depositoDAO.inserirDeposito(deposito01);
 
-		Reciclavel reciclavel01 = new Reciclavel(
-				"Garrafa PET",
-				"Plástico",
-				0.05,
-				0.2,
-				0.5,
-				"Limpe antes de reciclar",
-				itemDeposito01
-		);
-		ReciclavelDAO reciclavelDAO = new ReciclavelDAOImpl();
-		reciclavelDAO.inserirReciclavel(reciclavel01);
-
-		itemDeposito01.inserirReciclavel(reciclavel01);
-
-
-		Deposito deposito01 = new Deposito(
-			armazem01,
-			coletor01,
-			StatusDeposito.CONCLUIDO
-		);
-		deposito01.inserirItemDeposito(itemDeposito01);
-		DepositoDAO depositoDAO = new DepositoDAOImpl();
-		depositoDAO.inserirDeposito(deposito01);
-
-		// =============================================================================================================
-
-		ItemRetirada itemRetirada = new ItemRetirada(
-			"plástico",
-			5.2
-		);
-		ItemRetiradaDAO itemRetiradaDAO = new ItemRetiradaDAOImpl();
-		itemRetiradaDAO.inserirItemRetirada(itemRetirada);
-
-		Retirada retirada = new Retirada(
-			cooperativa01,
-			armazem01,
-			StatusRetirada.EM_ANDAMENTO
-			);
-		retirada.inserirItemRetirada(itemRetirada);
-
-		RetiradaDAO retiradaDAO = new RetiradaDAOImpl();
-		retiradaDAO.inserirRetirada(retirada);
+//		// =============================================================================================================
+//
+//		ItemRetirada itemRetirada = new ItemRetirada(
+//			"plástico",
+//			5.2
+//		);
+//		ItemRetiradaDAO itemRetiradaDAO = new ItemRetiradaDAOImpl();
+//		itemRetiradaDAO.inserirItemRetirada(itemRetirada);
+//
+//		Retirada retirada = new Retirada(
+//			cooperativa01,
+//			armazem01,
+//			StatusRetirada.EM_ANDAMENTO
+//			);
+//		retirada.inserirItemRetirada(itemRetirada);
+//
+//		RetiradaDAO retiradaDAO = new RetiradaDAOImpl();
+//		retiradaDAO.inserirRetirada(retirada);
 
 	}
 }

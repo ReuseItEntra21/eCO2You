@@ -22,8 +22,8 @@ import br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel;
 @Table(name = "item_retirada")
 public class ItemRetirada implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = -2137699780453738023L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_item_retirada")
