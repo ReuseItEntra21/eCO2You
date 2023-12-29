@@ -11,7 +11,7 @@ import org.hibernate.Session;
  
 import br.senac.eco2you.modelo.entidade.deposito.Deposito;
 import br.senac.eco2you.modelo.entidade.deposito.Deposito_;
-import br.senac.eco2you.modelo.enumeracao.statusDeposito.StatusDeposito;
+import br.senac.eco2you.modelo.enumeracao.status.deposito.StatusDeposito;
 import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
  
 public class DepositoDAOImpl implements DepositoDAO{

@@ -2,7 +2,7 @@ package br.senac.eco2you.modelo.dao.itemRetirada;
 
 import java.util.List;
 
-import br.senac.eco2you.modelo.entidade.itemRetirada.ItemRetirada;
+import br.senac.eco2you.modelo.entidade.item.retirada.ItemRetirada;
 
 public interface ItemRetiradaDAO {
 

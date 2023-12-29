@@ -3,7 +3,7 @@ package br.senac.eco2you.modelo.dao.deposito;
 import java.util.List;
  
 import br.senac.eco2you.modelo.entidade.deposito.Deposito;
-import br.senac.eco2you.modelo.enumeracao.statusDeposito.StatusDeposito;
+import br.senac.eco2you.modelo.enumeracao.status.deposito.StatusDeposito;
  
 public interface DepositoDAO {
 	

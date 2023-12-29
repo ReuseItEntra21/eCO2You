@@ -1,4 +1,4 @@
-package br.senac.eco2you.modelo.entidade.itemDeposito;
+package br.senac.eco2you.modelo.entidade.item.deposito;
 
 import java.io.Serializable;
 import java.util.ArrayList;

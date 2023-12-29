@@ -12,7 +12,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
-import br.senac.eco2you.modelo.entidade.itemDeposito.ItemDeposito;
+import br.senac.eco2you.modelo.entidade.item.deposito.ItemDeposito;
 
 public class ItemDepositoDAOImpl implements ItemDepositoDAO {
 
@@ -148,8 +148,8 @@ public class ItemDepositoDAOImpl implements ItemDepositoDAO {
 
 		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.deposito.Deposito.class);
 		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.endereco.Endereco.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.itemDeposito.ItemDeposito.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.itemRetirada.ItemRetirada.class);
+		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.item.deposito.ItemDeposito.class);
+		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.item.retirada.ItemRetirada.class);
 		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel.class);
 		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.retirada.Retirada.class);
 		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.Usuario.class);
@@ -158,8 +158,8 @@ public class ItemDepositoDAOImpl implements ItemDepositoDAO {
 		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa.class);
 		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.pessoa.Pessoa.class);
 		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.enumeracao.statusArmazem.StatusArmazem.class);
-		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.enumeracao.statusRetirada.StatusRetirada.class);
+		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.enumeracao.status.armazem.StatusArmazem.class);
+		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.enumeracao.status.retirada.StatusRetirada.class);
 
 		configuracao.configure("hibernate.cfg.xml");
 
