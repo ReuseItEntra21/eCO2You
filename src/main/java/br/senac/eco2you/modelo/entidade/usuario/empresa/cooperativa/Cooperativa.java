@@ -21,7 +21,6 @@ import br.senac.eco2you.modelo.entidade.usuario.empresa.Empresa;
 public class Cooperativa extends Empresa implements Serializable {
 
 	private static final long serialVersionUID = 465965115724800581L;
-
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "cooperativa_retirada", joinColumns = @JoinColumn(name = "id_cooperativa"), inverseJoinColumns = @JoinColumn(name = "id_retirada"))
