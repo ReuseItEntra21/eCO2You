@@ -18,11 +18,11 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
- 
-import br.senac.eco2you.modelo.entidade.itemRetirada.ItemRetirada;
+
+import br.senac.eco2you.modelo.entidade.item.retirada.ItemRetirada;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
-import br.senac.eco2you.modelo.enumeracao.statusRetirada.StatusRetirada;
+import br.senac.eco2you.modelo.enumeracao.status.retirada.StatusRetirada;
 
 @Entity
 @Table(name = "retirada")

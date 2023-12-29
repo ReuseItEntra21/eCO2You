@@ -19,10 +19,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import br.senac.eco2you.modelo.entidade.itemDeposito.ItemDeposito;
+import br.senac.eco2you.modelo.entidade.item.deposito.ItemDeposito;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
-import br.senac.eco2you.modelo.enumeracao.statusDeposito.StatusDeposito;
+import br.senac.eco2you.modelo.enumeracao.status.deposito.StatusDeposito;
 
 @Entity
 @Table(name = "deposito")

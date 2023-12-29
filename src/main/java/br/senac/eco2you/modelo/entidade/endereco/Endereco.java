@@ -18,6 +18,7 @@ import javax.persistence.UniqueConstraint;
 		@UniqueConstraint(columnNames = {
 			"cidade_endereco",
 			"bairro_endereco",
+			"tipo_via_endereco",
 			"logradouro_endereco",
 			"numero_endereco"
 			}
@@ -37,8 +38,8 @@ public class Endereco implements Serializable {
 	@Column(name = "cep_endereco", length = 9, nullable = false)
 	private String cep;
 
-	@Column(name = "rua_endereco", length = 45, nullable = false)
-	private String rua;
+	@Column(name = "tipo_via_endereco", length = 45, nullable = false)
+	private String tipoVia;
 
 	@Column(name = "numero_endereco", nullable = false)
 	private int numeroResidencia;
@@ -64,10 +65,10 @@ public class Endereco implements Serializable {
 	@Column(name = "bloco_endereco", length = 25)
 	private String blocoEndereco;
 
-	public Endereco(String cep, String rua, int numeroResidencia, String complemento, String telefone, String bairro,
-			String cidade, String logradouro, String aptoEndereco, String blocoEndereco) {
+	public Endereco(String cidade, String bairro, String cep, String tipoVia, String logradouro, int numeroResidencia, String complemento,  
+			 String aptoEndereco, String blocoEndereco, String telefone) {
 		this.cep = cep;
-		this.rua = rua;
+		this.tipoVia = tipoVia;
 		this.numeroResidencia = numeroResidencia;
 		this.complemento = complemento;
 		this.telefone = telefone;
@@ -98,11 +99,11 @@ public class Endereco implements Serializable {
 	}
 
 	public String getRua() {
-		return rua;
+		return tipoVia;
 	}
 
 	public void setRua(String rua) {
-		this.rua = rua;
+		this.tipoVia = rua;
 	}
 
 	public int getNumeroResidencia() {

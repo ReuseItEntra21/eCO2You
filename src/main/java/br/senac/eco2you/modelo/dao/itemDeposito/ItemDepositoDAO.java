@@ -2,7 +2,7 @@ package br.senac.eco2you.modelo.dao.itemDeposito;
 
 import java.util.List;
 
-import br.senac.eco2you.modelo.entidade.itemDeposito.ItemDeposito;
+import br.senac.eco2you.modelo.entidade.item.deposito.ItemDeposito;
 
 public interface ItemDepositoDAO {
 

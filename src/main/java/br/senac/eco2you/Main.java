@@ -22,16 +22,16 @@ import br.senac.eco2you.modelo.dao.usuario.UsuarioDAOImpl;
 import br.senac.eco2you.modelo.entidade.conquista.Conquista;
 import br.senac.eco2you.modelo.entidade.deposito.Deposito;
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
-import br.senac.eco2you.modelo.entidade.itemDeposito.ItemDeposito;
-import br.senac.eco2you.modelo.entidade.itemRetirada.ItemRetirada;
+import br.senac.eco2you.modelo.entidade.item.deposito.ItemDeposito;
+import br.senac.eco2you.modelo.entidade.item.retirada.ItemRetirada;
 import br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel;
 import br.senac.eco2you.modelo.entidade.retirada.Retirada;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
 import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
-import br.senac.eco2you.modelo.enumeracao.statusArmazem.StatusArmazem;
-import br.senac.eco2you.modelo.enumeracao.statusDeposito.StatusDeposito;
-import br.senac.eco2you.modelo.enumeracao.statusRetirada.StatusRetirada;
+import br.senac.eco2you.modelo.enumeracao.status.armazem.StatusArmazem;
+import br.senac.eco2you.modelo.enumeracao.status.deposito.StatusDeposito;
+import br.senac.eco2you.modelo.enumeracao.status.retirada.StatusRetirada;
 
 public class Main {
 
@@ -43,16 +43,16 @@ public class Main {
 		// =============================================================================================================
 //		
 		Endereco endereco01 = new Endereco(
-				"89050-000",
-				"Av. Brasil",
+				"Blumenau",
+				"Ponta Aguda",
+				"89746-390",
+				"Avenida",
+				"Rio Branco",
 				610,
 				"SENAC",
-				"(47) 93035-9999",
-				"Ponta Aguda",
-				"Blumenau",
-				"Brasil",
 				"0",
-				"0"
+				"0",
+				"(47) 97689-0035"
 		);
 		EnderecoDAO enderecoDAO = new EnderecoDAOImpl();
 		enderecoDAO.inserirEndereco(endereco01);
@@ -72,16 +72,16 @@ public class Main {
 		usuarioDAO.inserirUsuario(coletor01);
 		
 		Endereco endereco02 = new Endereco(
-				"89050-111",
-				"Rua São Paulo",
-				209,
-				"casa",
-				"(47) 93035-000",
-				"Vorstad",
 				"Blumenau",
-				"Brasil",
+				"Nova Russia",
+				"85646-390",
+				"Rua",
+				"Santa Maria",
+				8940,
+				"casa",
 				"0",
-				"0"
+				"0",
+				"(47) 97009-0035"
 		);
 		enderecoDAO = new EnderecoDAOImpl();
 		enderecoDAO.inserirEndereco(endereco02);
@@ -101,16 +101,16 @@ public class Main {
 		usuarioDAO.inserirUsuario(coletor02);
 		
 		Endereco endereco03 = new Endereco(
-				"89050-222",
-				"Rua 7 de Setembro",
-				2970,
-				"Shopping",
-				"(47) 93765-9999",
-				"Centro",
 				"Blumenau",
-				"Brasil",
+				"Centro",
+				"82336-670",
+				"Avenida",
+				"Beira Rio",
+				824,
+				"casa amarela",
 				"0",
-				"0"
+				"0",
+				"(47) 92909-0035"
 		);
 		enderecoDAO = new EnderecoDAOImpl();
 		enderecoDAO.inserirEndereco(endereco03);
@@ -132,15 +132,17 @@ public class Main {
 ////		// =============================================================================================================
 //		
 		Endereco endereco04 = new Endereco(
-				"88050-000",
-				"Av. USA",
-				8934,
-				"SENAI",
-				"(47) 1234-9999",
-				"Água Verde",
 				"Blumenau",
-				"Brasil",
-				"0","0");
+				"Victor Konder",
+				"89896-334",
+				"Rua",
+				"São Paulo",
+				2508,
+				"SENAI",
+				"0",
+				"0",
+				"(47) 97689-5535"
+				);
 		enderecoDAO.inserirEndereco(endereco04);
 //		
 		Armazem armazem01 = new Armazem(
@@ -155,15 +157,17 @@ public class Main {
 		usuarioDAO.inserirUsuario(armazem01);
  
 		Endereco endereco05 = new Endereco(
-				"55555-000",
-				"Av. BR",
-				9999,
-				"Sebrae",
-				"(47) 1234-8888",
-				"Escola Agricula",
 				"Blumenau",
-				"Brasil",
-				"0","0");
+				"Itoupava Central",
+				"86746-102",
+				"Rua",
+				"Jose Spengler",
+				1097,
+				"casa",
+				"0",
+				"0",
+				"(47) 97645-0135"
+				);
 		enderecoDAO.inserirEndereco(endereco05);
 		
 		Armazem armazem02 = new Armazem(
@@ -178,15 +182,17 @@ public class Main {
 		usuarioDAO.inserirUsuario(armazem02);
  
 		Endereco endereco06 = new Endereco(
-				"77777-000",
-				"Av. PA",
-				2999,
-				"Seasa",
-				"(47) 1234-7777",
-				"Escola Do Jordao",
 				"Blumenau",
-				"Brasil",
-				"0", "0");
+				"Garcia",
+				"49740-390",
+				"Rua",
+				"Amazonas",
+				2094,
+				"Cooper",
+				"0",
+				"0",
+				"(47) 97789-3035"
+				);
 		enderecoDAO.inserirEndereco(endereco06);
  
 		Armazem armazem03 = new Armazem(
@@ -203,15 +209,17 @@ public class Main {
 		// =============================================================================================================
 		
 		Endereco endereco07 = new Endereco(
-				"88050-999",
-				"Av. Beira Rio",
-				8934, "prédio",
-				"(47) 9876-9999",
-				"Badenfurt",
 				"Blumenau",
-				"Brasil",
+				"Agua Verde",
+				"29746-399",
+				"Rua",
+				"Senador Rocha",
+				396,
+				"Fábrica",
 				"0",
-				"0");
+				"0",
+				"(47) 93389-0035"
+				);
 		enderecoDAO = new EnderecoDAOImpl();
 		enderecoDAO.inserirEndereco(endereco07);
  
@@ -221,46 +229,49 @@ public class Main {
 				"123456",
 				endereco07,
 				"12.345.678/9012-34",
-				"Segunda a sexta-feira, das 8h às 18h",
-				100);
+				"Segunda a sexta-feira, das 8h às 18h"
+				);
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(cooperativa01);
 		
 		Endereco endereco08 = new Endereco(
-				"88050-678",
-				"Rua Santa Maria",
-				6384,
-				"prédio",
-				"(47) 9890-9999",
-				"Jordão",
 				"Blumenau",
-				"Brasil",
+				"Vila Nova",
+				"09746-390",
+				"Rua",
+				"Garibaldi",
+				5867,
+				"Mercado",
 				"0",
-				"0");
+				"0",
+				"(47) 92048-0035"
+				);
 		enderecoDAO = new EnderecoDAOImpl();
 		enderecoDAO.inserirEndereco(endereco08);
  
 		Cooperativa cooperativa02 = new Cooperativa(
 				"Supermercado Carol",
-				"siupermercado.carol@gmail.com",
+				"supermercado.carol@gmail.com",
 				"123456",
 				endereco08,
 				"12.309.678/9043-34",
-				"Segunda a sexta-feira, das 8h às 18h",
-				100);
+				"Segunda a sexta-feira, das 8h às 18h"
+				);
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(cooperativa02);
 		
 		Endereco endereco09 = new Endereco(
-				"87850-561",
-				"Rua Amazonas",
-				8934, "prédio",
-				"(47) 3376-0999",
-				"Garcia",
 				"Blumenau",
-				"Brasil",
+				"Progresso",
+				"89746-211",
+				"Rua",
+				"Rui Barbosa",
+				1578,
+				"Fábrica",
 				"0",
-				"0");
+				"0",
+				"(47) 90089-5035"
+				);
 		enderecoDAO = new EnderecoDAOImpl();
 		enderecoDAO.inserirEndereco(endereco09);
  
@@ -270,8 +281,8 @@ public class Main {
 				"123456",
 				endereco09,
 				"12.990.678/9012-34",
-				"Segunda a sexta-feira, das 8h às 18h",
-				100);
+				"Segunda a sexta-feira, das 8h às 18h"
+				);
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(cooperativa03);
 		
@@ -301,54 +312,54 @@ public class Main {
 		ConquistaDAO conquistaDAO3 = new ConquistaDAOImpl();
 		conquistaDAO3.inserirConquista(conquista03);
 
-//		// =============================================================================================================
+		// =============================================================================================================
 
-//		ItemDeposito itemDeposito01 = new ItemDeposito(10);
-//		ItemDepositoDAO itemDepositoDAO = new ItemDepositoDAOImpl();
-//		itemDepositoDAO.inserirItemDeposito(itemDeposito01);
-//
-//		Reciclavel reciclavel01 = new Reciclavel(
-//				"Garrafa PET",
-//				"Plástico",
-//				0.05,
-//				0.2,
-//				0.5,
-//				"Limpe antes de reciclar",
-//				itemDeposito01
-//		);
-//		ReciclavelDAO reciclavelDAO = new ReciclavelDAOImpl();
-//		reciclavelDAO.inserirReciclavel(reciclavel01);
-//
-//		itemDeposito01.inserirReciclavel(reciclavel01);
-//
-//
-//		Deposito deposito01 = new Deposito(
-//			armazem01,
-//			coletor01,
-//			StatusDeposito.CONCLUIDO
-//		);
-//		deposito01.inserirItemDeposito(itemDeposito01);
-//		DepositoDAO depositoDAO = new DepositoDAOImpl();
-//		depositoDAO.inserirDeposito(deposito01);
+		ItemDeposito itemDeposito01 = new ItemDeposito(10);
+		ItemDepositoDAO itemDepositoDAO = new ItemDepositoDAOImpl();
+		itemDepositoDAO.inserirItemDeposito(itemDeposito01);
+		
+		Reciclavel reciclavel01 = new Reciclavel(
+				"Garrafa PET",
+				"Plástico",
+				0.05,
+				0.2,
+				0.5,
+				"Limpe antes de reciclar",
+				itemDeposito01
+		);
+		ReciclavelDAO reciclavelDAO = new ReciclavelDAOImpl();
+		reciclavelDAO.inserirReciclavel(reciclavel01);
 
-//		// =============================================================================================================
-//
-//		ItemRetirada itemRetirada = new ItemRetirada(
-//			"plástico",
-//			5.2
-//		);
-//		ItemRetiradaDAO itemRetiradaDAO = new ItemRetiradaDAOImpl();
-//		itemRetiradaDAO.inserirItemRetirada(itemRetirada);
-//
-//		Retirada retirada = new Retirada(
-//			cooperativa01,
-//			armazem01,
-//			StatusRetirada.EM_ANDAMENTO
-//			);
-//		retirada.inserirItemRetirada(itemRetirada);
-//
-//		RetiradaDAO retiradaDAO = new RetiradaDAOImpl();
-//		retiradaDAO.inserirRetirada(retirada);
+		itemDeposito01.inserirReciclavel(reciclavel01);
+
+
+		Deposito deposito01 = new Deposito(
+			armazem01,
+			coletor01,
+			StatusDeposito.CONCLUIDO
+		);
+		deposito01.inserirItemDeposito(itemDeposito01);
+		DepositoDAO depositoDAO = new DepositoDAOImpl();
+		depositoDAO.inserirDeposito(deposito01);
+
+		// =============================================================================================================
+
+		ItemRetirada itemRetirada = new ItemRetirada(
+			"plástico",
+			5.2
+		);
+		ItemRetiradaDAO itemRetiradaDAO = new ItemRetiradaDAOImpl();
+		itemRetiradaDAO.inserirItemRetirada(itemRetirada);
+
+		Retirada retirada = new Retirada(
+			cooperativa01,
+			armazem01,
+			StatusRetirada.EM_ANDAMENTO
+			);
+		retirada.inserirItemRetirada(itemRetirada);
+
+		RetiradaDAO retiradaDAO = new RetiradaDAOImpl();
+		retiradaDAO.inserirRetirada(retirada);
 
 	}
 }

@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
  
 import br.senac.eco2you.modelo.entidade.retirada.Retirada;
-import br.senac.eco2you.modelo.enumeracao.statusRetirada.StatusRetirada;
+import br.senac.eco2you.modelo.enumeracao.status.retirada.StatusRetirada;
  
 public interface RetiradaDAO {
  

@@ -14,7 +14,7 @@ import br.senac.eco2you.modelo.entidade.retirada.Retirada_;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem_;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
-import br.senac.eco2you.modelo.enumeracao.statusRetirada.StatusRetirada;
+import br.senac.eco2you.modelo.enumeracao.status.retirada.StatusRetirada;
 import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
 
 public class RetiradaDAOImpl implements RetiradaDAO {
