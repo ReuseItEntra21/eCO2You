@@ -27,7 +27,7 @@ public abstract class Usuario implements Serializable {
 	@Column(name = "id_usuario")
 	private Long id;
 
-	@Column(name = "Nome_usuario", length = 25, nullable = false)
+	@Column(name = "nome_usuario", length = 25, nullable = false)
 	private String nome;
 
 	@Column(name = "email_usuario", length = 45, nullable = false)
@@ -47,6 +47,14 @@ public abstract class Usuario implements Serializable {
 		this.email = email;
 		this.senha = senha;
 		this.endereco = endereco;
+	}
+	
+	public Usuario(String nome, String email, String senha, Endereco endereco, long id) {
+		this.nome = nome;
+		this.email = email;
+		this.senha = senha;
+		this.endereco = endereco;
+		this.id = id;
 	}
 	
 	public Long getId() {

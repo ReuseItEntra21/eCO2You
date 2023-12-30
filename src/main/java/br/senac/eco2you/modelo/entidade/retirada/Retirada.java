@@ -15,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -35,19 +36,22 @@ public class Retirada implements Serializable{
 	@Column(name = "id_retirada")
     private Long id;
     
+	@OneToOne
     @Column(name = "data_retirada", nullable = false)
     private LocalDate data;
     
-    @OneToOne
-    @JoinColumn(name = "id_cooperativa")
-    private Cooperativa cooperativa;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_cooperativa")
+	private Cooperativa cooperativa;
+
     
-    @Column(name = "id_armazem", nullable = false)
-    private Armazem armazem;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_armazem")
+	private Armazem armazem;
     
     @OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "retirada_itemRetirada", joinColumns = @JoinColumn(name = "id_retirada"), inverseJoinColumns = @JoinColumn(name = "id_itemRetirada"))
-	private List<ItemRetirada> listaItemRetiradas;
+	private List<ItemRetirada> ItensRetirada;
     
     @Enumerated(EnumType.STRING)private StatusRetirada statusDeRetirada;
     
@@ -56,7 +60,7 @@ public class Retirada implements Serializable{
     	setStatusDeRetirada(statusDeRetirada);
         setCooperativa(cooperativa);
         setArmazem(armazem);
-        listaItemRetiradas = new ArrayList<>();
+        ItensRetirada = new ArrayList<>();
     }
     public Long getId() {
 		return id;
@@ -84,14 +88,14 @@ public class Retirada implements Serializable{
     public void setData(LocalDate data) {
         this.data = data;
     }
-    public List<ItemRetirada> getListaItemRetiradas() {
-        return listaItemRetiradas;
+    public List<ItemRetirada> getItensRetirada() {
+        return ItensRetirada;
     }
     public boolean inserirItemRetirada(ItemRetirada itemRetirada) {
-        return listaItemRetiradas.add(itemRetirada);
+        return ItensRetirada.add(itemRetirada);
     }
     public boolean removerItemRetirada(ItemRetirada itemRetirada) {
-        return listaItemRetiradas.remove(itemRetirada);
+        return ItensRetirada.remove(itemRetirada);
     }
     public StatusRetirada getStatusDeRetirada() {
 		return statusDeRetirada;
