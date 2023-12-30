@@ -17,6 +17,7 @@ import javax.persistence.Table;
 
 import br.senac.eco2you.modelo.entidade.deposito.Deposito;
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
+import br.senac.eco2you.modelo.entidade.retirada.Retirada;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.Empresa;
 import br.senac.eco2you.modelo.enumeracao.status.armazem.StatusArmazem;
 
@@ -35,7 +36,10 @@ public class Armazem extends Empresa implements Serializable {
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "armazem_deposito", joinColumns = @JoinColumn(name = "id_armazem"), inverseJoinColumns = @JoinColumn(name = "id_deposito"))
-	private List<Deposito> listaDepositos;
+	private List<Deposito> depositos;
+	
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "armazem", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Retirada> retiradas;
 	
 	public Armazem () {}
 
@@ -43,9 +47,18 @@ public class Armazem extends Empresa implements Serializable {
 		super(nome, email, senha, endereco, cnpj, horarioFuncionamento);
 		setCapacidadeArmazenagem(capacidadeArmazem);
 		setStatusArmazem(statusArmazem);
-		listaDepositos = new ArrayList<>();
+		depositos = new ArrayList<>();
+		retiradas = new ArrayList<>();
 	}
 
+	public Armazem(String nome, String email, String senha, Endereco endereco, String cnpj, String horarioFuncionamento, float capacidadeArmazem, StatusArmazem statusArmazem, long id) {
+		super(nome, email, senha, endereco, cnpj, horarioFuncionamento, id);
+		setCapacidadeArmazenagem(capacidadeArmazem);
+		setStatusArmazem(statusArmazem);
+		depositos = new ArrayList<>();
+		retiradas = new ArrayList<>();
+	}
+	
 	public float getCapacidadeArmazenagem() {
 		return capacidadeArmazenagem;
 	}
@@ -63,16 +76,30 @@ public class Armazem extends Empresa implements Serializable {
 	}
 
 	public List<Deposito> getListaDepositos() {
-		return listaDepositos;
+		return depositos;
 	}
 
 	public boolean inserirDeposito(Deposito deposito) {
-		return listaDepositos.add(deposito);
+		return depositos.add(deposito);
 
 	}
 
 	public boolean removerDeposito(Deposito deposito) {
-		return listaDepositos.remove(deposito);
+		return depositos.remove(deposito);
+
+	}
+	
+	public List<Retirada> getListaRetiradas() {
+		return retiradas;
+	}
+
+	public boolean inserirRetirada(Retirada retirada) {
+		return retiradas.add(retirada);
+
+	}
+
+	public boolean removerRetirada(Retirada retirada) {
+		return retiradas.remove(retirada);
 
 	}
 

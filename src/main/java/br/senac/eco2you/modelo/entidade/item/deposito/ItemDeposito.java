@@ -23,7 +23,7 @@ public class ItemDeposito implements Serializable {
 			fetch = FetchType.LAZY,
 			cascade = { CascadeType.PERSIST, CascadeType.MERGE },
 			mappedBy = "itemDeposito"
-	)
+	)	
 	private List<Reciclavel> reciclaveis = new ArrayList<>();
 
 	@Column(name = "quantidade_reciclaveis")
