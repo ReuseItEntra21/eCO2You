@@ -7,9 +7,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
@@ -22,28 +20,31 @@ public class Cooperativa extends Empresa implements Serializable {
 
 	private static final long serialVersionUID = 465965115724800581L;
 	
-	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	@JoinTable(name = "cooperativa_retirada", joinColumns = @JoinColumn(name = "id_cooperativa"), inverseJoinColumns = @JoinColumn(name = "id_retirada"))
-	private List<Retirada> listaRetiradas;
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "cooperativa", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Retirada> retiradas;
 	
 	public Cooperativa () {}
 
 	public Cooperativa(String nome, String email, String senha, Endereco endereco, String cnpj, String horarioFuncionamento) {
 		super(nome, email, senha, endereco, cnpj, horarioFuncionamento);
-		listaRetiradas = new ArrayList<>();
+		retiradas = new ArrayList<>();
+	}
+	public Cooperativa(String nome, String email, String senha, Endereco endereco, String cnpj, String horarioFuncionamento, long id) {
+		super(nome, email, senha, endereco, cnpj, horarioFuncionamento, id);
+		retiradas = new ArrayList<>();
 	}
 
 	public List<Retirada> getListaRetiradas() {
-		return listaRetiradas;
+		return retiradas;
 	}
 
-	public boolean inserirRetirada(Retirada retirada) {
-		return listaRetiradas.add(retirada);
+	public void inserirRetirada(Retirada retirada) {
+		this.retiradas.add(retirada);
 
 	}
 
-	public boolean removerRetirada(Retirada retirada) {
-		return listaRetiradas.remove(retirada);
+	public void removerRetirada(Retirada retirada) {
+		this.retiradas.remove(retirada);
 
 	}
 
