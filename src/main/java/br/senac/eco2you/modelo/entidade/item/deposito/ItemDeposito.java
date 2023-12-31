@@ -1,10 +1,15 @@
 package br.senac.eco2you.modelo.entidade.item.deposito;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel;
 
@@ -19,20 +24,18 @@ public class ItemDeposito implements Serializable {
 	@Column(name = "id_item_deposito")
 	private Long id;
 
-	@OneToMany(
-			fetch = FetchType.LAZY,
-			cascade = { CascadeType.PERSIST, CascadeType.MERGE },
-			mappedBy = "itemDeposito"
-	)	
-	private List<Reciclavel> reciclaveis = new ArrayList<>();
+	@OneToOne
+	@JoinColumn(name = "id_reciclavel")
+	private Reciclavel reciclavel;
 
 	@Column(name = "quantidade_reciclaveis")
 	private int quantidadeReciclaveis;
 
 	public ItemDeposito() {}
 	
-	public ItemDeposito( int quantidadeReciclaveis) {
+	public ItemDeposito(Reciclavel reciclavel, int quantidadeReciclaveis) {
 		setQuantidadeReciclaveis(quantidadeReciclaveis);
+		setReciclavel(reciclavel);
 	}
 
 	public Long getId() {
@@ -42,19 +45,14 @@ public class ItemDeposito implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
- 
-	public List<Reciclavel> getReciclavel() {
-		return reciclaveis;
+	
+	public Reciclavel getReciclavel() {
+		return reciclavel;
 	}
-
-	public void inserirReciclavel(Reciclavel reciclavel) {
-		this.reciclaveis.add(reciclavel);
+	
+	public void setReciclavel(Reciclavel reciclavel) {
+		this.reciclavel = reciclavel;
 	}
- 
-    public void removerRecilavel(Reciclavel reciclavel) {
-        this.reciclaveis.remove(reciclavel);
- 
-    }
 	
 	public int getQuantidadeReciclaveis() {
 		return quantidadeReciclaveis;
@@ -63,9 +61,4 @@ public class ItemDeposito implements Serializable {
 	public void setQuantidadeReciclaveis(int quantidadeReciclaveis) {
 		this.quantidadeReciclaveis = quantidadeReciclaveis;
 	}
-
-	public List<Reciclavel> getReciclaveis() { return reciclaveis; }
-
-	public void setReciclaveis(List<Reciclavel> reciclaveis) { this.reciclaveis = reciclaveis; }
-
 }

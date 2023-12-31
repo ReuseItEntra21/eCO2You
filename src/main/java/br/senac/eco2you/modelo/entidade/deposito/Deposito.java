@@ -39,7 +39,7 @@ public class Deposito implements Serializable{
 	private LocalDate data;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_armazem",  nullable = false, unique = true)
+	@JoinColumn(name = "id_armazem",  nullable = false)
 	private Armazem armazem;
 	
 	@ManyToOne

@@ -7,11 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import br.senac.eco2you.modelo.entidade.item.deposito.ItemDeposito;
+import br.senac.eco2you.modelo.entidade.material.Material;
 
 @Entity
 @Table(name = "reciclavel")
@@ -27,8 +26,9 @@ public class Reciclavel implements Serializable {
 	@Column(name = "nome_reciclavel", length = 25, nullable = false)
 	private String nome;
 
-	@Column(name = "tipo_reciclavel", length = 25, nullable = false)
-	private String tipo;
+	@OneToOne
+	@Column(name = "material_reciclavel", length = 25, nullable = false)
+	private Material material;
 
 	@Column(name = "pontos_carbono_reciclavel", nullable = false)
 	private double pontosCarbono;
@@ -42,29 +42,20 @@ public class Reciclavel implements Serializable {
 	@Column(name = "instrucao_reciclavel", length = 200, nullable = false)
 	private String instrucaoReciclavel;
 
-	@ManyToOne
-	@JoinColumn(name = "id_item_deposito", nullable = false)
-	private ItemDeposito itemDeposito;
-	
-	/*@ManyToMany(mappedBy = "reciclaveis")
-	private List<ItemRetirada> itensRetiradas = new ArrayList<ItemRetirada>();
-	 */
 	public Reciclavel(
 			String nome,
-			String tipo,
+			Material material,
 			double pontosCarbono,
 			double peso,
 			double volume,
-			String instrucaoReciclavel,
-			ItemDeposito itemDeposito
+			String instrucaoReciclavel
 	) {
 		this.nome = nome;
-		this.tipo = tipo;
+		this.material = material;
 		this.pontosCarbono = pontosCarbono;
 		this.peso = peso;
 		this.volume = volume;
 		this.instrucaoReciclavel = instrucaoReciclavel;
-		this.itemDeposito = itemDeposito;
 	}
 
 	public Reciclavel() {
@@ -94,12 +85,12 @@ public class Reciclavel implements Serializable {
 		this.instrucaoReciclavel = instrucaoReciclavel;
 	}
 
-	public String getTipo() {
-		return tipo;
+	public Material getMaterial() {
+		return material;
 	}
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	public void setMaterial(Material material) {
+		this.material = material;
 	}
 
 	public double getPeso() {
@@ -125,9 +116,5 @@ public class Reciclavel implements Serializable {
 	public void setVolume(double volume) {
 		this.volume = volume;
 	}
-
-	public ItemDeposito getItemDeposito() { return itemDeposito; }
-
-	public void setItemDeposito(ItemDeposito itemDeposito) { this.itemDeposito = itemDeposito; }
 
 }
