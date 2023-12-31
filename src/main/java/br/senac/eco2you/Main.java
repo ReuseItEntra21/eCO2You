@@ -13,6 +13,8 @@ import br.senac.eco2you.modelo.dao.itemDeposito.ItemDepositoDAO;
 import br.senac.eco2you.modelo.dao.itemDeposito.ItemDepositoDAOImpl;
 import br.senac.eco2you.modelo.dao.itemRetirada.ItemRetiradaDAO;
 import br.senac.eco2you.modelo.dao.itemRetirada.ItemRetiradaDAOImpl;
+import br.senac.eco2you.modelo.dao.material.MaterialDAO;
+import br.senac.eco2you.modelo.dao.material.MaterialDAOImpl;
 import br.senac.eco2you.modelo.dao.reciclavel.ReciclavelDAO;
 import br.senac.eco2you.modelo.dao.reciclavel.ReciclavelDAOImpl;
 import br.senac.eco2you.modelo.dao.retirada.RetiradaDAO;
@@ -24,6 +26,7 @@ import br.senac.eco2you.modelo.entidade.deposito.Deposito;
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
 import br.senac.eco2you.modelo.entidade.item.deposito.ItemDeposito;
 import br.senac.eco2you.modelo.entidade.item.retirada.ItemRetirada;
+import br.senac.eco2you.modelo.entidade.material.Material;
 import br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel;
 import br.senac.eco2you.modelo.entidade.retirada.Retirada;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
@@ -313,25 +316,39 @@ public class Main {
 		conquistaDAO3.inserirConquista(conquista03);
 
 		// =============================================================================================================
-
-		ItemDeposito itemDeposito01 = new ItemDeposito(10);
-		ItemDepositoDAO itemDepositoDAO = new ItemDepositoDAOImpl();
-		itemDepositoDAO.inserirItemDeposito(itemDeposito01);
 		
+		Material aluminio = new Material (
+				"Alumínio"
+				);
+		MaterialDAO materialDAO = new MaterialDAOImpl();
+		materialDAO.inserirMaterial(aluminio);
+		
+		Material plastico = new Material (
+				"Plástico"
+				);
+		materialDAO.inserirMaterial(plastico);
+		
+		// =============================================================================================================
+
 		Reciclavel reciclavel01 = new Reciclavel(
 				"Garrafa PET",
-				"Plástico",
+				plastico,
 				0.05,
 				0.2,
 				0.5,
-				"Limpe antes de reciclar",
-				itemDeposito01
+				"Limpe antes de reciclar"
 		);
 		ReciclavelDAO reciclavelDAO = new ReciclavelDAOImpl();
 		reciclavelDAO.inserirReciclavel(reciclavel01);
-
-		itemDeposito01.inserirReciclavel(reciclavel01);
-
+		
+		ItemDeposito itemDeposito01 = new ItemDeposito(
+				reciclavel01,
+				10
+				);
+		ItemDepositoDAO itemDepositoDAO = new ItemDepositoDAOImpl();
+		itemDepositoDAO.inserirItemDeposito(itemDeposito01);
+		
+		
 
 		Deposito deposito01 = new Deposito(
 			armazem01,
@@ -345,7 +362,7 @@ public class Main {
 		// =============================================================================================================
 
 		ItemRetirada itemRetirada = new ItemRetirada(
-			"plástico",
+			plastico,
 			5.2
 		);
 		ItemRetiradaDAO itemRetiradaDAO = new ItemRetiradaDAOImpl();

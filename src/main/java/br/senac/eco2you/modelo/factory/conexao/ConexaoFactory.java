@@ -24,6 +24,7 @@ public class ConexaoFactory {
 		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa.class);
 		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.pessoa.Pessoa.class);
 		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor.class);
+		configuracao.addAnnotatedClass(br.senac.eco2you.modelo.entidade.material.Material.class);
 		
 		configuracao.configure("hibernate.cfg.xml");
  
