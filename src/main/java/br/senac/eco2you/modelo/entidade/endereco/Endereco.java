@@ -25,7 +25,6 @@ import javax.persistence.UniqueConstraint;
 		)
 	}
 )
-
 public class Endereco implements Serializable {
 
 	private static final long serialVersionUID = -4670801511598712280L;
@@ -98,12 +97,12 @@ public class Endereco implements Serializable {
 		this.cep = cep;
 	}
 
-	public String getRua() {
+	public String getTipoVia() {
 		return tipoVia;
 	}
 
-	public void setRua(String rua) {
-		this.tipoVia = rua;
+	public void setTipoVia(String tipoVia) {
+		this.tipoVia = tipoVia;
 	}
 
 	public int getNumeroResidencia() {
