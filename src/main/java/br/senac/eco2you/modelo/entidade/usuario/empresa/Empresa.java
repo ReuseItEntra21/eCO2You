@@ -1,6 +1,7 @@
 package br.senac.eco2you.modelo.entidade.usuario.empresa;
 
 import java.io.Serializable;
+import java.time.LocalTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,19 +19,24 @@ public abstract class Empresa extends Usuario implements Serializable {
 	@Column(name = "cnpj_empresa", length = 18, nullable = false)
 	private String cnpj;
 	
-	@Column(name = "horario_funcionamento_empresa", length = 50, nullable = false)
-	private String horarioFuncionamento;
+	@Column(name = "horario_abertura_empresa", length = 50, nullable = false)
+	private LocalTime horarioAbertura;
+	
+	@Column(name = "horario_fechamento_empresa", length = 50, nullable = false)
+	private LocalTime horarioFechamento;
  
-	public Empresa(String nome,  String email, String senha, Endereco endereco, String cnpj, String horarioFuncionamento) {
+	public Empresa(String nome,  String email, String senha, Endereco endereco, String cnpj, LocalTime horarioFechamento, LocalTime horarioAbertura) {
 		super(nome, email, senha, endereco);
 		setCnpj(cnpj);
-		setHorarioFuncionamento(horarioFuncionamento);
+		setHorarioAbertura(horarioAbertura);
+		setHorarioFechamento(horarioFechamento);
 	}
 	
-	public Empresa(String nome,  String email, String senha, Endereco endereco, String cnpj, String horarioFuncionamento, long id) {
+	public Empresa(String nome,  String email, String senha, Endereco endereco, String cnpj, LocalTime horarioFechamento, LocalTime horarioAbertura, long id) {
 		super(nome, email, senha, endereco, id);
 		setCnpj(cnpj);
-		setHorarioFuncionamento(horarioFuncionamento);
+		setHorarioAbertura(horarioAbertura);
+		setHorarioFechamento(horarioFechamento);
 	}
 	
 	public Empresa() {}
@@ -43,12 +49,20 @@ public abstract class Empresa extends Usuario implements Serializable {
 		this.cnpj = cnpj;
 	}
  
-	public String getHorarioFuncionamento() {
-		return horarioFuncionamento;
+	public LocalTime getHorarioAbertura() {
+		return horarioAbertura;
 	}
- 
-	public void setHorarioFuncionamento(String horarioFuncionamento) {
-		this.horarioFuncionamento = horarioFuncionamento;
+	
+	public void setHorarioAbertura(LocalTime horarioAbertura) {
+		this.horarioAbertura = horarioAbertura;
 	}
- 
+	
+	public LocalTime getHorarioFechamento() {
+		return horarioFechamento;
+	}
+	
+	public void setHorarioFechamento(LocalTime horarioFechamento) {
+		this.horarioFechamento = horarioFechamento;
+	}
+	
 }

@@ -1,6 +1,7 @@
 package br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa;
 
 import java.io.Serializable;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,12 +26,12 @@ public class Cooperativa extends Empresa implements Serializable {
 	
 	public Cooperativa () {}
 
-	public Cooperativa(String nome, String email, String senha, Endereco endereco, String cnpj, String horarioFuncionamento) {
-		super(nome, email, senha, endereco, cnpj, horarioFuncionamento);
+	public Cooperativa(String nome, String email, String senha, Endereco endereco, String cnpj, LocalTime horarioFechamento, LocalTime horarioAbertura) {
+		super(nome, email, senha, endereco, cnpj, horarioAbertura, horarioFechamento);
 		retiradas = new ArrayList<>();
 	}
-	public Cooperativa(String nome, String email, String senha, Endereco endereco, String cnpj, String horarioFuncionamento, long id) {
-		super(nome, email, senha, endereco, cnpj, horarioFuncionamento, id);
+	public Cooperativa(String nome, String email, String senha, Endereco endereco, String cnpj, LocalTime horarioFechamento, LocalTime horarioAbertura, long id) {
+		super(nome, email, senha, endereco, cnpj, horarioAbertura, horarioFechamento, id);
 		retiradas = new ArrayList<>();
 	}
 
