@@ -4,10 +4,12 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import br.senac.eco2you.modelo.entidade.material.Material;
@@ -26,8 +28,8 @@ public class Reciclavel implements Serializable {
 	@Column(name = "nome_reciclavel", length = 25, nullable = false)
 	private String nome;
 
-	@OneToOne
-	@Column(name = "material_reciclavel", length = 25, nullable = false)
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_material")
 	private Material material;
 
 	@Column(name = "pontos_carbono_reciclavel", nullable = false)
