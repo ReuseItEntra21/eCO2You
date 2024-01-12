@@ -11,4 +11,6 @@ public interface CooperativaDAO {
 	List<Cooperativa> buscarCooperativasPeloBairro(String nome);
 	
 	List<Cooperativa> buscarCooperativasPelaCidade(String cidade);
+
+	Cooperativa exibirPerfilCooperativa(String nomeDaCooperativa);
 }
