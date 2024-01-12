@@ -129,4 +129,19 @@ public class CooperativaDAOImpl implements CooperativaDAO {
 
 		return cooperativas;
 	}
+}public Cooperativa exibirPerfilCooperativa(String nomeDaCooperativa) {
+    try (Session sessao = fabrica.getConexao().openSession()) {
+        CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+        CriteriaQuery<Cooperativa> criteria = construtor.createQuery(Cooperativa.class);
+        Root<Cooperativa> raizCooperativa = criteria.from(Cooperativa.class);
+
+        criteria.select(raizCooperativa)
+                .where(construtor.equal(raizCooperativa.get(Cooperativa_.NOME), nomeDaCooperativa));
+
+        return sessao.createQuery(criteria).uniqueResult();
+    } catch (Exception e) {
+        e.printStackTrace();
+        return null;
+    }
+}
 }
