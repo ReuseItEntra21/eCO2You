@@ -43,7 +43,7 @@ public class Coletor extends Pessoa implements Serializable {
 		return depositos;
 	}
  
-	public void adicionarPedido(Deposito deposito) {
+	public void adicionarDeposito(Deposito deposito) {
 		this.depositos.add(deposito);
 	}
 	
