@@ -1,16 +1,21 @@
 package br.senac.eco2you.modelo.entidade.conquista;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
+
 @Entity
-@Table(name = "Conquista")
+@Table(name = "conquista")
 public class Conquista implements Serializable {
 
 	private static final long serialVersionUID = -2658698851963417185L;
@@ -28,6 +33,9 @@ public class Conquista implements Serializable {
 	
 	@Column(name = "descricao_conquista", nullable = false)
 	private String descricao;
+	
+	@ManyToMany(mappedBy = "conquistas")
+	private List<Coletor> coletores = new ArrayList<Coletor>();
 
 	public Conquista() {
 	}
@@ -76,4 +84,15 @@ public class Conquista implements Serializable {
 		this.nome = nome;
 	}
 
+	public List<Coletor> getListaColetores() {
+		return coletores;
+	}
+ 
+	public void inserirColetor(Coletor coletor) {
+		this.coletores.add(coletor);
+	}
+ 
+	public void removerColetor(Coletor coletor) {
+		this.coletores.remove(coletor);
+	}
 }
