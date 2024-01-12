@@ -58,4 +58,18 @@ public class ColetorDAOImpl implements ColetorDAO {
 		return null;
 	}
 
+	public Coletor exibirPerfilColetor(String nomeDoColetor) {
+		try (Session sessao = fabrica.getConexao().openSession()) {
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Coletor> criteria = construtor.createQuery(Coletor.class);
+			Root<Coletor> raizColetor = criteria.from(Coletor.class);
+
+			criteria.select(raizColetor).where(construtor.equal(raizColetor.get(Coletor_.NOME), nomeDoColetor));
+
+			return sessao.createQuery(criteria).uniqueResult();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 }
