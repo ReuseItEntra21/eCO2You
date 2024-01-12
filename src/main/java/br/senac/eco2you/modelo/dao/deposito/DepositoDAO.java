@@ -33,4 +33,6 @@ public interface DepositoDAO {
  
     
     List<Deposito> buscarDepositoPeloColetorEArmazemEData(String nomeDoColetor, String nomeDoArmazem, LocalDate data);
+
+    Deposito exibirPerfilDeposito(String nomeDoDeposito);	
 }
