@@ -376,7 +376,7 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 			criteria.select(raizRetirada)
 					.where(construtor.and(construtor.equal(juncaoArmazem.get(Armazem_.NOME), nomeDoArmazem),
 							construtor.equal(juncaoCooperativa.get(Cooperativa_.NOME), nomeDaCooperativa),
-							construtor.equal(raizRetirada.get(Retirada_.DATA_RETIRADA), data)));
+							construtor.equal(raizRetirada.get(Retirada_.DATA), data)));
 
 			return sessao.createQuery(criteria).getResultList();
 		} catch (Exception e) {
@@ -437,7 +437,13 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 			criteria.select(raizRetirada)
 					.where(construtor.and(construtor.equal(juncaoCooperativa.get(Cooperativa_.NOME), nomeDaCooperativa),
 							construtor.equal(juncaoArmazem.get(Armazem_.NOME), nomeDoArmazem),
-							construtor.equal(raizRetirada.get(Retirada_.DATA_RETIRADA), data)));
+							construtor.equal(raizRetirada.get(Retirada_.DATA), data)));
+			
+			return sessao.createQuery(criteria).getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 		}
 	}
-}
+
