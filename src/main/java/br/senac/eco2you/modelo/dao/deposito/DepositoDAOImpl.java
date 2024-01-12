@@ -12,7 +12,9 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 
 import br.senac.eco2you.modelo.entidade.deposito.Deposito;
+import br.senac.eco2you.modelo.entidade.deposito.Deposito_;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
+import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem_;
 import br.senac.eco2you.modelo.enumeracao.status.deposito.StatusDeposito;
 import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
 
@@ -290,7 +292,7 @@ public class DepositoDAOImpl implements DepositoDAO {
 
 			criteria.select(raizDeposito)
 
-					.where(construtor.equal(raizDeposito.get(Deposito_.NOME_COLETOR), nomeDoColetor))
+					.where(construtor.equal(raizDeposito.get(Deposito_.COLETOR), nomeDoColetor))
 
 					.where(construtor.equal(raizDeposito.get(Deposito_.COLETOR), nomeDoColetor));
 
@@ -310,7 +312,7 @@ public class DepositoDAOImpl implements DepositoDAO {
 			Join<Deposito, Armazem> juncaoArmazem = raizDeposito.join(Deposito_.armazem);
 
 			criteria.select(raizDeposito)
-					.where(construtor.and(construtor.equal(raizDeposito.get(Deposito_.NOME_COLETOR), nomeDoColetor),
+					.where(construtor.and(construtor.equal(raizDeposito.get(Deposito_.COLETOR), nomeDoColetor),
 							construtor.equal(juncaoArmazem.get(Armazem_.NOME), nomeDoArmazem)));
 
 			return sessao.createQuery(criteria).getResultList();
@@ -329,7 +331,7 @@ public class DepositoDAOImpl implements DepositoDAO {
 			Join<Deposito, Armazem> juncaoArmazem = raizDeposito.join(Deposito_.armazem);
 
 			criteria.select(raizDeposito)
-					.where(construtor.and(construtor.equal(raizDeposito.get(Deposito_.NOME_COLETOR), nomeDoColetor),
+					.where(construtor.and(construtor.equal(raizDeposito.get(Deposito_.COLETOR), nomeDoColetor),
 							construtor.equal(juncaoArmazem.get(Armazem_.NOME), nomeDoArmazem),
 							construtor.equal(raizDeposito.get(Deposito_.STATUS_DE_DEPOSITO), status)));
 
@@ -349,9 +351,9 @@ public class DepositoDAOImpl implements DepositoDAO {
 			Join<Deposito, Armazem> juncaoArmazem = raizDeposito.join(Deposito_.armazem);
 
 			criteria.select(raizDeposito)
-					.where(construtor.and(construtor.equal(raizDeposito.get(Deposito_.NOME_COLETOR), nomeDoColetor),
+					.where(construtor.and(construtor.equal(raizDeposito.get(Deposito_.COLETOR), nomeDoColetor),
 							construtor.equal(juncaoArmazem.get(Armazem_.NOME), nomeDoArmazem),
-							construtor.equal(raizDeposito.get(Deposito_.DATA_DEPOSITO), data)));
+							construtor.equal(raizDeposito.get(Deposito_.DATA), data)));
 
 			return sessao.createQuery(criteria).getResultList();
 		} catch (Exception e) {
@@ -366,7 +368,7 @@ public class DepositoDAOImpl implements DepositoDAO {
 			CriteriaQuery<Deposito> criteria = construtor.createQuery(Deposito.class);
 			Root<Deposito> raizDeposito = criteria.from(Deposito.class);
 
-			criteria.select(raizDeposito).where(construtor.equal(raizDeposito.get(Deposito_.NOME), nomeDoDeposito));
+			criteria.select(raizDeposito).where(construtor.equal(raizDeposito.get(Deposito_.COLETOR), nomeDoDeposito));
 
 			return sessao.createQuery(criteria).uniqueResult();
 		} catch (Exception e) {
