@@ -425,19 +425,19 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 		}
 	}
 
-public List<Retirada> buscarRetiradaPelaCooperativaEArmazemEData(String nomeDaCooperativa, String nomeDoArmazem, LocalDate data) {
-    try (Session sessao = fabrica.getConexao().openSession()) {
-        CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-        CriteriaQuery<Retirada> criteria = construtor.createQuery(Retirada.class);
-        Root<Retirada> raizRetirada = criteria.from(Retirada.class);
-        Join<Retirada, Cooperativa> juncaoCooperativa = raizRetirada.join(Retirada_.cooperativa);
-        Join<Retirada, Armazem> juncaoArmazem = raizRetirada.join(Retirada_.armazem);
+	public List<Retirada> buscarRetiradaPelaCooperativaEArmazemEData(String nomeDaCooperativa, String nomeDoArmazem,
+			LocalDate data) {
+		try (Session sessao = fabrica.getConexao().openSession()) {
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Retirada> criteria = construtor.createQuery(Retirada.class);
+			Root<Retirada> raizRetirada = criteria.from(Retirada.class);
+			Join<Retirada, Cooperativa> juncaoCooperativa = raizRetirada.join(Retirada_.cooperativa);
+			Join<Retirada, Armazem> juncaoArmazem = raizRetirada.join(Retirada_.armazem);
 
-        criteria.select(raizRetirada)
-                .where(construtor.and(
-                        construtor.equal(juncaoCooperativa.get(Cooperativa_.NOME), nomeDaCooperativa),
-                        construtor.equal(juncaoArmazem.get(Armazem_.NOME), nomeDoArmazem),
-                        construtor.equal(raizRetirada.get(Retirada_.DATA_RETIRADA), data)wwww
-       }
-    }
+			criteria.select(raizRetirada)
+					.where(construtor.and(construtor.equal(juncaoCooperativa.get(Cooperativa_.NOME), nomeDaCooperativa),
+							construtor.equal(juncaoArmazem.get(Armazem_.NOME), nomeDoArmazem),
+							construtor.equal(raizRetirada.get(Retirada_.DATA_RETIRADA), data)));
+		}
+	}
 }
