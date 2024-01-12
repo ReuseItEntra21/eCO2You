@@ -11,6 +11,7 @@ import org.hibernate.Session;
 
 import br.senac.eco2you.modelo.entidade.usuario.Usuario;
 import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
+import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor_;
 import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
 
 public class ColetorDAOImpl implements ColetorDAO {
