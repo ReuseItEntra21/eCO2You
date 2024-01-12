@@ -1,5 +1,5 @@
 package br.senac.eco2you.modelo.dao.armazem;
- 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,152 +17,151 @@ import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem_;
 import br.senac.eco2you.modelo.enumeracao.status.armazem.StatusArmazem;
 import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
- 
-public class ArmazemDAOImpl implements ArmazemDAO{
+
+public class ArmazemDAOImpl implements ArmazemDAO {
 	private ConexaoFactory fabrica;
+
 	public ArmazemDAOImpl() {
-	fabrica = new ConexaoFactory();
+		fabrica = new ConexaoFactory();
 	}
 
- 
-public List<Armazem> buscarArmazensPorNome(String nome) {
-	Session sessao = null;
-	List<Armazem> armazens = new ArrayList<Armazem>();
- 
-	try {
-		sessao = fabrica.getConexao().openSession();
-		sessao.beginTransaction();
- 
-		CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-		CriteriaQuery<Armazem> criteria = construtor.createQuery(Armazem.class);
-		Root<Armazem> raizArmazem= criteria.from(Armazem.class);
- 
-		criteria.select(raizArmazem).where(construtor.like(raizArmazem.get(nome), "%" + nome + "%"));
-		armazens = sessao.createQuery(criteria).getResultList();
- 
-	} catch (Exception sqlException) {
- 
-		sqlException.printStackTrace();
-		if (sessao.getTransaction() != null) {
-			sessao.getTransaction().rollback();
-		}
- 
-	} finally {
-		if (sessao != null) {
-			sessao.close();
-		}
-	}
-	return armazens;
- 
-	
-}
- 
-public List<Armazem> buscarArmazemPeloBairro(String bairro) {
-	Session sessao = null;
-	List<Armazem> armazens = null;
- 
-	try {
-		sessao = fabrica.getConexao().openSession();
-		sessao.beginTransaction();
- 
-		CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-		CriteriaQuery<Armazem> criteria = construtor.createQuery(Armazem.class);
-		Root<Armazem> raizArmazem = criteria.from(Armazem.class);
- 
-		Join<Armazem, Endereco> juncaoEndereco = raizArmazem.join(Armazem_.endereco);
-		ParameterExpression<String> bairroEndereco = construtor.parameter(String.class);
-		criteria.where(construtor.equal(juncaoEndereco.get(Endereco_.BAIRRO), bairroEndereco));
-		armazens = sessao.createQuery(criteria).setParameter(bairroEndereco, bairro).getResultList();
- 
-		
-		sessao.getTransaction().commit();
- 
-	} catch (Exception sqlException) {
- 
-		sqlException.printStackTrace();
-		if (sessao.getTransaction() != null) {
-			sessao.getTransaction().rollback();
-		}
- 
-	} finally {
-		if (sessao != null) {
-			sessao.close();
-		}
-	}
- 
-	return armazens;
- 
-}
- 
-public List<Armazem> buscarArmazemPeloCidade(String cidade) {
-	Session sessao = null;
-	List<Armazem> armazens = null;
- 
-	try {
-		sessao = fabrica.getConexao().openSession();
-		sessao.beginTransaction();
- 
-		CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-		CriteriaQuery<Armazem> criteria = construtor.createQuery(Armazem.class);
-		Root<Armazem> raizArmazem = criteria.from(Armazem.class);
- 
-		Join<Armazem, Endereco> juncaoEndereco = raizArmazem.join(Armazem_.endereco);
-		ParameterExpression<String> cidadeEndereco = construtor.parameter(String.class);
-		criteria.where(construtor.equal(juncaoEndereco.get(Endereco_.CIDADE), cidadeEndereco));
-		armazens = sessao.createQuery(criteria).setParameter(cidadeEndereco, cidade).getResultList();
- 
-		
-		sessao.getTransaction().commit();
- 
-	} catch (Exception sqlException) {
- 
-		sqlException.printStackTrace();
-		if (sessao.getTransaction() != null) {
-			sessao.getTransaction().rollback();
-		}
- 
-	} finally {
-		if (sessao != null) {
-			sessao.close();
-		}
-	}
- 
-	return armazens;
- 
-}
-public List<Armazem> buscarArmazemPeloStatusArmazem(StatusArmazem statusArmazem) {
+	public List<Armazem> buscarArmazensPorNome(String nome) {
+		Session sessao = null;
+		List<Armazem> armazens = new ArrayList<Armazem>();
 
-	Session sessao = null;
-	List<Armazem> retiradas = null;
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
 
-	try {
-		sessao = fabrica.getConexao().openSession();
-		sessao.beginTransaction();
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Armazem> criteria = construtor.createQuery(Armazem.class);
+			Root<Armazem> raizArmazem = criteria.from(Armazem.class);
 
-		CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-		CriteriaQuery<Armazem> criteria = construtor.createQuery(Armazem.class);
-		Root<Armazem> raizArmazem = criteria.from(Armazem.class);
-		ParameterExpression<StatusArmazem> statusDeArmazem = construtor.parameter(StatusArmazem.class);
+			criteria.select(raizArmazem).where(construtor.like(raizArmazem.get(nome), "%" + nome + "%"));
+			armazens = sessao.createQuery(criteria).getResultList();
 
-		criteria.select(raizArmazem).where(construtor.equal(raizArmazem.get(Armazem_.STATUS_DE_ARMAZEM), statusDeArmazem));
-		retiradas = sessao.createQuery(criteria).setParameter(statusDeArmazem, statusArmazem).getResultList();
+		} catch (Exception sqlException) {
 
-		sessao.getTransaction().commit();
+			sqlException.printStackTrace();
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
 
-	} catch (Exception sqlException) {
-		sqlException.printStackTrace();
-
-		if (sessao.getTransaction() != null) {
-			sessao.getTransaction().rollback();
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+			}
 		}
+		return armazens;
 
-	} finally {
-		if (sessao != null) {
-			sessao.close();
-		}
 	}
 
-	return retiradas;
-}
+	public List<Armazem> buscarArmazemPeloBairro(String bairro) {
+		Session sessao = null;
+		List<Armazem> armazens = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Armazem> criteria = construtor.createQuery(Armazem.class);
+			Root<Armazem> raizArmazem = criteria.from(Armazem.class);
+
+			Join<Armazem, Endereco> juncaoEndereco = raizArmazem.join(Armazem_.endereco);
+			ParameterExpression<String> bairroEndereco = construtor.parameter(String.class);
+			criteria.where(construtor.equal(juncaoEndereco.get(Endereco_.BAIRRO), bairroEndereco));
+			armazens = sessao.createQuery(criteria).setParameter(bairroEndereco, bairro).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return armazens;
+
+	}
+
+	public List<Armazem> buscarArmazemPeloCidade(String cidade) {
+		Session sessao = null;
+		List<Armazem> armazens = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Armazem> criteria = construtor.createQuery(Armazem.class);
+			Root<Armazem> raizArmazem = criteria.from(Armazem.class);
+
+			Join<Armazem, Endereco> juncaoEndereco = raizArmazem.join(Armazem_.endereco);
+			ParameterExpression<String> cidadeEndereco = construtor.parameter(String.class);
+			criteria.where(construtor.equal(juncaoEndereco.get(Endereco_.CIDADE), cidadeEndereco));
+			armazens = sessao.createQuery(criteria).setParameter(cidadeEndereco, cidade).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return armazens;
+
+	}
+
+	public List<Armazem> buscarArmazemPeloStatusArmazem(StatusArmazem statusArmazem) {
+
+		Session sessao = null;
+		List<Armazem> retiradas = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Armazem> criteria = construtor.createQuery(Armazem.class);
+			Root<Armazem> raizArmazem = criteria.from(Armazem.class);
+			ParameterExpression<StatusArmazem> statusDeArmazem = construtor.parameter(StatusArmazem.class);
+
+			criteria.select(raizArmazem)
+					.where(construtor.equal(raizArmazem.get(Armazem_.STATUS_ARMAZEM), statusDeArmazem));
+			retiradas = sessao.createQuery(criteria).setParameter(statusDeArmazem, statusArmazem).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return retiradas;
+	}
 
 }
