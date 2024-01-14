@@ -30,3 +30,4 @@ replay_pid*
 .settings/
 
 /.apt_generated_tests/
+/.idea/

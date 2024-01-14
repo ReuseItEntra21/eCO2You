@@ -16,6 +16,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import br.senac.eco2you.modelo.entidade.material.Material;
 import br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel;
 
 @Entity
@@ -36,11 +37,11 @@ public class ItemRetirada implements Serializable {
 	@JoinTable(name = "item_retirada_reciclavel", joinColumns = @JoinColumn(name = "id_item_retirada"), inverseJoinColumns = @JoinColumn(name = "id_reciclavel"))
 	private List<Reciclavel> reciclaveis = new ArrayList<Reciclavel>();
 
-	public ItemRetirada(double peso) {
-		this.peso = peso;
-	}
-	
 	public ItemRetirada() {}
+
+	public ItemRetirada(Material id, double peso) {
+		setPeso(peso);
+	}
 	
 	public Long getId() {
 		return id;
