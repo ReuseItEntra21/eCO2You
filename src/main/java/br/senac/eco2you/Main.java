@@ -2,6 +2,7 @@ package br.senac.eco2you;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 
 import br.senac.eco2you.modelo.dao.conquista.ConquistaDAO;
 import br.senac.eco2you.modelo.dao.conquista.ConquistaDAOImpl;
@@ -59,6 +60,8 @@ public class Main {
 		);
 		EnderecoDAO enderecoDAO = new EnderecoDAOImpl();
 		enderecoDAO.inserirEndereco(endereco01);
+
+		// =============================================================================================================
  
 		Coletor coletor01 = new Coletor(
 				"José",
@@ -73,6 +76,8 @@ public class Main {
 		);
 		UsuarioDAO usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(coletor01);
+
+		// =============================================================================================================
 		
 		Endereco endereco02 = new Endereco(
 				"Blumenau",
@@ -88,6 +93,8 @@ public class Main {
 		);
 		enderecoDAO = new EnderecoDAOImpl();
 		enderecoDAO.inserirEndereco(endereco02);
+
+		// =============================================================================================================
  
 		Coletor coletor02 = new Coletor(
 				"Carlos",
@@ -102,6 +109,8 @@ public class Main {
 		);
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(coletor02);
+
+		// =============================================================================================================
 		
 		Endereco endereco03 = new Endereco(
 				"Blumenau",
@@ -117,6 +126,8 @@ public class Main {
 		);
 		enderecoDAO = new EnderecoDAOImpl();
 		enderecoDAO.inserirEndereco(endereco03);
+
+		// =============================================================================================================
  
 		Coletor coletor03 = new Coletor(
 				"Beatriz",
@@ -132,8 +143,8 @@ public class Main {
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(coletor03);
 
-////		// =============================================================================================================
-//		
+		// =============================================================================================================
+
 		Endereco endereco04 = new Endereco(
 				"Blumenau",
 				"Victor Konder",
@@ -147,17 +158,22 @@ public class Main {
 				"(47) 97689-5535"
 				);
 		enderecoDAO.inserirEndereco(endereco04);
-//		
+
+		// =============================================================================================================
+
 		Armazem armazem01 = new Armazem(
 				"Giassi",
 				"giassi@gmail.com",
 				"123456",
 				endereco02,
 				"29320241000108",
-				"09-08",
+				LocalTime.of(8, 0),
+				LocalTime.of(21, 0),
 				1000,
 				StatusArmazem.LIVRE);
 		usuarioDAO.inserirUsuario(armazem01);
+
+		// =============================================================================================================
  
 		Endereco endereco05 = new Endereco(
 				"Blumenau",
@@ -172,6 +188,8 @@ public class Main {
 				"(47) 97645-0135"
 				);
 		enderecoDAO.inserirEndereco(endereco05);
+
+		// =============================================================================================================
 		
 		Armazem armazem02 = new Armazem(
 				"Angeloni",
@@ -179,10 +197,13 @@ public class Main {
 				"123457",
 				endereco03,
 				"29320233300108",
-				"07-09",
+				LocalTime.of(8, 0),
+				LocalTime.of(21, 0),
 				1111,
 				StatusArmazem.LOTADO);
 		usuarioDAO.inserirUsuario(armazem02);
+
+		// =============================================================================================================
  
 		Endereco endereco06 = new Endereco(
 				"Blumenau",
@@ -197,6 +218,8 @@ public class Main {
 				"(47) 97789-3035"
 				);
 		enderecoDAO.inserirEndereco(endereco06);
+
+		// =============================================================================================================
  
 		Armazem armazem03 = new Armazem(
 				"Cooper",
@@ -204,7 +227,8 @@ public class Main {
 				"123458",
 				endereco04,
 				"29320241000108",
-				"04-08",
+				LocalTime.of(8, 0),
+				LocalTime.of(21, 0),
 				2000,
 				StatusArmazem.LOTADO);
 		usuarioDAO.inserirUsuario(armazem03);
@@ -225,6 +249,8 @@ public class Main {
 				);
 		enderecoDAO = new EnderecoDAOImpl();
 		enderecoDAO.inserirEndereco(endereco07);
+
+		// =============================================================================================================
  
 		Cooperativa cooperativa01 = new Cooperativa(
 				"Coaca-Cola",
@@ -232,10 +258,13 @@ public class Main {
 				"123456",
 				endereco07,
 				"12.345.678/9012-34",
-				"Segunda a sexta-feira, das 8h às 18h"
+				LocalTime.of(8, 0),
+				LocalTime.of(21, 0)
 				);
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(cooperativa01);
+
+		// =============================================================================================================
 		
 		Endereco endereco08 = new Endereco(
 				"Blumenau",
@@ -251,6 +280,8 @@ public class Main {
 				);
 		enderecoDAO = new EnderecoDAOImpl();
 		enderecoDAO.inserirEndereco(endereco08);
+
+		// =============================================================================================================
  
 		Cooperativa cooperativa02 = new Cooperativa(
 				"Supermercado Carol",
@@ -258,10 +289,13 @@ public class Main {
 				"123456",
 				endereco08,
 				"12.309.678/9043-34",
-				"Segunda a sexta-feira, das 8h às 18h"
+				LocalTime.of(8, 0),
+				LocalTime.of(21, 0)
 				);
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(cooperativa02);
+
+		// =============================================================================================================
 		
 		Endereco endereco09 = new Endereco(
 				"Blumenau",
@@ -277,6 +311,8 @@ public class Main {
 				);
 		enderecoDAO = new EnderecoDAOImpl();
 		enderecoDAO.inserirEndereco(endereco09);
+
+		// =============================================================================================================
  
 		 Cooperativa cooperativa03 = new Cooperativa(
 				"Coteminas",
@@ -284,11 +320,12 @@ public class Main {
 				"123456",
 				endereco09,
 				"12.990.678/9012-34",
-				"Segunda a sexta-feira, das 8h às 18h"
+				 LocalTime.of(8, 0),
+				 LocalTime.of(21, 0)
 				);
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(cooperativa03);
-		
+
 		// =============================================================================================================
 		
 		Conquista conquista01 = new Conquista(
@@ -299,6 +336,8 @@ public class Main {
 		ConquistaDAO conquistaDAO = new ConquistaDAOImpl();
 		conquistaDAO.inserirConquista(conquista01);
 
+		// =============================================================================================================
+
 		Conquista conquista02 = new Conquista(
 				200,
 				"Segundo Depósito",
@@ -306,6 +345,8 @@ public class Main {
 				);
 		ConquistaDAO conquistaDAO2 = new ConquistaDAOImpl();
 		conquistaDAO2.inserirConquista(conquista02);
+
+		// =============================================================================================================
 
 		Conquista conquista03 = new Conquista(
 				300,
@@ -340,6 +381,8 @@ public class Main {
 		);
 		ReciclavelDAO reciclavelDAO = new ReciclavelDAOImpl();
 		reciclavelDAO.inserirReciclavel(reciclavel01);
+
+		// =============================================================================================================
 		
 		ItemDeposito itemDeposito01 = new ItemDeposito(
 				reciclavel01,
@@ -347,8 +390,8 @@ public class Main {
 				);
 		ItemDepositoDAO itemDepositoDAO = new ItemDepositoDAOImpl();
 		itemDepositoDAO.inserirItemDeposito(itemDeposito01);
-		
-		
+
+		// =============================================================================================================
 
 		Deposito deposito01 = new Deposito(
 			armazem01,
@@ -360,23 +403,6 @@ public class Main {
 		depositoDAO.inserirDeposito(deposito01);
 
 		// =============================================================================================================
-
-		ItemRetirada itemRetirada = new ItemRetirada(
-			plastico,
-			5.2
-		);
-		ItemRetiradaDAO itemRetiradaDAO = new ItemRetiradaDAOImpl();
-		itemRetiradaDAO.inserirItemRetirada(itemRetirada);
-
-		Retirada retirada = new Retirada(
-			cooperativa01,
-			armazem01,
-			StatusRetirada.EM_ANDAMENTO
-			);
-		retirada.inserirItemRetirada(itemRetirada);
-
-		RetiradaDAO retiradaDAO = new RetiradaDAOImpl();
-		retiradaDAO.inserirRetirada(retirada);
 
 	}
 }
