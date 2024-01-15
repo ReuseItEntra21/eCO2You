@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import br.senac.eco2you.modelo.entidade.material.Material;
@@ -32,6 +33,10 @@ public class ItemRetirada implements Serializable {
 	
 	@Column(name = "peso_item_retirada", nullable = false)
 	private double peso;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_material")
+	private Material material;
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "item_retirada_reciclavel", joinColumns = @JoinColumn(name = "id_item_retirada"), inverseJoinColumns = @JoinColumn(name = "id_reciclavel"))
