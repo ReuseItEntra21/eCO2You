@@ -1,20 +1,13 @@
 package br.senac.eco2you.modelo.entidade.material;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel;
 
 @Entity
 @Table(name = "material")
@@ -29,9 +22,6 @@ public class Material implements Serializable {
 	
 	@Column(name = "nome_material", length = 25, nullable = false)
 	private String nome;
-	
-	@OneToMany(fetch = FetchType.LAZY,mappedBy = "material", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Reciclavel> reciclaveis = new ArrayList<Reciclavel>();
 	
 	public Material(String nome) {
 		setNome(nome);
@@ -56,15 +46,5 @@ public class Material implements Serializable {
 		this.nome = nome;
 	}
 
-	public List<Reciclavel> getReciclaveis() {
-		return reciclaveis;
-	}
- 
-	public void adicionarReciclavel(Reciclavel reciclavel) {
-		this.reciclaveis.add(reciclavel);
-	}
-	
-	public void removerReciclavel(Reciclavel reciclavel) {
-		this.reciclaveis.remove(reciclavel);
-	}
 }
+

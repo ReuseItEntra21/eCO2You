@@ -1,10 +1,7 @@
 package br.senac.eco2you.modelo.entidade.item.retirada;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,13 +9,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.senac.eco2you.modelo.entidade.material.Material;
-import br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel;
+import br.senac.eco2you.modelo.entidade.retirada.Retirada;
 
 @Entity
 @Table(name = "item_retirada")
@@ -31,21 +27,23 @@ public class ItemRetirada implements Serializable {
 	@Column(name = "id_item_retirada")
 	private Long id;
 	
-	@Column(name = "peso_item_retirada", nullable = false)
-	private double peso;
-	
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_material")
 	private Material material;
 	
-	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	@JoinTable(name = "item_retirada_reciclavel", joinColumns = @JoinColumn(name = "id_item_retirada"), inverseJoinColumns = @JoinColumn(name = "id_reciclavel"))
-	private List<Reciclavel> reciclaveis = new ArrayList<Reciclavel>();
-
+	@Column(name = "peso_item_retirada", nullable = false)
+	private double peso;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_retirada")
+	private Retirada retirada;
+	
 	public ItemRetirada() {}
 
-	public ItemRetirada(Material id, double peso) {
+	public ItemRetirada(Material material, double peso, Retirada retirada) {
+		setMaterial(material);
 		setPeso(peso);
+		setRetirada(retirada);
 	}
 	
 	public Long getId() {
@@ -63,18 +61,20 @@ public class ItemRetirada implements Serializable {
 	public void setPeso(double peso) {
 		this.peso = peso;
 	}
-	
-	public List<Reciclavel> getReciclavel() {
-		return reciclaveis;
+
+	public Retirada getRetirada() {
+		return retirada;
 	}
 
-	public void inserirReciclavel(Reciclavel reciclavel) {
-		this.reciclaveis.add(reciclavel);
+	public void setRetirada(Retirada retirada) {
+		this.retirada = retirada;
 	}
- 
-    public void removerRecilavel(Reciclavel reciclavel) {
-        this.reciclaveis.remove(reciclavel);
- 
-    }
 
+	public Material getMaterial() {
+		return material;
+	}
+
+	public void setMaterial(Material material) {
+		this.material = material;
+	}
 }
