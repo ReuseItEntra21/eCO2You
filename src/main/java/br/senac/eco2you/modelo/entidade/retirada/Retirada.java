@@ -42,7 +42,6 @@ public class Retirada implements Serializable{
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_cooperativa")
 	private Cooperativa cooperativa;
-
     
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_armazem")
