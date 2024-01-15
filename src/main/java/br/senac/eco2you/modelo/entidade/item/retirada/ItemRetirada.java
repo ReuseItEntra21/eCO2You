@@ -10,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.senac.eco2you.modelo.entidade.material.Material;
@@ -27,7 +26,7 @@ public class ItemRetirada implements Serializable {
 	@Column(name = "id_item_retirada")
 	private Long id;
 	
-	@OneToMany(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_material")
 	private Material material;
 	
