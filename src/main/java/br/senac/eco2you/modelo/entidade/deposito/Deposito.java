@@ -55,11 +55,13 @@ public class Deposito implements Serializable{
 	
 	public Deposito() {}
 	
-	public Deposito(Armazem armazem, Coletor coletor, StatusDeposito statusDeDeposito) {
+	public Deposito(Armazem armazem, Coletor coletor, StatusDeposito statusDeDeposito, LocalDate data) {
 		setArmazem(armazem);
 		setColetor(coletor);
 		setStatusDeDeposito(statusDeDeposito);
+		setData(data);
 		itensDeposito = new ArrayList<>();
+		
 	}
 	
 	public Long getId() {
