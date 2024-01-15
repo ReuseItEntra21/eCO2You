@@ -12,30 +12,23 @@ import br.senac.eco2you.modelo.dao.endereco.EnderecoDAO;
 import br.senac.eco2you.modelo.dao.endereco.EnderecoDAOImpl;
 import br.senac.eco2you.modelo.dao.itemDeposito.ItemDepositoDAO;
 import br.senac.eco2you.modelo.dao.itemDeposito.ItemDepositoDAOImpl;
-import br.senac.eco2you.modelo.dao.itemRetirada.ItemRetiradaDAO;
-import br.senac.eco2you.modelo.dao.itemRetirada.ItemRetiradaDAOImpl;
 import br.senac.eco2you.modelo.dao.material.MaterialDAO;
 import br.senac.eco2you.modelo.dao.material.MaterialDAOImpl;
 import br.senac.eco2you.modelo.dao.reciclavel.ReciclavelDAO;
 import br.senac.eco2you.modelo.dao.reciclavel.ReciclavelDAOImpl;
-import br.senac.eco2you.modelo.dao.retirada.RetiradaDAO;
-import br.senac.eco2you.modelo.dao.retirada.RetiradaDAOImpl;
 import br.senac.eco2you.modelo.dao.usuario.UsuarioDAO;
 import br.senac.eco2you.modelo.dao.usuario.UsuarioDAOImpl;
 import br.senac.eco2you.modelo.entidade.conquista.Conquista;
 import br.senac.eco2you.modelo.entidade.deposito.Deposito;
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
 import br.senac.eco2you.modelo.entidade.item.deposito.ItemDeposito;
-import br.senac.eco2you.modelo.entidade.item.retirada.ItemRetirada;
 import br.senac.eco2you.modelo.entidade.material.Material;
 import br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel;
-import br.senac.eco2you.modelo.entidade.retirada.Retirada;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
 import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
 import br.senac.eco2you.modelo.enumeracao.status.armazem.StatusArmazem;
 import br.senac.eco2you.modelo.enumeracao.status.deposito.StatusDeposito;
-import br.senac.eco2you.modelo.enumeracao.status.retirada.StatusRetirada;
 
 public class Main {
 
