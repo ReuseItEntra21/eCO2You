@@ -2,6 +2,7 @@ package br.senac.eco2you;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 import br.senac.eco2you.modelo.dao.conquista.ConquistaDAO;
@@ -387,7 +388,8 @@ public class Main {
 		Deposito deposito01 = new Deposito(
 			armazem01,
 			coletor01,
-			StatusDeposito.CONCLUIDO
+			StatusDeposito.CONCLUIDO,
+			LocalDate.of(1333, 12, 2)
 		);
 		
 		DepositoDAO depositoDAO = new DepositoDAOImpl();
