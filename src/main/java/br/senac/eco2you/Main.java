@@ -407,6 +407,7 @@ public class Main {
 		// =============================================================================================================
 		
 		Retirada retirada01 = new Retirada(
+				LocalDate.of(1333, 5, 2),
 				cooperativa01,
 				armazem01,
 				StatusRetirada.CONCLUIDO

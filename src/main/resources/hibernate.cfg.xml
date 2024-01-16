@@ -23,7 +23,7 @@
 		<mapping class="br.senac.eco2you.modelo.entidade.usuario.empresa.Empresa" />
 		<mapping class="br.senac.eco2you.modelo.entidade.usuario.pessoa.Pessoa" />
 		<mapping class="br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor" />
-		<mapping class="br.senac.eco2you.modelo.entidade.conquista" />
+		<mapping class="br.senac.eco2you.modelo.entidade.conquista.Conquista" />
 		<mapping class="br.senac.eco2you.modelo.entidade.material.Material"/>
 	</session-factory>
 </hibernate-configuration>

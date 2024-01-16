@@ -2,9 +2,11 @@ package br.senac.eco2you.modelo.entidade.item.retirada;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,8 +28,8 @@ public class ItemRetirada implements Serializable {
 	@Column(name = "id_item_retirada")
 	private Long id;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_material")
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_material", foreignKey = @ForeignKey(name = "itemRetirada_material_FK"))
 	private Material material;
 	
 	@Column(name = "peso_item_retirada", nullable = false)
