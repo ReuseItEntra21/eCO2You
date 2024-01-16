@@ -17,33 +17,31 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
+ 
 import br.senac.eco2you.modelo.entidade.item.retirada.ItemRetirada;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
 import br.senac.eco2you.modelo.enumeracao.status.retirada.StatusRetirada;
-
+ 
 @Entity
 @Table(name = "retirada")
 public class Retirada implements Serializable{
-
+ 
 	private static final long serialVersionUID = -3121183828192723362L;
-
+ 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_retirada")
     private Long id;
     
-	@OneToOne
     @Column(name = "data_retirada", nullable = false)
     private LocalDate data;
     
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_cooperativa")
 	private Cooperativa cooperativa;
-
+ 
     
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_armazem")
@@ -56,6 +54,7 @@ public class Retirada implements Serializable{
     @Enumerated(EnumType.STRING)private StatusRetirada statusDeRetirada;
     
     public Retirada() {}
+    
     public Retirada(Cooperativa cooperativa, Armazem armazem, StatusRetirada statusDeRetirada) {
     	setStatusDeRetirada(statusDeRetirada);
         setCooperativa(cooperativa);
