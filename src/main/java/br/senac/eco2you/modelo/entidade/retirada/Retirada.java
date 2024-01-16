@@ -54,7 +54,9 @@ public class Retirada implements Serializable{
     @Enumerated(EnumType.STRING)private StatusRetirada statusDeRetirada;
     
     public Retirada() {}
-    public Retirada(Cooperativa cooperativa, Armazem armazem, StatusRetirada statusDeRetirada) {
+    
+    public Retirada(LocalDate data, Cooperativa cooperativa, Armazem armazem, StatusRetirada statusDeRetirada) {
+    	setData(data);
     	setStatusDeRetirada(statusDeRetirada);
         setCooperativa(cooperativa);
         setArmazem(armazem);
