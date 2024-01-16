@@ -3,7 +3,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
- 
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -35,19 +35,18 @@ public class Retirada implements Serializable{
 	@Column(name = "id_retirada")
     private Long id;
     
-    @Column(name = "data_retirada", nullable = false)
-    private LocalDate data;
+  @Column(name = "data_retirada", nullable = false)
+  private LocalDate data;
     
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_cooperativa")
 	private Cooperativa cooperativa;
- 
     
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_armazem")
 	private Armazem armazem;
     
-    @OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+   @OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "retirada_itemRetirada", joinColumns = @JoinColumn(name = "id_retirada"), inverseJoinColumns = @JoinColumn(name = "id_itemRetirada"))
 	private List<ItemRetirada> ItensRetirada;
     

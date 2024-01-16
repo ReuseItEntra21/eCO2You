@@ -3,7 +3,6 @@ package br.senac.eco2you;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
- 
 import br.senac.eco2you.modelo.dao.conquista.ConquistaDAO;
 import br.senac.eco2you.modelo.dao.conquista.ConquistaDAOImpl;
 import br.senac.eco2you.modelo.dao.deposito.DepositoDAO;
@@ -56,6 +55,8 @@ public class Main {
 		);
 		EnderecoDAO enderecoDAO = new EnderecoDAOImpl();
 		enderecoDAO.inserirEndereco(endereco01);
+
+		// =============================================================================================================
  
 		// =============================================================================================================
  
@@ -72,7 +73,6 @@ public class Main {
 		);
 		UsuarioDAO usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(coletor01);
- 
 		// =============================================================================================================
 		
 		Endereco endereco02 = new Endereco(
@@ -89,6 +89,8 @@ public class Main {
 		);
 		enderecoDAO = new EnderecoDAOImpl();
 		enderecoDAO.inserirEndereco(endereco02);
+
+		// =============================================================================================================
  
 		// =============================================================================================================
  
@@ -105,7 +107,6 @@ public class Main {
 		);
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(coletor02);
- 
 		// =============================================================================================================
 		
 		Endereco endereco03 = new Endereco(
@@ -122,6 +123,8 @@ public class Main {
 		);
 		enderecoDAO = new EnderecoDAOImpl();
 		enderecoDAO.inserirEndereco(endereco03);
+
+		// =============================================================================================================
  
 		// =============================================================================================================
  
@@ -141,6 +144,8 @@ public class Main {
  
 		// =============================================================================================================
  
+		// =============================================================================================================
+
 		Endereco endereco04 = new Endereco(
 				"Blumenau",
 				"Victor Konder",
@@ -157,6 +162,9 @@ public class Main {
  
 		// =============================================================================================================
  
+
+		// =============================================================================================================
+
 		Armazem armazem01 = new Armazem(
 				"Giassi",
 				"giassi@gmail.com",
@@ -168,6 +176,8 @@ public class Main {
 				1000,
 				StatusArmazem.LIVRE);
 		usuarioDAO.inserirUsuario(armazem01);
+
+		// =============================================================================================================
  
 		// =============================================================================================================
  
@@ -184,8 +194,8 @@ public class Main {
 				"(47) 97645-0135"
 				);
 		enderecoDAO.inserirEndereco(endereco05);
- 
-		// =============================================================================================================
+
+    // =============================================================================================================
 		
 		Armazem armazem02 = new Armazem(
 				"Angeloni",
@@ -198,6 +208,8 @@ public class Main {
 				1111,
 				StatusArmazem.LOTADO);
 		usuarioDAO.inserirUsuario(armazem02);
+
+		// =============================================================================================================
  
 		// =============================================================================================================
  
@@ -214,6 +226,8 @@ public class Main {
 				"(47) 97789-3035"
 				);
 		enderecoDAO.inserirEndereco(endereco06);
+
+		// =============================================================================================================
  
 		// =============================================================================================================
  
@@ -245,6 +259,8 @@ public class Main {
 				);
 		enderecoDAO = new EnderecoDAOImpl();
 		enderecoDAO.inserirEndereco(endereco07);
+
+		// =============================================================================================================
  
 		// =============================================================================================================
  
@@ -259,8 +275,8 @@ public class Main {
 				);
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(cooperativa01);
- 
-		// =============================================================================================================
+
+    // =============================================================================================================
 		
 		Endereco endereco08 = new Endereco(
 				"Blumenau",
@@ -276,6 +292,8 @@ public class Main {
 				);
 		enderecoDAO = new EnderecoDAOImpl();
 		enderecoDAO.inserirEndereco(endereco08);
+
+		// =============================================================================================================
  
 		// =============================================================================================================
  
@@ -307,6 +325,8 @@ public class Main {
 				);
 		enderecoDAO = new EnderecoDAOImpl();
 		enderecoDAO.inserirEndereco(endereco09);
+
+		// =============================================================================================================
  
 		// =============================================================================================================
  
@@ -321,8 +341,8 @@ public class Main {
 				);
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(cooperativa03);
- 
-		// =============================================================================================================
+
+    // =============================================================================================================
 		
 		Conquista conquista01 = new Conquista(
 				100,
@@ -341,9 +361,9 @@ public class Main {
 				);
 		ConquistaDAO conquistaDAO2 = new ConquistaDAOImpl();
 		conquistaDAO2.inserirConquista(conquista02);
- 
+
 		// =============================================================================================================
- 
+
 		Conquista conquista03 = new Conquista(
 				300,
 				"Terceiro Depósito",
@@ -377,34 +397,46 @@ public class Main {
 		);
 		ReciclavelDAO reciclavelDAO = new ReciclavelDAOImpl();
 		reciclavelDAO.inserirReciclavel(reciclavel01);
- 
+
 		// =============================================================================================================
-		
-		ItemRetirada itemRetirada01 = new ItemRetirada(plastico, 2);
-		ItemRetiradaDAO itemRetiradaDAO = new ItemRetiradaDAOImpl();
-		itemRetiradaDAO.inserirItemRetirada(itemRetirada01);
-		
-		// =============================================================================================================
-		
-		ItemDeposito itemDeposito01 = new ItemDeposito(
-				reciclavel01,
-				10
-				);
-		ItemDepositoDAO itemDepositoDAO = new ItemDepositoDAOImpl();
-		itemDepositoDAO.inserirItemDeposito(itemDeposito01);
- 
-		// =============================================================================================================
- 
+
 		Deposito deposito01 = new Deposito(
 			armazem01,
 			coletor01,
 			StatusDeposito.CONCLUIDO
 		);
-		deposito01.inserirItemDeposito(itemDeposito01);
+		
 		DepositoDAO depositoDAO = new DepositoDAOImpl();
 		depositoDAO.inserirDeposito(deposito01);
- 
+		
+		ItemDeposito itemDeposito01 = new ItemDeposito(
+				reciclavel01,
+				10,
+				deposito01
+				);
+		ItemDepositoDAO itemDepositoDAO = new ItemDepositoDAOImpl();
+		itemDepositoDAO.inserirItemDeposito(itemDeposito01);
+		deposito01.inserirItemDeposito(itemDeposito01);
+
 		// =============================================================================================================
- 
+		
+		Retirada retirada01 = new Retirada(
+				cooperativa01,
+				armazem01,
+				StatusRetirada.CONCLUIDO
+			);
+			
+			RetiradaDAO retiradaDAO = new RetiradaDAOImpl();
+			retiradaDAO.inserirRetirada(retirada01);
+			
+			ItemRetirada itemRetirada01 = new ItemRetirada(
+					aluminio,
+					500,
+					retirada01
+					);
+			ItemRetiradaDAO itemRetiradaDAO = new ItemRetiradaDAOImpl();
+			itemRetiradaDAO.inserirItemRetirada(itemRetirada01);
+			retirada01.inserirItemRetirada(itemRetirada01);
+
 	}
 }
