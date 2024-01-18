@@ -64,6 +64,17 @@ public class Main {
 
 		// =============================================================================================================
  
+		Conquista conquista01 = new Conquista(
+				100,
+				"Primeiro Depósito",
+				"Conquista 100"
+		);	
+		ConquistaDAO conquistaDAO = new ConquistaDAOImpl();
+		conquistaDAO.inserirConquista(conquista01);
+		
+		// =============================================================================================================
+
+		
 		Coletor coletor01 = new Coletor(
 				"José",
 				"Albuquerque",
@@ -77,7 +88,9 @@ public class Main {
 		);
 		UsuarioDAO usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(coletor01);
-
+		coletor01.inserirConquista(conquista01);
+		usuarioDAO.atualizarUsuario(coletor01);
+		
 		// =============================================================================================================
 		
 		Endereco endereco02 = new Endereco(
@@ -97,6 +110,16 @@ public class Main {
 
 		// =============================================================================================================
  
+		Conquista conquista02 = new Conquista(
+				200,
+				"Segundo Depósito",
+				"Conquista 200"
+				);
+		ConquistaDAO conquistaDAO2 = new ConquistaDAOImpl();
+		conquistaDAO2.inserirConquista(conquista02);
+
+		// =============================================================================================================
+		
 		Coletor coletor02 = new Coletor(
 				"Carlos",
 				"Matos",
@@ -110,7 +133,9 @@ public class Main {
 		);
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(coletor02);
-
+		coletor02.inserirConquista(conquista02);
+		usuarioDAO.atualizarUsuario(coletor02);
+		
 		// =============================================================================================================
 		
 		Endereco endereco03 = new Endereco(
@@ -129,7 +154,17 @@ public class Main {
 		enderecoDAO.inserirEndereco(endereco03);
 
 		// =============================================================================================================
- 
+ 		
+		Conquista conquista03 = new Conquista(
+				300,
+				"Terceiro Depósito",
+				"Conquista 300"
+				);
+		ConquistaDAO conquistaDAO3 = new ConquistaDAOImpl();
+		conquistaDAO3.inserirConquista(conquista03);
+		
+		// =============================================================================================================
+		
 		Coletor coletor03 = new Coletor(
 				"Beatriz",
 				"Krauser",
@@ -143,7 +178,9 @@ public class Main {
 		);
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(coletor03);
-
+		coletor03.inserirConquista(conquista03);
+		usuarioDAO.atualizarUsuario(coletor03);
+		
 		// =============================================================================================================
 
 		Endereco endereco04 = new Endereco(
@@ -160,6 +197,7 @@ public class Main {
 				);
 		enderecoDAO.inserirEndereco(endereco04);
 
+		
 		// =============================================================================================================
 
 		Armazem armazem01 = new Armazem(
@@ -329,36 +367,6 @@ public class Main {
 
 		// =============================================================================================================
 		
-		Conquista conquista01 = new Conquista(
-				100,
-				"Primeiro Depósito",
-				"Conquista 100"
-		);
-		ConquistaDAO conquistaDAO = new ConquistaDAOImpl();
-		conquistaDAO.inserirConquista(conquista01);
-
-		// =============================================================================================================
-
-		Conquista conquista02 = new Conquista(
-				200,
-				"Segundo Depósito",
-				"Conquista 200"
-				);
-		ConquistaDAO conquistaDAO2 = new ConquistaDAOImpl();
-		conquistaDAO2.inserirConquista(conquista02);
-
-		// =============================================================================================================
-
-		Conquista conquista03 = new Conquista(
-				300,
-				"Terceiro Depósito",
-				"Conquista 300"
-				);
-		ConquistaDAO conquistaDAO3 = new ConquistaDAOImpl();
-		conquistaDAO3.inserirConquista(conquista03);
-
-		// =============================================================================================================
-		
 		Material aluminio = new Material (
 				"Alumínio"
 				);
@@ -368,7 +376,9 @@ public class Main {
 		Material plastico = new Material (
 				"Plástico"
 				);
-		materialDAO.inserirMaterial(plastico);
+		materialDAO.inserirMaterial(plastico)
+		
+		;
 		
 		// =============================================================================================================
 
@@ -394,6 +404,9 @@ public class Main {
 		
 		DepositoDAO depositoDAO = new DepositoDAOImpl();
 		depositoDAO.inserirDeposito(deposito01);
+		armazem01.inserirDeposito(deposito01);
+		
+		
 		
 		ItemDeposito itemDeposito01 = new ItemDeposito(
 				reciclavel01,
@@ -403,6 +416,8 @@ public class Main {
 		ItemDepositoDAO itemDepositoDAO = new ItemDepositoDAOImpl();
 		itemDepositoDAO.inserirItemDeposito(itemDeposito01);
 		deposito01.inserirItemDeposito(itemDeposito01);
+		depositoDAO.atualizarDeposito(deposito01);
+		usuarioDAO.atualizarUsuario(armazem01);
 
 		// =============================================================================================================
 		
@@ -424,6 +439,8 @@ public class Main {
 			ItemRetiradaDAO itemRetiradaDAO = new ItemRetiradaDAOImpl();
 			itemRetiradaDAO.inserirItemRetirada(itemRetirada01);
 			retirada01.inserirItemRetirada(itemRetirada01);
+			retiradaDAO.atualizarRetirada(retirada01);
+			
 
 	}
 }
