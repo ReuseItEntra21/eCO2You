@@ -15,6 +15,8 @@ import br.senac.eco2you.modelo.entidade.deposito.Deposito;
 import br.senac.eco2you.modelo.entidade.deposito.Deposito_;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem_;
+import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
+import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor_;
 import br.senac.eco2you.modelo.enumeracao.status.deposito.StatusDeposito;
 import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
 
@@ -284,6 +286,65 @@ public class DepositoDAOImpl implements DepositoDAO {
 
 	}
 
+	public List<Deposito> buscarDepositoPeloArmazemEColetor(String nomeDoArmazem, String nomeDoColetor) {
+
+		try (Session sessao = fabrica.getConexao().openSession()) {
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Deposito> criteria = construtor.createQuery(Deposito.class);
+			Root<Deposito> raizDeposito = criteria.from(Deposito.class);
+			Join<Deposito, Coletor> juncaoColetor = raizDeposito.join(Deposito_.coletor);
+
+			criteria.select(raizDeposito)
+					.where(construtor.and(construtor.equal(raizDeposito.get(Deposito_.ARMAZEM), nomeDoArmazem),
+							construtor.equal(juncaoColetor.get(Coletor_.NOME), nomeDoColetor)));
+
+			return sessao.createQuery(criteria).getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public List<Deposito> buscarDepositoPeloArmazemEColetorEStatus(String nomeDoArmazem, String nomeDoColetor,
+			StatusDeposito status) {
+		try (Session sessao = fabrica.getConexao().openSession()) {
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Deposito> criteria = construtor.createQuery(Deposito.class);
+			Root<Deposito> raizDeposito = criteria.from(Deposito.class);
+			Join<Deposito, Coletor> juncaoColetor = raizDeposito.join(Deposito_.coletor);
+
+			criteria.select(raizDeposito)
+					.where(construtor.and(construtor.equal(raizDeposito.get(Deposito_.ARMAZEM), nomeDoArmazem),
+							construtor.equal(juncaoColetor.get(Coletor_.NOME), nomeDoColetor),
+							construtor.equal(raizDeposito.get(Deposito_.STATUS_DE_DEPOSITO), status)));
+
+			return sessao.createQuery(criteria).getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public List<Deposito> buscarDepositoPeloArmazemEColetorEData(String nomeDoColetor, String nomeDoArmazem,
+			LocalDate data) {
+		try (Session sessao = fabrica.getConexao().openSession()) {
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Deposito> criteria = construtor.createQuery(Deposito.class);
+			Root<Deposito> raizDeposito = criteria.from(Deposito.class);
+			Join<Deposito, Coletor> juncaoColetor = raizDeposito.join(Deposito_.coletor);
+
+			criteria.select(raizDeposito)
+					.where(construtor.and(construtor.equal(raizDeposito.get(Deposito_.ARMAZEM), nomeDoArmazem),
+							construtor.equal(juncaoColetor.get(Coletor_.NOME), nomeDoColetor),
+							construtor.equal(raizDeposito.get(Deposito_.DATA), data)));
+
+			return sessao.createQuery(criteria).getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	public List<Deposito> buscarDepositoPeloColetor(String nomeDoColetor) {
 		try (Session sessao = fabrica.getConexao().openSession()) {
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
