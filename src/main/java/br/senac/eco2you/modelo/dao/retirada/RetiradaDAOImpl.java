@@ -152,10 +152,11 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 			CriteriaQuery<Retirada> criteria = construtor.createQuery(Retirada.class);
 			Root<Retirada> raizRetirada = criteria.from(Retirada.class);
 			ParameterExpression<LocalDate> dataRetirada = construtor.parameter(LocalDate.class);
+			criteria.where(construtor.equal(raizRetirada.get(Retirada_.data), dataRetirada));
+			
+			criteria.select(raizRetirada);
 
-			criteria.select(raizRetirada).where(construtor.equal(raizRetirada, dataRetirada));
-
-			retiradas = sessao.createQuery(criteria).getResultList();
+			retiradas = sessao.createQuery(criteria).setParameter(dataRetirada, data).getResultList();
 
 			sessao.getTransaction().commit();
 
