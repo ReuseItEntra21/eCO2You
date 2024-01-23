@@ -2,6 +2,7 @@ package br.senac.eco2you.controle.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 
 import javax.servlet.RequestDispatcher;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.senac.eco2you.modelo.dao.usuario.UsuarioDAO;
 import br.senac.eco2you.modelo.dao.usuario.UsuarioDAOImpl;
+import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
 
 @WebServlet("/")
@@ -21,6 +23,8 @@ public class Servlet extends HttpServlet{
 	private static final long serialVersionUID = 8840029940617992062L;
 	
 	private UsuarioDAO dao;
+	
+	SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
 	
 	public void init () {
 		dao = new UsuarioDAOImpl();
@@ -51,8 +55,16 @@ public class Servlet extends HttpServlet{
 				mostrarTelaCadastrarColetor(request, response);
 				break;
 				
+			case "/cadastrar-armazem":
+				mostrarTelaCadastrarArmazem(request, response);
+				break;
+				
 			case "/inserir-coletor":
 				inserirColetor(request, response);
+				break;
+				
+			case "/inserir-armazem":
+				inserirArmazem(request, response);
 				break;
 				
 			case "/principal-coletor":
@@ -94,6 +106,12 @@ public class Servlet extends HttpServlet{
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastrar-coletor.jsp");
 		dispatcher.forward(request, response);
 	}
+	
+	private void mostrarTelaCadastrarArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastrar-armazem.jsp");
+		dispatcher.forward(request, response);
+	}
 
 	private void inserirColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
 		
@@ -104,8 +122,17 @@ public class Servlet extends HttpServlet{
 		String cpf = request.getParameter("cpf");
 		String email = request.getParameter("email");
 		dao.inserirUsuario(new Coletor(nome, sobrenome, data, senha, cpf, email));
-		response.sendRedirect("home");
+		response.sendRedirect("/home");
+	}
+	
+	private void inserirArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
 		
+		String nome = request.getParameter("nome");
+		String email = request.getParameter("email");
+		String cnpj = request.getParameter("cnpj");
+		String senha = request.getParameter("senha");
+		dao.inserirUsuario(new Armazem(nome, email, cnpj, senha));
+		response.sendRedirect("/home");
 	}
 
 

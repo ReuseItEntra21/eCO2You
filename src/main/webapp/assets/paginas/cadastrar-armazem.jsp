@@ -7,7 +7,7 @@
     </head>
     <body>
           <h1> Nova Conta </h1>
-          <form action="/action_page.php">
+          <form action="/inserir-armazem" method="post">
             <input type="text" id="nome" name="nome" autofocus placeholder="Nome do Armázem" maxlength="25"required size="35">
             <br>
             <br>
@@ -15,9 +15,6 @@
             <br>
             <br>
             <input type="text" id="cnpj" name="cnpj" placeholder="Cnpj" maxlength="18" required size="35">
-            <br>
-            <br>
-            <input type="text" id="cep" name="cep" placeholder="Cep" required size="35">
             <br>
             <br>
             <input type="password" id="senha" name="senha" placeholder="Senha" maxlength="25" size="35" required>
