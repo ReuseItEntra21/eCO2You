@@ -1,7 +1,9 @@
 package br.senac.eco2you.controle.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,9 +31,30 @@ public class Servlet extends HttpServlet{
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+		String action = request.getServletPath();
+
+		try {
+			
+			switch (action) {
+			
+			case "/login":
+				mostrarTelaLogin(request, response);
+				break;
+				
+			default:
+				
+				break;
+			}
+
+		} catch (SQLException ex) {
+			throw new ServletException(ex);
+		}
 		
 	}
 	
-
+	private void mostrarTelaLogin(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/login.jsp");
+		dispatcher.forward(request, response);
+	}
 }

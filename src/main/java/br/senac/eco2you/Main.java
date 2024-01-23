@@ -38,8 +38,6 @@ import br.senac.eco2you.modelo.enumeracao.status.armazem.StatusArmazem;
 import br.senac.eco2you.modelo.enumeracao.status.deposito.StatusDeposito;
 import br.senac.eco2you.modelo.enumeracao.status.retirada.StatusRetirada;
 
-
-
 public class Main {
 
 	public static void main(String[] args) throws ParseException {
