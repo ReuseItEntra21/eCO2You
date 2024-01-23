@@ -39,7 +39,7 @@ public class Servlet extends HttpServlet{
 			
 			switch (action) {
 			
-			case "/home":
+			case "/":
 				mostrarHome(request, response);
 				break;
 			
@@ -104,7 +104,7 @@ public class Servlet extends HttpServlet{
 		String cpf = request.getParameter("cpf");
 		String email = request.getParameter("email");
 		dao.inserirUsuario(new Coletor(nome, sobrenome, data, senha, cpf, email));
-		response.sendRedirect("home");
+		response.sendRedirect("/");
 		
 	}
 
