@@ -4,7 +4,7 @@
 <head>
 </head>
 <body>
-	<form action="/action_page.php">
+	<form action="/">
 		<input type="submit" value="Voltar">
 		<a href="a/b/elenco.html" target="_blank">lupa</a>
 		<h1>Histórico</h1>

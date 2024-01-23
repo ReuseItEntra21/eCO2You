@@ -32,7 +32,7 @@
 		<div>
 			<h1>Login</h1>
 			<div>
-				<form action="/action_page.php">
+				<form action="/">
 					<input type="email" id="email" name="email" placeholder="E-mail" maxlength="25" required>
 					<br>
 					<br>
