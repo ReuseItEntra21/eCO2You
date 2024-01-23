@@ -26,11 +26,21 @@
 			<input type="email" id="email" name="email" placeholder="E-mail" maxlength="45" size="35" required>
 			<br>
 			<br>
-			<input type="submit" value="Entrar">
+			<a href="./principal-coletor">
+				<input type="submit" value="Entrar" id="Entrar">
+			</a>
 			<br>
 			<br>
 			<h2>Faça parte dessa mudança!</h2>
-			<Pre>Conecte-se a uma comunidade<br> comprometida com a <br>sustentabilidade e preservação<br> do meio ambiente.</Pre>
+			<Pre>
+				Conecte-se a uma comunidade
+				<br>
+				comprometida com a 
+				<br>
+				sustentabilidade e preservação
+				<br>
+				do meio ambiente.
+			</Pre>
 		</form>
 	</body>
 </html>
