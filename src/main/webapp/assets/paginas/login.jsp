@@ -32,7 +32,7 @@
 		<div>
 			<h1>Login</h1>
 			<div>
-				<form action="/">
+				<form action="./principal-coletor">
 					<input type="email" id="email" name="email" placeholder="E-mail" maxlength="25" required>
 					<br>
 					<br>
@@ -41,13 +41,19 @@
 					<a href="a/b/elenco.html" target="_blank">Esqueceu a senha?</a>
 					<br>
 					<br>
-					<input type="submit" value="Entrar" id="Entrar">
+					<a href="./principal-coletor">
+						<input type="submit" value="Entrar" id="Entrar">
+					</a>
 				</form>
 			</div>
 			<div>
-			<h1>Crie sua Conta</h1>
-			<br>
-			<h2>Seja parte da mudança que o mundo precisa!</h2>
+				<h1>Crie sua Conta</h1>
+				<br>
+				<h2>Seja parte da mudança que o mundo precisa!</h2>
+				<br>
+				<a href="./cadastrar-coletor">
+					<input type="submit" value="Criar Conta" id="CriarConta">
+				</a>
 			</div>
 		</div>
 	</body>

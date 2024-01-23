@@ -8,6 +8,11 @@
 		<title>eCO2You</title>
 	</head>
 	<body>
+		<a href="./login">
+			<input type="submit" value="Login" id="Login">
+		</a>
+		<br>
+		<br>
 		<img src="#" alt="">
 		<img src="#" alt="">
 		<img src="#" alt="">
