@@ -34,13 +34,13 @@ public class Endereco implements Serializable {
 	@Column(name = "id_endereco")
 	private Long id;
 
-	@Column(name = "cep_endereco", length = 9, nullable = false)
+	@Column(name = "cep_endereco", length = 9, nullable = true)
 	private String cep;
 
-	@Column(name = "tipo_via_endereco", length = 45, nullable = false)
+	@Column(name = "tipo_via_endereco", length = 45, nullable = true)
 	private String tipoVia;
 
-	@Column(name = "numero_endereco", nullable = false)
+	@Column(name = "numero_endereco", nullable = true)
 	private int numeroResidencia;
 
 	@Column(name = "complemento_endereco", length = 45)
@@ -49,13 +49,13 @@ public class Endereco implements Serializable {
 	@Column(name = "telefone_endereco", length = 15)
 	private String telefone;
 
-	@Column(name = "bairro_endereco", length = 25, nullable = false)
+	@Column(name = "bairro_endereco", length = 25, nullable = true)
 	private String bairro;
 
-	@Column(name = "cidade_endereco", length = 25, nullable = false)
+	@Column(name = "cidade_endereco", length = 25, nullable = true)
 	private String cidade;
 
-	@Column(name = "logradouro_endereco", length = 45, nullable = false)
+	@Column(name = "logradouro_endereco", length = 45, nullable = true)
 	private String logradouro;
 
 	@Column(name = "apto_endereco", length = 25)
