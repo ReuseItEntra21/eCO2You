@@ -8,18 +8,18 @@
 		<input type="submit" value="Voltar">
 		<a href="a/b/elenco.html" target="_blank">lupa</a>
 		<h1>Histórico</h1>
-		<h2>Histórico de Depositos</h2>
+		<h2>Nome</h2>
 		<input type="submit" value="Flecha">
-		<p>Item Depositado peso data horario 1</p>
-		<p>Item Depositado peso data horario 2</p>
-		<h2>Lugar Depositado</h2>
+		<p>Nome 1</p>
+		<p>Nome 2</p>
+		<h2>Data Depositada</h2>
 		<input type="submit" value="Flecha">
-		<p>Empresa 1</p>
-		<p>Empresa 2</p>
+		<p>Data 1</p>
+		<p>Data 2</p>
 		<h2>Pontos Obtidos</h2>
 		<input type="submit" value="Flecha">
-		<p>Pontuação 1</p>
-		<p>Pontuação 2</p>
+		<p>Produto peso 1</p>
+		<p>Produto peso 2</p>
 	</form>
 </body>
 </html>
