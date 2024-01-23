@@ -42,6 +42,13 @@ public abstract class Pessoa extends Usuario implements Serializable {
 		this.dataNascimento = dataNascimento;
 	}
  
+	public Pessoa(String nome, String sobrenome, String apelido, Date dataNascimento, String senha, String cpf, String email) {
+		super(nome, email, senha);
+		this.sobrenome = sobrenome;
+		this.apelido = apelido;
+		this.cpf = cpf;
+	}
+	
 	public String getSobrenome() {
 		return sobrenome;
 	}
