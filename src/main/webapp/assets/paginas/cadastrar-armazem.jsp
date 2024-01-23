@@ -6,8 +6,12 @@
 		<title>Cadastro</title>
     </head>
     <body>
-          <h1> Nova Conta </h1>
-          <form action="/inserir-armazem" method="post">
+          	<form action="/inserir-armazem" method="post">
+          	<input type="submit" value="Voltar">
+          	<br>
+          	<br>
+          	<h1> Nova Conta </h1>
+          	<br>
             <input type="text" id="nome" name="nome" autofocus placeholder="Nome do Armázem" maxlength="25"required size="35">
             <br>
             <br>
