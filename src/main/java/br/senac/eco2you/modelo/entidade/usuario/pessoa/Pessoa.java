@@ -1,12 +1,13 @@
 package br.senac.eco2you.modelo.entidade.usuario.pessoa;
  
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
- 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
- 
+
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
 import br.senac.eco2you.modelo.entidade.usuario.Usuario;
  
@@ -42,7 +43,7 @@ public abstract class Pessoa extends Usuario implements Serializable {
 		this.dataNascimento = dataNascimento;
 	}
  
-	public Pessoa(String nome, String sobrenome, Date dataNascimento, String senha, String cpf, String email) {
+	public Pessoa(String nome, String sobrenome, LocalDate dataNascimento, String senha, String cpf, String email) {
 		super(nome, email, senha);
 		this.sobrenome = sobrenome;
 		this.cpf = cpf;

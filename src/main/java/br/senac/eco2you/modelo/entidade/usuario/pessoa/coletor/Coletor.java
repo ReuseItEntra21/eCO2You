@@ -1,6 +1,7 @@
 package br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor;
  
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -39,7 +40,7 @@ public class Coletor extends Pessoa implements Serializable {
 		depositos = new ArrayList<>();
 	}
  
-	public Coletor(String nome, String sobrenome, Date dataNascimento, String senha, String cpf, String email) {
+	public Coletor(String nome, String sobrenome, LocalDate dataNascimento, String senha, String cpf, String email) {
 		super(nome, sobrenome, dataNascimento, senha, cpf, email);
 		depositos = new ArrayList<>();
 	
