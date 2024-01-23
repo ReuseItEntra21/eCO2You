@@ -5,7 +5,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="style.css">
-		<title>Insert title here</title>
+		<title>Login</title>
 	</head>
 	<body>
 		<h1>Login</h1>
