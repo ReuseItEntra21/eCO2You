@@ -24,8 +24,11 @@ public abstract class Empresa extends Usuario implements Serializable {
 	
 	@Column(name = "horario_fechamento_empresa", length = 50, nullable = false)
 	private LocalTime horarioFechamento;
+	
+	@Column(name = "descricao_empresa", length = 250, nullable = true)
+	private String descricao;
  
-	public Empresa(String nome,  String email, String senha, Endereco endereco, String cnpj, LocalTime horarioFechamento, LocalTime horarioAbertura) {
+	public Empresa(String nome,  String email, String senha, String descricao, Endereco endereco, String cnpj, LocalTime horarioFechamento, LocalTime horarioAbertura) {
 		super(nome, email, senha, endereco);
 		setCnpj(cnpj);
 		setHorarioAbertura(horarioAbertura);
@@ -58,4 +61,11 @@ public abstract class Empresa extends Usuario implements Serializable {
 		this.horarioFechamento = horarioFechamento;
 	}
 	
+	public String getDescricao() {
+			return descricao;
+	}
+	
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
 }
