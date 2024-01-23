@@ -15,7 +15,7 @@
 			<a href="a/b/elenco.html" target="_blank">reciclar</a>
 			<a href="a/b/elenco.html" target="_blank">perfil</a>
 		</nav>
-		<form action="/action_page.php">
+		<form action="/">
 			<h2> Depósitos agendados </h2>
 			<input type="image" src="caminho/da/imagem.jpg">
 			2x latinhas de 220ml

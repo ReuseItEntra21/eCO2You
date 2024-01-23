@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<h1>Nova Conta</h1>
-		<form action="/action_page.php">
+		<form action="/inserir-coletor" method="post">
 			<input type="text" id="nome" name="nome" autofocus placeholder="Nome" maxlength="15" required size="35">
 			<br>
 			<br>

@@ -7,7 +7,7 @@
 	</head>
     <body>
     <br>
-        <form action="/action_page.php">
+        <form action="/">
         <input type="submit" value="Voltar">
         <br>
         <br>

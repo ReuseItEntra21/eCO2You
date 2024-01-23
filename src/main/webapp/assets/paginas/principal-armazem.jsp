@@ -15,7 +15,7 @@
 	      <a href="a/b/elenco.html" target="_blank">carrinho</a>
 	      <a href="a/b/elenco.html" target="_blank">perfil</a>
       </nav>
-      <form action="/action_page.php">
+      <form action="/">
           <h2> Depósitos Agendados </h2>
           <input type="image" src="caminho/da/imagem.jpg">
           2x Latinhas de 220ml
@@ -26,9 +26,9 @@
           <br>
           <br>
           <input type="date">
-          <input type="placeholder" value="Coletor">
+          <input type="text" placeholder="Coletor">
           <input type="date">
-          <input type="placeholder" value="Coletor">
+          <input type="text" placeholder="Coletor">
           <h2> Depósitos Pendentes </h2>
           <input type="image" src="caminho/da/imagem.jpg">
           2x Latinhas de 220ml
@@ -41,9 +41,9 @@
           <input type="submit" value="Rejeitar">
           <br>
           <input type="date">
-          <input type="placeholder" value="Coletor">
+          <input type="text" placeholder="Coletor">
           <input type="date">
-          <input type="placeholder" value="Coletor">
+          <input type="text" placeholder="Coletor">
       </form>
   	</body>
   </html>
