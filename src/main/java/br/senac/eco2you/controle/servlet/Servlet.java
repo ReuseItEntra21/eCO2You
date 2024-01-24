@@ -46,10 +46,6 @@ public class Servlet extends HttpServlet{
 			case "/":
 				mostrarApresentacao(request, response);
 				break;
-
-			case "/inserir-armazem":
-				inserirArmazem(request, response);
-				break;
 			
 			case "/login":
 				mostrarLogin(request, response);
@@ -61,14 +57,6 @@ public class Servlet extends HttpServlet{
 				
 			case "/cadastroEndereco-coletor":
 				mostrarCadastroEnderecoColetor(request, response);
-				break;
-
-			case "/cadastrar-armazem":
-				mostrarTelaCadastrarArmazem(request, response);
-				break;
-
-			case "/inserir-coletor":
-				inserirColetor(request, response);
 				break;
 				
 			case "/home-coletor":
@@ -93,6 +81,18 @@ public class Servlet extends HttpServlet{
 
 			case "/editarPerfil-coletor":
 				mostrarEditarPerfilColetor(request, response);
+				break;
+				
+			case "/cadastro-armazem":
+				mostrarCadastroArmazem(request, response);
+				break;
+			
+			case "/inserir-coletor":
+				inserirColetor(request, response);
+				break;
+				
+			case "/inserir-armazem":
+				inserirArmazem(request, response);
 				break;
 				
 			default:
@@ -166,9 +166,9 @@ public class Servlet extends HttpServlet{
 		dispatcher.forward(request, response);
 	}
 
-	private void mostrarTelaCadastrarArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
+	private void mostrarCadastroArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastrar-armazem.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastro-armazem.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -182,8 +182,6 @@ public class Servlet extends HttpServlet{
 		String senha = request.getParameter("senha");
 		dao.inserirUsuario(new Coletor(nome, sobrenome, cpf, dataNascimento, email, senha));
 		response.sendRedirect("/home-coletor");
-		dao.inserirUsuario(new Coletor(nome, sobrenome, data, senha, cpf, email));
-		response.sendRedirect("/home");
 	}
 
 	private void inserirArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
