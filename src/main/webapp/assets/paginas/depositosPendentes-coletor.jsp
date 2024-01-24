@@ -9,7 +9,9 @@
 <body>
     <h1>DEPÓSITO</h1>
     <form action="#" method="get">
-        <input type="submit" value="Voltar">
+        <a href="./home-coletor" target="_blank">
+			<button type="button">voltar</button>
+		</a>
         <label for="dataDeposito"></label>
   <input type="date" id="dataDeposito" name="dataDeposito">
     </form>
