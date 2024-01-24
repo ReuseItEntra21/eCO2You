@@ -48,7 +48,11 @@ public class Servlet extends HttpServlet{
 				break;
 				
 			case "/cadastro-coletor":
-				mostrarTelaCadastroColetor(request, response);
+				mostrarCadastroColetor(request, response);
+				break;
+				
+			case "/cadastroEndereco-coletor":
+				mostrarCadastroEnderecoColetor(request, response);
 				break;
 				
 			case "/inserir-coletor":
@@ -96,9 +100,15 @@ public class Servlet extends HttpServlet{
 		dispatcher.forward(request, response);
 	}
 	
-	private void mostrarTelaCadastroColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
+	private void mostrarCadastroColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastro-coletor.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void mostrarCadastroEnderecoColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastroEndereco-coletor.jsp");
 		dispatcher.forward(request, response);
 	}
 	
@@ -148,11 +158,11 @@ public class Servlet extends HttpServlet{
 		
 		String nome = request.getParameter("nome");
 		String sobrenome = request.getParameter("sobrenome");
-		LocalDate data = LocalDate.parse(request.getParameter("data"));
-		String senha = request.getParameter("senha");
 		String cpf = request.getParameter("cpf");
+		LocalDate dataNascimento = LocalDate.parse(request.getParameter("dataNascimento"));
 		String email = request.getParameter("email");
-		dao.inserirUsuario(new Coletor(nome, sobrenome, data, senha, cpf, email));
+		String senha = request.getParameter("senha");
+		dao.inserirUsuario(new Coletor(nome, sobrenome, cpf, dataNascimento, email, senha));
 		response.sendRedirect("/home-coletor");
 		
 	}
