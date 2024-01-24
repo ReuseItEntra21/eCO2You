@@ -4,7 +4,8 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>Ranking</title>
+		<style><%@include file="../../resources/css/style.css"%></style>
 	</head>
 	<body>
 		<a href="./home-coletor">

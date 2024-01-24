@@ -4,6 +4,7 @@
     <head>
 	    <meta charset="UTF-8">
 		<title>Cadastro</title>
+		<style><%@include file="../../resources/css/style.css"%></style>
     </head>
     <body>
           <h1> Nova Conta </h1>
