@@ -35,17 +35,16 @@ public class Coletor extends Pessoa implements Serializable {
 
 	public Coletor() {}
 	
-	public Coletor(String nome, String sobrenome, String email, String senha, Endereco endereco, String apelido, int idade, String cpf, Date date) {
-		super(nome, email, senha, endereco, sobrenome, apelido, idade, cpf, date);
+	public Coletor(String nome, String sobrenome, String cpf, LocalDate dataNascimento, String email, String senha) {
+		super(nome, sobrenome, cpf, dataNascimento, email, senha);
 		depositos = new ArrayList<>();
 	}
  
-	public Coletor(String nome, String sobrenome, LocalDate dataNascimento, String senha, String cpf, String email) {
-		super(nome, sobrenome, dataNascimento, senha, cpf, email);
+	public Coletor(String nome, String sobrenome, String cpf, LocalDate dataNascimento, String email, String senha, Endereco endereco) {
+		super(nome, sobrenome, cpf, dataNascimento, email, senha, endereco);
 		depositos = new ArrayList<>();
 	
 	}
-	
 	
 	public List<Deposito> getDepositos() {
 		return depositos;
@@ -59,7 +58,7 @@ public class Coletor extends Pessoa implements Serializable {
 		this.depositos.remove(deposito);
 	}
  
-	public List<Conquista> getListaConquistas() {
+	public List<Conquista> getConquistas() {
 		return conquistas;
 	}
  
