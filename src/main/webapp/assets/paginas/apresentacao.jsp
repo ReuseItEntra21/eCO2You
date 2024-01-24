@@ -5,29 +5,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>eCO2You</title>
-		<style>	
-          	body{
-              	background-color: #FFFCF5;
-          	}
-          	h1{
-              	font-size: 50px;
-          	}
-          	h2{
-              	font-size: 30px;
-          	}
-			button {
-				border-radius: 12px;
-				padding: 5px 15px;
-				text-align: center;
-				font-size: 30px;
-				margin: 4px 2px;
-				cursor: pointer;
-			}
-			.ButtonLogin {
-				background-color: #FFFCF5;
-				color: #0D0D0D;
-			}
-      	</style>
+		<style><%@include file="../../resources/css/style.css"%></style>
 	</head>
 	<body>
 		<a href="./login">

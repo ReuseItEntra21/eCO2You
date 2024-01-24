@@ -4,6 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>eCO2You</title>
+		<style><%@include file="../../resources/css/style.css"%></style>
 	</head>
 	<body>
       <nav>

@@ -4,6 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Editar Perfil</title>
+		<style><%@include file="../../resources/css/style.css"%></style>
 	</head>
     <body>
     <br>

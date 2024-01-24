@@ -91,8 +91,16 @@ public class Servlet extends HttpServlet{
 				inserirColetor(request, response);
 				break;
 				
+			case "/atualizar-coletor":
+				atualizarColetor(request, response);
+				break;
+				
 			case "/inserir-armazem":
 				inserirArmazem(request, response);
+				break;
+				
+			case "/atualizar-armazem":
+				atualizarArmazem(request, response);
 				break;
 				
 			default:
@@ -183,6 +191,18 @@ public class Servlet extends HttpServlet{
 		dao.inserirUsuario(new Coletor(nome, sobrenome, cpf, dataNascimento, email, senha));
 		response.sendRedirect("/home-coletor");
 	}
+	
+	private void atualizarColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
+		
+		String nome = request.getParameter("nome");
+		String sobrenome = request.getParameter("sobrenome");
+		String cpf = request.getParameter("cpf");
+		LocalDate dataNascimento = LocalDate.parse(request.getParameter("dataNascimento"));
+		String email = request.getParameter("email");
+		String senha = request.getParameter("senha");
+		dao.atualizarUsuario(new Coletor(nome, sobrenome, cpf, dataNascimento, email, senha));
+		response.sendRedirect("/home-coletor");
+	}
 
 	private void inserirArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
 
@@ -191,6 +211,16 @@ public class Servlet extends HttpServlet{
 		String cnpj = request.getParameter("cnpj");
 		String senha = request.getParameter("senha");
 		dao.inserirUsuario(new Armazem(nome, email, cnpj, senha));
+		response.sendRedirect("/home");
+	}
+	
+	private void atualizarArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
+
+		String nome = request.getParameter("nome");
+		String email = request.getParameter("email");
+		String cnpj = request.getParameter("cnpj");
+		String senha = request.getParameter("senha");
+		dao.atualizarUsuario(new Armazem(nome, email, cnpj, senha));
 		response.sendRedirect("/home");
 	}
 }

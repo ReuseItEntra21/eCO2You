@@ -4,28 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Home</title>
-		<style>
-			body{
-              	background-color: #FFFCF5;
-          	}
-          	h1{
-              	font-size: 50px;
-          	}
-          	h2{
-              	font-size: 30px;
-          	}
-			button {
-				border-radius: 12px;
-				padding: 5px 15px;
-				text-align: center;
-				font-size: 15px;
-				margin: 4px 2px;
-				cursor: pointer;
-			}
-			.buttonDelete {
-			background-color: #FF493E;
-			}
-		</style>
+		<style><%@include file="../../resources/css/style.css"%></style>
 	</head>
 	<body>
 		<nav>

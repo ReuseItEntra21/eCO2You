@@ -4,31 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Endereço</title>
-		<style>
-			body{
-              	background-color: #FFFCF5;
-          	}
-          	h1{
-              	font-size: 50px;
-          	}
-          	h2{
-              	font-size: 30px;
-          	}
-			button {
-				border-radius: 12px;
-				padding: 5px 15px;
-				text-align: center;
-				font-size: 30px;
-				margin: 4px 2px;
-				cursor: pointer;
-			}
-			.ButtonEntrar {
-				background-color: #0D0D0D;
-				color: #FFFCF5;
-				width: 400px;
-				height: 60px;
-			}
-		</style>
+		<style><%@include file="../../resources/css/style.css"%></style>
 	</head>
 	<body>
 		<div>
