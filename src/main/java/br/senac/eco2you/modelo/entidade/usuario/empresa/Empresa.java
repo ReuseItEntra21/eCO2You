@@ -27,23 +27,21 @@ public abstract class Empresa extends Usuario implements Serializable {
 	
 	@Column(name = "descricao_empresa", length = 250, nullable = true)
 	private String descricao;
- 
-	public Empresa(String nome,  String email, String senha, String descricao, Endereco endereco, String cnpj, LocalTime horarioFechamento, LocalTime horarioAbertura) {
+	
+	public Empresa() {}
+	
+	public Empresa(String nome, String cnpj, String email, String senha) {
+		super(nome, email, senha);
+		setCnpj(cnpj);
+	}
+	
+	public Empresa(String nome, String cnpj, LocalTime horarioAbertura, LocalTime horarioFechamento, String descricao, Endereco endereco, String email, String senha) {
 		super(nome, email, senha, endereco);
 		setCnpj(cnpj);
 		setHorarioAbertura(horarioAbertura);
 		setHorarioFechamento(horarioFechamento);
 	}
-	
-	public Empresa(String nome,  String email, String cnpj, String senha) {
-		super(nome, email, senha);
-		setCnpj(cnpj);
-		setHorarioAbertura(horarioAbertura);
-		setHorarioFechamento(horarioFechamento);
-	}
-	
-	public Empresa() {}
- 
+
 	public String getCnpj() {
 		return cnpj;
 	}
