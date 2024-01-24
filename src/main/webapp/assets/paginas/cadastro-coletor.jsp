@@ -59,7 +59,7 @@
 					<input type="email" id="email" name="email" placeholder="E-mail" maxlength="45" size="35" required>
 					<br>
 					<br>
-					<a href="./home-coletor">
+					<a href="./cadastroEndereco-coletor">
 						<button type="button" class="ButtonEntrar" >Fazer Parte</button>
 					</a>
 				</form>
