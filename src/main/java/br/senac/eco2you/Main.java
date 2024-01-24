@@ -428,13 +428,13 @@ public class Main {
  
 		Cooperativa cooperativa01 = new Cooperativa(
 				"Coaca-Cola",
-				"coca.cola@gmail.com",
-				"123456",
-				"",
-				endereco07,
 				"12.345.678/9012-34",
 				LocalTime.of(8, 0),
-				LocalTime.of(21, 0)
+				LocalTime.of(21, 0),
+				"",
+				endereco07,
+				"coca.cola@gmail.com",
+				"123456"
 				);
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(cooperativa01);
@@ -460,13 +460,13 @@ public class Main {
  
 		Cooperativa cooperativa02 = new Cooperativa(
 				"Supermercado Carol",
-				"supermercado.carol@gmail.com",
-				"123456",
-				"",
-				endereco08,
 				"12.309.678/9043-34",
 				LocalTime.of(8, 0),
-				LocalTime.of(21, 0)
+				LocalTime.of(21, 0),
+				"",
+				endereco08,
+				"supermercado.carol@gmail.com",
+				"123456"
 				);
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(cooperativa02);
@@ -492,13 +492,13 @@ public class Main {
  
 		 Cooperativa cooperativa03 = new Cooperativa(
 				"Coteminas",
-				"coteminas@gmail.com",
-				"123456",
-				"",
-				endereco09,
 				"12.990.678/9012-34",
 				 LocalTime.of(8, 0),
-				 LocalTime.of(21, 0)
+				 LocalTime.of(21, 0),
+				 "",
+				endereco09,
+				"coteminas@gmail.com",
+				"123456"		
 				);
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(cooperativa03);
@@ -522,13 +522,13 @@ public class Main {
  
 		 Cooperativa cooperativa04 = new Cooperativa(
 				"Recicla Tudo",
-				"recicla.tudo@gmail.com",
-				"123456",
-				"",
-				endereco14,
 				"41.533.850/0001-32",
 				 LocalTime.of(8, 0),
-				 LocalTime.of(21, 0)
+				 LocalTime.of(21, 0),
+				 "",
+				endereco14,
+				"recicla.tudo@gmail.com",
+				"123456"		
 				);
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(cooperativa04);
@@ -552,13 +552,13 @@ public class Main {
  
 		 Cooperativa cooperativa05 = new Cooperativa(
 				"Saturno Ambiental",
-				"saturno.ambiental@gmail.com",
-				"123456",
-				"",
-				endereco15,
 				"44.511.898/0001-38",
 				 LocalTime.of(8, 0),
-				 LocalTime.of(21, 0)
+				 LocalTime.of(21, 0),
+				 "",
+				endereco15,
+				"saturno.ambiental@gmail.com",
+				"123456"						
 				);
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(cooperativa05);

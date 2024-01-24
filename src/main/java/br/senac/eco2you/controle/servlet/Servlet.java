@@ -17,7 +17,6 @@ import br.senac.eco2you.modelo.dao.usuario.UsuarioDAOImpl;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
 import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
-import modelo.entidade.contato.Contato;
 
 @WebServlet("/")
 public class Servlet extends HttpServlet{
