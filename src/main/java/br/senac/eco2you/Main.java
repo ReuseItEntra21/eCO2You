@@ -1,7 +1,5 @@
 package br.senac.eco2you;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -40,9 +38,7 @@ import br.senac.eco2you.modelo.enumeracao.status.retirada.StatusRetirada;
 
 public class Main {
 
-	public static void main(String[] args) throws ParseException {
-
-		SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
+	public static void main(String[] args) {
 
 
 		// =============================================================================================================
@@ -79,7 +75,7 @@ public class Main {
 				"José",
 				"Albuquerque",
 				"321.456.789-01",
-				formatoData.parse("02/08/1960"),
+				LocalDate.of(1960, 8, 2),
 				"jose.albuquerque@gmail.com",
 				"123456"
 		);
@@ -122,7 +118,7 @@ public class Main {
 				"Carlos",
 				"Matos",
 				"123.456.789-01",
-				formatoData.parse("02/08/1970"),
+				LocalDate.of(1970, 8, 2),
 				"joao.silva@gmail.com",
 				"123456"
 		);
@@ -165,7 +161,7 @@ public class Main {
 				"Beatriz",
 				"Krauser",
 				"123.456.987-01",
-				formatoData.parse("02/08/2000"),
+				LocalDate.of(2000, 8, 2),
 				"beatriz.krauser@gmail.com",
 				"123456"
 		);
@@ -207,7 +203,7 @@ public class Main {
 				"Roberto",
 				"Da Silva",
 				"100.456.987-01",
-				formatoData.parse("02/07/2002"),
+				LocalDate.of(2002, 7, 2),
 				"carlos.silva@gmail.com",
 				"123456"
 		);
@@ -248,7 +244,7 @@ public class Main {
 				"Isabelle",
 				"Cardoso",
 				"100.456.987-01",
-				formatoData.parse("09/10/1995"),
+				LocalDate.of(1995, 10, 9),
 				"isabele.cardoso@gmail.com",
 				"123456",
 				endereco05

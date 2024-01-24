@@ -3,7 +3,6 @@ package br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
