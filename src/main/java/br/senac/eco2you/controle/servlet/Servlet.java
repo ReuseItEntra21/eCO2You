@@ -2,6 +2,7 @@ package br.senac.eco2you.controle.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 
 import javax.servlet.RequestDispatcher;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.senac.eco2you.modelo.dao.usuario.UsuarioDAO;
 import br.senac.eco2you.modelo.dao.usuario.UsuarioDAOImpl;
+import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
 
 @WebServlet("/")
@@ -22,6 +24,8 @@ public class Servlet extends HttpServlet{
 	
 	private UsuarioDAO dao;
 	
+	SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
+
 	public void init () {
 		dao = new UsuarioDAOImpl();
 	}
@@ -42,11 +46,15 @@ public class Servlet extends HttpServlet{
 			case "/":
 				mostrarApresentacao(request, response);
 				break;
+
+			case "/inserir-armazem":
+				inserirArmazem(request, response);
+				break;
 			
 			case "/login":
 				mostrarLogin(request, response);
 				break;
-				
+
 			case "/cadastro-coletor":
 				mostrarCadastroColetor(request, response);
 				break;
@@ -54,7 +62,11 @@ public class Servlet extends HttpServlet{
 			case "/cadastroEndereco-coletor":
 				mostrarCadastroEnderecoColetor(request, response);
 				break;
-				
+
+			case "/cadastrar-armazem":
+				mostrarTelaCadastrarArmazem(request, response);
+				break;
+
 			case "/inserir-coletor":
 				inserirColetor(request, response);
 				break;
@@ -62,23 +74,23 @@ public class Servlet extends HttpServlet{
 			case "/home-coletor":
 				mostrarHomeColetor(request, response);
 				break;
-				
+
 			case "/historicoDepositos-coletor":
 				mostrarHistoricoDepositosColetor(request, response);
 				break;
-				
+
 			case "/ranking-coletor":
 				mostrarRankingColetor(request, response);
 				break;
-				
+
 			case "/depositosPendentes-coletor":
 				mostrarDepositosPendentesColetor(request, response);
 				break;
-				
+
 			case "/perfil-coletor":
 				mostrarPerfilColetor(request, response);
 				break;
-				
+
 			case "/editarPerfil-coletor":
 				mostrarEditarPerfilColetor(request, response);
 				break;
@@ -99,9 +111,9 @@ public class Servlet extends HttpServlet{
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/apresentacao.jsp");
 		dispatcher.forward(request, response);
 	}
-	
+
 	private void mostrarCadastroColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
-		
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastro-coletor.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -119,38 +131,44 @@ public class Servlet extends HttpServlet{
 	}
 	
 	private void mostrarHomeColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
-		
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/home-coletor.jsp");
 		dispatcher.forward(request, response);
 	}
-	
+
 	private void mostrarHistoricoDepositosColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
-		
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/historicoDepositos-coletor.jsp");
 		dispatcher.forward(request, response);
 	}
-	
+
 	private void mostrarRankingColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
-		
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/ranking-coletor.jsp");
 		dispatcher.forward(request, response);
 	}
-	
+
 	private void mostrarDepositosPendentesColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/depositosPendentes-coletor.jsp");
 		dispatcher.forward(request, response);
 	}
-	
+
 	private void mostrarPerfilColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
-		
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/perfil-coletor.jsp");
 		dispatcher.forward(request, response);
 	}
-	
+
 	private void mostrarEditarPerfilColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
-		
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/editarPerfil-coletor.jsp");
+		dispatcher.forward(request, response);
+	}
+
+	private void mostrarTelaCadastrarArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastrar-armazem.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -164,6 +182,17 @@ public class Servlet extends HttpServlet{
 		String senha = request.getParameter("senha");
 		dao.inserirUsuario(new Coletor(nome, sobrenome, cpf, dataNascimento, email, senha));
 		response.sendRedirect("/home-coletor");
-		
+		dao.inserirUsuario(new Coletor(nome, sobrenome, data, senha, cpf, email));
+		response.sendRedirect("/home");
+	}
+
+	private void inserirArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
+
+		String nome = request.getParameter("nome");
+		String email = request.getParameter("email");
+		String cnpj = request.getParameter("cnpj");
+		String senha = request.getParameter("senha");
+		dao.inserirUsuario(new Armazem(nome, email, cnpj, senha));
+		response.sendRedirect("/home");
 	}
 }
