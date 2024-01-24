@@ -15,7 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 import br.senac.eco2you.modelo.dao.usuario.UsuarioDAO;
 import br.senac.eco2you.modelo.dao.usuario.UsuarioDAOImpl;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
+import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
 import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
+import modelo.entidade.contato.Contato;
 
 @WebServlet("/")
 public class Servlet extends HttpServlet{
@@ -101,6 +103,14 @@ public class Servlet extends HttpServlet{
 				
 			case "/atualizar-armazem":
 				atualizarArmazem(request, response);
+				break;
+				
+			case "/inserir-cooperativa":
+				inserirCooperativa(request, response);
+				break;
+				
+			case "/atualizar-cooperativa":
+				atualizarCooperativa(request, response);
 				break;
 				
 			default:
@@ -207,20 +217,40 @@ public class Servlet extends HttpServlet{
 	private void inserirArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
 
 		String nome = request.getParameter("nome");
-		String email = request.getParameter("email");
 		String cnpj = request.getParameter("cnpj");
+		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-		dao.inserirUsuario(new Armazem(nome, email, cnpj, senha));
-		response.sendRedirect("/home");
+		dao.inserirUsuario(new Armazem(nome, cnpj, email, senha));
+		response.sendRedirect("/home-armazem");
 	}
 	
 	private void atualizarArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
 
 		String nome = request.getParameter("nome");
+		String cnpj = request.getParameter("cnpj");
+		String email = request.getParameter("email");
+		String senha = request.getParameter("senha");
+		dao.atualizarUsuario(new Armazem(nome, cnpj, email, senha));
+		response.sendRedirect("/home-armazem");
+	}
+	
+	private void inserirCooperativa(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
+
+		String nome = request.getParameter("nome");
 		String email = request.getParameter("email");
 		String cnpj = request.getParameter("cnpj");
 		String senha = request.getParameter("senha");
-		dao.atualizarUsuario(new Armazem(nome, email, cnpj, senha));
-		response.sendRedirect("/home");
+		dao.inserirUsuario(new Cooperativa(nome, cnpj, email, senha));
+		response.sendRedirect("/home-cooperativa");
+	}
+	
+	private void atualizarCooperativa(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
+
+		String nome = request.getParameter("nome");
+		String cnpj = request.getParameter("cnpj");
+		String email = request.getParameter("email");
+		String senha = request.getParameter("senha");
+		dao.atualizarUsuario(new Cooperativa(nome, cnpj, email, senha));
+		response.sendRedirect("/home-cooperativa");
 	}
 }
