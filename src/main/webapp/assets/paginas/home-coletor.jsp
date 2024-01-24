@@ -27,57 +27,5 @@
 			<button type="button">Perfil</button>
 			</a>
 		</nav>
-		<form action="./principal-coletor">
-			<h2> Depósitos agendados </h2>
-			
-			<div>
-				<input type="image" src="caminho/da/imagem.jpg">
-				2x latinhas de 220ml
-				<button type="button" class="buttonDelete" >
-					<b>EXCLUIR</b>
-				</button>
-				<br>
-				<input type="date">
-				<input type="text" placeholder="Empresa">
-			</div>
-			
-			<div>
-				<input type="image" src="caminho/da/imagem.jpg">
-				2x garrafas de 220ml
-				<button type="button" class="buttonDelete" >
-					<b>EXCLUIR</b>
-				</button>
-				<br>
-				<input type="date">
-				<input type="text" placeholder="Empresa">
-			</div>
-			
-			<h2> Depósitos à serem aceitos </h2>
-			
-			<div>
-				<input type="image" src="caminho/da/imagem.jpg">
-				2x latinhas de 220ml
-				<button type="button" class="buttonDelete" >
-					<b>EXCLUIR</b>
-					</button>
-				<br>
-				<input type="date">
-				<input type="text" placeholder="Empresa">
-			</div>
-			
-			<div>
-				<input type="image" src="caminho/da/imagem.jpg">
-				2x garrafas de 220ml
-				<button type="button" class="buttonDelete" >
-					<b>EXCLUIR</b>
-				</button>
-				<br>
-				<input type="date">
-				<input type="text" placeholder="Empresa">
-			</div>
-			<a href="a/b/elenco.html" target="_blank">
-			<button type="button">Criar Depósito</button>
-			</a>
-		</form>
 	</body>
 </html>

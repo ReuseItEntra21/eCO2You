@@ -17,22 +17,22 @@
 			<div style="float:right">
 				<h1>Nova Conta</h1>
 				<form action="/inserir-coletor" method="post">
-					<input type="text" id="nome" name="nome" autofocus placeholder="Nome" maxlength="15" required size="35">
+					<input type="text" id="nome" name="nome" autofocus placeholder="Nome" required size="35">
 					<br>
 					<br>
-					<input type="text" id="sobrenome" name="sobrenome" autofocus placeholder="Nome" maxlength="15" required size="35">
+					<input type="text" id="sobrenome" name="sobrenome" autofocus placeholder="Sobrenome" required size="35">
 					<br>
 					<br>
 					<input type="date" id="data" name="data" required size="17">
 					<br>
 					<br>
-					<input type="password" id="senha" name="senha" placeholder="Senha" maxlength="25" size="35" required>
+					<input type="password" id="senha" name="senha" placeholder="Senha" size="35" required>
 					<br>
 					<br>
-					<input type="text" id="cpf" name="cpf" placeholder="Cpf" maxlength="14" required size="35">
+					<input type="text" id="cpf" name="cpf" placeholder="Cpf" required size="35">
 					<br>
 					<br>
-					<input type="email" id="email" name="email" placeholder="E-mail" maxlength="45" size="35" required>
+					<input type="email" id="email" name="email" placeholder="E-mail" size="35" required>
 					<br>
 					<br>
 					<a href="./cadastroEndereco-coletor">
