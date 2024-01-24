@@ -78,14 +78,12 @@ public class Main {
 		Coletor coletor01 = new Coletor(
 				"José",
 				"Albuquerque",
-				"jose.albuquerque@gmail.com",
-				"123456",
-				endereco01,
-				"Seu Zé",
-				56,
 				"321.456.789-01",
-				formatoData.parse("02/08/1960")
+				formatoData.parse("02/08/1960"),
+				"jose.albuquerque@gmail.com",
+				"123456"
 		);
+		coletor01.setEndereco(endereco01);
 		UsuarioDAO usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(coletor01);
 		coletor01.inserirConquista(conquista01);
@@ -123,14 +121,12 @@ public class Main {
 		Coletor coletor02 = new Coletor(
 				"Carlos",
 				"Matos",
-				"joao.silva@gmail.com",
-				"123456",
-				endereco02,
-				"Carlão",
-				30,
 				"123.456.789-01",
-				formatoData.parse("02/08/1970")
+				formatoData.parse("02/08/1970"),
+				"joao.silva@gmail.com",
+				"123456"
 		);
+		coletor02.setEndereco(endereco02);
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(coletor02);
 		coletor02.inserirConquista(conquista02);
@@ -168,14 +164,12 @@ public class Main {
 		Coletor coletor03 = new Coletor(
 				"Beatriz",
 				"Krauser",
-				"beatriz.krauser@gmail.com",
-				"123456",
-				endereco03,
-				"BK",
-				23,
 				"123.456.987-01",
-				formatoData.parse("02/08/2000")
+				formatoData.parse("02/08/2000"),
+				"beatriz.krauser@gmail.com",
+				"123456"
 		);
+		coletor03.setEndereco(endereco03);
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(coletor03);
 		coletor03.inserirConquista(conquista03);
@@ -212,14 +206,12 @@ public class Main {
 		Coletor coletor04 = new Coletor(
 				"Roberto",
 				"Da Silva",
-				"carlos.silva@gmail.com",
-				"123456",
-				endereco04,
-				"Mano Brown",
-				21,
 				"100.456.987-01",
-				formatoData.parse("02/07/2002")
+				formatoData.parse("02/07/2002"),
+				"carlos.silva@gmail.com",
+				"123456"
 		);
+		coletor04.setEndereco(endereco04);
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(coletor04);
 		coletor04.inserirConquista(conquista04);
@@ -255,13 +247,11 @@ public class Main {
 		Coletor coletor05 = new Coletor(
 				"Isabelle",
 				"Cardoso",
+				"100.456.987-01",
+				formatoData.parse("09/10/1995"),
 				"isabele.cardoso@gmail.com",
 				"123456",
-				endereco05,
-				"Isa",
-				28,
-				"100.456.987-01",
-				formatoData.parse("09/10/1995")
+				endereco05
 		);
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(coletor05);
