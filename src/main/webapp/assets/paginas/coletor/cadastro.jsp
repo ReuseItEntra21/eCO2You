@@ -15,7 +15,7 @@
 			Conecte-se a uma comunidade comprometida com a sustentabilidade e preservação do meio ambiente
 			</div>
 			<div style="float:right">
-	      <input type="submit" value="Voltar">
+	      	<button type="button">Voltar</button>
 				<h1>Nova Conta</h1>
 				<form action="inserir-coletor" method="post">
 					<input type="text" id="nome" name="nome" autofocus placeholder="Nome" required size="35">
