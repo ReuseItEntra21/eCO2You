@@ -4,7 +4,7 @@
     <head>
 	    <meta charset="UTF-8">
 		<title>Cadastro</title>
-		<style><%@include file="../../resources/css/style.css"%></style>
+		<style><%@include file="../../../resources/css/style.css"%></style>
     </head>
     <form action="/">
 			<br>

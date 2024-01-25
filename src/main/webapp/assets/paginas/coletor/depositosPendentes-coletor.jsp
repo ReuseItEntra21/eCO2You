@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Pendentes</title>
-		<style><%@include file="../../resources/css/style.css"%></style>
+		<style><%@include file="../../../resources/css/style.css"%></style>
 	</head>
 	<body>
 		<nav>

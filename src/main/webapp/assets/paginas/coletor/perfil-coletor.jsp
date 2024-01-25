@@ -5,7 +5,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Perfil Coletor</title>
-		<style><%@include file="../../resources/css/style.css"%></style>
+		<style><%@include file="../../../resources/css/style.css"%></style>
 	</head>
 	<body>
 		<a href="./home-coletor">

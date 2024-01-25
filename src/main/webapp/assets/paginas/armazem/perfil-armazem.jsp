@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Perfil Armazem</title>
-		<style><%@include file="../../resources/css/style.css"%></style>
+		<style><%@include file="../../../resources/css/style.css"%></style>
 	</head>
 	<body>
 	</body>

@@ -143,6 +143,12 @@ public class Servlet extends HttpServlet{
 		
 	}
 	
+	private void mostrarLogin(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/login.jsp");
+		dispatcher.forward(request, response);
+	}
+	
 	private void mostrarApresentacao(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/apresentacao.jsp");
@@ -151,67 +157,61 @@ public class Servlet extends HttpServlet{
 
 	private void mostrarCadastroColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastro-coletor.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/cadastro-coletor.jsp");
 		dispatcher.forward(request, response);
 	}
 	
 	private void mostrarCadastroEnderecoColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastroEndereco-coletor.jsp");
-		dispatcher.forward(request, response);
-	}
-	
-	private void mostrarLogin(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/login.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/cadastroEndereco-coletor.jsp");
 		dispatcher.forward(request, response);
 	}
 	
 	private void mostrarHomeColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/home-coletor.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/home-coletor.jsp");
 		dispatcher.forward(request, response);
 	}
 
 	private void mostrarHistoricoDepositosColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/historicoDepositos-coletor.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/historicoDepositos-coletor.jsp");
 		dispatcher.forward(request, response);
 	}
 
 	private void mostrarRankingColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/ranking-coletor.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coleotr/ranking-coletor.jsp");
 		dispatcher.forward(request, response);
 	}
 
 	private void mostrarDepositosPendentesColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/depositosPendentes-coletor.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/depositosPendentes-coletor.jsp");
 		dispatcher.forward(request, response);
 	}
 
 	private void mostrarPerfilColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/perfil-coletor.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/perfil-coletor.jsp");
 		dispatcher.forward(request, response);
 	}
 
 	private void mostrarEditarPerfilColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/editarPerfil-coletor.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/editarPerfil-coletor.jsp");
 		dispatcher.forward(request, response);
 	}
 
 	private void mostrarCadastroArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastro-armazem.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/cadastro-armazem.jsp");
 		dispatcher.forward(request, response);
 	}
 	
 	private void mostrarCadastroCooperativa(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastro-cooperativa.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cooperativa/cadastro-cooperativa.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -259,7 +259,7 @@ public class Servlet extends HttpServlet{
 		String telefone = request.getParameter("telefone");
 		usuario.setEndereco(new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroResidencia, complemento, aptoEndereco, blocoEndereco, telefone));
 		dao.atualizarUsuario(usuario);
-		response.sendRedirect("/eCO2You/home-coletor");
+		response.sendRedirect("/home-coletor");
 	}
 	
 	private void deletarColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
