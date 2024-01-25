@@ -2,7 +2,6 @@ package br.senac.eco2you.controle.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 
 import javax.servlet.RequestDispatcher;
@@ -26,8 +25,6 @@ public class Servlet extends HttpServlet{
 	private static final long serialVersionUID = 8840029940617992062L;
 	
 	private UsuarioDAO dao;
-	
-	SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
 
 	public void init () {
 		dao = new UsuarioDAOImpl();
@@ -98,6 +95,14 @@ public class Servlet extends HttpServlet{
 				atualizarColetor(request, response);
 				break;
 				
+			case "/deletar-coletor":
+				deletarColetor(request, response);
+				break;
+				
+			case "/atualizar-endereco-coletor":
+				atualizarEnderecoColetor(request, response);
+				break;
+				
 			case "/inserir-armazem":
 				inserirArmazem(request, response);
 				break;
@@ -106,12 +111,20 @@ public class Servlet extends HttpServlet{
 				atualizarArmazem(request, response);
 				break;
 				
+			case "/deletar-armazem":
+				deletarArmazem(request, response);
+				break;
+				
 			case "/inserir-cooperativa":
 				inserirCooperativa(request, response);
 				break;
 				
 			case "/atualizar-cooperativa":
 				atualizarCooperativa(request, response);
+				break;
+				
+			case "/deletar-cooperativa":
+				deletarCooperativa(request, response);
 				break;
 				
 			default:
@@ -207,6 +220,28 @@ public class Servlet extends HttpServlet{
 	}
 	
 	private void atualizarColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
+
+		long id = Long.parseLong(request.getParameter("id"));
+		String nome = request.getParameter("nome");
+		String sobrenome = request.getParameter("sobrenome");
+		String cpf = request.getParameter("cpf");
+		LocalDate dataNascimento = LocalDate.parse(request.getParameter("dataNascimento"));
+		String email = request.getParameter("email");
+		String senha = request.getParameter("senha");
+		dao.atualizarUsuario(new Coletor(id, nome, sobrenome, cpf, dataNascimento , email, senha));
+		response.sendRedirect("/home-coletor");
+	}
+	
+	private void deletarColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+		
+		long id = Long.parseLong(request.getParameter("id"));
+		Usuario usuario = dao.recuperarUsuarioPorId(id);
+		dao.deletarUsuario(usuario);
+		response.sendRedirect("/home");
+		
+	}
+	
+	private void atualizarEnderecoColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
 		
 		Long id = Long.valueOf(request.getParameter("id"));
 		Usuario usuario = dao.recuperarUsuarioPorId(id);
@@ -237,12 +272,22 @@ public class Servlet extends HttpServlet{
 	
 	private void atualizarArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
 
+		long id = Long.parseLong(request.getParameter("id"));
 		String nome = request.getParameter("nome");
 		String cnpj = request.getParameter("cnpj");
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-		dao.atualizarUsuario(new Armazem(nome, cnpj, email, senha));
+		dao.atualizarUsuario(new Armazem(id, nome, cnpj, email, senha));
 		response.sendRedirect("/home-armazem");
+	}
+	
+	private void deletarArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+		
+		long id = Long.parseLong(request.getParameter("id"));
+		Usuario usuario = dao.recuperarUsuarioPorId(id);
+		dao.deletarUsuario(usuario);
+		response.sendRedirect("/home");
+		
 	}
 	
 	private void inserirCooperativa(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
@@ -257,11 +302,21 @@ public class Servlet extends HttpServlet{
 	
 	private void atualizarCooperativa(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
 
+		long id = Long.parseLong(request.getParameter("id"));
 		String nome = request.getParameter("nome");
 		String cnpj = request.getParameter("cnpj");
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-		dao.atualizarUsuario(new Cooperativa(nome, cnpj, email, senha));
+		dao.atualizarUsuario(new Cooperativa(id, nome, cnpj, email, senha));
 		response.sendRedirect("/home-cooperativa");
+	}
+	
+	private void deletarCooperativa(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+		
+		long id = Long.parseLong(request.getParameter("id"));
+		Usuario usuario = dao.recuperarUsuarioPorId(id);
+		dao.deletarUsuario(usuario);
+		response.sendRedirect("/home");
+		
 	}
 }

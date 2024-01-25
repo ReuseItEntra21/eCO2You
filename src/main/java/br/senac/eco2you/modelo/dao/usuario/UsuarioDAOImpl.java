@@ -215,7 +215,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		
 	}
 	
-	public Usuario recuperarUsuarioPorId(String id) {
+	public Usuario recuperarUsuarioPorId(Long id) {
 		
 		Session sessao = null;
 		usuario = null;
