@@ -10,7 +10,7 @@
 	<body>
 		<div>
 			<h1>Endereço</h1>
-			<form action="atualizar-coletor" method="post">				
+			<form action="cadastroEndereco-coletor" method="post">			
 				<input type="hidden" name="id" value="<%=request.getAttribute("usuarioId")%>" />
 				<input type="text" id="cep" name="cep" autofocus placeholder="CEP" required size="30">
 				<input type="text" id="cidade" name="cidade" autofocus placeholder="Cidade" required size="30">
