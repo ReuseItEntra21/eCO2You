@@ -3,6 +3,7 @@ package br.senac.eco2you.controle.servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -82,10 +83,6 @@ public class Servlet extends HttpServlet{
 			case "/editarPerfil-coletor":
 				mostrarEditarPerfilColetor(request, response);
 				break;
-				
-			case "/cadastro-armazem":
-				mostrarCadastroArmazem(request, response);
-				break;
 			
 			case "/inserir-coletor":
 				inserirColetor(request, response);
@@ -103,6 +100,10 @@ public class Servlet extends HttpServlet{
 				atualizarEnderecoColetor(request, response);
 				break;
 				
+			case "/cadastro-armazem":
+				mostrarCadastroArmazem(request, response);
+				break;
+				
 			case "/inserir-armazem":
 				inserirArmazem(request, response);
 				break;
@@ -113,6 +114,10 @@ public class Servlet extends HttpServlet{
 				
 			case "/deletar-armazem":
 				deletarArmazem(request, response);
+				break;
+				
+			case "/cadastro-cooperativa":
+				mostrarCadastroCooperativa(request, response);
 				break;
 				
 			case "/inserir-cooperativa":
@@ -203,6 +208,12 @@ public class Servlet extends HttpServlet{
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastro-armazem.jsp");
 		dispatcher.forward(request, response);
 	}
+	
+	private void mostrarCadastroCooperativa(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastro-cooperativa.jsp");
+		dispatcher.forward(request, response);
+	}
 
 	private void inserirColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
 		
@@ -266,8 +277,11 @@ public class Servlet extends HttpServlet{
 		String cnpj = request.getParameter("cnpj");
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
+		//float capacidadeArmazenagem = request.getParameter("capacidadeArmazenagem");
+		LocalTime horarioAbertura = LocalTime.parse("horarioAbertura");
+		LocalTime horarioFechamento = LocalTime.parse("horarioFechamento");
 		dao.inserirUsuario(new Armazem(nome, cnpj, email, senha));
-		response.sendRedirect("/home-armazem");
+		response.sendRedirect("/eCO2You/home-armazem");
 	}
 	
 	private void atualizarArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
@@ -278,7 +292,7 @@ public class Servlet extends HttpServlet{
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
 		dao.atualizarUsuario(new Armazem(id, nome, cnpj, email, senha));
-		response.sendRedirect("/home-armazem");
+		response.sendRedirect("/eCO2You/home-armazem");
 	}
 	
 	private void deletarArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
