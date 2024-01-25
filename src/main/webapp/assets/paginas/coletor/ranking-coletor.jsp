@@ -4,9 +4,12 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Perfil Cooperativa</title>
-		<style><%@include file="../../resources/css/style.css"%></style>
+		<title>Ranking</title>
+		<style><%@include file="../../../resources/css/style.css"%></style>
 	</head>
 	<body>
+		<a href="./home-coletor">
+			<button type="button">Voltar</button>
+		</a>
 	</body>
 </html>

@@ -4,14 +4,14 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Home</title>
-		<style><%@include file="../../resources/css/style.css"%></style>
+		<style><%@include file="../../../resources/css/style.css"%></style>
 	</head>
 	<body>
 		<nav>
-			<a href="./home-cooperativa" target="_blank">
+			<a href="./home-armazem" target="_blank">
 			<button type="button">Home</button>
 			</a>
-			<a href="./perfil-cooperativa">
+			<a href="./perfil-armazem">
 			<button type="button">Perfil</button>
 			</a>
 		</nav>
