@@ -36,46 +36,46 @@ public class Endereco implements Serializable {
 
 	@Column(name = "cep_endereco", length = 9, nullable = true)
 	private String cep;
-
-	@Column(name = "tipo_via_endereco", length = 45, nullable = true)
-	private String tipoVia;
-
-	@Column(name = "numero_endereco", nullable = true)
-	private int numeroResidencia;
-
-	@Column(name = "complemento_endereco", length = 45)
-	private String complemento;
-
-	@Column(name = "telefone_endereco", length = 15)
-	private String telefone;
-
+	
+	@Column(name = "cidade_endereco", length = 25, nullable = true)
+	private String cidade;
+	
 	@Column(name = "bairro_endereco", length = 25, nullable = true)
 	private String bairro;
 
-	@Column(name = "cidade_endereco", length = 25, nullable = true)
-	private String cidade;
-
+	@Column(name = "tipo_via_endereco", length = 45, nullable = true)
+	private String tipoVia;
+	
 	@Column(name = "logradouro_endereco", length = 45, nullable = true)
 	private String logradouro;
 
+	@Column(name = "numero_endereco", nullable = true)
+	private String numeroEndereco;
+
+	@Column(name = "complemento_endereco", length = 45)
+	private String complemento;
+	
 	@Column(name = "apto_endereco", length = 25)
 	private String aptoEndereco;
 
 	@Column(name = "bloco_endereco", length = 25)
 	private String blocoEndereco;
 
-	public Endereco(String cidade, String bairro, String cep, String tipoVia, String logradouro, int numeroResidencia, String complemento,  
+	@Column(name = "telefone_endereco", length = 15)
+	private String telefone;
+
+	public Endereco(String cep, String cidade, String bairro, String tipoVia, String logradouro, String numeroEndereco, String complemento,  
 			 String aptoEndereco, String blocoEndereco, String telefone) {
 		this.cep = cep;
-		this.tipoVia = tipoVia;
-		this.numeroResidencia = numeroResidencia;
-		this.complemento = complemento;
-		this.telefone = telefone;
-		this.bairro = bairro;
 		this.cidade = cidade;
+		this.bairro = bairro;
+		this.tipoVia = tipoVia;
 		this.logradouro = logradouro;
+		this.numeroEndereco = numeroEndereco;
+		this.complemento = complemento;
 		this.aptoEndereco = aptoEndereco;
 		this.blocoEndereco = blocoEndereco;
+		this.telefone = telefone;
 	}
 
 	public Endereco() {
@@ -105,12 +105,12 @@ public class Endereco implements Serializable {
 		this.tipoVia = tipoVia;
 	}
 
-	public int getNumeroResidencia() {
-		return numeroResidencia;
+	public String getNumeroEndereco() {
+		return numeroEndereco;
 	}
 
-	public void setNumeroResidencia(int numeroResidencia) {
-		this.numeroResidencia = numeroResidencia;
+	public void setNumeroEndereco(String numeroEndereco) {
+		this.numeroEndereco = numeroEndereco;
 	}
 
 	public String getComplemento() {

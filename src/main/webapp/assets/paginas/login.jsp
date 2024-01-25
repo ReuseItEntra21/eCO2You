@@ -10,7 +10,7 @@
 		<div>
 			<div style="float:left">
 			<h1>Login</h1>
-				<form action="/">
+				<form action="home-coletor">
 					<input type="email" id="email" name="email" placeholder="E-mail" maxlength="25" required>
 					<br>
 					<br>
@@ -20,7 +20,7 @@
 					<br>
 					<br>
 					<a href="./home-coletor">
-						<button type="button" class="ButtonEntrar">Entrar</button>
+						<button type="submit" class="ButtonEntrar">Entrar</button>
 					</a>
 				</form>
 			</div>
@@ -30,7 +30,7 @@
 				<h2>Seja parte da mudança que o mundo precisa!</h2>
 				<br>
 				<a href="./cadastro-coletor">
-					<button type="button" class="ButtonCriarConta">Criar Conta</button>
+					<button type="submit" class="ButtonCriarConta">Criar Conta</button>
 				</a>
 			</div>
 		</div>

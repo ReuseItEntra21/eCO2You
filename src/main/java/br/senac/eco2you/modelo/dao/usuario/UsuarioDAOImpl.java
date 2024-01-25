@@ -14,6 +14,7 @@ import br.senac.eco2you.modelo.entidade.usuario.Usuario_;
 import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
 
 public class UsuarioDAOImpl implements UsuarioDAO {
+	
 	private ConexaoFactory fabrica;
 	private Usuario usuario;
 
@@ -178,4 +179,76 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		return usuario;
 	}
 
+	public Usuario recuperarUsuarioPorEmail(String email) {
+		
+		Session sessao = null;
+		usuario = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Usuario> criteria = construtor.createQuery(Usuario.class);
+			Root<Usuario> raizUsuario = criteria.from(Usuario.class);
+
+			criteria.select(raizUsuario).where(construtor.equal(raizUsuario.get(Usuario_.EMAIL), email));
+
+			Usuario usuario = sessao.createQuery(criteria).getSingleResult();
+
+			return usuario;
+
+		} catch (Exception sqlException) {
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return usuario;
+		
+	}
+	
+	public Usuario recuperarUsuarioPorId(String id) {
+		
+		Session sessao = null;
+		usuario = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Usuario> criteria = construtor.createQuery(Usuario.class);
+			Root<Usuario> raizUsuario = criteria.from(Usuario.class);
+
+			criteria.select(raizUsuario).where(construtor.equal(raizUsuario.get(Usuario_.ID), id));
+
+			Usuario usuario = sessao.createQuery(criteria).getSingleResult();
+
+			return usuario;
+
+		} catch (Exception sqlException) {
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return usuario;
+		
+	}
+	
 }
