@@ -13,7 +13,7 @@ public interface UsuarioDAO {
 
 	void atualizarUsuario(Usuario usuario);
 	
-	List<Usuario> buscarUsuariosPorEmail(String email);
+	List<Usuario> buscarUsuariosPorNome(String nome);
 	
 	Usuario buscarUsuarioPorEmailESenha(String email, String senha);
 	

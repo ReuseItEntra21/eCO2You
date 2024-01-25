@@ -106,7 +106,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		}
 	}
 
-	public List<Usuario> buscarUsuariosPorEmail(String email) {
+	public List<Usuario> buscarUsuariosPorNome(String nome) {
 		Session sessao = null;
 
 		try {
@@ -117,7 +117,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			CriteriaQuery<Usuario> criteria = construtor.createQuery(Usuario.class);
 			Root<Usuario> raizUsuario = criteria.from(Usuario.class);
 
-			criteria.select(raizUsuario).where(construtor.like(raizUsuario.get("nome"), "%" + email + "%"));
+			criteria.select(raizUsuario).where(construtor.like(raizUsuario.get("nome"), "%" + nome + "%"));
 
 			return sessao.createQuery(criteria).getResultList();
 
