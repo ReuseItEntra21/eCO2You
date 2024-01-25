@@ -9,6 +9,10 @@
 	<body>
 		<div>
 			<div style="float:left">
+			<form action="/">
+			<br>
+	        	<input type="submit" value="Voltar">
+			</form>
 			<h1>Login</h1>
 				<form action="home-coletor">
 					<input type="email" id="email" name="email" placeholder="E-mail" maxlength="25" required>
@@ -25,6 +29,8 @@
 				</form>
 			</div>
 			<div style="float:right">
+            	<br>
+                <br>
 				<h1>Crie sua Conta</h1>
 				<br>
 				<h2>Seja parte da mudança que o mundo precisa!</h2>

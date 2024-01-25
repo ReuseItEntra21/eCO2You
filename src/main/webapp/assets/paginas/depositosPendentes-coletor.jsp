@@ -37,7 +37,7 @@
 					<b>EXCLUIR</b>
 				</button>
 				<br>
-				<input type="date">
+				<input type="date" id="data" name="dataDeposito">
 				<input type="text" placeholder="Empresa">
 			</div>
 			
@@ -48,7 +48,7 @@
 					<b>EXCLUIR</b>
 				</button>
 				<br>
-				<input type="date">
+				<input type="date" id="data" name="dataDeposito">
 				<input type="text" placeholder="Empresa">
 			</div>
 			
@@ -61,7 +61,7 @@
 					<b>EXCLUIR</b>
 					</button>
 				<br>
-				<input type="date">
+				<input type="date" id="data" name="dataDeposito">
 				<input type="text" placeholder="Empresa">
 			</div>
 			
@@ -72,7 +72,7 @@
 					<b>EXCLUIR</b>
 				</button>
 				<br>
-				<input type="date">
+				<input type="date" id="data" name="dataDeposito">
 				<input type="text" placeholder="Empresa">
 			</div>
 			<a href="a/b/elenco.html" target="_blank">

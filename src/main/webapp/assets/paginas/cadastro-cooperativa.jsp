@@ -6,6 +6,10 @@
 		<title>Cadastro</title>
 		<style><%@include file="../../resources/css/style.css"%></style>
     </head>
+    <form action="/">
+			<br>
+	        	<input type="submit" value="Voltar">
+			</form>
     <body>
           <h1> Nova Conta </h1>
           <form action="inserir-cooperativa" method="post">
