@@ -9,7 +9,6 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 
 import br.senac.eco2you.modelo.entidade.conquista.Conquista;
-import br.senac.eco2you.modelo.entidade.usuario.Usuario;
 import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
 
 public class ConquistaDAOImpl implements ConquistaDAO {
@@ -105,7 +104,7 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 		}
 	}
 
-	public List<Conquista> buscarConquistaUsuario(Usuario usario) {
+	public List<Conquista> buscarConquistaUsuario(long id) {
 		Session sessao = null;
 
 		try {
@@ -116,7 +115,7 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 			CriteriaQuery<Conquista> criteria = construtor.createQuery(Conquista.class);
 			Root<Conquista> raizConquista = criteria.from(Conquista.class);
 
-			criteria.select(raizConquista).where(construtor.like(raizConquista.get("Usuario"), "%" + Usuario + "%"));
+			criteria.select(raizConquista).where(construtor.like(raizConquista.get("nome"), "%" + id + "%"));
 
 			return sessao.createQuery(criteria).getResultList();
 
