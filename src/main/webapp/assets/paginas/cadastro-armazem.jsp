@@ -8,7 +8,7 @@
     </head>
     <body>
           	<form action="inserir-armazem" method="post">
-          	<input type="submit" value="Voltar">
+	    	<button type="button">Voltar</button>
           	<br>
           	<br>
           	<h1> Nova Conta </h1>

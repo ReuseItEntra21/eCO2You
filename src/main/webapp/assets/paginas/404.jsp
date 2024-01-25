@@ -8,9 +8,8 @@
 	    <style><%@include file="../../resources/css/style.css"%></style>
 	</head>
 	<body>
-		<form action="/">
-	        <input type="submit" value="Voltar">
-	    </form>
+		<br>
+	    <button type="button">Voltar</button>
 	    <p>4</p>
 	    <img src="Design sem nome (6)-PhotoRoom.png-PhotoRoom.png" alt="">
 	    <p>4</p>

@@ -17,7 +17,7 @@
 			<div style="float:right">
 			<form action="/">
 			<br>
-	        	<input type="submit" value="Voltar">
+	        	<button type="button">Voltar</button>
 			</form>
 				<h1>Nova Conta</h1>
 				<form action="inserir-coletor" method="post">
@@ -27,16 +27,13 @@
 					<input type="text" id="sobrenome" name="sobrenome" autofocus placeholder="Sobrenome" required size="35">
 					<br>
 					<br>
-					<input type="date" id="dataNascimento" name="dataNascimento" required size="17">
-					<br>
-					<br>
-					<input type="password" id="senha" name="senha" placeholder="Senha" size="35" required>
-					<br>
-					<br>
-					<input type="text" id="cpf" name="cpf" placeholder="Cpf" required size="35">
+					<input type="date" id="dataNascimento" name="dataNascimento" required size="17"><input type="text" id="cpf" name="cpf" placeholder="Cpf" required size="18">
 					<br>
 					<br>
 					<input type="email" id="email" name="email" placeholder="E-mail" size="35" required>
+					<br>
+					<br>
+					<input type="password" id="senha" name="senha" placeholder="Senha" size="35" required>
 					<br>
 					<br>
 					<button type="submit" class="ButtonEntrar" >Fazer Parte</button>

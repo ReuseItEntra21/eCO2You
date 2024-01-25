@@ -9,9 +9,7 @@
 	</head>
 	<body>
 		<div>
-		<form action="inserir-armazem" method="post">
-          	<input type="submit" value="Voltar">
-          	</form>
+		<button type="button">Voltar</button>
 			<h1>Endereço</h1>
 			<form action="cadastroEndereco-coletor" method="post">			
 				<input type="hidden" name="id" value="<%=request.getAttribute("usuarioId")%>" />

@@ -9,7 +9,7 @@
     <body>
     <br>
         <form action="/">
-        <input type="submit" value="Voltar">
+        <button type="button">Voltar</button>
         <br>
         <br>
         <input type="text" id="nome" name="nome" autofocus placeholder="Nome" maxlength="25" size="46" required><br>
