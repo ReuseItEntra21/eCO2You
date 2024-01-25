@@ -13,7 +13,7 @@
           	<br>
           	<h1> Nova Conta </h1>
           	<br>
-            <input type="text" id="nome" name="nome" autofocus placeholder="Nome do Armázem" maxlength="25" required size="35">
+            <input type="text" id="nome" name="nome" autofocus placeholder="Nome do Armazém" maxlength="25"required size="35">
             <br>
             <br>
             <input type="email" id="email" name="email" placeholder="E-mail" maxlength="45" size="35" required>

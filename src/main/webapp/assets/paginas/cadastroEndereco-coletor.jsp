@@ -9,9 +9,13 @@
 	</head>
 	<body>
 		<div>
+		<form action="inserir-armazem" method="post">
+          	<input type="submit" value="Voltar">
+          	</form>
 			<h1>Endereço</h1>
 			<form action="cadastroEndereco-coletor" method="post">			
 				<input type="hidden" name="id" value="<%=request.getAttribute("usuarioId")%>" />
+                <br>
 				<input type="text" id="cep" name="cep" autofocus placeholder="CEP" required size="30">
 				<input type="text" id="cidade" name="cidade" autofocus placeholder="Cidade" required size="30">
 				<br>
@@ -24,7 +28,7 @@
 				<input type="text" id="numeroResidencia" name="numeroResidencia" autofocus placeholder="Número da Residencia" required size="30">
 				<br>
 				<br>
-				<input type="text" id="complemento" name="complemento" autofocus placeholder="Complemento" required size="64">
+				<input type="text" id="complemento" name="complemento" autofocus placeholder="Complemento" required size="66">
 				<br>
 				<br>
 				<input type="text" id="aptoEndereco" name="aptoEndereco" autofocus placeholder="Número do Apartamento" required size="30">
