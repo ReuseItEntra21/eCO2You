@@ -32,7 +32,7 @@ public class Armazem extends Empresa implements Serializable {
 	private float capacidadeArmazenagem;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(name = "status_armazem", nullable = false)
+	@Column(name = "status_armazem", nullable = true)
 	private StatusArmazem statusArmazem;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
