@@ -263,7 +263,16 @@ public class Servlet extends HttpServlet{
 		float capacidadeArmazenagem = Float.valueOf(request.getParameter("capacidadeArmazenagem"));
 		LocalTime horarioAbertura = LocalTime.parse(request.getParameter("horarioAbertura"));
 		LocalTime horarioFechamento = LocalTime.parse(request.getParameter("horarioFechamento"));
-		dao.inserirUsuario(new Armazem(nome, cnpj, email, senha, capacidadeArmazenagem, horarioAbertura, horarioFechamento));
+		String cep = request.getParameter("cep");
+		String cidade = request.getParameter("cidade");
+		String bairro = request.getParameter("bairro");
+		String tipoVia = request.getParameter("tipoVia");
+		String logradouro = request.getParameter("logradouro");
+		String numeroEndereco = request.getParameter("numeroEndereco");
+		String complemento = request.getParameter("complemento");
+		String telefone = request.getParameter("telefone");
+		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento, telefone);
+		dao.inserirUsuario(new Armazem(nome, cnpj, email, senha, capacidadeArmazenagem, horarioAbertura, horarioFechamento, endereco));
 		response.sendRedirect("/eCO2You/home-armazem");
 	}
 	

@@ -50,15 +50,9 @@ public class Armazem extends Empresa implements Serializable {
 		depositos = new ArrayList<>();
 		retiradas = new ArrayList<>();
 	}
-
-	public Armazem(String nome, String cnpj, String email, String senha) {
-		super(nome, email, cnpj, senha);
-		depositos = new ArrayList<>();
-		retiradas = new ArrayList<>();
-	}
 	
-	public Armazem(String nome, String cnpj, String email, String senha, float capacidadeArmazenagem, LocalTime horarioAbertura, LocalTime horarioFechamento) {
-		super(nome, email, cnpj, senha, horarioAbertura, horarioFechamento);
+	public Armazem(String nome, String cnpj, String email, String senha, float capacidadeArmazenagem, LocalTime horarioAbertura, LocalTime horarioFechamento, Endereco endereco) {
+		super(nome, email, cnpj, senha, horarioAbertura, horarioFechamento, endereco);
 		setCapacidadeArmazenagem(capacidadeArmazenagem);
 		depositos = new ArrayList<>();
 		retiradas = new ArrayList<>();

@@ -34,6 +34,30 @@
             <input type="time" id="horarioFechamento" name="horarioFechamento" required size="17">          
             <br>
             <br>
+            <input type="text" id="cep" name="cep" placeholder="cep" maxlength="18" required size="35">
+	        <br>
+	        <br>
+	        <input type="text" id="cidade" name="cidade" placeholder="cidade" maxlength="18" required size="35">
+	        <br>
+	        <br>
+	        <input type="text" id="bairro" name="bairro" placeholder="bairro" maxlength="18" required size="35">
+	        <br>
+	        <br>
+	        <input type="text" id="tipoVia" name="tipoVia" placeholder="tipoVia" maxlength="18" required size="35">
+	        <br>
+	        <br>
+	        <input type="text" id="logradouro" name="logradouro" placeholder="logradouro" maxlength="18" required size="35">
+	        <br>
+	        <br>
+	        <input type="text" id="numeroEndereco" name="numeroEndereco" placeholder="numeroEndereco" maxlength="18" required size="35">
+	        <br>
+	        <br>
+	        <input type="text" id="complemento" name="complemento" placeholder="complemento" maxlength="18" required size="35">
+	        <br>
+	        <br>
+	        <input type="text" id="telefone" name="telefone" placeholder="telefone" maxlength="18" required size="35">
+	        <br>
+	        <br>
             <button type="submit" class="ButtonEntrar">Fazer Parte</button>
             <br>
             <br>
