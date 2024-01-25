@@ -51,8 +51,6 @@ public class Main {
 				"Rio Branco",
 				"610",
 				"SENAC",
-				"0",
-				"0",
 				"(47) 97689-0035"
 		);
 		EnderecoDAO enderecoDAO = new EnderecoDAOImpl();
@@ -95,8 +93,6 @@ public class Main {
 				"Santa Maria",
 				"8110",
 				"casa",
-				"0",
-				"0",
 				"(47) 97009-0035"
 		);
 		enderecoDAO = new EnderecoDAOImpl();
@@ -138,8 +134,6 @@ public class Main {
 				"Beira Rio",
 				"824",
 				"casa amarela",
-				"0",
-				"0",
 				"(47) 92909-0035"
 		);
 		enderecoDAO = new EnderecoDAOImpl();
@@ -181,8 +175,6 @@ public class Main {
 				"Doutor Pedro Zimmermann",
 				"2504",
 				"casa",
-				"0",
-				"0",
 				"(47) 95509-0035"
 		);
 		enderecoDAO = new EnderecoDAOImpl();
@@ -223,8 +215,6 @@ public class Main {
 				"Joinvile",
 				"504",
 				"Prédio ao lado da Cooper",
-				"0",
-				"0",
 				"(47) 95534-9035"
 		);
 		enderecoDAO = new EnderecoDAOImpl();
@@ -264,8 +254,6 @@ public class Main {
 				"São Paulo",
 				"2508",
 				"SENAI",
-				"0",
-				"0",
 				"(47) 97689-5535"
 				);
 		enderecoDAO.inserirEndereco(endereco06);
@@ -295,8 +283,6 @@ public class Main {
 				"Jose Spengler",
 				"1097",
 				"casa",
-				"0",
-				"0",
 				"(47) 97645-0135"
 				);
 		enderecoDAO.inserirEndereco(endereco07);
@@ -326,8 +312,6 @@ public class Main {
 				"Amazonas",
 				"2094",
 				"Cooper",
-				"0",
-				"0",
 				"(47) 97789-3035"
 				);
 		enderecoDAO.inserirEndereco(endereco08);
@@ -357,8 +341,6 @@ public class Main {
 				"Amazonas",
 				"900",
 				"Quanta Coisa",
-				"0",
-				"0",
 				"(47) 97259-3900"
 				);
 		enderecoDAO.inserirEndereco(endereco09);
@@ -388,8 +370,6 @@ public class Main {
 				"7 de Setembro",
 				"763",
 				"Shopping Neumarkt",
-				"0",
-				"0",
 				"(47) 93589-4430"
 				);
 		enderecoDAO.inserirEndereco(endereco10);
@@ -417,8 +397,6 @@ public class Main {
 				"Senador Rocha",
 				"396",
 				"Fábrica",
-				"0",
-				"0",
 				"(47) 93389-0035"
 				);
 		enderecoDAO = new EnderecoDAOImpl();
@@ -449,8 +427,6 @@ public class Main {
 				"Garibaldi",
 				"5867",
 				"Mercado",
-				"0",
-				"0",
 				"(47) 92048-0035"
 				);
 		enderecoDAO = new EnderecoDAOImpl();
@@ -481,8 +457,6 @@ public class Main {
 				"Rui Barbosa",
 				"1578",
 				"Fábrica",
-				"0",
-				"0",
 				"(47) 90089-5035"
 				);
 		enderecoDAO = new EnderecoDAOImpl();
@@ -513,8 +487,6 @@ public class Main {
 				"Santa Maria",
 				"14000",
 				"Galpão",
-				"0",
-				"0",
 				"(47) 98389-9837"
 				);
 		enderecoDAO = new EnderecoDAOImpl();
@@ -543,8 +515,6 @@ public class Main {
 				"Igarapé",
 				"274",
 				"Saturno Ambiental",
-				"0",
-				"0",
 				"(47) 98809-2238"
 				);
 		enderecoDAO = new EnderecoDAOImpl();

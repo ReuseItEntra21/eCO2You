@@ -96,10 +96,6 @@ public class Servlet extends HttpServlet{
 				deletarColetor(request, response);
 				break;
 				
-			case "/atualizar-endereco-coletor":
-				atualizarEnderecoColetor(request, response);
-				break;
-				
 			case "/cadastro-armazem":
 				mostrarCadastroArmazem(request, response);
 				break;
@@ -223,11 +219,17 @@ public class Servlet extends HttpServlet{
 		LocalDate dataNascimento = LocalDate.parse(request.getParameter("dataNascimento"));
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-		dao.inserirUsuario(new Coletor(nome, sobrenome, cpf, dataNascimento, email, senha));
-		Usuario usuario = dao.recuperarUsuarioPorEmail(email);
-		request.setAttribute("usuarioId", usuario.getId());
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastroEndereco-coletor");
-		dispatcher.forward(request, response);
+		String cep = request.getParameter("cep");
+		String cidade = request.getParameter("cidade");
+		String bairro = request.getParameter("bairro");
+		String tipoVia = request.getParameter("tipoVia");
+		String logradouro = request.getParameter("logradouro");
+		String numeroEndereco = request.getParameter("numeroEndereco");
+		String complemento = request.getParameter("complemento");
+		String telefone = request.getParameter("telefone");
+		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento, telefone);
+		dao.inserirUsuario(new Coletor(nome, sobrenome, cpf, dataNascimento, email, senha, endereco));
+		response.sendRedirect("/home-coletor");
 	}
 	
 	private void atualizarColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
@@ -240,25 +242,6 @@ public class Servlet extends HttpServlet{
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
 		dao.atualizarUsuario(new Coletor(id, nome, sobrenome, cpf, dataNascimento , email, senha));
-		response.sendRedirect("/home-coletor");
-	}
-	
-	private void atualizarEnderecoColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
-		
-		Long id = Long.valueOf(request.getParameter("id"));
-		Usuario usuario = dao.recuperarUsuarioPorId(id);
-		String cep = request.getParameter("cep");
-		String cidade = request.getParameter("cidade");
-		String bairro = request.getParameter("bairro");
-		String tipoVia = request.getParameter("tipoVia");
-		String logradouro = request.getParameter("logradouro");
-		String numeroResidencia = request.getParameter("numeroResidencia");
-		String complemento = request.getParameter("complemento");
-		String aptoEndereco = request.getParameter("aptoEndereco");
-		String blocoEndereco = request.getParameter("blocoEndereco");
-		String telefone = request.getParameter("telefone");
-		usuario.setEndereco(new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroResidencia, complemento, aptoEndereco, blocoEndereco, telefone));
-		dao.atualizarUsuario(usuario);
 		response.sendRedirect("/home-coletor");
 	}
 	
