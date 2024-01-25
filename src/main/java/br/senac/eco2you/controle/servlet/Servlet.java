@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.senac.eco2you.modelo.dao.usuario.UsuarioDAO;
 import br.senac.eco2you.modelo.dao.usuario.UsuarioDAOImpl;
+import br.senac.eco2you.modelo.entidade.endereco.Endereco;
+import br.senac.eco2you.modelo.entidade.usuario.Usuario;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
 import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
@@ -198,19 +200,29 @@ public class Servlet extends HttpServlet{
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
 		dao.inserirUsuario(new Coletor(nome, sobrenome, cpf, dataNascimento, email, senha));
-		response.sendRedirect("/eCO2You/home-coletor");
+		Usuario usuario = dao.recuperarUsuarioPorEmail(email);
+		request.setAttribute("usuarioId", usuario.getId());
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastroEndereco-coletor");
+		dispatcher.forward(request, response);
 	}
 	
 	private void atualizarColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
 		
-		String nome = request.getParameter("nome");
-		String sobrenome = request.getParameter("sobrenome");
-		String cpf = request.getParameter("cpf");
-		LocalDate dataNascimento = LocalDate.parse(request.getParameter("dataNascimento"));
-		String email = request.getParameter("email");
-		String senha = request.getParameter("senha");
-		dao.atualizarUsuario(new Coletor(nome, sobrenome, cpf, dataNascimento, email, senha));
-		response.sendRedirect("/home-coletor");
+		Long id = Long.valueOf(request.getParameter("id"));
+		Usuario usuario = dao.recuperarUsuarioPorId(id);
+		String cep = request.getParameter("cep");
+		String cidade = request.getParameter("cidade");
+		String bairro = request.getParameter("bairro");
+		String tipoVia = request.getParameter("tipoVia");
+		String logradouro = request.getParameter("logradouro");
+		String numeroResidencia = request.getParameter("numeroResidencia");
+		String complemento = request.getParameter("complemento");
+		String aptoEndereco = request.getParameter("aptoEndereco");
+		String blocoEndereco = request.getParameter("blocoEndereco");
+		String telefone = request.getParameter("telefone");
+		usuario.setEndereco(new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroResidencia, complemento, aptoEndereco, blocoEndereco, telefone));
+		dao.atualizarUsuario(usuario);
+		response.sendRedirect("/eCO2You/home-coletor");
 	}
 
 	private void inserirArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{

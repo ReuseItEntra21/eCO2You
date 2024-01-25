@@ -8,7 +8,7 @@
     </head>
     <body>
           <h1> Nova Conta </h1>
-          <form action="/inserir-cooperativa" method="post">
+          <form action="inserir-cooperativa" method="post">
             <input type="text" id="nome" name="nome" autofocus placeholder="Nome da Cooperativa" maxlength="25"required size="35">
             <br>
             <br>
@@ -24,7 +24,7 @@
             <input type="password" id="senha" name="senha" placeholder="Senha" maxlength="25" size="35" required>
             <br>
             <br>
-            <input type="submit" value="Entrar">
+            <button type="submit" class="ButtonEntrar" >Fazer Parte</button>
             <br>
             <br>
             <h2>Faça parte dessa mudança!</h2>

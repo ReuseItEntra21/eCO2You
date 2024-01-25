@@ -8,22 +8,22 @@
 	</head>
 	<body>
 		<nav>
-			<a href="./home-coletor" target="_blank">
+			<a href="home-coletor" target="_blank">
 			<button type="button">Home</button>
 			</a>
-			<a href="./depositosPendentes-coletor" target="_blank">
+			<a href="depositosPendentes-coletor" target="_blank">
 			<button type="button">Pendentes</button>
 			</a>
-			<a href="./ranking-coletor" target="_blank">
+			<a href="ranking-coletor" target="_blank">
 			<button type="button">Ranking</button>
 			</a>
-			<a href="./historicoDepositos-coletor">
+			<a href="historicoDepositos-coletor">
 			<button type="button">Histórico</button>
 			</a>
-			<a href="./buscar-coletor" target="_blank">
+			<a href="buscar-coletor" target="_blank">
 			<button type="button">Lupa</button>
 			</a>
-			<a href="./perfil-coletor">
+			<a href="perfil-coletor">
 			<button type="button">Perfil</button>
 			</a>
 		</nav>

@@ -7,7 +7,7 @@
 		<style><%@include file="../../resources/css/style.css"%></style>
     </head>
     <body>
-          	<form action="/inserir-armazem" method="post">
+          	<form action="inserir-armazem" method="post">
           	<input type="submit" value="Voltar">
           	<br>
           	<br>
@@ -28,7 +28,7 @@
             <input type="password" id="senha" name="senha" placeholder="Senha" maxlength="25" size="35" required>
             <br>
             <br>
-            <input type="submit" value="Entrar">
+            <button type="submit" class="ButtonEntrar">Fazer Parte</button>
             <br>
             <br>
             <h2>Faça parte dessa mudança!</h2>

@@ -35,9 +35,7 @@
 					<input type="email" id="email" name="email" placeholder="E-mail" size="35" required>
 					<br>
 					<br>
-					<a href="./cadastroEndereco-coletor">
-						<button type="submit" class="ButtonEntrar" >Fazer Parte</button>
-					</a>
+					<button type="submit" class="ButtonEntrar" >Fazer Parte</button>
 				</form>
 			</div>
 		</div>
