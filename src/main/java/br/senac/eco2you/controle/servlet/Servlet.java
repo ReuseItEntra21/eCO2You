@@ -310,8 +310,10 @@ public class Servlet extends HttpServlet{
 		String email = request.getParameter("email");
 		String cnpj = request.getParameter("cnpj");
 		String senha = request.getParameter("senha");
-		dao.inserirUsuario(new Cooperativa(nome, cnpj, email, senha));
-		response.sendRedirect("/home-cooperativa");
+		LocalTime horarioAbertura = LocalTime.parse(request.getParameter("horarioAbertura"));
+		LocalTime horarioFechamento = LocalTime.parse(request.getParameter("horarioFechamento"));
+		dao.inserirUsuario(new Cooperativa(nome, cnpj, email, senha, horarioAbertura, horarioFechamento));
+		response.sendRedirect("/eCO2You/home-cooperativa");
 	}
 	
 	private void atualizarCooperativa(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
