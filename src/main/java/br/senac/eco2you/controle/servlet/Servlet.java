@@ -198,7 +198,7 @@ public class Servlet extends HttpServlet{
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
 		dao.inserirUsuario(new Coletor(nome, sobrenome, cpf, dataNascimento, email, senha));
-		response.sendRedirect("/home-coletor");
+		response.sendRedirect("/eCO2You/home-coletor");
 	}
 	
 	private void atualizarColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
