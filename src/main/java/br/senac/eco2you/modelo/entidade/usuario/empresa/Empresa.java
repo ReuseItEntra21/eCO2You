@@ -30,8 +30,8 @@ public abstract class Empresa extends Usuario implements Serializable {
 	
 	public Empresa() {}
 	
-	public Empresa(long id, String nome, String cnpj, String email, String senha) {
-		super(id, nome, email, senha);
+	public Empresa(String nome, String cnpj, String email, String senha) {
+		super(nome, email, senha);
 		setCnpj(cnpj);
 	}
 	

@@ -234,14 +234,13 @@ public class Servlet extends HttpServlet{
 	
 	private void atualizarColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
 
-		long id = Long.parseLong(request.getParameter("id"));
 		String nome = request.getParameter("nome");
 		String sobrenome = request.getParameter("sobrenome");
 		String cpf = request.getParameter("cpf");
 		LocalDate dataNascimento = LocalDate.parse(request.getParameter("dataNascimento"));
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-		dao.atualizarUsuario(new Coletor(id, nome, sobrenome, cpf, dataNascimento , email, senha));
+		dao.atualizarUsuario(new Coletor(nome, sobrenome, cpf, dataNascimento , email, senha));
 		response.sendRedirect("/home-coletor");
 	}
 	
@@ -278,12 +277,11 @@ public class Servlet extends HttpServlet{
 	
 	private void atualizarArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
 
-		long id = Long.parseLong(request.getParameter("id"));
 		String nome = request.getParameter("nome");
 		String cnpj = request.getParameter("cnpj");
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-		dao.atualizarUsuario(new Armazem(id, nome, cnpj, email, senha));
+		dao.atualizarUsuario(new Armazem(nome, cnpj, email, senha));
 		response.sendRedirect("/eCO2You/home-armazem");
 	}
 	
@@ -319,12 +317,11 @@ public class Servlet extends HttpServlet{
 	
 	private void atualizarCooperativa(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
 
-		long id = Long.parseLong(request.getParameter("id"));
 		String nome = request.getParameter("nome");
 		String cnpj = request.getParameter("cnpj");
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-		dao.atualizarUsuario(new Cooperativa(id, nome, cnpj, email, senha));
+		dao.atualizarUsuario(new Cooperativa(nome, cnpj, email, senha));
 		response.sendRedirect("/home-cooperativa");
 	}
 	
