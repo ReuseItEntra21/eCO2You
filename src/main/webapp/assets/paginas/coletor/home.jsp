@@ -45,5 +45,6 @@
         <h2> Conquistas Recentes </h2>
         <h3> Conquista 1 </h3>
         <h3> Conquista 2 </h3>
+        <h2> + </h2>
 	</body>
 </html>
