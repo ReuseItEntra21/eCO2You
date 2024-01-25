@@ -13,7 +13,7 @@
           	<input type="submit" value="Voltar">
           	</form>
 			<h1>Endereço</h1>
-			<form action="atualizar-coletor" method="post">				
+			<form action="cadastroEndereco-coletor" method="post">			
 				<input type="hidden" name="id" value="<%=request.getAttribute("usuarioId")%>" />
                 <br>
 				<input type="text" id="cep" name="cep" autofocus placeholder="CEP" required size="30">

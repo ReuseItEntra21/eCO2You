@@ -25,6 +25,15 @@
             <input type="password" id="senha" name="senha" placeholder="Senha" maxlength="25" size="35" required>
             <br>
             <br>
+            <input type="number" id="capacidadeArmazenagem" name="capacidadeArmazenagem" placeholder="Capacidade em quilogramas" maxlength="10000000" required size="35">
+            <br>
+            <br>
+            <input type="time" id="horarioAbertura" name="horarioAbertura" required size="17">
+            <br>
+            <br>
+            <input type="time" id="horarioFechamento" name="horarioFechamento" required size="17">          
+            <br>
+            <br>
             <button type="submit" class="ButtonEntrar">Fazer Parte</button>
             <br>
             <br>

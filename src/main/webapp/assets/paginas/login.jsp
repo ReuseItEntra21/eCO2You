@@ -36,7 +36,15 @@
 				<h2>Seja parte da mudança que o mundo precisa!</h2>
 				<br>
 				<a href="./cadastro-coletor">
-					<button type="submit" class="ButtonCriarConta">Criar Conta</button>
+					<button type="submit" class="ButtonCriarConta">Coletor</button>
+				</a>
+				<br>
+				<a href="./cadastro-armazem">
+					<button type="submit" class="ButtonCriarConta">Armazem</button>
+				</a>
+				<br>
+				<a href="./cadastro-cooperativa">
+					<button type="submit" class="ButtonCriarConta">Cooperativa</button>
 				</a>
 			</div>
 		</div>

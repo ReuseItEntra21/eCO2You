@@ -1,5 +1,6 @@
 package br.senac.eco2you.modelo.dao.reciclavel;
  
+import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -109,7 +110,6 @@ public class ReciclavelDAOImpl implements ReciclavelDAO {
 	public List<Reciclavel> buscarReciclavelPeloNome(String nome) {
  
 		Session sessao = null;
-		List<Reciclavel> reciclaveis = null;
  
 		try {
 			
@@ -120,12 +120,11 @@ public class ReciclavelDAOImpl implements ReciclavelDAO {
 			CriteriaQuery<Reciclavel> criteria = construtor.createQuery(Reciclavel.class);
 			Root<Reciclavel> raizReciclavel = criteria.from(Reciclavel.class);
  
-			criteria.select(raizReciclavel).where(construtor.like(raizReciclavel.get(nome), "%" + nome + "%"));
- 
-			reciclaveis = sessao.createQuery(criteria).getResultList();
- 
-			sessao.getTransaction().commit();
- 
+			criteria.select(raizReciclavel).where(construtor.like(raizReciclavel.get("nome"), "%" + nome + "%"));
+   
+			return sessao.createQuery(criteria).getResultList();
+
+			
 		} catch (Exception sqlException) {
  
 			sqlException.printStackTrace();
@@ -141,7 +140,7 @@ public class ReciclavelDAOImpl implements ReciclavelDAO {
 			}
 		}
  
-		return reciclaveis;
+		return Collections.emptyList();
 	}
  
 }
