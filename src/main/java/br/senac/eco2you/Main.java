@@ -75,7 +75,7 @@ public class Main {
 				"José",
 				"Albuquerque",
 				"321.456.789-01",
-				LocalDate.of(1960, 8, 2),
+				LocalDate.of(1995, 10, 9),
 				"jose.albuquerque@gmail.com",
 				"123456"
 		);
