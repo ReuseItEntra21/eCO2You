@@ -35,13 +35,8 @@ public abstract class Empresa extends Usuario implements Serializable {
 		setCnpj(cnpj);
 	}
 	
-	public Empresa(String nome, String cnpj, String email, String senha) {
-		super(nome, email, senha);
-		setCnpj(cnpj);
-	}
-	
-	public Empresa(String nome, String cnpj, String email, String senha, LocalTime horarioAbertura, LocalTime horarioFechamento) {
-		super(nome, email, senha);
+	public Empresa(String nome, String cnpj, String email, String senha, LocalTime horarioAbertura, LocalTime horarioFechamento, Endereco endereco) {
+		super(nome, email, senha, endereco);
 		setCnpj(cnpj);
 		setHorarioAbertura(horarioAbertura);
 		setHorarioFechamento(horarioFechamento);

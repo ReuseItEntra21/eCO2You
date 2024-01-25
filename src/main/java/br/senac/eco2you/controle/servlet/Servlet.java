@@ -295,7 +295,16 @@ public class Servlet extends HttpServlet{
 		String senha = request.getParameter("senha");
 		LocalTime horarioAbertura = LocalTime.parse(request.getParameter("horarioAbertura"));
 		LocalTime horarioFechamento = LocalTime.parse(request.getParameter("horarioFechamento"));
-		dao.inserirUsuario(new Cooperativa(nome, cnpj, email, senha, horarioAbertura, horarioFechamento));
+		String cep = request.getParameter("cep");
+		String cidade = request.getParameter("cidade");
+		String bairro = request.getParameter("bairro");
+		String tipoVia = request.getParameter("tipoVia");
+		String logradouro = request.getParameter("logradouro");
+		String numeroEndereco = request.getParameter("numeroEndereco");
+		String complemento = request.getParameter("complemento");
+		String telefone = request.getParameter("telefone");
+		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento, telefone);
+		dao.inserirUsuario(new Cooperativa(nome, cnpj, email, senha, horarioAbertura, horarioFechamento, endereco));
 		response.sendRedirect("/eCO2You/home-cooperativa");
 	}
 	
