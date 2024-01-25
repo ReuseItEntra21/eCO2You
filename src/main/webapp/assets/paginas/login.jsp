@@ -22,9 +22,7 @@
 					<a href="a/b/elenco.html" target="_blank">Esqueceu a senha?</a>
 					<br>
 					<br>
-					<a href="./home-coletor">
-						<button type="submit" class="ButtonEntrar">Entrar</button>
-					</a>
+					<button type="submit" class="ButtonEntrar">Entrar</button>
 				</form>
 			</div>
 			<div style="float:right">
@@ -34,15 +32,15 @@
 				<br>
 				<h2>Seja parte da mudança que o mundo precisa!</h2>
 				<br>
-				<a href="./cadastro-coletor">
+				<a href="./coletor/cadastro">
 					<button type="submit" class="ButtonCriarConta">Coletor</button>
 				</a>
 				<br>
-				<a href="./cadastro-armazem">
+				<a href="./armazem/cadastro">
 					<button type="submit" class="ButtonCriarConta">Armazem</button>
 				</a>
 				<br>
-				<a href="./cadastro-cooperativa">
+				<a href="./cooperativa/cadastro">
 					<button type="submit" class="ButtonCriarConta">Cooperativa</button>
 				</a>
 			</div>
