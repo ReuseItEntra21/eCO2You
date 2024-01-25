@@ -232,15 +232,6 @@ public class Servlet extends HttpServlet{
 		response.sendRedirect("/home-coletor");
 	}
 	
-	private void deletarColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
-		
-		long id = Long.parseLong(request.getParameter("id"));
-		Usuario usuario = dao.recuperarUsuarioPorId(id);
-		dao.deletarUsuario(usuario);
-		response.sendRedirect("/home");
-		
-	}
-	
 	private void atualizarEnderecoColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
 		
 		Long id = Long.valueOf(request.getParameter("id"));
@@ -258,6 +249,15 @@ public class Servlet extends HttpServlet{
 		usuario.setEndereco(new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroResidencia, complemento, aptoEndereco, blocoEndereco, telefone));
 		dao.atualizarUsuario(usuario);
 		response.sendRedirect("/eCO2You/home-coletor");
+	}
+	
+	private void deletarColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+		
+		long id = Long.parseLong(request.getParameter("id"));
+		Usuario usuario = dao.recuperarUsuarioPorId(id);
+		dao.deletarUsuario(usuario);
+		response.sendRedirect("/home");
+		
 	}
 
 	private void inserirArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
