@@ -8,7 +8,7 @@
     </head>
     <form action="/">
 			<br>
-	        	<input type="submit" value="Voltar">
+	        	<button type="button">Voltar</button>
 			</form>
     <body>
     	<form action="inserir-cooperativa" method="post">

@@ -10,7 +10,7 @@
 	<body>
 		<div>
 		<form action="inserir-armazem" method="post">
-          	<input type="submit" value="Voltar">
+          	<button type="button">Voltar</button>
           	</form>
 			<h1>Endereço</h1>
 			<form action="cadastroEndereco-coletor" method="post">			

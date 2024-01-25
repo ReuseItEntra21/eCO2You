@@ -9,10 +9,9 @@
 	<body>
 		<div>
 			<div style="float:left">
-			<form action="/">
-			<br>
-	        	<input type="submit" value="Voltar">
-			</form>
+			<button type="button">Voltar</button>
+            <br>
+            <br>
 			<h1>Login</h1>
 				<form action="home-coletor">
 					<input type="email" id="email" name="email" placeholder="E-mail" maxlength="25" required>
