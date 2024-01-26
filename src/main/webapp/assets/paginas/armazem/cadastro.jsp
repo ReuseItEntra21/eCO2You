@@ -3,7 +3,7 @@
 <html>
     <head>
 	    <meta charset="UTF-8">
-		<title>Cadastro</title>
+		<title>Cadastro Armazem</title>
 		<style><%@include file="../../../resources/css/style.css"%></style>
     </head>
     <body>
