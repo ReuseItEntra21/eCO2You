@@ -302,9 +302,9 @@ public class Servlet extends HttpServlet{
 
 		List<Material> materiais = materialDAO.recuperarTodosMateriais();
 		request.setAttribute("materiais", materiais);
-		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastro-reciclavel.jsp");
-  }
+		dispatcher.forward(request, response);
+	}
 
 	private void inserirColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
 		
