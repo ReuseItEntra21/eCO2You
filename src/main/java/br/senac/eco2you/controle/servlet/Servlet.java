@@ -39,16 +39,16 @@ public class Servlet extends HttpServlet{
 	
 	private UsuarioDAO usuarioDAO;
 	private MaterialDAO materialDAO;
-	private ReciclavelDAO reciclavelDAO;
-	private ItemDepositoDAO itemDepositoDAO;
-	private DepositoDAO DepositoDAO;
+//	private ReciclavelDAO reciclavelDAO;
+//	private ItemDepositoDAO itemDepositoDAO;
+//	private DepositoDAO DepositoDAO;
 
 	public void init () {
 		usuarioDAO = new UsuarioDAOImpl();
 		materialDAO = new MaterialDAOImpl();
-		reciclavelDAO = new ReciclavelDAOImpl();
-		itemDepositoDAO = new ItemDepositoDAOImpl();
-		DepositoDAO = new DepositoDAOImpl();
+//		reciclavelDAO = new ReciclavelDAOImpl();
+//		itemDepositoDAO = new ItemDepositoDAOImpl();
+//		DepositoDAO = new DepositoDAOImpl();
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
