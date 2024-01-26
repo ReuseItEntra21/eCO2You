@@ -29,9 +29,9 @@
             <p>Pontos Obtidos 3</p>
             <h2>Resumo</h2>
 			<input type="submit" value="Flecha">
-			<p>Resumo 1</p>
-			<p>Resumo 2</p>
-            <p>Resumo 3</p>
+			<p>Quantidade do item, tipo de item, peso 1</p>
+			<p>Quantidade do item, tipo de item, peso 2</p>
+            <p>Quantidade do item, tipo de item, peso 3</p>
 		</form>
 	</body>
 </html>
