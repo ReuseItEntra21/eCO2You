@@ -12,17 +12,26 @@
 				<button type="button">Voltar</button>
 			</a>
 			<h1>Histórico de Depositos</h1>
+			<input type="button" value="Flecha">
+            <h2>Data</h2>
+			<p>Data 1</p>
+			<p>Data 2</p>
+            <p>Data 3</p>
+			<h2>Armazém</h2>
 			<input type="submit" value="Flecha">
-			<p>Item Depositado peso data horario 1</p>
-			<p>Item Depositado peso data horario 2</p>
-			<h2>Lugar Depositado</h2>
+			<p>Armazém 1</p>
+			<p>Armazém 2</p>
+            <p>Armazém 3</p>
+			<h2>Pontuação</h2>
 			<input type="submit" value="Flecha">
-			<p>Empresa 1</p>
-			<p>Empresa 2</p>
-			<h2>Pontos Obtidos</h2>
+			<p>Pontos Obtidos 1</p>
+			<p>Pontos Obtidos 2</p>
+            <p>Pontos Obtidos 3</p>
+            <h2>Resumo</h2>
 			<input type="submit" value="Flecha">
-			<p>Pontuação 1</p>
-			<p>Pontuação 2</p>
+			<p>Quantidade do item, tipo de item, peso 1</p>
+			<p>Quantidade do item, tipo de item, peso 2</p>
+            <p>Quantidade do item, tipo de item, peso 3</p>
 		</form>
 	</body>
 </html>
