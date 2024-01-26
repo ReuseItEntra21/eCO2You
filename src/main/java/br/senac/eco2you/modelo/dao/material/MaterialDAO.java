@@ -9,4 +9,6 @@ public interface MaterialDAO {
 	void deletarMaterial(Material material);
 
 	void atualizarMaterial(Material material);
+	
+	Material recuperarMaterialPorId(long id);
 }

@@ -22,6 +22,11 @@ public class Material implements Serializable {
 
 	@Column(name = "nome_material", length = 25, nullable = false)
 	private String nome;
+	
+	public Material(long id, String nome) {
+		setId(id);
+		setNome(nome);
+	}
 
 	public Material(String nome) {
 		setNome(nome);
@@ -30,11 +35,11 @@ public class Material implements Serializable {
 	public Material() {
 	}
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
