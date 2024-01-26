@@ -6,7 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Cadastro</title>
 	<style><%@include file="../../../resources/css/style.css"%></style>
-	<script><%@include file="../../../resources/css/style.css"%></script>
 </head>
 <body>
 	<div style="float: left">
@@ -20,14 +19,8 @@
 		  <div class="tab">
 		    <p><input type="text" placeholder="Nome" oninput="this.className = ''" name="nome"></p>
 		    <p><input type="text" placeholder="Sobrenome" oninput="this.className = ''" name="sobrenome"></p>
-		  </div>
-		  <div class="tab">
 		    <p><input type="text" placeholder="CPF" oninput="this.className = ''" name="cpf"></p>
 		    <p><input type="date" placeholder="Data de Nascimento" oninput="this.className = ''" name="dataNascimento"></p>
-		  </div>
-		  <div class="tab">
-		    <p><input type="email" placeholder="E-mail" oninput="this.className = ''" name="email"></p>
-		    <p><input type="password" placeholder="Senha" oninput="this.className = ''" name="senha"></p>
 		  </div>
 		  <div class="tab">
 		    <p><input type="text" placeholder="CEP" oninput="this.className = ''" name="cep"></p>
@@ -39,8 +32,11 @@
 		    <p><input type="text" placeholder="Complemento" oninput="this.className = ''" name="complemento"></p>
 		    <p><input type="text" placeholder="Telefone" oninput="this.className = ''" name="telefone"></p>
 		  </div>
+		  <div class="tab">
+		    <p><input type="email" placeholder="E-mail" oninput="this.className = ''" name="email"></p>
+		    <p><input type="password" placeholder="Senha" oninput="this.className = ''" name="senha"></p>
+		  </div>
 		  <div style="text-align:center;">
-		    <span class="step"></span>
 		    <span class="step"></span>
 		    <span class="step"></span>
 		    <span class="step"></span>

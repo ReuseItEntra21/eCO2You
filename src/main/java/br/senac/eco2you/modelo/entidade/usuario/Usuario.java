@@ -42,13 +42,6 @@ public abstract class Usuario implements Serializable {
 	
 	public Usuario() {}
 	
-	public Usuario(long id, String nome, String email, String senha) {
-		this.id = id;
-		this.nome = nome;
-		this.email = email;
-		this.senha = senha;
-	}
-	
 	public Usuario(String nome, String email, String senha) {
 		this.nome = nome;
 		this.email = email;

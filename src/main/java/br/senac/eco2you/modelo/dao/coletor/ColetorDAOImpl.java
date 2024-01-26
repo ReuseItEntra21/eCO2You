@@ -57,11 +57,6 @@ public class ColetorDAOImpl implements ColetorDAO {
 
 	}
 
-	public Usuario buscarPorId(Long id) {
-
-		return null;
-	}
-
 	public Coletor exibirPerfilColetor(String nomeDoColetor) {
 		try (Session sessao = fabrica.getConexao().openSession()) {
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
@@ -75,23 +70,6 @@ public class ColetorDAOImpl implements ColetorDAO {
 			e.printStackTrace();
 			return null;
 		}
-	}public List<Coletor> buscarPerfilArmazemPeloNome(String nome) {
-	    try (Session sessao = fabrica.getConexao().openSession()) {
-	        CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-	        CriteriaQuery<Coletor> criteria = construtor.createQuery(Coletor.class);
-	        Root<Armazem> raizArmazem = criteria.from(Armazem.class);
-
-	        
-	        Join<Armazem, Coletor> joinColetor = raizArmazem.join(Coletor_.ARMAZEM);
-
-	        criteria.select(joinColetor)
-	                .where(construtor.equal(joinColetor.get(Armazem_.NOME), nome));
-
-	        return sessao.createQuery(criteria).getResultList();
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	        return null;
-	    }
 	}
 
 }
