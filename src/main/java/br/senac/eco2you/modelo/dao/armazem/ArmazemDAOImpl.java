@@ -15,8 +15,6 @@ import br.senac.eco2you.modelo.entidade.endereco.Endereco;
 import br.senac.eco2you.modelo.entidade.endereco.Endereco_;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem_;
-import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
-import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor_;
 import br.senac.eco2you.modelo.enumeracao.status.armazem.StatusArmazem;
 import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
 

@@ -11,6 +11,10 @@ public interface ReciclavelDAO {
 	void deletarReciclavel(Reciclavel reciclavel);
 
 	void atualizarReciclavel(Reciclavel reciclavel);
+	
+	List<Reciclavel> recuperarTodosReciclaveis();
 
 	List<Reciclavel> buscarReciclavelPeloNome(String nome);
+	
+	Reciclavel recuperarReciclavelPorId(long id);
 }
