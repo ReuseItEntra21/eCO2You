@@ -20,6 +20,7 @@ import br.senac.eco2you.modelo.entidade.deposito.Deposito;
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
 import br.senac.eco2you.modelo.entidade.retirada.Retirada;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.Empresa;
+import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
 import br.senac.eco2you.modelo.enumeracao.status.armazem.StatusArmazem;
 
 @Entity
@@ -41,6 +42,9 @@ public class Armazem extends Empresa implements Serializable {
 	
 	@OneToMany(fetch = FetchType.LAZY,mappedBy = "armazem", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Retirada> retiradas;
+	
+	@OneToMany(mappedBy = "armazem", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Coletor> coletores;
 	
 	public Armazem () {}
 	
