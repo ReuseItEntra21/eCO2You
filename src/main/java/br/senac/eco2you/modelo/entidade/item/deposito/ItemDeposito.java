@@ -40,6 +40,13 @@ public class ItemDeposito implements Serializable {
 
 	public ItemDeposito() {}
 	
+	public ItemDeposito(long id, Reciclavel reciclavel, int quantidadeReciclaveis, Deposito deposito) {
+		setId(id);
+		setQuantidadeReciclaveis(quantidadeReciclaveis);
+		setReciclavel(reciclavel);
+		setDeposito(deposito);
+	}
+	
 	public ItemDeposito(Reciclavel reciclavel, int quantidadeReciclaveis, Deposito deposito) {
 		setQuantidadeReciclaveis(quantidadeReciclaveis);
 		setReciclavel(reciclavel);

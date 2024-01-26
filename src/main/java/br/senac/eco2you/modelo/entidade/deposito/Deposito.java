@@ -51,9 +51,19 @@ public class Deposito implements Serializable{
 	private List<ItemDeposito> itensDeposito;
 	
 	@Enumerated(EnumType.STRING)
+	@Column(name = "status_armazem", nullable = true)
 	private StatusDeposito statusDeDeposito;
 	
 	public Deposito() {}
+	
+	public Deposito(long id, Armazem armazem, Coletor coletor, StatusDeposito statusDeDeposito, LocalDate data) {
+		setId(id);
+		setArmazem(armazem);
+		setColetor(coletor);
+		setStatusDeDeposito(statusDeDeposito);
+		setData(data);
+		itensDeposito = new ArrayList<>();
+	}
 	
 	public Deposito(Armazem armazem, Coletor coletor, StatusDeposito statusDeDeposito, LocalDate data) {
 		setArmazem(armazem);
@@ -61,7 +71,14 @@ public class Deposito implements Serializable{
 		setStatusDeDeposito(statusDeDeposito);
 		setData(data);
 		itensDeposito = new ArrayList<>();
-		
+	}
+	
+	public Deposito( LocalDate data, Armazem armazem, Coletor coletor) {
+		setArmazem(armazem);
+		setColetor(coletor);
+		setStatusDeDeposito(statusDeDeposito);
+		setData(data);
+		itensDeposito = new ArrayList<>();
 	}
 	
 	public Long getId() {
