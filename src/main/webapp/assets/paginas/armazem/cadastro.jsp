@@ -17,7 +17,7 @@
           			<h1>Criar Conta</h1>
 				  <div class="tab">
 				    <p><input type="text" placeholder="Nome" oninput="this.className = ''" name="nome"></p>
-				    <p><input type="text" placeholder="CNPJ" oninput="this.className = ''" name="CNPJ"></p>
+				    <p><input type="text" placeholder="CNPJ" oninput="this.className = ''" name="cnpj"></p>
 				  </div>
 				 <div class="tab">
 				 	<p><input type="number" placeholder="Capacidade de Armazenagem" oninput="this.className = ''" name="capacidadeArmazenagem"></p>

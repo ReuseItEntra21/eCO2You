@@ -59,7 +59,7 @@ public class Armazem extends Empresa implements Serializable {
 	}
 	
 	public Armazem(String nome, String email, String senha, String descricao, Endereco endereco, String cnpj, LocalTime horarioFechamento, LocalTime horarioAbertura, float capacidadeArmazem, StatusArmazem statusArmazem) {
-		super(nome, cnpj,horarioAbertura, horarioFechamento, descricao, endereco, email, senha);
+		super(nome, cnpj, email, senha, horarioAbertura, horarioFechamento, descricao, endereco);
 		setCapacidadeArmazenagem(capacidadeArmazem);
 		setStatusArmazem(statusArmazem);
 		depositos = new ArrayList<>();
