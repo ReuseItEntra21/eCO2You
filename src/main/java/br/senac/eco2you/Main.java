@@ -547,26 +547,27 @@ public class Main {
 		materialDAO.inserirMaterial(plastico);
 		
 		// =============================================================================================================
-
+		
 		Reciclavel reciclavel01 = new Reciclavel(
 				"Garrafa PET",
 				plastico,
-				0.05,
-				0.2,
+				10,
 				0.5,
+				0.6,
 				"Limpe antes de reciclar"
 		);
+		
 		ReciclavelDAO reciclavelDAO = new ReciclavelDAOImpl();
 		reciclavelDAO.inserirReciclavel(reciclavel01);
 
 		// =============================================================================================================
 		
 		Reciclavel reciclavel02 = new Reciclavel(
-				"Garrafa PET",
+				"Lata",
 				aluminio,
-				0.1,
+				10,
 				0.5,
-				0.8,
+				0.6,
 				"Limpe antes de reciclar"
 		);
 		ReciclavelDAO reciclavelDAO02 = new ReciclavelDAOImpl();
@@ -577,7 +578,7 @@ public class Main {
 		Reciclavel reciclavel03 = new Reciclavel(
 				"Garrafa PET",
 				aluminio,
-				0.1,
+				10,
 				0.5,
 				0.8,
 				"Limpe antes de reciclar"
@@ -590,9 +591,9 @@ public class Main {
 		Reciclavel reciclavel04 = new Reciclavel(
 				"Garrafa PET",
 				plastico,
-				0.4,
+				10,
+				0.5,
 				0.6,
-				0.9,
 				"Limpe antes de reciclar"
 		);
 		ReciclavelDAO reciclavelDAO04 = new ReciclavelDAOImpl();
@@ -602,10 +603,10 @@ public class Main {
 		
 		Reciclavel reciclavel05 = new Reciclavel(
 				"Garrafa PET",
-				aluminio,
-				0.3,
-				0.7,
-				0.10,
+				plastico,
+				10,
+				0.5,
+				0.6,
 				"Limpe antes de reciclar"
 		);
 		ReciclavelDAO reciclavelDAO05 = new ReciclavelDAOImpl();

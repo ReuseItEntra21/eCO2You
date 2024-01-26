@@ -73,11 +73,11 @@ button:hover {
   height: 15px;
   width: 15px;
   margin: 0 2px;
-  background-color: #bbbbbb;
+  background-color: #416154;
   border: none;  
   border-radius: 50%;
   display: inline-block;
-  opacity: 0.5;
+  opacity: 0.75;
 }
 
 .step.active {

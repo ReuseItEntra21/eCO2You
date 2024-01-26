@@ -164,23 +164,25 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 		}
 
 		return retiradas;
-	}public List<Coletor> buscarPerfilColetorPeloNome(String nome) {
-	    try (Session sessao = fabrica.getConexao().openSession()) {
-	        CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-	        CriteriaQuery<Coletor> criteria = construtor.createQuery(Coletor.class);
-	        Root<Armazem> raizArmazem = criteria.from(Armazem.class);
-
-	        
-	        Join<Armazem, Coletor> joinColetor = raizArmazem.join(Armazem_.COLETOR);
-
-	        criteria.select(joinColetor)
-	                .where(construtor.equal(joinColetor.get(Coletor_.NOME), nome));
-
-	        return sessao.createQuery(criteria).getResultList();
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	        return null;
-	    }
 	}
+	
+//	public List<Coletor> buscarPerfilColetorPeloNome(String nome) {
+//	    try (Session sessao = fabrica.getConexao().openSession()) {
+//	        CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+//	        CriteriaQuery<Coletor> criteria = construtor.createQuery(Coletor.class);
+//	        Root<Armazem> raizArmazem = criteria.from(Armazem.class);
+//
+//	        
+//	        Join<Armazem, Coletor> joinColetor = raizArmazem.join(Armazem_.COLETOR);
+//
+//	        criteria.select(joinColetor)
+//	                .where(construtor.equal(joinColetor.get(Coletor_.NOME), nome));
+//
+//	        return sessao.createQuery(criteria).getResultList();
+//	    } catch (Exception e) {
+//	        e.printStackTrace();
+//	        return null;
+//	    }
+//	}
 
 }
