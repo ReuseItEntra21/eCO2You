@@ -8,4 +8,7 @@ public interface ColetorDAO {
 
 	Coletor exibirPerfilColetor(String nomeDoColetor);
 	List <Coletor> buscarColetorPorNome(String nome);
-	}
+	public List<Coletor> buscarPerfilArmazemPeloNome(String nome); 
+	   
+
+}
