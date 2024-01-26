@@ -8,14 +8,41 @@
 <title>Document</title>
 </head>
 <body> 
-<h1>Depósito</h1>
 <form action="" method="get">
-<input type="button" value="Voltar"> <input type="number"
-			id="doze">250ml</input> <input type="number">235ml</input> <input
-			type="number">250ml</input> <input type="number">269ml</input> <input
-			type="number">310ml</input> <input type="number">330ml</input> <input
-			type="number">350ml</input> <input type="number">473ml</input> <input
-			type="number">500ml</input> <input type="submit" value="Salvar">
+<input type="button" value="Voltar">
+<h1>Depósito</h1>
+ 			<input type="number" id="doze">220ml - (1) +
+            <br>
+            <br>
+            <input type="number">235ml -(1)+
+            <br>
+            <br>
+            <input type="number">250ml -(1)+
+            <br>
+            <br>
+            <input type="number">269ml -(1)+
+            <br>
+            <br>
+            <input type="number">310ml -(1)+
+            <br>
+            <br>
+            <br>
+            <br>
+            <input type="number">330ml -(1)+
+            <br>
+            <br>
+            <input type="number">350ml -(1)+
+            <br>
+            <br>
+            <input type="number">473ml -(1)+
+            <br>
+            <br>
+            <input type="number">500ml -(1)+
+            <br>
+            <br>
+            <input type="submit" value="Salvar">
+            <br>
+            <br>
 <input type="submit" value="Salvar Depósito">
 </form>
 </body>
