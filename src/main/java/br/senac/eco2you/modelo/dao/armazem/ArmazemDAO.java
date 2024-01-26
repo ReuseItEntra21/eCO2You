@@ -16,5 +16,5 @@ public interface ArmazemDAO {
 	
 	List<Armazem> buscarArmazemPeloStatusArmazem(StatusArmazem statusDeArmazem);
 	
-	List<Coletor> buscarPerfilColetorPeloNome(String nome);
+
 }

@@ -11,6 +11,8 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
+import br.senac.eco2you.modelo.entidade.deposito.Deposito;
+import br.senac.eco2you.modelo.entidade.deposito.Deposito_;
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
 import br.senac.eco2you.modelo.entidade.endereco.Endereco_;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
@@ -165,24 +167,6 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 
 		return retiradas;
 	}
-	
-//	public List<Coletor> buscarPerfilColetorPeloNome(String nome) {
-//	    try (Session sessao = fabrica.getConexao().openSession()) {
-//	        CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-//	        CriteriaQuery<Coletor> criteria = construtor.createQuery(Coletor.class);
-//	        Root<Armazem> raizArmazem = criteria.from(Armazem.class);
-//
-//	        
-//	        Join<Armazem, Coletor> joinColetor = raizArmazem.join(Armazem_.COLETOR);
-//
-//	        criteria.select(joinColetor)
-//	                .where(construtor.equal(joinColetor.get(Coletor_.NOME), nome));
-//
-//	        return sessao.createQuery(criteria).getResultList();
-//	    } catch (Exception e) {
-//	        e.printStackTrace();
-//	        return null;
-//	    }
-//	}
 
+	
 }
