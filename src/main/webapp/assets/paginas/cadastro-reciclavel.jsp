@@ -22,7 +22,7 @@
 	        <br>
 	        <select name="material">
 	        	<c:forEach var="material" items="${materiais}">
-	        		<option value="<c:out value="${material.id}" />"><c:out value="${material.nome}" /><option>
+	        		<option value="<c:out value="${material.id}"/>"><c:out value="${material.nome}"/><option>
 	        	</c:forEach>
 	        </select>
 	        <br>
@@ -33,7 +33,7 @@
 	        <input type="number" id="peso" name="peso" autofocus placeholder="Peso do Reciclável" maxlength="25" required size="20">
 	        <br>
 	        <br>
-	        <input type="number" id="volume" name="volume" autofocus placeholder="Volume do Reciclável (m³)" maxlength="25" required size="20">
+	        <input type="number" id="volume" name="volume" autofocus placeholder="Volume do Reciclável (cm³)" maxlength="25" required size="20">
 	        <br>
 	        <br>
 	        <input type="text" id="instrucao-Reciclavel" name="instrucaoReciclavel" autofocus placeholder="Instrução de depósito" maxlength="25" required size="20">
