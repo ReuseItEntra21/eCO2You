@@ -1,8 +1,13 @@
 package br.senac.eco2you.modelo.dao.material;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
 import org.hibernate.Session;
 
 import br.senac.eco2you.modelo.entidade.material.Material;
+import br.senac.eco2you.modelo.entidade.material.Material_;
 import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
 
 public class MaterialDAOImpl implements MaterialDAO{
@@ -92,6 +97,42 @@ public class MaterialDAOImpl implements MaterialDAO{
 				sessao.close();
 			}
 		}
+	}
+	
+	public Material recuperarMaterialPorId(long id) {
+		
+		Session sessao = null;
+		Material material = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Material> criteria = construtor.createQuery(Material.class);
+			Root<Material> raizUsuario = criteria.from(Material.class);
+
+			criteria.select(raizUsuario).where(construtor.equal(raizUsuario.get(Material_.ID), id));
+
+			material = sessao.createQuery(criteria).getSingleResult();
+
+			return material;
+
+		} catch (Exception sqlException) {
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return material;
+		
 	}
 
 }

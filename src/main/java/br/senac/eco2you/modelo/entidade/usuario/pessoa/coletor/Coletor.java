@@ -34,6 +34,11 @@ public class Coletor extends Pessoa implements Serializable {
 
 	public Coletor() {}
 	
+	public Coletor(long id, String nome, String sobrenome, String cpf, LocalDate dataNascimento, String email, String senha) {
+		super(id, nome, sobrenome, cpf, dataNascimento, email, senha);
+		depositos = new ArrayList<>();
+	}
+	
 	public Coletor(String nome, String sobrenome, String cpf, LocalDate dataNascimento, String email, String senha) {
 		super(nome, sobrenome, cpf, dataNascimento, email, senha);
 		depositos = new ArrayList<>();

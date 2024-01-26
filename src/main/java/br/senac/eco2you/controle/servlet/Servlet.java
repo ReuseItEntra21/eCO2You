@@ -12,9 +12,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.senac.eco2you.modelo.dao.material.MaterialDAO;
+import br.senac.eco2you.modelo.dao.material.MaterialDAOImpl;
 import br.senac.eco2you.modelo.dao.usuario.UsuarioDAO;
 import br.senac.eco2you.modelo.dao.usuario.UsuarioDAOImpl;
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
+import br.senac.eco2you.modelo.entidade.material.Material;
 import br.senac.eco2you.modelo.entidade.usuario.Usuario;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
@@ -25,10 +28,13 @@ public class Servlet extends HttpServlet{
 
 	private static final long serialVersionUID = 8840029940617992062L;
 	
-	private UsuarioDAO dao;
+	private UsuarioDAO usuarioDAO;
+	
+	private MaterialDAO materialDAO;
 
 	public void init () {
-		dao = new UsuarioDAOImpl();
+		usuarioDAO = new UsuarioDAOImpl();
+		materialDAO = new MaterialDAOImpl();
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -126,6 +132,18 @@ public class Servlet extends HttpServlet{
 				
 			case "/deletar-cooperativa":
 				deletarCooperativa(request, response);
+				break;
+				
+			case "/inserir-material":
+				inserirMaterial(request, response);
+				break;
+				
+			case "/atualizar-material":
+				atualizarMaterial(request, response);
+				break;
+				
+			case "/deletar-material":
+				deletarMaterial(request, response);
 				break;
 				
 			default:
@@ -228,27 +246,28 @@ public class Servlet extends HttpServlet{
 		String complemento = request.getParameter("complemento");
 		String telefone = request.getParameter("telefone");
 		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento, telefone);
-		dao.inserirUsuario(new Coletor(nome, sobrenome, cpf, dataNascimento, email, senha, endereco));
+		usuarioDAO.inserirUsuario(new Coletor(nome, sobrenome, cpf, dataNascimento, email, senha, endereco));
 		response.sendRedirect("/home-coletor");
 	}
 	
 	private void atualizarColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
 
+		long id = Long.parseLong(request.getParameter("id"));
 		String nome = request.getParameter("nome");
 		String sobrenome = request.getParameter("sobrenome");
 		String cpf = request.getParameter("cpf");
 		LocalDate dataNascimento = LocalDate.parse(request.getParameter("dataNascimento"));
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-		dao.atualizarUsuario(new Coletor(nome, sobrenome, cpf, dataNascimento , email, senha));
+		usuarioDAO.atualizarUsuario(new Coletor(id, nome, sobrenome, cpf, dataNascimento , email, senha));
 		response.sendRedirect("/home-coletor");
 	}
 	
 	private void deletarColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 		
 		long id = Long.parseLong(request.getParameter("id"));
-		Usuario usuario = dao.recuperarUsuarioPorId(id);
-		dao.deletarUsuario(usuario);
+		Usuario usuario = usuarioDAO.recuperarUsuarioPorId(id);
+		usuarioDAO.deletarUsuario(usuario);
 		response.sendRedirect("/home");
 		
 	}
@@ -271,25 +290,26 @@ public class Servlet extends HttpServlet{
 		String complemento = request.getParameter("complemento");
 		String telefone = request.getParameter("telefone");
 		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento, telefone);
-		dao.inserirUsuario(new Armazem(nome, cnpj, email, senha, capacidadeArmazenagem, horarioAbertura, horarioFechamento, endereco));
+		usuarioDAO.inserirUsuario(new Armazem(nome, cnpj, email, senha, capacidadeArmazenagem, horarioAbertura, horarioFechamento, endereco));
 		response.sendRedirect("/eCO2You/home-armazem");
 	}
 	
 	private void atualizarArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
 
+		long id = Long.parseLong(request.getParameter("id"));
 		String nome = request.getParameter("nome");
 		String cnpj = request.getParameter("cnpj");
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-		dao.atualizarUsuario(new Armazem(nome, cnpj, email, senha));
+		usuarioDAO.atualizarUsuario(new Armazem(id, nome, cnpj, email, senha));
 		response.sendRedirect("/eCO2You/home-armazem");
 	}
 	
 	private void deletarArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 		
 		long id = Long.parseLong(request.getParameter("id"));
-		Usuario usuario = dao.recuperarUsuarioPorId(id);
-		dao.deletarUsuario(usuario);
+		Usuario usuario = usuarioDAO.recuperarUsuarioPorId(id);
+		usuarioDAO.deletarUsuario(usuario);
 		response.sendRedirect("/home");
 		
 	}
@@ -311,25 +331,52 @@ public class Servlet extends HttpServlet{
 		String complemento = request.getParameter("complemento");
 		String telefone = request.getParameter("telefone");
 		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento, telefone);
-		dao.inserirUsuario(new Cooperativa(nome, cnpj, email, senha, horarioAbertura, horarioFechamento, endereco));
+		usuarioDAO.inserirUsuario(new Cooperativa(nome, cnpj, email, senha, horarioAbertura, horarioFechamento, endereco));
 		response.sendRedirect("/eCO2You/home-cooperativa");
 	}
 	
 	private void atualizarCooperativa(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
 
+
+		long id = Long.parseLong(request.getParameter("id"));
 		String nome = request.getParameter("nome");
 		String cnpj = request.getParameter("cnpj");
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-		dao.atualizarUsuario(new Cooperativa(nome, cnpj, email, senha));
+		usuarioDAO.atualizarUsuario(new Cooperativa(id, nome, cnpj, email, senha));
 		response.sendRedirect("/home-cooperativa");
 	}
 	
 	private void deletarCooperativa(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 		
 		long id = Long.parseLong(request.getParameter("id"));
-		Usuario usuario = dao.recuperarUsuarioPorId(id);
-		dao.deletarUsuario(usuario);
+		Usuario usuario = usuarioDAO.recuperarUsuarioPorId(id);
+		usuarioDAO.deletarUsuario(usuario);
+		response.sendRedirect("/home");
+		
+	}
+	
+	private void inserirMaterial(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
+
+		String nome = request.getParameter("nome");
+		materialDAO.inserirMaterial(new Material(nome));
+		response.sendRedirect("/eCO2You/home-cooperativa");
+	}
+	
+	private void atualizarMaterial(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
+
+
+		long id = Long.parseLong(request.getParameter("id"));
+		String nome = request.getParameter("nome");
+		materialDAO.atualizarMaterial(new Material(id, nome));
+		response.sendRedirect("/home-cooperativa");
+	}
+	
+	private void deletarMaterial(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+		
+		long id = Long.parseLong(request.getParameter("id"));
+		Material material = materialDAO.recuperarMaterialPorId(id);
+		materialDAO.deletarMaterial(material);
 		response.sendRedirect("/home");
 		
 	}
