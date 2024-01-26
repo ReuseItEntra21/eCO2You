@@ -14,10 +14,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.senac.eco2you.modelo.dao.material.MaterialDAO;
 import br.senac.eco2you.modelo.dao.material.MaterialDAOImpl;
+import br.senac.eco2you.modelo.dao.reciclavel.ReciclavelDAO;
+import br.senac.eco2you.modelo.dao.reciclavel.ReciclavelDAOImpl;
 import br.senac.eco2you.modelo.dao.usuario.UsuarioDAO;
 import br.senac.eco2you.modelo.dao.usuario.UsuarioDAOImpl;
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
 import br.senac.eco2you.modelo.entidade.material.Material;
+import br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel;
 import br.senac.eco2you.modelo.entidade.usuario.Usuario;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
@@ -29,12 +32,13 @@ public class Servlet extends HttpServlet{
 	private static final long serialVersionUID = 8840029940617992062L;
 	
 	private UsuarioDAO usuarioDAO;
-	
 	private MaterialDAO materialDAO;
+	private ReciclavelDAO reciclavelDAO;
 
 	public void init () {
 		usuarioDAO = new UsuarioDAOImpl();
 		materialDAO = new MaterialDAOImpl();
+		reciclavelDAO = new ReciclavelDAOImpl();
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -144,6 +148,18 @@ public class Servlet extends HttpServlet{
 				
 			case "/deletar-material":
 				deletarMaterial(request, response);
+				break;
+				
+			case "/inserir-reciclavel":
+				inserirReciclavel(request, response);
+				break;
+				
+			case "/atualizar-reciclavel":
+				atualizarReciclavel(request, response);
+				break;
+				
+			case "/deletar-reciclavel":
+				deletarReciclavel(request, response);
 				break;
 				
 			default:
@@ -278,7 +294,7 @@ public class Servlet extends HttpServlet{
 		String cnpj = request.getParameter("cnpj");
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-		float capacidadeArmazenagem = Float.valueOf(request.getParameter("capacidadeArmazenagem"));
+		float capacidadeArmazenagem = Float.parseFloat(request.getParameter("capacidadeArmazenagem"));
 		LocalTime horarioAbertura = LocalTime.parse(request.getParameter("horarioAbertura"));
 		LocalTime horarioFechamento = LocalTime.parse(request.getParameter("horarioFechamento"));
 		String cep = request.getParameter("cep");
@@ -360,7 +376,7 @@ public class Servlet extends HttpServlet{
 
 		String nome = request.getParameter("nome");
 		materialDAO.inserirMaterial(new Material(nome));
-		response.sendRedirect("/eCO2You/home-cooperativa");
+		response.sendRedirect("/eCO2You/home");
 	}
 	
 	private void atualizarMaterial(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
@@ -369,10 +385,44 @@ public class Servlet extends HttpServlet{
 		long id = Long.parseLong(request.getParameter("id"));
 		String nome = request.getParameter("nome");
 		materialDAO.atualizarMaterial(new Material(id, nome));
-		response.sendRedirect("/home-cooperativa");
+		response.sendRedirect("/home");
 	}
 	
 	private void deletarMaterial(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+		
+		long id = Long.parseLong(request.getParameter("id"));
+		Material material = materialDAO.recuperarMaterialPorId(id);
+		materialDAO.deletarMaterial(material);
+		response.sendRedirect("/home");
+		
+	}
+	
+	private void inserirReciclavel(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
+
+		String nome = request.getParameter("nome");
+		Material material = request.getParameter("material");
+		float pontosCarbono = Float.parseFloat(request.getParameter("pontosCarbono"));
+		float peso = Float.parseFloat(request.getParameter("peso"));
+		float volume = Float.parseFloat(request.getParameter("volume"));
+		String instrucaoReciclavel = request.getParameter("instrucaoReciclavel");
+		reciclavelDAO.inserirReciclavel(new Reciclavel(nome, material, pontosCarbono, peso, volume, instrucaoReciclavel));
+		response.sendRedirect("/eCO2You/home");
+	}
+	
+	private void atualizarReciclavel(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
+
+		long id = Long.parseLong(request.getParameter("id"));
+		String nome = request.getParameter("nome");
+		Material material = request.getParameter("material");
+		float pontosCarbono = Float.parseFloat(request.getParameter("pontosCarbono"));
+		float peso = Float.parseFloat(request.getParameter("peso"));
+		float volume = Float.parseFloat(request.getParameter("volume"));
+		String instrucaoReciclavel = request.getParameter("instrucaoReciclavel");
+		reciclavelDAO.inserirReciclavel(new Reciclavel(id, nome, material, pontosCarbono, peso, volume, instrucaoReciclavel));
+		response.sendRedirect("/eCO2You/home");
+	}
+	
+	private void deletarReciclavel(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 		
 		long id = Long.parseLong(request.getParameter("id"));
 		Material material = materialDAO.recuperarMaterialPorId(id);
