@@ -8,9 +8,9 @@
 		<style><%@include file="../../resources/css/style.css"%></style>
 	</head>
 	<body>
-		<a href="./login">
-			<button type="button" class="ButtonLogin" >Login</button>
-		</a>
+		<form action="login">
+			<button type="submit" class="ButtonLogin" >Login</button>
+		</form>
 		<br>
 		<br>
 		<img src="#" alt="">

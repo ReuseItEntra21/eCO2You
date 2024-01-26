@@ -247,20 +247,28 @@ public class Servlet extends HttpServlet{
 		String telefone = request.getParameter("telefone");
 		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento, telefone);
 		usuarioDAO.inserirUsuario(new Coletor(nome, sobrenome, cpf, dataNascimento, email, senha, endereco));
-		response.sendRedirect("/home-coletor");
+		response.sendRedirect("/eCO2You/home-coletor");
 	}
 	
 	private void atualizarColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
 
-		long id = Long.parseLong(request.getParameter("id"));
 		String nome = request.getParameter("nome");
 		String sobrenome = request.getParameter("sobrenome");
 		String cpf = request.getParameter("cpf");
 		LocalDate dataNascimento = LocalDate.parse(request.getParameter("dataNascimento"));
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-		usuarioDAO.atualizarUsuario(new Coletor(id, nome, sobrenome, cpf, dataNascimento , email, senha));
-		response.sendRedirect("/home-coletor");
+		String cep = request.getParameter("cep");
+		String cidade = request.getParameter("cidade");
+		String bairro = request.getParameter("bairro");
+		String tipoVia = request.getParameter("tipoVia");
+		String logradouro = request.getParameter("logradouro");
+		String numeroEndereco = request.getParameter("numeroEndereco");
+		String complemento = request.getParameter("complemento");
+		String telefone = request.getParameter("telefone");
+		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento, telefone);
+		usuarioDAO.atualizarUsuario(new Coletor(nome, sobrenome, cpf, dataNascimento , email, senha, endereco));
+		response.sendRedirect("/eCO2You/home-coletor");
 	}
 	
 	private void deletarColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
@@ -268,7 +276,7 @@ public class Servlet extends HttpServlet{
 		long id = Long.parseLong(request.getParameter("id"));
 		Usuario usuario = usuarioDAO.recuperarUsuarioPorId(id);
 		usuarioDAO.deletarUsuario(usuario);
-		response.sendRedirect("/home");
+		response.sendRedirect("/");
 		
 	}
 

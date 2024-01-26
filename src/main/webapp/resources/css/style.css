@@ -3,20 +3,12 @@ body {
 }
 
 h1 {
-	font-size: 50px;
+	font-size: 40px;
+	text-align: center;  
 }
 
 h2 {
-	font-size: 30px;
-}
-
-button {
-	border-radius: 12px;
-	padding: 5px 15px;
-	text-align: center;
-	font-size: 30px;
-	margin: 4px 2px;
-	cursor: pointer;
+	font-size: 25px;
 }
 
 .buttonDelete {
@@ -40,4 +32,58 @@ button {
 .ButtonLogin {
 	background-color: #FFFCF5;
 	color: #0D0D0D;
+}
+* {
+  box-sizing: border-box;
+}
+
+#regForm {
+  background-color: #ffffff;
+  font-family: Raleway;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+}
+
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+input.invalid {
+  background-color: #D92B2B;
+}
+
+.tab {
+  display: none;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #bbbbbb;
+}
+
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;  
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+.step.finish {
+  background-color: #04AA6D;
 }
