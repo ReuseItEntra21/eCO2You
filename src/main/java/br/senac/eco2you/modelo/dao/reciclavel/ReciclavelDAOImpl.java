@@ -10,6 +10,7 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 
 import br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel;
+import br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel_;
 import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
  
 public class ReciclavelDAOImpl implements ReciclavelDAO {
@@ -141,6 +142,81 @@ public class ReciclavelDAOImpl implements ReciclavelDAO {
 		}
  
 		return Collections.emptyList();
+	}
+	
+	public List<Reciclavel> recuperarTodosReciclaveis() {
+
+		Session sessao = null;
+		List<Reciclavel> reciclaveis = null;
+
+		try {
+
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Reciclavel> criteria = construtor.createQuery(Reciclavel.class);
+			Root<Reciclavel> raizReciclavel = criteria.from(Reciclavel.class);
+
+			criteria.select(raizReciclavel);
+
+			reciclaveis = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return reciclaveis;
+	}
+	
+	public Reciclavel recuperarReciclavelPorId(long id) {
+		
+		Session sessao = null;
+		Reciclavel reciclavel = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Reciclavel> criteria = construtor.createQuery(Reciclavel.class);
+			Root<Reciclavel> raizReciclavel = criteria.from(Reciclavel.class);
+
+			criteria.select(raizReciclavel).where(construtor.equal(raizReciclavel.get(Reciclavel_.ID), id));
+
+			reciclavel = sessao.createQuery(criteria).getSingleResult();
+
+			return reciclavel;
+
+		} catch (Exception sqlException) {
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return reciclavel;
+		
 	}
  
 }

@@ -25,11 +25,11 @@ public class Conquista implements Serializable {
 	@Column(name = "id_conquista")
 	private Long id;
 	
-	@Column(name = "pontos_conquista", nullable = false)
-	private double pontosConquista;
-	
 	@Column(name = "nome_conquista", nullable = false)
 	private String nome;
+	
+	@Column(name = "pontos_conquista", nullable = false)
+	private int pontosConquista;
 	
 	@Column(name = "descricao_conquista", nullable = false)
 	private String descricao;
@@ -40,7 +40,7 @@ public class Conquista implements Serializable {
 	public Conquista() {
 	}
 	
-	public Conquista(float pontosConquista, String descricao, String nome) {
+	public Conquista(String nome, int pontosConquista, String descricao) {
 		setPontosConquista(pontosConquista);
 		setDescricao(descricao);
 		setNome(nome);
@@ -60,11 +60,11 @@ public class Conquista implements Serializable {
 		this.id = id;
 	}
 	
-	public double getPontosConquista() {
+	public int getPontosConquista() {
 		return pontosConquista;
 	}
 	
-	public void setPontosConquista(double pontosConquista) {
+	public void setPontosConquista(int pontosConquista) {
 		this.pontosConquista = pontosConquista;
 	}
 	
