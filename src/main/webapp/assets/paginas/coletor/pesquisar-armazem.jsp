@@ -7,57 +7,60 @@
     <title>Tela de busca de armazém</title>
 </head>
 <body>
-    <h1>ECO2YOU</h1>
-    <h2>Armazéns que você já depositou</h2>
-    <form action="#">
-        <input type="submit" value="Lupa">
-        <input type="search" placeholder="Buscar Armazém por nome">
+<br>
+<input type="submit" value="Lupa">
+        <input type="search" placeholder="Buscar Armazém por nome" size = 22>
+        <h2>ECO2YOU</h2>
+        <form action="#">
         <div><input type="submit" value="seta volta"></div>
     </form>
-    <p>Giassi</p>
-    <p>victor konder</p>
+    <h2>Armazéns que você já depositou</h2>
+    <input type="image" src="caminho/da/imagem.jpg">
+    <p>Empresa</p>
+    <p>Bairro</p>
     <form action="#">
         <input type="range" value="1.000">
         <div><input type="button" value="Ver perfil"></div>
     </form>
-   
-    <p>Cooper</p>
-    <p>água verde</p>
+   <input type="image" src="caminho/da/imagem.jpg">
+    <p>Empresa</p>
+    <p>Bairro</p>
     <form action="#">
         <input type="range" value="1.000">
         <div><input type="button" value="Ver perfil"></div>
     </form>
     <h2>Armazéns Recomendados</h2>
-   
-    <p>Cooper</p>
-    <p>itoupava norte</p>
+   	<input type="image" src="caminho/da/imagem.jpg">
+    <p>Empresa</p>
+    <p>Bairro</p>
     <form action="#">
         <input type="range" value="1.000">
         <div><input type="button" value="Ver perfil"></div>
     </form>
-   
-    <p>Cooper</p>
-    <p>Garcia</p>
+   	<input type="image" src="caminho/da/imagem.jpg">
+    <p>Empresa</p>
+    <p>Bairro</p>
     <form action="#">
         <input type="range" value="1.000">
         <div><input type="button" value="Ver perfil"></div>
     </form>
-   
-    <p>Cooper</p>
-    <p>Glória</p>
+   	<input type="image" src="caminho/da/imagem.jpg">
+    <p>Empresa</p>
+    <p>Bairro</p>
     <form action="#">
         <input type="range" value="1.000">
         <div><input type="button" value="Ver perfil"></div>
     </form>
-   
-    <p>Cooper</p>
-    <p>Mafisa</p>
+   	<input type="image" src="caminho/da/imagem.jpg">
+    <p>Empresa</p>
+    <p>Bairro</p>
     <form action="#">
         <input type="range" value="1.000">
         <div><input type="button" value="Ver perfil"></div>
     </form>
-    <p>Cooper</p>
-    <p>Omino</p>
+    <input type="image" src="caminho/da/imagem.jpg">
+    <p>Empresa</p>
+    <p>Bairro</p>
     <form action="#">
         <input type="range" value="1.000">
         <div><input type="button" value="Ver perfil"></div>
