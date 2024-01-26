@@ -9,9 +9,9 @@
 	<body>
 		<div>
 			<div style="float:left">
-			<button type="button">Voltar</button>
-            <br>
-            <br>
+			<form action="">
+				<button type="submit">Voltar</button>
+			</form>
 			<h1>Login</h1>
 				<form action="home-coletor">
 					<input type="email" id="email" name="email" placeholder="E-mail" maxlength="25" required>
@@ -32,17 +32,15 @@
 				<br>
 				<h2>Seja parte da mudança que o mundo precisa!</h2>
 				<br>
-				<a href="./coletor/cadastro">
+				<form action="cadastro-coletor">
 					<button type="submit" class="ButtonCriarConta">Coletor</button>
-				</a>
-				<br>
-				<a href="./armazem/cadastro">
+				</form>
+				<form action="cadastro-armazem">
 					<button type="submit" class="ButtonCriarConta">Armazem</button>
-				</a>
-				<br>
-				<a href="./cooperativa/cadastro">
+				</form>
+				<form action="cadastro-cooperativa">
 					<button type="submit" class="ButtonCriarConta">Cooperativa</button>
-				</a>
+				</form>
 			</div>
 		</div>
 	</body>
