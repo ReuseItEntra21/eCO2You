@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,19 +13,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.senac.eco2you.modelo.dao.deposito.DepositoDAO;
-import br.senac.eco2you.modelo.dao.deposito.DepositoDAOImpl;
-import br.senac.eco2you.modelo.dao.itemDeposito.ItemDepositoDAO;
-import br.senac.eco2you.modelo.dao.itemDeposito.ItemDepositoDAOImpl;
 import br.senac.eco2you.modelo.dao.material.MaterialDAO;
 import br.senac.eco2you.modelo.dao.material.MaterialDAOImpl;
 import br.senac.eco2you.modelo.dao.reciclavel.ReciclavelDAO;
 import br.senac.eco2you.modelo.dao.reciclavel.ReciclavelDAOImpl;
 import br.senac.eco2you.modelo.dao.usuario.UsuarioDAO;
 import br.senac.eco2you.modelo.dao.usuario.UsuarioDAOImpl;
-import br.senac.eco2you.modelo.entidade.deposito.Deposito;
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
-import br.senac.eco2you.modelo.entidade.item.deposito.ItemDeposito;
 import br.senac.eco2you.modelo.entidade.material.Material;
 import br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel;
 import br.senac.eco2you.modelo.entidade.usuario.Usuario;
@@ -39,14 +34,14 @@ public class Servlet extends HttpServlet{
 	
 	private UsuarioDAO usuarioDAO;
 	private MaterialDAO materialDAO;
-//	private ReciclavelDAO reciclavelDAO;
+	private ReciclavelDAO reciclavelDAO;
 //	private ItemDepositoDAO itemDepositoDAO;
 //	private DepositoDAO DepositoDAO;
 
 	public void init () {
 		usuarioDAO = new UsuarioDAOImpl();
 		materialDAO = new MaterialDAOImpl();
-//		reciclavelDAO = new ReciclavelDAOImpl();
+		reciclavelDAO = new ReciclavelDAOImpl();
 //		itemDepositoDAO = new ItemDepositoDAOImpl();
 //		DepositoDAO = new DepositoDAOImpl();
 	}
@@ -144,6 +139,10 @@ public class Servlet extends HttpServlet{
 				deletarCooperativa(request, response);
 				break;
 				
+			case "/cadastro-material":
+				mostrarCadastroMaterial(request, response);
+				break;
+				
 			case "/inserir-material":
 				inserirMaterial(request, response);
 				break;
@@ -156,10 +155,14 @@ public class Servlet extends HttpServlet{
 				deletarMaterial(request, response);
 				break;
 				
-//			case "/inserir-reciclavel":
-//				inserirReciclavel(request, response);
-//				break;
-//				
+			case "/cadastro-reciclavel":
+				mostrarCadastroReciclavel(request, response);
+				break;
+				
+			case "/inserir-reciclavel":
+				inserirReciclavel(request, response);
+				break;
+				
 //			case "/atualizar-reciclavel":
 //				atualizarReciclavel(request, response);
 //				break;
@@ -167,7 +170,7 @@ public class Servlet extends HttpServlet{
 //			case "/deletar-reciclavel":
 //				deletarReciclavel(request, response);
 //				break;
-//				
+				
 //			case "/inserir-itemDeposito":
 //				inserirItemDeposito(request, response);
 //				break;
@@ -266,6 +269,21 @@ public class Servlet extends HttpServlet{
 	private void mostrarCadastroCooperativa(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cooperativa/cadastro.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void mostrarCadastroMaterial(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastro-material.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void mostrarCadastroReciclavel(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
+
+		List<Material> materiais = materialDAO.recuperarTodosMateriais();
+		request.setAttribute("materiais", materiais);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastro-reciclavel.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -429,18 +447,18 @@ public class Servlet extends HttpServlet{
 		
 	}
 	
-//	private void inserirReciclavel(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
-//
-//		String nome = request.getParameter("nome");
-//		Material material = request.getParameter("material");
-//		float pontosCarbono = Float.parseFloat(request.getParameter("pontosCarbono"));
-//		float peso = Float.parseFloat(request.getParameter("peso"));
-//		float volume = Float.parseFloat(request.getParameter("volume"));
-//		String instrucaoReciclavel = request.getParameter("instrucaoReciclavel");
-//		reciclavelDAO.inserirReciclavel(new Reciclavel(nome, material, pontosCarbono, peso, volume, instrucaoReciclavel));
-//		response.sendRedirect("/eCO2You/home");
-//	}
-//	
+	private void inserirReciclavel(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
+
+		String nome = request.getParameter("nome");
+		Material material = materialDAO.recuperarMaterialPorId(Long.parseLong(request.getParameter("material")));
+		int pontosCarbono = Integer.parseInt(request.getParameter("pontos-carbono"));
+		float peso = Float.parseFloat(request.getParameter("peso"));
+		float volume = Float.parseFloat(request.getParameter("volume"));
+		String instrucaoReciclavel = request.getParameter("instrucao-reciclavel");
+		reciclavelDAO.inserirReciclavel(new Reciclavel(nome, material, pontosCarbono, peso, volume, instrucaoReciclavel));
+		response.sendRedirect("/eCO2You/home");
+	}
+	
 //	private void atualizarReciclavel(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
 //
 //		long id = Long.parseLong(request.getParameter("id"));
