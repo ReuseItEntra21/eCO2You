@@ -19,7 +19,7 @@
 	<p>Domingo</p>
 	<p>8h às 21h</p>
 	<div>
-		<a href="#">Sobre</a>
+		Sobre
 	</div>
 	<div>
 		<a href="#">Endereço</a>

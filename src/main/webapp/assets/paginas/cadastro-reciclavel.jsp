@@ -17,7 +17,7 @@
 	        <h1> Novo Material </h1>
 	        <br>
 	        <br>
-	        <input type="text" id="nome" name="nome" autofocus placeholder="Nome do reciclável" maxlength="25" required size="20">
+	        <input type="text" id="nome" name="nome" autofocus placeholder="Nome do reciclável" maxlength="25" size="20">
 	        <br>
 	        <br>
 	        <select name="material">
@@ -27,16 +27,16 @@
 	        </select>
 	        <br>
 	        <br>
-	        <input type="number" id="pontos-carbono" name="nome" autofocus placeholder="Quantidade de pontos" maxlength="25" required size="20">
+	        <input type="number" id="pontos-carbono" name="nome" autofocus placeholder="Quantidade de pontos" maxlength="25"size="20">
 	        <br>
 	        <br>
-	        <input type="number" id="peso" name="peso" autofocus placeholder="Peso do Reciclável" maxlength="25" required size="20">
+	        <input type="number" id="peso" name="peso" autofocus placeholder="Peso do Reciclável" maxlength="25"size="20">
 	        <br>
 	        <br>
-	        <input type="number" id="volume" name="volume" autofocus placeholder="Volume do Reciclável (cm³)" maxlength="25" required size="20">
+	        <input type="number" id="volume" name="volume" autofocus placeholder="Volume do Reciclável (cm³)" maxlength="25"size="20">
 	        <br>
 	        <br>
-	        <input type="text" id="instrucao-Reciclavel" name="instrucaoReciclavel" autofocus placeholder="Instrução de depósito" maxlength="25" required size="20">
+	        <input type="text" id="instrucao-Reciclavel" name="instrucaoReciclavel" autofocus placeholder="Instrução de depósito" maxlength="25" size="20">
 	        <br>
 	        <br>
 	        <button type="submit" class="ButtonEntrar">Fazer Parte</button>

@@ -8,7 +8,7 @@
 	<br>
 	<h1>Depósito</h1>
     <h3>Selecione algum material disponível para depósitar.</h3>
-	<input type="date" id="dataNascimento" name="dataDeposito" required>
+	<input type="date" id="dataNascimento" name="dataDeposito">
 	<br>
 	<br>
 	<input type="image" src="caminho/da/imagem.jpg">
@@ -53,7 +53,7 @@
             <br>
             <input type="button" value="Voltar">
             <h1>Depósito</h1>
-	<input type="date" id="dataNascimento" name="dataDeposito" required>
+	<input type="date" id="dataNascimento" name="dataDeposito">
 	<br>
 	<br>
 	<input type="image" src="caminho/da/imagem.jpg">

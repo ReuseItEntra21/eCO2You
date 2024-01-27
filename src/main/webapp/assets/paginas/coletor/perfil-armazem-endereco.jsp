@@ -22,7 +22,7 @@
 		<a href="#">Sobre</a>
 	</div>
 	<div>
-		<a href="#">Endereço</a>
+		Endereço
 	</div>
 	<p>(47) 3144-1800</p>
 	<p>contato@giassi.com.br</p>

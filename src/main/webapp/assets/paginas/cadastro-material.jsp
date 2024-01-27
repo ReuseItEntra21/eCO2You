@@ -15,7 +15,7 @@
 	        <h1> Novo Material </h1>
 	        <br>
 	        <br>
-	        <input type="text" id="nome" name="nome" autofocus placeholder="Nome do material" maxlength="25" required size="35">
+	        <input type="text" id="nome" name="nome" autofocus placeholder="Nome do material" maxlength="25"size="35">
 	        <br>
 	        <br>
 	        <button type="submit" class="ButtonEntrar">Fazer Parte</button>

@@ -15,13 +15,13 @@
 	        <h1> Nova Conquista </h1>
 	        <br>
 	        <br>
-	        <input type="text" id="nome" name="nome" autofocus placeholder="Nome da Conquista" maxlength="25" required size="15">
+	        <input type="text" id="nome" name="nome" autofocus placeholder="Nome da Conquista" maxlength="25"size="15">
 	        <br>
 	        <br>
-	        <input type="number" id="pontos" name="pontos" autofocus placeholder="Pontos da Conquista" maxlength="25" required size="15">
+	        <input type="number" id="pontos" name="pontos" autofocus placeholder="Pontos da Conquista" maxlength="25"size="15">
 	        <br>
 	        <br>
-	        <input type="text" id="descricao" name="descricao" autofocus placeholder="Descrição da Conquista" maxlength="25" required size="15">
+	        <input type="text" id="descricao" name="descricao" autofocus placeholder="Descrição da Conquista" maxlength="25"size="15">
 	        <br>
 	        <br>
 	        <button type="submit" class="ButtonEntrar">Fazer Parte</button>

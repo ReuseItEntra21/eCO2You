@@ -13,7 +13,7 @@
 	        	<button type="button">Voltar</button>
 			</form>
     <body>
-    	<form action="inserir-item-deposito" method="post">
+    	<form action="inserir-deposito" method="post">
 	        <h1> Novo Item Depósito </h1>
 	        <br>
 	        <br>
@@ -24,7 +24,7 @@
 	        </select>
 	        <br>
 	        <br>
-	        <input type="number" id="quantidade-reciclaveis" name="quantidade-reciclaveis" autofocus placeholder="quantidade" maxlength="25" required size="20">
+	        <input type="number" id="quantidade-reciclaveis" name="quantidade-reciclaveis" autofocus placeholder="quantidade" maxlength="25"size="20">
 	        <br>
 	        <br>
 	        <button type="submit" class="ButtonEntrar">Fazer Parte</button>
