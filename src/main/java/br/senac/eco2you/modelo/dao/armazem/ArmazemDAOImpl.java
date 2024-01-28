@@ -15,10 +15,12 @@ import br.senac.eco2you.modelo.entidade.deposito.Deposito;
 import br.senac.eco2you.modelo.entidade.deposito.Deposito_;
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
 import br.senac.eco2you.modelo.entidade.endereco.Endereco_;
+import br.senac.eco2you.modelo.entidade.retirada.Retirada;
+import br.senac.eco2you.modelo.entidade.retirada.Retirada_;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem_;
-import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
-import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor_;
+import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
+import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa_;
 import br.senac.eco2you.modelo.enumeracao.status.armazem.StatusArmazem;
 import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
 
@@ -167,6 +169,4 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 
 		return retiradas;
 	}
-
-	
 }

@@ -109,7 +109,7 @@ public class ItemDepositoDAOImpl implements ItemDepositoDAO {
 	public List<ItemDeposito> recuperarItensDeposito() {
 
 		Session sessao = null;
-		List<ItemDeposito> clientes = null;
+		List<ItemDeposito> itensDeposito = null;
 
 		try {
 
@@ -123,7 +123,7 @@ public class ItemDepositoDAOImpl implements ItemDepositoDAO {
 
 			criteria.select(raizCliente);
 
-			clientes = sessao.createQuery(criteria).getResultList();
+			itensDeposito = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
 
@@ -142,7 +142,7 @@ public class ItemDepositoDAOImpl implements ItemDepositoDAO {
 			}
 		}
 
-		return clientes;
+		return itensDeposito;
 	}
 
 }

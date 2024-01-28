@@ -14,10 +14,10 @@
 			</form>
 			<h1>Login</h1>
 				<form action="home-coletor">
-					<input type="email" id="email" name="email" placeholder="E-mail" maxlength="25" required>
+					<input type="email" id="email" name="email" placeholder="E-mail" maxlength="25">
 					<br>
 					<br>
-					<input type="password" id="senha" name="senha" placeholder="Senha" maxlength="25"  required>
+					<input type="password" id="senha" name="senha" placeholder="Senha" maxlength="25">
 					<br>
 					<a href="a/b/elenco.html" target="_blank">Esqueceu a senha?</a>
 					<br>

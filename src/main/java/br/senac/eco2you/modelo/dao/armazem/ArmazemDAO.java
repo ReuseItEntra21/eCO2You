@@ -16,5 +16,4 @@ public interface ArmazemDAO {
 	
 	List<Armazem> buscarArmazemPeloStatusArmazem(StatusArmazem statusDeArmazem);
 	
-
 }

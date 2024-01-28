@@ -42,7 +42,8 @@
         <h3> Se você se interessou no nosso trabalho e quer fazer parte dessa comunidade, escolha entre três opções de associado e comece a mudar o planeta.
         </h3>
         <h3> Coletor </h3>
-         <pre> 	Os coletores são os 													      		    usuários comuns,
+         <pre> 	Os coletores são os 													      		    	                                                        
+        usuários comuns,
         pessoas que recolhem e
         guardam os recicláveis,
         e depois enviam para os
