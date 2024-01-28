@@ -11,6 +11,8 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
+import br.senac.eco2you.modelo.entidade.deposito.Deposito;
+import br.senac.eco2you.modelo.entidade.deposito.Deposito_;
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
 import br.senac.eco2you.modelo.entidade.endereco.Endereco_;
 import br.senac.eco2you.modelo.entidade.retirada.Retirada;
@@ -167,55 +169,4 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 
 		return retiradas;
 	}
-	
-//	public List<Coletor> buscarPerfilColetorPeloNome(String nome) {
-//	    try (Session sessao = fabrica.getConexao().openSession()) {
-//	        CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-//	        CriteriaQuery<Coletor> criteria = construtor.createQuery(Coletor.class);
-//	        Root<Armazem> raizArmazem = criteria.from(Armazem.class);
-//
-//	        
-//	        Join<Armazem, Coletor> joinColetor = raizArmazem.join(Armazem_.COLETOR);
-//
-//	        criteria.select(joinColetor)
-//	                .where(construtor.equal(joinColetor.get(Coletor_.NOME), nome));
-//
-//	        return sessao.createQuery(criteria).getResultList();
-//	    } catch (Exception e) {
-//	        e.printStackTrace();
-//	        return null;
-//	    }
-//	}
-//	
-	
-	public List<Cooperativa> buscarPerfilCooperativaPeloNome(String nome) {
-	    try (Session sessao = fabrica.getConexao().openSession()) {
-	        CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-	        CriteriaQuery<Cooperativa> criteria = construtor.createQuery(Cooperativa.class);
-	        Root<Cooperativa> raizCooperativa = criteria.from(Cooperativa.class);
-	        Join<Cooperativa, Retirada> juncaoRetirada = raizCooperativa.join(Cooperativa_.RETIRADAS);
-			ParameterExpression<String> dataRetirada = construtor.parameter(String.class);
-			criteria.where(construtor.equal(juncaoRetirada.get(Retirada_.DATA), dataRetirada));
-
-	        Join<Retirada, Armazem> juncaoArmazem = juncaoRetirada.join(Retirada_.ARMAZEM);
-			ParameterExpression<String> cnpjArmazem = construtor.parameter(String.class);
-			criteria.where(construtor.equal(juncaoArmazem.get(Armazem_.CNPJ), cnpjArmazem));
-
-//			contato = sessao.createQuery(criteria).setParameter(cpfCliente, cliente.getCpf()).getSingleResult();
-
-			sessao.getTransaction().commit();
-
-	         
-	    
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	        return null;
-	    }
-	    
-	    return null;
-	
-	}
-
- 
-	
 }
