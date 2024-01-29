@@ -10,7 +10,7 @@
     </head>
     <form action="/">
 			<br>
-	        	<button type="button">Voltar</button>
+	        	<button type="button" name="voltar" id=voltar>Voltar</button>
 			</form>
     <body>
     	<form action="inserir-deposito" method="post">
@@ -30,7 +30,7 @@
 	        <input type="number" id="quantidade-reciclaveis" name="quantidade-reciclaveis" autofocus placeholder="quantidade" maxlength="25"size="20">
 	        <br>
 	        <br>
-	        <button type="submit" class="ButtonEntrar">Fazer Deposito</button>
+	        <button type="submit" name="depositar" id=depositar class="ButtonEntrar">Fazer Deposito</button>
 	        <br>
 	        <br>
 	        <h2>Faça parte dessa mudança!</h2>

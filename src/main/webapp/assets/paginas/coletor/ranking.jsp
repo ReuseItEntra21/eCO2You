@@ -10,13 +10,13 @@
 	<body>
 		<a href="./home-coletor">
         	<br>
-			<button type="button">Voltar</button>
+			<button type="button" name="voltar" id=voltar>Voltar</button>
 		</a>
         <br>
         <br>
-        <input type="image" src="caminho/da/imagem.jpg">
-        <input type="image" src="caminho/da/imagem.jpg">
-        <input type="image" src="caminho/da/imagem.jpg">
+        <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem1>
+        <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem2>
+        <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem3>
         <h3> &#129351;  1° &#128100; Nome Pontuação Pontos </h3>
         <h3> &#129352;  2° &#128100; Nome Pontuação Pontos </h3>
         <h3> &#129353;  3° &#128100; Nome Pontuação Pontos </h3>

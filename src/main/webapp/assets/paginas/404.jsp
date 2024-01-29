@@ -9,9 +9,9 @@
 	</head>
 	<body>
 		<br>
-	    <button type="button">Voltar</button>
+	    <button type="button" name="voltar" id=voltar>Voltar</button>
 	    <p>4</p>
-	    <input type="image" src="caminho/da/imagem.jpg">
+	    <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagemErro>
 	    <p>4</p>
 	    <h1>Not found</h1>
 	    <p>Não encontramos esta página.</p>

@@ -8,7 +8,7 @@
 	</head>
 	<body>
     <br>
-		<button type="button">Voltar</button>
+		<button type="button" name="voltar" id=voltar>Voltar</button>
         <h1> ECO2YOU </h1>
         <h2> Alterar senha </h2>
         <input type="email" id="email" name="email" placeholder="Informe seu E-mail" maxlength="25">

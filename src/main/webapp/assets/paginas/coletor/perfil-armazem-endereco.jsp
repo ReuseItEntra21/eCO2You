@@ -9,9 +9,9 @@
 </head>
 <body>
 	<form action="#">
-		<input type="submit" value="seta voltar">
+		<input type="submit" value="seta voltar" name="voltar" id=voltar>
 	</form>
-	<img src="#" alt="Imagem Giassi">
+	<img src="#" alt="Imagem Giassi" name="imagem" id=imagem1>
 	<h2>Giassi</h2>
 	<p>Horário de funcionamento</p>
 	<p>Segunda a Sábado</p>
@@ -26,7 +26,7 @@
 	</div>
 	<p>(47) 3144-1800</p>
 	<p>contato@giassi.com.br</p>
-	<img src="#" alt="Imagem Giassi pelo google maps">
+	<img src="#" alt="Imagem Giassi pelo google maps" name="imagem" id=imagem2>
 	<p>Rua</p>
 	<p>São Paulo</p>
 	<p>N°</p>
