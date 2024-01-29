@@ -18,7 +18,7 @@
 	        <input type="text" id="nome" name="nome" autofocus placeholder="Nome do material" maxlength="25"size="35">
 	        <br>
 	        <br>
-	        <button type="submit" class="ButtonEntrar">Fazer Parte</button>
+	        <button type="submit" class="ButtonEntrar">Cadastrar Material</button>
 	        <br>
 	        <br>
 	        <h2>Faça parte dessa mudança!</h2>
