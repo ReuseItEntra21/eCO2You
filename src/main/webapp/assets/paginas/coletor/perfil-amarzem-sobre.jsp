@@ -9,9 +9,9 @@
 </head>
 <body>
 	<form action="#">
-		<input type="submit" value="seta voltar">
+		<input type="submit" value="seta voltar" name="voltar" id=voltar>
 	</form>
-	<img src="#" alt="Imagem Giassi">
+	<img src="#" alt="Imagem Giassi" name="imagem" id=imagem1>
 	<h2>Giassi</h2>
 	<p>Horário de funcionamento</p>
 	<p>Segunda a Sábado</p>
@@ -26,7 +26,7 @@
 	</div>
 	<p>(47) 3144-1800</p>
 	<p>contato@giassi.com.br</p>
-	<img src="#" alt="Imagem Giassi">
+	<img src="#" alt="Imagem Giassi" name="imagem" id=imagem2>
 	<p>O Giassi Supermercados atua desde 1960 no setor supermercadista.
 		A sede está localizada na cidade de Içara, sul de Santa Catarina.
 		Conta atualmente com 17 lojas instaladas em 12 cidades catarinenses e

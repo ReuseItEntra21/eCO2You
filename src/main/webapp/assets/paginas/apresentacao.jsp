@@ -11,13 +11,13 @@
 		<form action="login">
         <input type="image" src="caminho/da/imagem.jpg">
         Já tem uma conta?
-			<button type="submit" class="ButtonLogin" >Fazer Login</button>
+			<button type="submit" name="voltar" id=voltar class="ButtonLogin" >Fazer Login</button>
 		</form>
 		<br>
 		<br>
-		<img src="#" alt="">
-		<img src="#" alt="">
-		<img src="#" alt="">
+		<img src="#" alt="" name="imagem" id=imagem1>
+		<img src="#" alt="" name="imagem" id=imagem2>
+		<img src="#" alt="" name="imagem" id=imagem3>
         <h3> Nós, da reuse-it, somos uma empresa que luta para melhorar a qualidade de vida das pessoas e do próprio meio ambiente. Temos o objetivo de incentivar as pessoas a fazer parte disso e ajudar, mesmo nas pequenas coisas. Então criamos um sistema, o eco2you, um aplicátivo com sistema de gamificação aplicado para incentivar o ato de reciclagem, em troca de experiência para subir o nível da conta do usuário. </h3>
 
 		<h3>
@@ -63,7 +63,7 @@
         transforma em novos
         produtos. </pre> 
         <form action="cadastro-coletor">
-			<button type="submit" class="ButtonLogin" >Criar Conta</button>
+			<button type="submit" name="voltar" id=voltar class="ButtonLogin" >Criar Conta</button>
 		</form>
         	<h3> eCO2you </h3>
         <ul>

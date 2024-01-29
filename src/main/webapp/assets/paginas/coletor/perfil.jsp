@@ -10,13 +10,13 @@
 	<body>
     <br>
 		<a href="./home-coletor">
-				<button type="button">Voltar</button>
+				<button type="button" name="voltar" id=voltar>Voltar</button>
 			</a>
 		<a href="./editarPerfil-coletor">
-			<button type="button">Editar Perfil</button>
+			<button type="button" name="editar" id=editar>Editar Perfil</button>
 		</a>
         <br>
-        <input type="image" src="caminho/da/imagem.jpg">
+        <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem1>
         <h3> Nome </h3>
         <br>
         <h3> Posição no Ranking </h3>

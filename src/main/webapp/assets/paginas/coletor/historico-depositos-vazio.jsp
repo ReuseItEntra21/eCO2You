@@ -8,7 +8,7 @@
 	</head>
 	<body>
 		<br>
-	    <button type="button">Voltar</button>
+	    <button type="button" name="voltar" id=voltar>Voltar</button>
 	    <h3>Histórico de Depósitos</h3>
         <h4>Você ainda não tem depósitos</h4>
 	</body>
