@@ -8,7 +8,7 @@
 	</head>
 	<body>
     <br>
-		<button type="button">Voltar</button>
+		<button type="button" name="voltar" id=voltar>Voltar</button>
         <h2> Recuperar senha </h2>
         <input type="email" id="email" name="email" placeholder="Informe seu e-mail">
         <br>
@@ -16,7 +16,7 @@
         <input type="email" id="email" name="email" placeholder="Confirme seu e-mail">
         <br>
         <br>
-        <button type="button">Recuperar</button>
+        <button type="button" name="recuperar" id=recuperar>Recuperar</button>
         <h2> Recuperar senha </h2>
         <h4> Informe o código que recebeu no e-mail</h4>
         <input type="number" id="digito" name="digito" min = 0 max = 9> 
@@ -27,6 +27,6 @@
         <input type="number" id="digito" name="digito" min = 0 max = 9>
         <br>
         <br>
-        <button type="button">Recuperar</button>
+        <button type="button" name="recuperar" id=recuperar>Recuperar</button>
 	</body>
 </html>

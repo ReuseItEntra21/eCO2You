@@ -8,7 +8,7 @@
     </head>
     <form action="/">
 			<br>
-	        	<button type="button">Voltar</button>
+	        	<button type="button" name="voltar" id=voltar>Voltar</button>
 			</form>
     <body>
     	<form action="inserir-material" method="post">
@@ -18,7 +18,7 @@
 	        <input type="text" id="nome" name="nome" autofocus placeholder="Nome do material" maxlength="25"size="35">
 	        <br>
 	        <br>
-	        <button type="submit" class="ButtonEntrar">Cadastrar Material</button>
+	        <button type="submit" name="cadastrar" id=cadastrar class="ButtonEntrar">Cadastrar Material</button>
 	        <br>
 	        <br>
 	        <h2>Faça parte dessa mudança!</h2>

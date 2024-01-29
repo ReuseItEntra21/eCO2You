@@ -10,7 +10,7 @@
 		<div>
 			<div style="float:left">
 			<form action="">
-				<button type="submit">Voltar</button>
+				<button type="submit" name="voltar" id=voltar>Voltar</button>
 			</form>
 			<h1>Login</h1>
 				<form action="home-coletor">
@@ -22,7 +22,7 @@
 					<a href="a/b/elenco.html" target="_blank">Esqueceu a senha?</a>
 					<br>
 					<br>
-					<button type="submit" class="ButtonEntrar">Entrar</button>
+					<button type="submit" name="entrar" id=entrar class="ButtonEntrar">Entrar</button>
 				</form>
 			</div>
 			<div style="float:right">
@@ -33,13 +33,13 @@
 				<h2>Seja parte da mudança que o mundo precisa!</h2>
 				<br>
 				<form action="cadastro-coletor">
-					<button type="submit" class="ButtonCriarConta">Coletor</button>
+					<button type="submit" name="cadastrar" id=coletor class="ButtonCriarConta">Coletor</button>
 				</form>
 				<form action="cadastro-armazem">
-					<button type="submit" class="ButtonCriarConta">Armazem</button>
+					<button type="submit" name="cadastrar" id=armazem class="ButtonCriarConta">Armazem</button>
 				</form>
 				<form action="cadastro-cooperativa">
-					<button type="submit" class="ButtonCriarConta">Cooperativa</button>
+					<button type="submit" name="cadastrar" id=cooperativa class="ButtonCriarConta">Cooperativa</button>
 				</form>
 			</div>
 		</div>
