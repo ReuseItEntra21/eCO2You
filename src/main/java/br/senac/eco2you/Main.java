@@ -54,7 +54,7 @@ public class Main {
 
 		// =============================================================================================================
 
-		Conquista conquista01 = new Conquista(100, "Primeiro Depósito", "Conquista 100");
+		Conquista conquista01 = new Conquista("Conquista 100", 100, "Primeiro Depósito");
 		ConquistaDAO conquistaDAO = new ConquistaDAOImpl();
 		conquistaDAO.inserirConquista(conquista01);
 
@@ -77,7 +77,7 @@ public class Main {
 
 		// =============================================================================================================
 
-		Conquista conquista02 = new Conquista(200, "Segundo Depósito", "Conquista 200");
+		Conquista conquista02 = new Conquista("Conquista 200", 200, "Segundo Depósito");
 		ConquistaDAO conquistaDAO2 = new ConquistaDAOImpl();
 		conquistaDAO2.inserirConquista(conquista02);
 
@@ -100,7 +100,7 @@ public class Main {
 
 		// =============================================================================================================
 
-		Conquista conquista03 = new Conquista(300, "Terceiro Depósito", "Conquista 300");
+		Conquista conquista03 = new Conquista("Conquista 300", 300, "Terceiro Depósito");
 		ConquistaDAO conquistaDAO3 = new ConquistaDAOImpl();
 		conquistaDAO3.inserirConquista(conquista03);
 
@@ -123,7 +123,7 @@ public class Main {
 
 		// =============================================================================================================
 
-		Conquista conquista04 = new Conquista(1000, "Mil latinhas recicladas", "Conquista Mil Latinhas");
+		Conquista conquista04 = new Conquista("Conquista Mil Latinhas", 1000, "Mil latinhas recicladas");
 		conquistaDAO.inserirConquista(conquista04);
 
 		// =============================================================================================================
@@ -145,7 +145,7 @@ public class Main {
 
 		// =============================================================================================================
 
-		Conquista conquista05 = new Conquista(1000, "100 Garrafas Pet Recicladas", "Conquista 300");
+		Conquista conquista05 = new Conquista("Conquista 300", 1000, "100 Garrafas Pet Recicladas");
 		conquistaDAO.inserirConquista(conquista05);
 		// =============================================================================================================
 
