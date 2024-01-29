@@ -35,9 +35,11 @@
 				<form action="cadastro-coletor">
 					<button type="submit" class="ButtonCriarConta">Coletor</button>
 				</form>
+				<br>
 				<form action="cadastro-armazem">
 					<button type="submit" class="ButtonCriarConta">Armazem</button>
 				</form>
+				<br>
 				<form action="cadastro-cooperativa">
 					<button type="submit" class="ButtonCriarConta">Cooperativa</button>
 				</form>

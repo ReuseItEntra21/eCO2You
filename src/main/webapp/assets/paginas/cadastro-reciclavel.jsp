@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -13,18 +15,18 @@
 	        	<button type="button">Voltar</button>
 			</form>
     <body>
-    	<form action="inserir-material" method="post">
-	        <h1> Novo Material </h1>
+    	<form action="inserir-reciclavel" method="post">
+	        <h1> Novo Reciclável </h1>
 	        <br>
 	        <br>
 	        <input type="text" id="nome" name="nome" autofocus placeholder="Nome do reciclável" maxlength="25" required size="20">
 	        <br>
 	        <br>
 	        <select name="material">
-	        	<c:forEach var="material" items="${materiais}">
-	        		<option value="<c:out value="${material.id}"/>"><c:out value="${material.nome}"/><option>
-	        	</c:forEach>
-	        </select>
+    			<c:forEach var="material" items="${materiais}">
+        			<option value="${material.id}">${material.nome}</option>
+    			</c:forEach>
+			</select>
 	        <br>
 	        <br>
 	        <input type="number" id="pontos-carbono" name="nome" autofocus placeholder="Quantidade de pontos" maxlength="25" required size="20">
