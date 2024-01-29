@@ -27,12 +27,19 @@
 	        </select>
 	        <br>
 	        <br>
+	        <select name="reciclaveis">
+	        	<c:forEach var="reciclavel" items="${reciclaveis}">
+	        		<option value="<c:out value="${reciclavel.id}" />"><c:out value="${reciclavel.nome}" /><option>
+	        	</c:forEach>
+	        </select>
+	        <br>
+	        <br>
 	        <input type="number" id="quantidade-reciclaveis" name="quantidade-reciclaveis" autofocus placeholder="quantidade" maxlength="25"size="20">
 	        <br>
 	        <br>
 	        <button type="submit" name="depositar" id=depositar class="ButtonEntrar">Fazer Deposito</button>
 	        <br>
-	        <br>
+	        <BR>
 	        <h2>Faça parte dessa mudança!</h2>
 			<Pre>Conecte-se a uma comunidade<br> comprometida com a <br>sustentabilidade e preservação<br> do meio ambiente.</Pre>
         </form>

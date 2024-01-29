@@ -119,9 +119,9 @@ public class ItemDepositoDAOImpl implements ItemDepositoDAO {
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 
 			CriteriaQuery<ItemDeposito> criteria = construtor.createQuery(ItemDeposito.class);
-			Root<ItemDeposito> raizCliente = criteria.from(ItemDeposito.class);
+			Root<ItemDeposito> raizItemDeposito = criteria.from(ItemDeposito.class);
 
-			criteria.select(raizCliente);
+			criteria.select(raizItemDeposito);
 
 			itensDeposito = sessao.createQuery(criteria).getResultList();
 

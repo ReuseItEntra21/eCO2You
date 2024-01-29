@@ -11,16 +11,10 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
-import br.senac.eco2you.modelo.entidade.deposito.Deposito;
-import br.senac.eco2you.modelo.entidade.deposito.Deposito_;
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
 import br.senac.eco2you.modelo.entidade.endereco.Endereco_;
-import br.senac.eco2you.modelo.entidade.retirada.Retirada;
-import br.senac.eco2you.modelo.entidade.retirada.Retirada_;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem_;
-import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
-import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa_;
 import br.senac.eco2you.modelo.enumeracao.status.armazem.StatusArmazem;
 import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
 
@@ -168,5 +162,77 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 		}
 
 		return retiradas;
+	}
+
+	public List<Armazem> recuperarTodosArmazens() {
+		Session sessao = null;
+		List<Armazem> armazens = null;
+
+		try {
+
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Armazem> criteria = construtor.createQuery(Armazem.class);
+			Root<Armazem> raizArmazem = criteria.from(Armazem.class);
+
+			criteria.select(raizArmazem);
+
+			armazens = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return armazens;
+	}
+	
+	public Armazem recuperarArmazemPorId(long id) {
+		Session sessao = null;
+		Armazem armazem = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Armazem> criteria = construtor.createQuery(Armazem.class);
+			Root<Armazem> raizArmazem = criteria.from(Armazem.class);
+
+			criteria.select(raizArmazem).where(construtor.equal(raizArmazem.get(Armazem_.ID), id));
+
+			armazem = sessao.createQuery(criteria).getSingleResult();
+
+			return armazem;
+
+		} catch (Exception sqlException) {
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return armazem;
 	}
 }

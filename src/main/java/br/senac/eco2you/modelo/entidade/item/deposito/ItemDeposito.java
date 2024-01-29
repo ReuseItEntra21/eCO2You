@@ -4,16 +4,13 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import br.senac.eco2you.modelo.entidade.deposito.Deposito;
 import br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel;
 
 @Entity
@@ -33,24 +30,18 @@ public class ItemDeposito implements Serializable {
 
 	@Column(name = "quantidade_reciclaveis")
 	private int quantidadeReciclaveis;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_deposito")
-	private Deposito deposito;
 
 	public ItemDeposito() {}
 	
-	public ItemDeposito(long id, Reciclavel reciclavel, int quantidadeReciclaveis, Deposito deposito) {
+	public ItemDeposito(long id, Reciclavel reciclavel, int quantidadeReciclaveis) {
 		setId(id);
 		setQuantidadeReciclaveis(quantidadeReciclaveis);
 		setReciclavel(reciclavel);
-		setDeposito(deposito);
 	}
 	
-	public ItemDeposito(Reciclavel reciclavel, int quantidadeReciclaveis, Deposito deposito) {
+	public ItemDeposito(Reciclavel reciclavel, int quantidadeReciclaveis) {
 		setQuantidadeReciclaveis(quantidadeReciclaveis);
 		setReciclavel(reciclavel);
-		setDeposito(deposito);
 	}
 
 	public Long getId() {
@@ -75,13 +66,5 @@ public class ItemDeposito implements Serializable {
 
 	public void setQuantidadeReciclaveis(int quantidadeReciclaveis) {
 		this.quantidadeReciclaveis = quantidadeReciclaveis;
-	}
-
-	public Deposito getDeposito() {
-		return deposito;
-	}
-
-	public void setDeposito(Deposito deposito) {
-		this.deposito = deposito;
 	}
 }
