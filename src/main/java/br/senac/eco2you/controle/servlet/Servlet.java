@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.senac.eco2you.modelo.dao.armazem.ArmazemDAO;
+import br.senac.eco2you.modelo.dao.armazem.ArmazemDAOImpl;
 import br.senac.eco2you.modelo.dao.conquista.ConquistaDAO;
 import br.senac.eco2you.modelo.dao.conquista.ConquistaDAOImpl;
 import br.senac.eco2you.modelo.dao.deposito.DepositoDAO;
@@ -47,6 +49,7 @@ public class Servlet extends HttpServlet{
 	private ItemDepositoDAO itemDepositoDAO;
 	private DepositoDAO DepositoDAO;
 	private ConquistaDAO conquistaDAO;
+	private ArmazemDAO armazemDAO;
 
 	public void init () {
 		usuarioDAO = new UsuarioDAOImpl();
@@ -55,6 +58,7 @@ public class Servlet extends HttpServlet{
 		itemDepositoDAO = new ItemDepositoDAOImpl();
 		DepositoDAO = new DepositoDAOImpl();
 		conquistaDAO = new ConquistaDAOImpl();
+		armazemDAO = new ArmazemDAOImpl();
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -206,9 +210,9 @@ public class Servlet extends HttpServlet{
 				mostrarCadastroDeposito(request, response);
 				break;
 				
-//			case "/inserir-deposito":
-//				inserirDeposito(request, response);
-//				break;
+			case "/inserir-deposito":
+				inserirDeposito(request, response);
+				break;
 //				
 //			case "/atualizar-Deposito":
 //				atualizarDeposito(request, response);
@@ -340,9 +344,9 @@ public class Servlet extends HttpServlet{
 	private void mostrarCadastroDeposito(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
 
 		List<Reciclavel> reciclaveis = reciclavelDAO.recuperarTodosReciclaveis();
-		List<ItemDeposito> itensDeposito = itemDepositoDAO.recuperarItensDeposito();
+		List<Armazem> armazens = armazemDAO.recuperarTodosArmazens();
 		request.setAttribute("reciclaveis", reciclaveis);
-		request.setAttribute("reciclaveis", reciclaveis);
+		request.setAttribute("armazens", armazens);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastro-deposito.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -564,20 +568,20 @@ public class Servlet extends HttpServlet{
 //		
 //	}
 	
-//	private void inserirDeposito(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
-//
-//		LocalDate data = LocalDate.parse(request.getParameter("data"));
-//		Armazem armazem = request.getParameter("armazem");
-//		Coletor coletor = request.getParameter("coletor");
-//		DepositoDAO.inserirDeposito(new Deposito(data, armazem, coletor));
-//		response.sendRedirect("/eCO2You/home");
-//		
-//		Reciclavel reciclavel = reciclavelDAO.recuperarReciclavelPorId(Long.parseLong(request.getParameter("reciclavel")));
-//		int quantidadeReciclaveis = Integer.parseInt("quantidadeReciclaveis");
-//		Deposito deposito = request.getParameter("deposito");
-//		itemDepositoDAO.inserirItemDeposito(new ItemDeposito(reciclavel, quantidadeReciclaveis, deposito));
-//		
-//	}
+	private void inserirDeposito(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
+
+		LocalDate data = LocalDate.parse(request.getParameter("data"));
+		Armazem armazem = armazemDAO.recuperarArmazemPorId(Long.parseLong(request.getParameter("armazem")));
+		Coletor coletor = new Coletor("seu zé", "da silva", "892.664.937-90", LocalDate.of(1987, 8, 12), "seu.ze@email.com", "12345678");
+		DepositoDAO.inserirDeposito(new Deposito(data, armazem, coletor));
+		response.sendRedirect("/eCO2You/home");
+		
+		Reciclavel reciclavel = reciclavelDAO.recuperarReciclavelPorId(Long.parseLong(request.getParameter("reciclavel")));
+		int quantidadeReciclaveis = Integer.parseInt("quantidadeReciclaveis");
+		itemDepositoDAO.inserirItemDeposito(new ItemDeposito(reciclavel, quantidadeReciclaveis));
+		response.sendRedirect("/eCO2You/apresentacao");
+		
+	}
 	
 //	private void atualizarDeposito(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
 //
@@ -604,6 +608,6 @@ public class Servlet extends HttpServlet{
 		int pontos = Integer.parseInt(request.getParameter("pontos"));
 		String descricao = request.getParameter("descricao");
 		conquistaDAO.inserirConquista(new Conquista(nome, pontos, descricao));
-		response.sendRedirect("/coletor/home");
+		response.sendRedirect("/eCO2You/apresentacao");
 	}
 }
