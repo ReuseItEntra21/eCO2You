@@ -11,15 +11,12 @@
 		<button type="button" name="voltar" id=voltar>Voltar</button>
         <h1> ECO2YOU </h1>
         <h2> Alterar senha </h2>
-        <input type="password" id="senha" name="senha" placeholder="Informe a senha atual" maxlength="25">
+        <input type="email" id="email" name="email" placeholder="Informe seu E-mail" maxlength="25">
         <br>
         <br>
-        <input type="password" id="senhaInformar" name="senhaNova" placeholder="Informe a nova senha" maxlength="25">
+        <input type="email" id="email" name="email" placeholder="Confirme o seu E-mail" maxlength="25">
         <br>
         <br>
-        <input type="password" id="senhaConfirmar" name="senhaNova" placeholder="Confirme a nova senha" maxlength="25">
-        <br>
-        <br>
-        <button type="button">Salvar</button>
+        <button type="button">Recuperar</button>
 	</body>
 </html>
