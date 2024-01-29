@@ -7,19 +7,14 @@
 		<style><%@include file="../../../resources/css/style.css"%></style>
 	</head>
 	<body>
-    <br>
-		<button type="button">Voltar</button>
-        <h1> ECO2YOU </h1>
-        <h2> Alterar senha </h2>
-        <input type="password" id="senha" name="senha" placeholder="Informe a senha atual" maxlength="25">
+		 <button type="button">Voltar</button>
+        <h2 id="alterarSenha">RECUPERAR SENHA</h2>
+        <input type="email" id="email" name="email" placeholder="Informe seu E-mail" maxlength="25" class="recuperarSenhaEmail">
         <br>
         <br>
-        <input type="password" id="senha" name="senha" placeholder="Informe a nova senha" maxlength="25">
+        <input type="email" id="email" name="email" placeholder="Confirme o seu E-mail" maxlength="25" class="recuperarSenhaEmail">
         <br>
         <br>
-        <input type="password" id="senha" name="senha" placeholder="Confirme a nova senha" maxlength="25">
-        <br>
-        <br>
-        <button type="button">Salvar</button>
+        <button type="button" id="Recuperar">Recuperar</button>
 	</body>
 </html>
