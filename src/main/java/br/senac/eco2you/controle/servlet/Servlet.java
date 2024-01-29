@@ -193,10 +193,6 @@ public class Servlet extends HttpServlet{
 			case "/cadastro-item-deposito":
 				mostrarCadastroItemDeposito(request, response);
 				break;
-				
-			case "/inserir-item-deposito":
-				inserirItemDeposito(request, response);
-				break;
 //				
 //			case "/atualizar-itemDeposito":
 //				atualizarItemDeposito(request, response);
@@ -344,6 +340,8 @@ public class Servlet extends HttpServlet{
 	private void mostrarCadastroDeposito(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
 
 		List<Reciclavel> reciclaveis = reciclavelDAO.recuperarTodosReciclaveis();
+		List<ItemDeposito> itensDeposito = itemDepositoDAO.recuperarItensDeposito();
+		request.setAttribute("reciclaveis", reciclaveis);
 		request.setAttribute("reciclaveis", reciclaveis);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastro-deposito.jsp");
 		dispatcher.forward(request, response);
@@ -546,11 +544,6 @@ public class Servlet extends HttpServlet{
 //		materialDAO.deletarMaterial(material);
 //		response.sendRedirect("/home");
 //	}
-	
-	private void inserirItemDeposito(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
-
-		response.sendRedirect("/eCO2You/home");
-	}
 	
 //	private void atualizarItemDeposito(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
 //

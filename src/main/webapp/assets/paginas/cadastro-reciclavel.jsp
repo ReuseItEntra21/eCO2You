@@ -14,7 +14,7 @@
 			</form>
     <body>
     	<form action="inserir-material" method="post">
-	        <h1> Novo Material </h1>
+	        <h1> Novo Reciclável </h1>
 	        <br>
 	        <br>
 	        <input type="text" id="nome" name="nome" autofocus placeholder="Nome do reciclável" maxlength="25" size="20">
@@ -39,7 +39,7 @@
 	        <input type="text" id="instrucao-Reciclavel" name="instrucaoReciclavel" autofocus placeholder="Instrução de depósito" maxlength="25" size="20">
 	        <br>
 	        <br>
-	        <button type="submit" class="ButtonEntrar">Fazer Parte</button>
+	        <button type="submit" class="ButtonEntrar">Cadastrar Reciclável</button>
 	        <br>
 	        <br>
 	        <h2>Faça parte dessa mudança!</h2>
