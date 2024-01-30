@@ -87,26 +87,29 @@ button:hover {
   background-color: #04AA6D;
 }
 .recuperarSenhaEmail{
+    display: block;
     width: 600px;
     height: 70px;
     text-align: left;
     border-radius: 12px;  
-    margin-left: 34%;
     font-size: 40px;
+    margin: 5px auto;
 }  
 
-#alterarSenha{
+#RecuperarSenha{
+    display: block;
     text-align: center;
     font-size: 500%;
-    margin: 10px 0px 200px 0px;
+    margin: auto;
+    margin-bottom: 100px;
 }
 
 #Recuperar{
+    display: block;
     background-color: #0D0D0D;
     color: #FFFCF5;
     width: 300px;
     height: 70px;
-    margin-left: 42%;
     font-size: 40px;
-    margin-top: 70px;
+    margin: 100px auto;
 }

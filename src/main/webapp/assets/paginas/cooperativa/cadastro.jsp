@@ -19,26 +19,26 @@
     			<form id="regForm" action="inserir-cooperativa" method="post">
           			<h1>Criar Conta</h1>
 				  <div class="tab">
-				    <p><input type="text" placeholder="Nome" oninput="this.className = ''" name="nome"></p>
-				    <p><input type="text" placeholder="CNPJ" oninput="this.className = ''" name="cnpj"></p>
+				    <p><input type="text" placeholder="Nome" oninput="this.className = ''" name="nome" id=nome></p>
+				    <p><input type="text" placeholder="CNPJ" oninput="this.className = ''" name="cnpj" id=cnpj></p>
 				  </div>
 				 <div class="tab">
-				 	<p><input type="time" placeholder="Horario de Abertura" oninput="this.className = ''" name=horarioAbertura></p>
-				 	<p><input type="time" placeholder="Horario de Fechamento" oninput="this.className = ''" name="horarioFechamento"></p>
+				 	<p><input type="time" placeholder="Horario de Abertura" oninput="this.className = ''" name=horarioAbertura id=horarioAbertura></p>
+				 	<p><input type="time" placeholder="Horario de Fechamento" oninput="this.className = ''" name="horarioFechamento" id=horarioFechamento></p>
 				 </div>
 				 <div class="tab">
-				 	<p><input type="text" placeholder="CEP" oninput="this.className = ''" name="cep"></p>
-				 	<p><input type="text" placeholder="Cidade" oninput="this.className = ''" name="cidade"></p>
-				 	<p><input type="text" placeholder="Bairro" oninput="this.className = ''" name="bairro"></p>
-				 	<p><input type="text" placeholder="Tipo da Via" oninput="this.className = ''" name="tipoVia"></p>
-				 	<p><input type="text" placeholder="Logradouro" oninput="this.className = ''" name="logradouro"></p>
-				 	<p><input type="text" placeholder="Número" oninput="this.className = ''" name="numeroEndereco"></p>
-				    <p><input type="text" placeholder="Complemento" oninput="this.className = ''" name="complemento"></p>
-				    <p><input type="text" placeholder="Telefone" oninput="this.className = ''" name="telefone"></p>
+				 	<p><input type="text" placeholder="CEP" oninput="this.className = ''" name="cep" id=cep></p>
+				 	<p><input type="text" placeholder="Cidade" oninput="this.className = ''" name="cidade" id=cidade></p>
+				 	<p><input type="text" placeholder="Bairro" oninput="this.className = ''" name="bairro" id=bairro></p>
+				 	<p><input type="text" placeholder="Tipo da Via" oninput="this.className = ''" name="tipoVia" id=via></p>
+				 	<p><input type="text" placeholder="Logradouro" oninput="this.className = ''" name="logradouro" id=logradouro></p>
+				 	<p><input type="text" placeholder="Número" oninput="this.className = ''" name="numeroEndereco" id=numero></p>
+				    <p><input type="text" placeholder="Complemento" oninput="this.className = ''" name="complemento" id=complemento></p>
+				    <p><input type="text" placeholder="Telefone" oninput="this.className = ''" name="telefone" id=telefone></p>
 				  </div>
 		  		<div class="tab">
-				    <p><input type="email" placeholder="E-mail" oninput="this.className = ''" name="email"></p>
-				    <p><input type="password" placeholder="Senha" oninput="this.className = ''" name="senha"></p>
+				    <p><input type="email" placeholder="E-mail" oninput="this.className = ''" name="email" id=email></p>
+				    <p><input type="password" placeholder="Senha" oninput="this.className = ''" name="senha" id=senha></p>
 			  </div>
 			  <div style="text-align:center;">
 				    <span class="step"></span>
