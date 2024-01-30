@@ -14,9 +14,11 @@
 	        <h1> Nova Conquista </h1>
 	        <br>
 	        <br>
+	        <h2> Nome da Conquista </h2>
 	        <input type="text" id="nome" name="nome" autofocus placeholder="Nome da Conquista" maxlength="25"size="15">
 	        <br>
 	        <br>
+	        <h2> Pontos da Conquista </h2>
 	        <input type="number" id="pontos" name="pontos" autofocus placeholder="Pontos da Conquista" maxlength="25"size="15">
 	        <br>
 	        <br>

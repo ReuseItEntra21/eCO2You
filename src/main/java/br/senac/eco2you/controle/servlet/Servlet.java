@@ -45,6 +45,7 @@ import br.senac.eco2you.modelo.entidade.usuario.Usuario;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
 import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
+import br.senac.eco2you.modelo.enumeracao.status.armazem.StatusArmazem;
 
 @WebServlet("/")
 public class Servlet extends HttpServlet {
@@ -645,7 +646,7 @@ public class Servlet extends HttpServlet {
 		String instrucaoReciclavel = request.getParameter("instrucao-reciclavel");
 		reciclavelDAO
 				.inserirReciclavel(new Reciclavel(nome, material, pontosCarbono, peso, volume, instrucaoReciclavel));
-		response.sendRedirect("/eCO2You/home");
+		response.sendRedirect("apresentacao");
 	}
 
 //	private void atualizarReciclavel(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
@@ -690,17 +691,20 @@ public class Servlet extends HttpServlet {
 
 	private void inserirDeposito(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-
+		
 		LocalDate data = LocalDate.parse(request.getParameter("data"));
-		Armazem armazem = armazemDAO.recuperarArmazemPorId(Long.parseLong(request.getParameter("armazem")));
+		//Armazem armazem = armazemDAO.recuperarArmazemPorId(Long.parseLong(request.getParameter("armazem")));
+		Armazem armazem = new Armazem("Giassi", "giassi@gmail.com", "123456", "", "29320241000108",
+				LocalTime.of(8, 0), LocalTime.of(21, 0), 1000f);
+		usuarioDAO.inserirUsuario(armazem);
 		Coletor coletor = new Coletor("seu zé", "da silva", "892.664.937-90", LocalDate.of(1987, 8, 12),
 				"seu.ze@email.com", "12345678");
+		usuarioDAO.inserirUsuario(coletor);
 		DepositoDAO.inserirDeposito(new Deposito(data, armazem, coletor));
-		response.sendRedirect("/eCO2You/home");
 
 		Reciclavel reciclavel = reciclavelDAO
 				.recuperarReciclavelPorId(Long.parseLong(request.getParameter("reciclavel")));
-		int quantidadeReciclaveis = Integer.parseInt("quantidadeReciclaveis");
+		int quantidadeReciclaveis = Integer.parseInt(request.getParameter("quantidade-reciclaveis"));
 		itemDepositoDAO.inserirItemDeposito(new ItemDeposito(reciclavel, quantidadeReciclaveis));
 		response.sendRedirect("/eCO2You/apresentacao");
 
@@ -727,12 +731,16 @@ public class Servlet extends HttpServlet {
 
 	private void inserirRetirada(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-
+		
 		LocalDate data = LocalDate.parse(request.getParameter("data"));
-		Cooperativa cooperativa = new Cooperativa();
-		Armazem armazem = new Armazem();
+		Cooperativa cooperativa = new Cooperativa("Saturno Ambiental", "44.511.898/0001-38", LocalTime.of(8, 0),
+				LocalTime.of(21, 0), " ", "saturno.ambiental@gmail.com", "123456");
+		usuarioDAO.inserirUsuario(cooperativa);
+		//Armazem armazem = armazemDAO.recuperarArmazemPorId(Long.parseLong(request.getParameter("armazem")));;
+		Armazem armazem = new Armazem("Giassi", "giassi@gmail.com", "123456", "", "29320241000108",
+				LocalTime.of(8, 0), LocalTime.of(21, 0), 1000f);
+		usuarioDAO.inserirUsuario(armazem);
 		retiradaDAO.inserirRetirada(new Retirada(data, cooperativa, armazem));
-		response.sendRedirect("/eCO2You/home");
 
 		Material material = materialDAO.recuperarMaterialPorId(Long.parseLong(request.getParameter("material")));
 		float peso = Float.parseFloat(request.getParameter("peso"));
@@ -748,6 +756,6 @@ public class Servlet extends HttpServlet {
 		int pontos = Integer.parseInt(request.getParameter("pontos"));
 		String descricao = request.getParameter("descricao");
 		conquistaDAO.inserirConquista(new Conquista(nome, pontos, descricao));
-		response.sendRedirect("/eCO2You/apresentacao");
+		response.sendRedirect("apresentacao");
 	}
 }
