@@ -29,12 +29,6 @@
 			</select>
 	        <br>
 	        <br>
-	        <h2>Escolha o Armazem</h2>
-	        <select name="armazem">
-    			<c:forEach var="armazem" items="${armazens}">
-        			<option value="${armazem.getId()}">${usuario.nome}</option>
-    			</c:forEach>
-			</select>
 	        <br>
 	        <br>
 	        <h2>Escolha a Quantidade do Reciclavel</h2>
