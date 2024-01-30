@@ -8,10 +8,10 @@
 	</head>
     <body>
     <br>
-        <form action="/">
-        <button type="button">Voltar</button>
-        <br>
-        <br>
+        <form action="home-cooperativa">
+			<button type="submit" name="voltar" id=voltar>Voltar</button>
+		</form>
+		<form action="atualizar-cooperativa">
         <input type="text" id="nome" name="nome" autofocus placeholder="Nome" maxlength="25" size="46" required><br>
         <br>
         <input type="email" id="email" name="email" placeholder="E-mail" maxlength="45" size="46" required><br>

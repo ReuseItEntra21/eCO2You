@@ -8,5 +8,9 @@
 		<style><%@include file="../../../resources/css/style.css"%></style>
 	</head>
 	<body>
+	<form action="home-cooperativa">
+			<button type="submit" name="voltar" id=voltar>Voltar</button>
+	</form>
+	<h1>Perfil Cooperativa</h1>
 	</body>
 </html>

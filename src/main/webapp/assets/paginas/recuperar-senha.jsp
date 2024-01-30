@@ -7,8 +7,9 @@
 		<style><%@include file="../../../resources/css/style.css"%></style>
 	</head>
 	<body>
-    <br>
-		<button type="button" name="voltar" id=voltar>Voltar</button>
+		<form action="apresentacao">
+			<button type="submit" name="voltar" id=voltar>Voltar</button>
+		</form>
         <h2> Recuperar senha </h2>
         <input type="email" id="email" name="email" placeholder="Informe seu e-mail">
         <br>
