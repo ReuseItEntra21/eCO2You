@@ -13,7 +13,7 @@
 	        	<button type="button" name="voltar" id=voltar >Voltar</button>
 			</form>
     <body>
-    	<form action="inserir-material" method="post">
+    	<form action="inserir-reciclavel" method="post">
 	        <h1> Novo Reciclável </h1>
 	        <br>
 	        <br>
