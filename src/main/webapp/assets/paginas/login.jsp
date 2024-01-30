@@ -35,9 +35,11 @@
 				<form action="cadastro-coletor">
 					<button type="submit" name="cadastrar" id=coletor class="ButtonCriarConta">Coletor</button>
 				</form>
+				<br>
 				<form action="cadastro-armazem">
 					<button type="submit" name="cadastrar" id=armazem class="ButtonCriarConta">Armazem</button>
 				</form>
+				<br>
 				<form action="cadastro-cooperativa">
 					<button type="submit" name="cadastrar" id=cooperativa class="ButtonCriarConta">Cooperativa</button>
 				</form>

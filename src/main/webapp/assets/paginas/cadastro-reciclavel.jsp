@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -21,10 +23,10 @@
 	        <br>
 	        <br>
 	        <select name="material">
-	        	<c:forEach var="material" items="${materiais}">
-	        		<option value="<c:out value="${material.id}"/>"><c:out value="${material.nome}"/><option>
-	        	</c:forEach>
-	        </select>
+    			<c:forEach var="material" items="${materiais}">
+        			<option value="${material.id}">${material.nome}</option>
+    			</c:forEach>
+			</select>
 	        <br>
 	        <br>
 	        <input type="number" id="pontos-carbono" name="nome" autofocus placeholder="Quantidade de pontos" maxlength="25"size="20">
