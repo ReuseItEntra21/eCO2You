@@ -13,7 +13,6 @@
 				<button type="button" name="voltar" id=voltar>Voltar</button>
 			</a>
 		<a href="./editarPerfil-coletor">
-			<button type="button" name="editar" id=editar>Editar Perfil</button>
 		</a>
         <br>
         <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem1>
