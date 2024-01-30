@@ -9,10 +9,10 @@
 	<body>
 		<nav>
 			<a href="./home-armazem" target="_blank">
-			<button type="button">Home</button>
+			<button type="button" name="home" id=home>Home</button>
 			</a>
 			<a href="./perfil-armazem">
-			<button type="button">Perfil</button>
+			<button type="button" name="perfil" id=perfil>Perfil</button>
 			</a>
 		</nav>
 	</body>

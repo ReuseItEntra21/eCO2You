@@ -19,12 +19,12 @@
         <button type="button" name="recuperar" id=recuperar>Recuperar</button>
         <h2> Recuperar senha </h2>
         <h4> Informe o código que recebeu no e-mail</h4>
-        <input type="number" id="digito" name="digito" min = 0 max = 9> 
-        <input type="number" id="digito" name="digito" min = 0 max = 9>
-        <input type="number" id="digito" name="digito" min = 0 max = 9>
-        <input type="number" id="digito" name="digito" min = 0 max = 9>
-        <input type="number" id="digito" name="digito" min = 0 max = 9>
-        <input type="number" id="digito" name="digito" min = 0 max = 9>
+        <input type="number" id="digito1" name="digito" min = 0 max = 9> 
+        <input type="number" id="digito2" name="digito" min = 0 max = 9>
+        <input type="number" id="digito3" name="digito" min = 0 max = 9>
+        <input type="number" id="digito4" name="digito" min = 0 max = 9>
+        <input type="number" id="digito5" name="digito" min = 0 max = 9>
+        <input type="number" id="digito6" name="digito" min = 0 max = 9>
         <br>
         <br>
         <button type="button" name="recuperar" id=recuperar>Recuperar</button>
