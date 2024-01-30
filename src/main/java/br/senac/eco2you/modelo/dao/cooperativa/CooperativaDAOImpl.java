@@ -151,7 +151,7 @@ public class CooperativaDAOImpl implements CooperativaDAO {
 		}
 	}
 
-	public List<Cooperativa> buscarPerfilColetorPeloNome(String nome) {
+	public List<Cooperativa> buscarPerfilCooperativaPeloNome(String nome) {
 		try (
 
 				Session sessao = fabrica.getConexao().openSession()) {
