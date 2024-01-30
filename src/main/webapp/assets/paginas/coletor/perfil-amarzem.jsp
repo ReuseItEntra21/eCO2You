@@ -9,7 +9,7 @@
 </head>
 <body>
 	<form action="#">
-		<input type="submit" value="seta voltar" name="voltar" id=voltar>
+		<input type="submit" value="voltar" name="voltar" id=voltar>
 	</form>
 	<img src="#" alt="Imagem Giassi" name="imagem" id=imagem1>
 	<h2>Giassi</h2>
@@ -35,5 +35,35 @@
 		pela consultoria CVA Solutions apontou, por três anos, o Giassi
 		Supermercados como a melhor rede de supermercados do Brasil quando
 		considerado o custo-benefício para o cliente.</p>
+    <br>
+    <form action="#">
+		<input type="submit" value="voltar" name="voltar" id=voltar>
+	</form>
+	<img src="#" alt="Imagem Giassi" name="imagem" id=imagem1>
+	<h2>Giassi</h2>
+	<p>Horário de funcionamento</p>
+	<p>Segunda a Sábado</p>
+	<p>8h às 22h</p>
+	<p>Domingo</p>
+	<p>8h às 21h</p>
+	<div>
+		<a href="#">Sobre</a>
+	</div>
+	<div>
+		Endereço
+	</div>
+	<p>(47) 3144-1800</p>
+	<p>contato@giassi.com.br</p>
+	<img src="#" alt="Imagem Giassi pelo google maps" name="imagem" id=imagem2>
+	<p>Rua</p>
+	<p>São Paulo</p>
+	<p>N°</p>
+	<p>1277</p>
+	<p>CEP</p>
+	<p>89012-001</p>
+	<p>Bairro</p>
+	<p>Victor Konder</p>
+	<p>Cidade</p>
+	<p>Blumenau</p>
 </body>
 </html>

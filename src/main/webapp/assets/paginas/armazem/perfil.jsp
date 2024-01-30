@@ -9,7 +9,31 @@
 </head>
 <body>
 	<form action="#">
-		<input type="submit" value="seta voltar" name="voltar" id=voltar>
+		<input type="submit" value="voltar" name="voltar" id=voltar>
+        <button type="button" name="configuracoes" id=configuracoes>configuracoes</button>
+	</form>
+	<img src="#" alt="Imagem Giassi" name="imagem" id=imagem1>
+	<h2>Nome</h2>
+	<p>Horário de funcionamento</p>
+	<p>Dias</p>
+	<p>Horários</p>
+	<p>Domingo</p>
+	<p>Horários</p>
+	<div>
+		Sobre
+	</div>
+	<div>
+		<a href="#">Endereço</a>
+	</div>
+	<p>Número</p>
+	<p>Endereço</p>
+	<img src="#" alt="Imagem Giassi" name="imagem" id=imagem2>
+    <br>
+	<input type=text placeholder=Descrição name=descricao id=descricao>
+    <br>
+    <br>
+	<form action="#">
+		<input type="submit" value="voltar" name="voltar" id=voltar>
 		<button type="button" name="configuracoes" id=configuracoes>configuracoes</button>
 	</form>
 	<img src="#" alt="Imagem Giassi" name="imagem" id=imagem1>
