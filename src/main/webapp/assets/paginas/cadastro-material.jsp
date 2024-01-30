@@ -18,10 +18,6 @@
 	        <br>
 	        <br>
 	        <button type="submit" name="cadastrar" id=cadastrar class="ButtonEntrar">Cadastrar Material</button>
-	        <br>
-	        <br>
-	        <h2>Faça parte dessa mudança!</h2>
-			<Pre>Conecte-se a uma comunidade<br> comprometida com a <br>sustentabilidade e preservação<br> do meio ambiente.</Pre>
         </form>
     </body>
 </html>
