@@ -51,7 +51,9 @@ public class Retirada implements Serializable{
 	@JoinTable(name = "retirada_itemRetirada", joinColumns = @JoinColumn(name = "id_retirada"), inverseJoinColumns = @JoinColumn(name = "id_itemRetirada"))
 	private List<ItemRetirada> ItensRetirada;
     
-    @Enumerated(EnumType.STRING)private StatusRetirada statusDeRetirada;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status_retirada", nullable = true)
+    private StatusRetirada statusDeRetirada;
     
     public Retirada() {}
     
@@ -62,6 +64,15 @@ public class Retirada implements Serializable{
         setArmazem(armazem);
         ItensRetirada = new ArrayList<>();
     }
+    
+    public Retirada(LocalDate data, Cooperativa cooperativa, Armazem armazem) {
+    	setData(data);
+    	setStatusDeRetirada(statusDeRetirada);
+        setCooperativa(cooperativa);
+        setArmazem(armazem);
+        ItensRetirada = new ArrayList<>();
+    }
+    
     public Long getId() {
 		return id;
 	}

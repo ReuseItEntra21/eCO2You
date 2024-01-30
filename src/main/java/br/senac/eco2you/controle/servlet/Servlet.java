@@ -17,22 +17,30 @@ import br.senac.eco2you.modelo.dao.armazem.ArmazemDAO;
 import br.senac.eco2you.modelo.dao.armazem.ArmazemDAOImpl;
 import br.senac.eco2you.modelo.dao.conquista.ConquistaDAO;
 import br.senac.eco2you.modelo.dao.conquista.ConquistaDAOImpl;
+import br.senac.eco2you.modelo.dao.cooperativa.CooperativaDAO;
+import br.senac.eco2you.modelo.dao.cooperativa.CooperativaDAOImpl;
 import br.senac.eco2you.modelo.dao.deposito.DepositoDAO;
 import br.senac.eco2you.modelo.dao.deposito.DepositoDAOImpl;
 import br.senac.eco2you.modelo.dao.itemDeposito.ItemDepositoDAO;
 import br.senac.eco2you.modelo.dao.itemDeposito.ItemDepositoDAOImpl;
+import br.senac.eco2you.modelo.dao.itemRetirada.ItemRetiradaDAO;
+import br.senac.eco2you.modelo.dao.itemRetirada.ItemRetiradaDAOImpl;
 import br.senac.eco2you.modelo.dao.material.MaterialDAO;
 import br.senac.eco2you.modelo.dao.material.MaterialDAOImpl;
 import br.senac.eco2you.modelo.dao.reciclavel.ReciclavelDAO;
 import br.senac.eco2you.modelo.dao.reciclavel.ReciclavelDAOImpl;
+import br.senac.eco2you.modelo.dao.retirada.RetiradaDAO;
+import br.senac.eco2you.modelo.dao.retirada.RetiradaDAOImpl;
 import br.senac.eco2you.modelo.dao.usuario.UsuarioDAO;
 import br.senac.eco2you.modelo.dao.usuario.UsuarioDAOImpl;
 import br.senac.eco2you.modelo.entidade.conquista.Conquista;
 import br.senac.eco2you.modelo.entidade.deposito.Deposito;
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
 import br.senac.eco2you.modelo.entidade.item.deposito.ItemDeposito;
+import br.senac.eco2you.modelo.entidade.item.retirada.ItemRetirada;
 import br.senac.eco2you.modelo.entidade.material.Material;
 import br.senac.eco2you.modelo.entidade.reciclavel.Reciclavel;
+import br.senac.eco2you.modelo.entidade.retirada.Retirada;
 import br.senac.eco2you.modelo.entidade.usuario.Usuario;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
@@ -50,6 +58,9 @@ public class Servlet extends HttpServlet{
 	private DepositoDAO DepositoDAO;
 	private ConquistaDAO conquistaDAO;
 	private ArmazemDAO armazemDAO;
+	private CooperativaDAO cooperativaDAO;
+	private RetiradaDAO retiradaDAO;
+	private ItemRetiradaDAO itemRetiradaDAO;
 
 	public void init () {
 		usuarioDAO = new UsuarioDAOImpl();
@@ -59,6 +70,9 @@ public class Servlet extends HttpServlet{
 		DepositoDAO = new DepositoDAOImpl();
 		conquistaDAO = new ConquistaDAOImpl();
 		armazemDAO = new ArmazemDAOImpl();
+		cooperativaDAO = new CooperativaDAOImpl();
+		retiradaDAO = new RetiradaDAOImpl();
+		itemRetiradaDAO = new ItemRetiradaDAOImpl();
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -221,6 +235,10 @@ public class Servlet extends HttpServlet{
 //			case "/deletar-Deposito":
 //				deletarDeposito(request, response);
 //				break;
+				
+			case "/inserir-retirada":
+				inserirRetirada(request, response);
+				break;
 				
 			case "/cadastro-conquista":
 				mostrarCadastroConquista(request, response);
@@ -601,6 +619,21 @@ public class Servlet extends HttpServlet{
 //		response.sendRedirect("/home");
 //		
 //	}
+	
+	private void inserirRetirada(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
+
+		LocalDate data = LocalDate.parse(request.getParameter("data"));
+		Cooperativa cooperativa = new Cooperativa();
+		Armazem armazem = new Armazem();
+		retiradaDAO.inserirRetirada(new Retirada(data, cooperativa, armazem));
+		response.sendRedirect("/eCO2You/home");
+		
+		Material material = materialDAO.recuperarMaterialPorId(Long.parseLong(request.getParameter("material")));
+		float peso = Float.parseFloat(request.getParameter("peso"));
+		itemRetiradaDAO.inserirItemRetirada(new ItemRetirada(material, peso));
+		response.sendRedirect("/eCO2You/apresentacao");
+		
+	}
 	
 	private void inserirConquista(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
 		

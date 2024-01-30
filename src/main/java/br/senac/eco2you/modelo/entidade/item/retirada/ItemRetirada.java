@@ -33,7 +33,7 @@ public class ItemRetirada implements Serializable {
 	private Material material;
 	
 	@Column(name = "peso_item_retirada", nullable = false)
-	private double peso;
+	private float peso;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_retirada")
@@ -41,10 +41,15 @@ public class ItemRetirada implements Serializable {
 	
 	public ItemRetirada() {}
 
-	public ItemRetirada(Material material, double peso, Retirada retirada) {
+	public ItemRetirada(Material material, float peso, Retirada retirada) {
 		setMaterial(material);
 		setPeso(peso);
 		setRetirada(retirada);
+	}
+	
+	public ItemRetirada(Material material, float peso) {
+		setMaterial(material);
+		setPeso(peso);
 	}
 	
 	public Long getId() {
@@ -55,11 +60,11 @@ public class ItemRetirada implements Serializable {
 		this.id = id;
 	}
 
-	public double getPeso() {
+	public float getPeso() {
 		return peso;
 	}
 
-	public void setPeso(double peso) {
+	public void setPeso(float peso) {
 		this.peso = peso;
 	}
 

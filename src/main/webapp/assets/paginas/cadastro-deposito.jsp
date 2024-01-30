@@ -20,16 +20,16 @@
 	        <input type="date" id="data" name="data" autofocus placeholder="Data para Depositar" maxlength="25" size="20">
 	        <br>
 	        <br>
-	        <select name="reciclaveis">
+	        <select name="reciclavel">
 	        	<c:forEach var="reciclavel" items="${reciclaveis}">
 	        		<option value="<c:out value="${reciclavel.id}" />"><c:out value="${reciclavel.nome}" /><option>
 	        	</c:forEach>
 	        </select>
 	        <br>
 	        <br>
-	        <select name="reciclaveis">
-	        	<c:forEach var="reciclavel" items="${reciclaveis}">
-	        		<option value="<c:out value="${reciclavel.id}" />"><c:out value="${reciclavel.nome}" /><option>
+	        <select name="armazem">
+	        	<c:forEach var="armazem" items="${armazens}">
+	        		<option value="<c:out value="${armazens.id}" />"><c:out value="${armazens.nome}" /><option>
 	        	</c:forEach>
 	        </select>
 	        <br>
