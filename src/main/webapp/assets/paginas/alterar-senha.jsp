@@ -10,12 +10,12 @@
     	<br>
 		 <button type="button" name="voltar" id=voltar>Voltar</button>
         <h2 id="alterarSenha">RECUPERAR SENHA</h2>
-        <input type="email" id="email1" name="email" placeholder="Informe seu E-mail" maxlength="25" class="recuperarSenhaEmail">
+        <input type="password" id="senhaAntiga" name="senha" placeholder="Informe sua senha" maxlength="25" class="recuperarSenhal">
         <br>
         <br>
-        <input type="email" id="email2" name="email" placeholder="Confirme o seu E-mail" maxlength="25" class="recuperarSenhaEmail">
+        <input type="password" id="senhaNova" name="senha" placeholder="Informe sua nova senha" maxlength="25" class="recuperarSenha">
         <br>
         <br>
-        <button type="button" id="Recuperar">Recuperar</button>
+        <button type="button" id="Recuperar" name=recuperar >Recuperar</button>
 	</body>
 </html>
