@@ -263,6 +263,10 @@ public class Servlet extends HttpServlet{
 			case "/inserir-conquista":
 				inserirConquista(request, response);
 				break;
+			
+			case "/recuperar-senha":
+				mostrarRecuperarSenha(request, response);
+				break;
 				
 			default:
 				mostrarApresentacao(request, response);
@@ -413,7 +417,13 @@ public class Servlet extends HttpServlet{
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastro-conquista.jsp");
 			dispatcher.forward(request, response);
-		}
+	}
+	 
+	private void mostrarRecuperarSenha(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/recuperar-senha.jsp");
+			dispatcher.forward(request, response);
+	}
 
 	private void inserirColetor(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
 		
