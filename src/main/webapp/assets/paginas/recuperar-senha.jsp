@@ -9,7 +9,7 @@
 	<body>
     <br>
 		<button type="button" name="voltar" id=voltar>Voltar</button>
-        <h2> Recuperar senha </h2>
+        <h2 id="RecuperarSenha"> Recuperar senha </h2>
         <input type="email" id="email" name="email" placeholder="Informe seu e-mail">
         <br>
         <br>
