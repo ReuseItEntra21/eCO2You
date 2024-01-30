@@ -328,7 +328,7 @@ public class Main {
 		depositoDAO.inserirDeposito(deposito01);
 		armazem01.inserirDeposito(deposito01);
 
-		ItemDeposito itemDeposito01 = new ItemDeposito(reciclavel01, 7, deposito01);
+		ItemDeposito itemDeposito01 = new ItemDeposito(reciclavel01, 7);
 		ItemDepositoDAO itemDepositoDAO = new ItemDepositoDAOImpl();
 		itemDepositoDAO.inserirItemDeposito(itemDeposito01);
 		deposito01.inserirItemDeposito(itemDeposito01);
@@ -343,7 +343,7 @@ public class Main {
 		depositoDAO02.inserirDeposito(deposito02);
 		armazem02.inserirDeposito(deposito02);
 
-		ItemDeposito itemDeposito02 = new ItemDeposito(reciclavel01, 4, deposito02);
+		ItemDeposito itemDeposito02 = new ItemDeposito(reciclavel01, 4);
 		ItemDepositoDAO itemDepositoDAO02 = new ItemDepositoDAOImpl();
 		itemDepositoDAO02.inserirItemDeposito(itemDeposito02);
 		deposito02.inserirItemDeposito(itemDeposito02);
@@ -358,7 +358,7 @@ public class Main {
 		depositoDAO03.inserirDeposito(deposito03);
 		armazem03.inserirDeposito(deposito03);
 
-		ItemDeposito itemDeposito03 = new ItemDeposito(reciclavel01, 10, deposito03);
+		ItemDeposito itemDeposito03 = new ItemDeposito(reciclavel01, 10);
 		ItemDepositoDAO itemDepositoDAO03 = new ItemDepositoDAOImpl();
 		itemDepositoDAO03.inserirItemDeposito(itemDeposito03);
 		deposito03.inserirItemDeposito(itemDeposito03);
@@ -373,7 +373,7 @@ public class Main {
 		depositoDAO04.inserirDeposito(deposito04);
 		armazem04.inserirDeposito(deposito04);
 
-		ItemDeposito itemDeposito04 = new ItemDeposito(reciclavel01, 3, deposito04);
+		ItemDeposito itemDeposito04 = new ItemDeposito(reciclavel01, 3);
 		ItemDepositoDAO itemDepositoDAO04 = new ItemDepositoDAOImpl();
 		itemDepositoDAO04.inserirItemDeposito(itemDeposito04);
 		deposito04.inserirItemDeposito(itemDeposito04);
@@ -388,7 +388,7 @@ public class Main {
 		depositoDAO05.inserirDeposito(deposito05);
 		armazem05.inserirDeposito(deposito05);
 
-		ItemDeposito itemDeposito05 = new ItemDeposito(reciclavel01, 2, deposito05);
+		ItemDeposito itemDeposito05 = new ItemDeposito(reciclavel01, 2);
 		ItemDepositoDAO itemDepositoDAO05 = new ItemDepositoDAOImpl();
 		itemDepositoDAO05.inserirItemDeposito(itemDeposito05);
 		deposito05.inserirItemDeposito(itemDeposito05);
