@@ -9,6 +9,9 @@
 </head>
 <body>
 	<div style="float: left">
+		<form action="login">
+			<button type="submit" name="voltar" id=voltar>Voltar</button>
+		</form>
 		<h2>Faça parte dessa mudança!</h2>
 		Conecte-se a uma comunidade comprometida com a sustentabilidade e
 		preservação do meio ambiente

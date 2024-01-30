@@ -9,7 +9,7 @@
 	<body>
 		<div>
 			<div style="float:left">
-			<form action="">
+			<form action="apresentacao">
 				<button type="submit" name="voltar" id=voltar>Voltar</button>
 			</form>
 			<h1>Login</h1>
@@ -19,7 +19,7 @@
 					<br>
 					<input type="password" id="senha" name="senha" placeholder="Senha" maxlength="25">
 					<br>
-					<a href="a/b/elenco.html" target="_blank">Esqueceu a senha?</a>
+					<a href="recuperar-senha" target="_blank">Esqueceu a senha?</a>
 					<br>
 					<br>
 					<button type="submit" name="entrar" id=entrar class="ButtonEntrar">Entrar</button>

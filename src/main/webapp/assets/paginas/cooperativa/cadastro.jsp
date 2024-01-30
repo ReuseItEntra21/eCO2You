@@ -8,12 +8,15 @@
     </head>
     <body>
     <div style="float: left">
+    	<form action="apresentacao">
+			<button type="submit" name="voltar" id=voltar>Voltar</button>
+		</form>
 		<h2>Faça parte dessa mudança!</h2>
 		Conecte-se a uma comunidade comprometida com a sustentabilidade e
 		preservação do meio ambiente
 	</div>
 	<div style="float: right">
-    			<form id="regForm" action="inserir-armazem" method="post">
+    			<form id="regForm" action="inserir-cooperativa" method="post">
           			<h1>Criar Conta</h1>
 				  <div class="tab">
 				    <p><input type="text" placeholder="Nome" oninput="this.className = ''" name="nome" id=nome></p>

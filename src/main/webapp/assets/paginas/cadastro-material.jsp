@@ -6,10 +6,9 @@
 		<title>Cadastro</title>
 		<style><%@include file="../../../resources/css/style.css"%></style>
     </head>
-    <form action="/">
-			<br>
-	        	<button type="button" name="voltar" id=voltar>Voltar</button>
-			</form>
+    <form action="apresentacao">
+		<button type="submit" name="voltar" id=voltar>Voltar</button>
+	</form>
     <body>
     	<form action="inserir-material" method="post">
 	        <h1> Novo Material </h1>
