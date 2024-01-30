@@ -2,12 +2,7 @@ package br.senac.eco2you;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.List;
 
-import br.senac.eco2you.modelo.dao.armazem.ArmazemDAO;
-import br.senac.eco2you.modelo.dao.armazem.ArmazemDAOImpl;
-import br.senac.eco2you.modelo.dao.coletor.ColetorDAO;
-import br.senac.eco2you.modelo.dao.coletor.ColetorDAOImpl;
 import br.senac.eco2you.modelo.dao.conquista.ConquistaDAO;
 import br.senac.eco2you.modelo.dao.conquista.ConquistaDAOImpl;
 import br.senac.eco2you.modelo.dao.deposito.DepositoDAO;
