@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+body {
+	background-color: #FFFFF0;
+	padding: 5px;
+}
+
+h2 {
+	font-size: 30px;
+}
+
+#conquistas-container {
+	background-color: #FFFCF5;
+	height: 920px;
+	width: 915px;
+}
+
+.conquista-box {
+	background-color: #FFFAF0;
+}
