@@ -9,7 +9,9 @@
 	</head>
 	<body>
 		<br>
-	    <button type="button" name="voltar" id=voltar>Voltar</button>
+	    <form action="home-coletor">
+			<button type="submit" name="voltar" id=voltar>Voltar</button>
+		</form>
 	    <p>4</p>
 	    <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagemErro>
 	    <p>4</p>

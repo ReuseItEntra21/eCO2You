@@ -7,8 +7,9 @@
 		<style><%@include file="../../../resources/css/style.css"%></style>
 	</head>
 	<body>
-    	<br>
-		 <button type="button" name="voltar" id=voltar>Voltar</button>
+    	<form action="apresentacao">
+			<button type="submit" name="voltar" id=voltar>Voltar</button>
+		</form>
         <h2 id="alterarSenha">RECUPERAR SENHA</h2>
         <input type="password" id="senhaAntiga" name="senha" placeholder="Informe sua senha" maxlength="25" class="recuperarSenhal">
         <br>
