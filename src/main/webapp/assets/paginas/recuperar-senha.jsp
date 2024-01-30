@@ -7,7 +7,7 @@
 		<style><%@include file="../../../resources/css/style.css"%></style>
 	</head>
 	<body>
-		<form action="apresentacao">
+		<form action="login">
 			<button type="submit" name="voltar" id=voltar>Voltar</button>
 		</form>
     <h2 id="RecuperarSenha"> Recuperar senha </h2>
