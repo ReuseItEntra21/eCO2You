@@ -74,21 +74,22 @@ public class ColetorDAOImpl implements ColetorDAO {
 	}
 
 	public List<Coletor> buscarPerfilColetorPeloNome(String nome) {
-	    try (Session sessao = fabrica.getConexao().openSession()) {
-	        CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-	        CriteriaQuery<Coletor> criteria = construtor.createQuery(Coletor.class);
-	        Root<Coletor> raizColetor = criteria.from(Coletor.class);
-	        
-	        Join<Coletor, Deposito> juncaoDeposito = raizColetor.join(Coletor_.DEPOSITOS);
-	        Join<Deposito, Armazem> juncaoArmazem = juncaoDeposito.join(Deposito_.ARMAZEM);
+		try (Session sessao = fabrica.getConexao().openSession()) {
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Coletor> criteria = construtor.createQuery(Coletor.class);
+			Root<Coletor> raizColetor = criteria.from(Coletor.class);
 
-	        ParameterExpression<String> nomeColetorExpression = construtor.parameter(String.class);
-	        criteria.where(construtor.equal(juncaoArmazem.get(Coletor_.NOME), nome));
-	        criteria.where(construtor.equal(raizColetor.get(Coletor_.NOME), nomeColetorExpression));
+			Join<Coletor, Deposito> juncaoDeposito = raizColetor.join(Coletor_.DEPOSITOS);
+			Join<Deposito, Armazem> juncaoArmazem = juncaoDeposito.join(Deposito_.ARMAZEM);
 
-	        return sessao.createQuery(criteria).setParameter(nomeColetorExpression, nome).getResultList();
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	        return null;
-	    }}
+			ParameterExpression<String> nomeColetorExpression = construtor.parameter(String.class);
+			
+			criteria.where(construtor.equal(juncaoArmazem.get(Coletor_.NOME), nomeColetorExpression));
+
+			return sessao.createQuery(criteria).setParameter(nomeColetorExpression, nome).getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
+}
