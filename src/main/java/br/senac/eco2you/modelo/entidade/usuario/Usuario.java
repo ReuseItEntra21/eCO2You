@@ -54,6 +54,14 @@ public abstract class Usuario implements Serializable {
 		setSenha(senha);
 		setEndereco(endereco);
 	}
+	
+	public Usuario(long id, String nome, String email, String senha, Endereco endereco) {
+		setId(id);
+		setNome(nome);
+		setEmail(email);
+		setSenha(senha);
+		setEndereco(endereco);
+	}
 
 	public String getNome() {
 		return nome;
@@ -85,6 +93,14 @@ public abstract class Usuario implements Serializable {
 
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }
