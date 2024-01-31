@@ -45,7 +45,6 @@ import br.senac.eco2you.modelo.entidade.usuario.Usuario;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
 import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
-import br.senac.eco2you.modelo.enumeracao.status.armazem.StatusArmazem;
 
 @WebServlet("/")
 public class Servlet extends HttpServlet {
@@ -349,6 +348,9 @@ public class Servlet extends HttpServlet {
 	
 	private void mostrarPerfilArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
 
+		long id = Long.parseLong(request.getParameter("id"));
+		Armazem armazem = armazemDAO.recuperarArmazemPorId(id);
+		request.setAttribute("armazem", armazem);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/perfil.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -546,9 +548,23 @@ public class Servlet extends HttpServlet {
 		long id = Long.parseLong(request.getParameter("id"));
 		String nome = request.getParameter("nome");
 		String cnpj = request.getParameter("cnpj");
+		float capacidadeArmazenagem = Float.parseFloat(request.getParameter("capacidadeArmazenagem"));
+		LocalTime horarioAbertura = LocalTime.parse(request.getParameter("horarioAbertura"));
+		LocalTime horarioFechamento = LocalTime.parse(request.getParameter("horarioFechamento"));
+		String cep = request.getParameter("cep");
+		String cidade = request.getParameter("cidade");
+		String bairro = request.getParameter("bairro");
+		String tipoVia = request.getParameter("tipoVia");
+		String logradouro = request.getParameter("logradouro");
+		String numeroEndereco = request.getParameter("numeroEndereco");
+		String complemento = request.getParameter("complemento");
+		String telefone = request.getParameter("telefone");
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-		usuarioDAO.atualizarUsuario(new Armazem(nome, cnpj, email, senha));
+		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento,
+				telefone);
+		usuarioDAO.inserirUsuario(new Armazem(id, nome, cnpj, email, senha, capacidadeArmazenagem, horarioAbertura,
+				horarioFechamento, endereco));
 		response.sendRedirect("/eCO2You/home-armazem");
 	}
 
