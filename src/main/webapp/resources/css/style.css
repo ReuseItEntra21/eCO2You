@@ -113,3 +113,24 @@ button:hover {
     font-size: 40px;
     margin: 100px auto;
 }
+#cadastrar{
+  display: block;
+  background-color: #0D0D0D;
+  color: #FFFCF5;
+  height: 79px;
+  width: 450px;
+  font-size: 48px;
+  margin: auto;
+}
+#novo-Material-H1{
+  font-size: 60px;
+  color: #0D0D0D;
+}
+#nome_material{
+  display: block;
+  height: 70px;
+  width: 600px;
+  font-size: 40px;
+  margin: auto;
+  margin-bottom: 30px;
+}
