@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
@@ -9,13 +10,15 @@
 	</head>
 	<body>
 		<div>
-		    <form action="home-coletor" style="position: fixed;">
+		    <form action="home-coletor">
 		   		<button type="submit" name="voltar" id=voltar>Voltar</button>
 		    </form>
 		    <form action="editarPerfil-coletor">
 		   		<button type="submit" name="editar" id=editar>Editar Perfil</button>
 		    </form>
-	        <h2>${usuario.nome}</h2><h2>${usuario.sobrenome}</h2>
+		    <div>
+				<h2>${usuario.nome}</h2><h2>${usuario.sobrenome}</h2>
+			</div>
 	        <div class="informacoes-box">
 				<h3># ID</h3>
 			</div>
@@ -27,67 +30,12 @@
 			</div>
         </div>
         <div style="position: fixed; left: 38vw; top: 0.75vw;" class=conquistas-container>
-	        <div style="float:left">
-				<div class="conquista-box">
-					<div>
-						<div class="image-conquista-box">
-							&#127941;
-						</div>
-					</div>
+        	<c:forEach var="conquista" items="${conquistas}">
+	        	<div class="image-conquista-box">
+					&#127941;
+					${conquista.nome}
 				</div>
-				<div class="conquista-box">
-					<div class="image-conquista-box">
-						&#127941;
-					</div>
-				</div>
-				<div class="conquista-box">
-					<div class="image-conquista-box">
-						&#127941;
-					</div>
-				</div>
-				<div class="conquista-box">
-					<div class="image-conquista-box">
-						&#127941;
-					</div>
-				</div>
-				<div class="conquista-box">
-					<div class="image-conquista-box">
-						&#127941;
-					</div>
-				</div>
-				<div class="conquista-box">
-					<div class="image-conquista-box">
-						&#127941;
-					</div>
-				</div>
-	        </div>
-		   <div style="float:right">
-	        	<div class="conquista-box">
-					<div class="image-conquista-box">
-						&#127941;
-					</div>
-				</div>
-				<div class="conquista-box">
-					<div class="image-conquista-box">
-						&#127941;
-					</div>
-				</div>
-				<div class="conquista-box">
-					<div class="image-conquista-box">
-						&#127941;
-					</div>
-				</div>
-				<div class="conquista-box">
-					<div class="image-conquista-box">
-						&#127941;
-					</div>
-				</div>
-				<div class="conquista-box">
-					<div class="image-conquista-box">
-						&#127941;
-					</div>
-				</div>
-			</div>
+    		</c:forEach>
        	</div>
 	</body>
 </html>
