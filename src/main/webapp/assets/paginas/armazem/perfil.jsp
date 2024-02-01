@@ -1,74 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Perfil armazém</title>
-</head>
-<body>
-	<form action="#">
-    	<a href="#">Editar Informações</a>
-        <br>
-		<a href="#">Editar Horário</a>
-        <br>
-		<input type="submit" value="voltar" name="voltar" id=voltar>
-        <button type="button" name="configuracoes" id=configuracoes>configuracoes</button>
-	</form>
-	<img src="#" alt="Imagem Giassi" name="imagem" id=imagem1>
-	<h2>Nome</h2>
-	<p>Horário de funcionamento</p>
-	<p>Dias</p>
-	<p>Horários</p>
-	<p>Domingo</p>
-	<p>Horários</p>
-	<div>
-		Sobre
-	</div>
-	<div>
-		<a href="#">Endereço</a>
-	</div>
-	<p>Número</p>
-	<p>Endereço</p>
-	<img src="#" alt="Imagem Giassi" name="imagem" id=imagem2>
-    <br>
-	<input type=text placeholder=Descrição name=descricao id=descricao>
-    <br>
-    <br>
-	<form action="#">
-    	<a href="#">Editar Informações</a>
-        <br>
-		<a href="#">Editar Horário</a>
-        <br>
-		<input type="submit" value="voltar" name="voltar" id=voltar>
-		<button type="button" name="configuracoes" id=configuracoes>configuracoes</button>
-	</form>
-	<img src="#" alt="Imagem Giassi" name="imagem" id=imagem1>
-	<h2>Nome</h2>
-	<p>Horário de funcionamento</p>
-	<p>Dias</p>
-	<p>Horários</p>
-	<p>Domingo</p>
-	<p>Horários</p>
-	<div>
-		<a href="#">Sobre</a>
-	</div>
-	<div>
-		Endereço
-	</div>
-	<p>Número</p>
-	<p>Endereço</p>
-	<img src="#" alt="Imagem Giassi pelo google maps" name="imagem" id=imagem2>
-	<p>Rua</p>
-	<p>rua</p>
-	<p>N°</p>
-	<p>número</p>
-	<p>CEP</p>
-	<p>#####-###</p>
-	<p>Bairro</p>
-	<p>bairro</p>
-	<p>Cidade</p>
-	<p>cidade</p>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Perfil armazém</title>
+	</head>
+	<body>
+		<form action="home-armazem">
+			<button type="submit">Voltar</button>
+		</form>
+		<form action="editarPerfil-armazem">
+        	<button type="submit">Editar Perfil</button>
+		</form>
+		<div>
+			<h2>${usuario.nome}</h2>
+		</div>
+	</body>
 </html>
