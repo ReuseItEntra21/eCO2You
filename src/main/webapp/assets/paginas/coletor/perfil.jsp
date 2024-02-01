@@ -9,13 +9,15 @@
 	</head>
 	<body>
 		<div>
-		    <form action="home-coletor" style="position: fixed;">
+		    <form action="home-coletor">
 		   		<button type="submit" name="voltar" id=voltar>Voltar</button>
 		    </form>
 		    <form action="editarPerfil-coletor">
 		   		<button type="submit" name="editar" id=editar>Editar Perfil</button>
 		    </form>
-	        <h2>${usuario.nome}</h2><h2>${usuario.sobrenome}</h2>
+		    <div>
+				<h2>${usuario.nome}</h2><h2>${usuario.sobrenome}</h2>
+			</div>
 	        <div class="informacoes-box">
 				<h3># ID</h3>
 			</div>
