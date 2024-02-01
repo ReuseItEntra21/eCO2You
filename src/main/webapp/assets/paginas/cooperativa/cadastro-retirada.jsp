@@ -22,9 +22,15 @@
 	        <input type="date" id="data" name="data" autofocus placeholder="Data para Depositar" maxlength="25" size="20">
 	        <br>
 	        <br>
-	        <br>
-	        <br>
-	        <h2> Escolha o Material </h2>
+	        <h2> Escolha o Armazem </h2>
+	        <select name="armazem">
+    			<c:forEach var="armazem" items="${armazens}">
+        			<option value="${armazem.id}">${armazem.nome}</option>
+    			</c:forEach>
+			</select>
+			<br>
+			<br>
+			<h2> Escolha o Material </h2>
 	        <select name="material">
     			<c:forEach var="material" items="${materiais}">
         			<option value="${material.id}">${material.nome}</option>
@@ -36,9 +42,10 @@
 	        <input type="number" id="peso" name="peso" autofocus placeholder="Peso em Quilogramas" maxlength="25" size="20">
 	        <br>
 	        <br>
+	        <br>
 	        <button type="submit" name="depositar" id=depositar class="ButtonEntrar">Fazer Retirada</button>
 	        <br>
-	        <BR>
+	        <br>
 	        <h2>Faça parte dessa mudança!</h2>
 			<Pre>Conecte-se a uma comunidade<br> comprometida com a <br>sustentabilidade e preservação<br> do meio ambiente.</Pre>
         </form>
