@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.senac.eco2you.modelo.dao.armazem.ArmazemDAO;
 import br.senac.eco2you.modelo.dao.armazem.ArmazemDAOImpl;
@@ -93,6 +94,10 @@ public class Servlet extends HttpServlet {
 
 			case "/login":
 				mostrarLogin(request, response);
+				break;
+				
+			case "/logar":
+				logar(request, response);
 				break;
 
 			case "/cadastro-coletor":
@@ -334,10 +339,12 @@ public class Servlet extends HttpServlet {
 	private void mostrarPerfilColetor(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 		
-		long id = Long.parseLong(request.getParameter("id"));
-		Usuario usuario = usuarioDAO.recuperarUsuarioPorId(id);
+		HttpSession sessao = request.getSession();
+		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
+		
+		request.setAttribute("coletor", coletor);
+
 		List<Conquista> conquistas = conquistaDAO.buscarListaConquistaPeloId(id);
-		request.setAttribute("usuario", usuario);
 		request.setAttribute("conquistas", conquistas);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/perfil.jsp");
 		dispatcher.forward(request, response);
@@ -351,10 +358,11 @@ public class Servlet extends HttpServlet {
 	}
 	
 	private void mostrarPerfilArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
+
+		HttpSession sessao = request.getSession();
+		Armazem armazem = (Armazem) sessao.getAttribute("usuario");
 		
-		long id = Long.parseLong(request.getParameter("id"));
-		Usuario usuario = usuarioDAO.recuperarUsuarioPorId(id);
-		request.setAttribute("armazem", usuario);
+		request.setAttribute("armazem", armazem);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/perfil.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -466,6 +474,29 @@ public class Servlet extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/recuperar-senha.jsp");
 			dispatcher.forward(request, response);
 	}
+  
+  private void logar(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException{
+		
+		String email = request.getParameter("email");
+		String senha = request.getParameter("senha");
+		
+		HttpSession sessao = request.getSession();
+		Usuario usuario = usuarioDAO.buscarUsuarioPorEmailESenha(email, senha);
+		sessao.setAttribute("usuario", usuario);
+		
+		if(usuario instanceof Coletor) {
+			response.sendRedirect("/eCO2You/apresentacao");
+			
+		} else if(usuario instanceof Armazem) {
+			response.sendRedirect("/eCO2You/apresentacao");
+			
+		}else {
+			response.sendRedirect("/eCO2You/apresentacao");
+			
+		}
+	}
+  
 
 	private void inserirColetor(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {

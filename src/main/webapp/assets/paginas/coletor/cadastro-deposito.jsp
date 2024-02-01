@@ -14,10 +14,10 @@
 	</form>
     <body>
     	<form action="inserir-deposito" method="post">
-	        <h1> Novo Depósito </h1>
+	        <h1> Depósito </h1>
 	        <br>
-	        <br>
-	        <h2> Insira a Data do Depósito </h2>    
+          <br>
+          <h2>Escolha a Data para o Depósito</h2>
 	        <input type="date" id="data" name="data" autofocus placeholder="Data para Depositar" maxlength="25" size="20">
 	        <br>
 	        <br>

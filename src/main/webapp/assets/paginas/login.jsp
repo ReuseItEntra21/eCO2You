@@ -9,11 +9,8 @@
 	<body>
 		<div>
 			<div style="float:left">
-			<form action="apresentacao">
-				<button type="submit" name="voltar" id=voltar>Voltar</button>
-			</form>
 			<h1>Login</h1>
-				<form action="home-coletor">
+				<form action="logar" method="post">
 					<input type="email" id="email" name="email" placeholder="E-mail" maxlength="25">
 					<br>
 					<br>
