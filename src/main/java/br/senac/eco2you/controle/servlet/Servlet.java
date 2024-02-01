@@ -336,7 +336,9 @@ public class Servlet extends HttpServlet {
 		
 		long id = Long.parseLong(request.getParameter("id"));
 		Usuario usuario = usuarioDAO.recuperarUsuarioPorId(id);
+		List<Conquista> conquistas = conquistaDAO.buscarListaConquistaPeloId(id);
 		request.setAttribute("usuario", usuario);
+		request.setAttribute("conquistas", conquistas);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/perfil.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -349,8 +351,9 @@ public class Servlet extends HttpServlet {
 	}
 	
 	private void mostrarPerfilArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
-
-		Usuario usuario = usuarioDAO.recuperarUsuarioPorId((long)2);
+		
+		long id = Long.parseLong(request.getParameter("id"));
+		Usuario usuario = usuarioDAO.recuperarUsuarioPorId(id);
 		request.setAttribute("armazem", usuario);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/perfil.jsp");
 		dispatcher.forward(request, response);
