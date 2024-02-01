@@ -113,3 +113,59 @@ button:hover {
     font-size: 40px;
     margin: 100px auto;
 }
+.h1-font-60{
+  font-size: 60px;
+}
+#nomeReciclável{
+  display: block;
+  margin: auto;
+  height: 70px;
+  width: 600px;
+  font-size: 40px;
+}
+.h2-mini-name{
+  font-size: 40px;
+  text-align: center;
+}
+#escolher-material{
+  display: block;
+  margin: auto;
+  height: 70px;
+  width: 600px;
+  font-size: 40px;
+}
+#pontos-carbono{
+  display: block;
+  margin: auto;
+  height: 70px;
+  width: 600px;
+  font-size: 40px;
+}
+#peso-reciclavel{
+  display: block;
+  margin: auto;
+  height: 70px;
+  width: 600px;
+  font-size: 40px;  
+}
+#volume-reciclavel{
+  display: block;
+  margin: auto;
+  height: 70px;
+  width: 600px;
+  font-size: 40px;
+}
+#instrucao-reciclavel{
+  display: block;
+  margin: auto;
+  height: 70px;
+  width: 600px;
+  font-size: 40px;
+}
+#cadastrar-reciclavel{
+  display: block;
+  margin: auto;
+  height: 70px;
+  width: 600px;
+  font-size: 40px;
+}
