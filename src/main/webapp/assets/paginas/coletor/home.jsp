@@ -42,7 +42,8 @@
 				<br>
 				<input type="date" id="data1" name="dataDeposito">
 				<input type="text" placeholder="Empresa" name="empresa" id=empresa1>
-        <h2> Depósitos Recentes </h2>
+        <br>
+        <br>
         <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem3 >
 				2x latinhas de 220ml
 				<button type="button" class="buttonDelete" name="deletar" id=deletar2 >
@@ -65,7 +66,8 @@
                 <button type="button" class="buttonDelete" name="deletar" id=deletar3 >
 					<b>EXCLUIR</b>
 					</button>
-        <h2> Depósitos à Serem Aceitos </h2>
+        <br>
+        <br>
         <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem4 >
 				2x latinhas de 220ml
                 <br>
