@@ -123,17 +123,17 @@ public class Servlet extends HttpServlet {
 				mostrarDepositosPendentesColetor(request, response);
 				break;
 
-			case "/perfil-coletor":
-				mostrarPerfilColetor(request, response);
-				break;
+//			case "/perfil-coletor":
+//				mostrarPerfilColetor(request, response);
+//				break;
 
 			case "/editarPerfil-coletor":
 				mostrarEditarPerfilColetor(request, response);
 				break;
 	
-			case "/perfil-armazem":
-				mostrarPerfilArmazem(request, response);
-				break;
+//			case "/perfil-armazem":
+//				mostrarPerfilArmazem(request, response);
+//				break;
 
 			case "/editarPerfil-armazem":
 				mostrarEditarPerfilArmazem(request, response);
@@ -331,17 +331,16 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-	private void mostrarPerfilColetor(HttpServletRequest request, HttpServletResponse response)
-			throws SQLException, IOException, ServletException {
-		
-		long id = Long.parseLong(request.getParameter("id"));
-		Usuario usuario = usuarioDAO.recuperarUsuarioPorId(id);
-		List<Conquista> conquistas = conquistaDAO.buscarListaConquistaPeloId(id);
-		request.setAttribute("usuario", usuario);
-		request.setAttribute("conquistas", conquistas);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/perfil.jsp");
-		dispatcher.forward(request, response);
-	}
+//	private void mostrarPerfilColetor(HttpServletRequest request, HttpServletResponse response)
+//			throws SQLException, IOException, ServletException {
+//		
+//		HttpSession sessao = request.getSession();
+//		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
+//		
+//		request.setAttribute("coletor", coletor);
+//		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/perfil.jsp");
+//		dispatcher.forward(request, response);
+//	}
 
 	private void mostrarEditarPerfilColetor(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
@@ -350,14 +349,15 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 	
-	private void mostrarPerfilArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
-		
-		long id = Long.parseLong(request.getParameter("id"));
-		Usuario usuario = usuarioDAO.recuperarUsuarioPorId(id);
-		request.setAttribute("armazem", usuario);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/perfil.jsp");
-		dispatcher.forward(request, response);
-	}
+//	private void mostrarPerfilArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
+//		 
+//		HttpSession sessao = request.getSession();
+//		Armazem armazem = (Armazem) sessao.getAttribute("usuario");
+//		
+//		request.setAttribute("armazem", armazem);
+//		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/perfil.jsp");
+//		dispatcher.forward(request, response);
+//	}
 	
 	private void mostrarEditarPerfilArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
 
