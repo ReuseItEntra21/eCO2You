@@ -18,7 +18,6 @@ import br.senac.eco2you.modelo.dao.armazem.ArmazemDAO;
 import br.senac.eco2you.modelo.dao.armazem.ArmazemDAOImpl;
 import br.senac.eco2you.modelo.dao.conquista.ConquistaDAO;
 import br.senac.eco2you.modelo.dao.conquista.ConquistaDAOImpl;
-import br.senac.eco2you.modelo.dao.cooperativa.CooperativaDAO;
 import br.senac.eco2you.modelo.dao.cooperativa.CooperativaDAOImpl;
 import br.senac.eco2you.modelo.dao.deposito.DepositoDAO;
 import br.senac.eco2you.modelo.dao.deposito.DepositoDAOImpl;
@@ -98,6 +97,10 @@ public class Servlet extends HttpServlet {
 				
 			case "/logar":
 				logar(request, response);
+				break;
+				
+			case "/deslogar":
+				deslogar(request, response);
 				break;
 
 			case "/cadastro-coletor":
@@ -343,9 +346,7 @@ public class Servlet extends HttpServlet {
 		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
 		
 		request.setAttribute("coletor", coletor);
-
-		List<Conquista> conquistas = conquistaDAO.buscarListaConquistaPeloId(id);
-		request.setAttribute("conquistas", conquistas);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/perfil.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -486,16 +487,41 @@ public class Servlet extends HttpServlet {
 		sessao.setAttribute("usuario", usuario);
 		
 		if(usuario instanceof Coletor) {
-			response.sendRedirect("/eCO2You/apresentacao");
 			
+			
+			Coletor coletor = (Coletor) usuarioDAO.recuperarUsuarioPorId(usuario.getId());
+			
+			response.sendRedirect("/eCO2You/home-coletor");
+			request.setAttribute("coletor", coletor);
 		} else if(usuario instanceof Armazem) {
+			
+			Armazem armazem = (Armazem) usuarioDAO.recuperarUsuarioPorId(usuario.getId());
+			
+			response.sendRedirect("/eCO2You/home-armazem");
+			request.setAttribute("armazem", armazem);
+			
+		}else if (usuario instanceof Cooperativa) {
+			
+			Cooperativa cooperativa = (Cooperativa) usuarioDAO.recuperarUsuarioPorId(usuario.getId());
+			
+			response.sendRedirect("/eCO2You/home-armazem");
+			request.setAttribute("cooperativa", cooperativa);
+			
 			response.sendRedirect("/eCO2You/apresentacao");
 			
-		}else {
-			response.sendRedirect("/eCO2You/apresentacao");
-			
+		} else{
+			response.sendRedirect("/eCO2You/login");
 		}
 	}
+  
+  private void deslogar(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException{
+	  
+	  HttpSession sessao = request.getSession();
+	  sessao.invalidate();
+	  response.sendRedirect("/eCO2You/apresentacao");
+	  
+  }
   
 
 	private void inserirColetor(HttpServletRequest request, HttpServletResponse response)
