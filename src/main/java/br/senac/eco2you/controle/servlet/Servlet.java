@@ -341,18 +341,16 @@ public class Servlet extends HttpServlet {
 		
 		HttpSession sessao = request.getSession();
 		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
-		
 		request.setAttribute("coletor", coletor);
-
-		List<Conquista> conquistas = conquistaDAO.buscarListaConquistaPeloId(id);
-		request.setAttribute("conquistas", conquistas);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/perfil.jsp");
 		dispatcher.forward(request, response);
 	}
 
 	private void mostrarEditarPerfilColetor(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-
+		
+		HttpSession sessao = request.getSession();
+		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/editar-perfil.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -487,13 +485,10 @@ public class Servlet extends HttpServlet {
 		
 		if(usuario instanceof Coletor) {
 			response.sendRedirect("/eCO2You/apresentacao");
-			
 		} else if(usuario instanceof Armazem) {
 			response.sendRedirect("/eCO2You/apresentacao");
-			
 		}else {
 			response.sendRedirect("/eCO2You/apresentacao");
-			
 		}
 	}
   
