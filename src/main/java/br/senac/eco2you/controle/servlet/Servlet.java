@@ -351,13 +351,12 @@ public class Servlet extends HttpServlet {
 	
 	private void mostrarPerfilArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
 
-		long id = Long.parseLong(request.getParameter("id"));
-		Armazem armazem = armazemDAO.recuperarArmazemPorId(id);
-		request.setAttribute("armazem", armazem);
+		Usuario usuario = usuarioDAO.recuperarUsuarioPorId((long)2);
+		request.setAttribute("armazem", usuario);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/perfil.jsp");
 		dispatcher.forward(request, response);
 	}
-
+	
 	private void mostrarEditarPerfilArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/editar-perfil.jsp");
