@@ -9,6 +9,10 @@
 </head>
 <body>
 	<form action="#">
+    	<a href="#">Editar Informações</a>
+        <br>
+		<a href="#">Editar Horário</a>
+        <br>
 		<input type="submit" value="voltar" name="voltar" id=voltar>
         <button type="button" name="configuracoes" id=configuracoes>configuracoes</button>
 	</form>
@@ -33,6 +37,10 @@
     <br>
     <br>
 	<form action="#">
+    	<a href="#">Editar Informações</a>
+        <br>
+		<a href="#">Editar Horário</a>
+        <br>
 		<input type="submit" value="voltar" name="voltar" id=voltar>
 		<button type="button" name="configuracoes" id=configuracoes>configuracoes</button>
 	</form>
