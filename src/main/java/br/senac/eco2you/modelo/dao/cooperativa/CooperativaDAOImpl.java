@@ -172,4 +172,37 @@ public class CooperativaDAOImpl implements CooperativaDAO {
 			return null;
 		}
 	}
+
+	@Override
+	public Cooperativa recuperarCooperativaPeloId(Long id) {
+		Session sessao = null;
+		Cooperativa cooperativa = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Cooperativa> criteria = construtor.createQuery(Cooperativa.class);
+			Root<Cooperativa> raizCooperativa = criteria.from(Cooperativa.class);
+
+			criteria.select(raizCooperativa).where(construtor.equal(raizCooperativa.get(Cooperativa_.ID), id));
+
+			cooperativa = sessao.createQuery(criteria).getSingleResult();
+
+		} catch (Exception sqlException) {
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return cooperativa;
+	}
 }
