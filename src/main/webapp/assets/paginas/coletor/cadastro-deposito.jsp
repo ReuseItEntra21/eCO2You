@@ -21,6 +21,14 @@
 	        <input type="date" id="data" name="data" autofocus placeholder="Data para Depositar" maxlength="25" size="20">
 	        <br>
 	        <br>
+	        <h2>Escolha o Armazem</h2>
+	        <select name="armazem">
+    			<c:forEach var="armazem" items="${armazens}">
+        			<option value="${armazem.id}">${armazem.nome}</option>
+    			</c:forEach>
+			</select>
+			<br>
+			<br>
 	        <h2>Escolha o Reciclável</h2>
 	        <select name="reciclavel">
     			<c:forEach var="reciclavel" items="${reciclaveis}">
@@ -29,15 +37,14 @@
 			</select>
 	        <br>
 	        <br>
-	        <br>
-	        <br>
 	        <h2>Escolha a Quantidade do Reciclavel</h2>
 	        <input type="number" id="quantidade-reciclaveis" name="quantidade-reciclaveis" autofocus placeholder="quantidade" maxlength="25"size="20">
 	        <br>
 	        <br>
+	        <br>
 	        <button type="submit" name="depositar" id=depositar class="ButtonEntrar">Fazer Deposito</button>
 	        <br>
-	        <BR>
+	        <br>
 	        <h2>Faça parte dessa mudança!</h2>
 			<Pre>Conecte-se a uma comunidade<br> comprometida com a <br>sustentabilidade e preservação<br> do meio ambiente.</Pre>
         </form>
