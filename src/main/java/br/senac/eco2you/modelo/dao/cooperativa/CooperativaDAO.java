@@ -16,4 +16,7 @@ public interface CooperativaDAO {
 
 	List<Cooperativa> buscarPerfilCooperativaPeloNome(String nome);
 
+	Cooperativa recuperarCooperativaPeloId(Long id);
+	
+	
 }
