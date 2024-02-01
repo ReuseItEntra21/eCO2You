@@ -9,62 +9,83 @@
 	</head>
 	<body>
 		<div>
-		    <form action="home-coletor" style="float:left">
+		    <form action="home-coletor" style="position: fixed;">
 		   		<button type="submit" name="voltar" id=voltar>Voltar</button>
 		    </form>
 		    <form action="editarPerfil-coletor">
 		   		<button type="submit" name="editar" id=editar>Editar Perfil</button>
 		    </form>
 	        <h2>${usuario.nome}</h2><h2>${usuario.sobrenome}</h2>
-	        <h3># ID</h3>
-	        <h3> Posição no Ranking </h3>
-	        <h3> Pontuação </h3>
+	        <div class="informacoes-box">
+				<h3># ID</h3>
+			</div>
+			<div class="informacoes-box">
+				<h3> Posição </h3>
+			</div>
+			<div class="informacoes-box">
+				<h3> Pontuação </h3>
+			</div>
         </div>
-        <div style="float:right" id=conquistas-container>
+        <div style="position: fixed; left: 38vw; top: 0.75vw;" class=conquistas-container>
 	        <div style="float:left">
 				<div class="conquista-box">
-					&#127941;
-					Nivel 1
+					<div>
+						<div class="image-conquista-box">
+							&#127941;
+						</div>
+					</div>
 				</div>
-				<div>
-					&#127941;
-					Nivel 3
+				<div class="conquista-box">
+					<div class="image-conquista-box">
+						&#127941;
+					</div>
 				</div>
-				<div>
-					&#127941;
-					Nivel 2
+				<div class="conquista-box">
+					<div class="image-conquista-box">
+						&#127941;
+					</div>
 				</div>
-				<div>
-					&#127941;
-					Nivel 7
+				<div class="conquista-box">
+					<div class="image-conquista-box">
+						&#127941;
+					</div>
 				</div>
-				<div>
-					&#127941;
-					Nivel 4
+				<div class="conquista-box">
+					<div class="image-conquista-box">
+						&#127941;
+					</div>
 				</div>
-				<div>
-					&#127941;
-					Nivel 6
+				<div class="conquista-box">
+					<div class="image-conquista-box">
+						&#127941;
+					</div>
 				</div>
 	        </div>
 		   <div style="float:right">
-	        	<div>
-					&#127941;
+	        	<div class="conquista-box">
+					<div class="image-conquista-box">
+						&#127941;
+					</div>
 				</div>
-				<div>
-					&#127941;
+				<div class="conquista-box">
+					<div class="image-conquista-box">
+						&#127941;
+					</div>
 				</div>
-				<div>
-					&#127941;
+				<div class="conquista-box">
+					<div class="image-conquista-box">
+						&#127941;
+					</div>
 				</div>
-				<div>
-					&#127941;
+				<div class="conquista-box">
+					<div class="image-conquista-box">
+						&#127941;
+					</div>
 				</div>
-				<div>
-					&#127941;
-				</div>
-				<div>
-					&#127941;
+				<div class="conquista-box">
+					<div class="image-conquista-box">
+						&#127941;
+					</div>
 				</div>
 			</div>
        	</div>
