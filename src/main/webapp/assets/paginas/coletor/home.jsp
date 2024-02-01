@@ -79,7 +79,7 @@
                 <button type="button" class="buttonDelete" name="deletar" id=deletar4>
 					<b>EXCLUIR</b>
 					</button>
-        <h2> emoji Conquistas Recentes </h2>
+        <h2>Conquistas Recentes </h2>
         <h3> emoji Conquista 1 </h3>
         <h3> emoji Conquista 2 </h3>
         <h2> + </h2>
