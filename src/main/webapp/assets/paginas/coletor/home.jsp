@@ -31,7 +31,7 @@
         <h3> &#129351;  1° &#128100; Nome Pontuação Pontos </h3>
         <h3> &#129352;  2° &#128100; Nome Pontuação Pontos </h3>
         <h3> &#129353;  3° &#128100; Nome Pontuação Pontos </h3>
-        <h2> Sua Elo </h2>
+        <h2> Seu Nível de Elo </h2>
         <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem1>
         <h2> Depósitos Recentes </h2>
         <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem2 >
@@ -51,9 +51,37 @@
 				<br>
 				<input type="date" id="data2" name="dataDeposito">
 				<input type="text" placeholder="Empresa" name="empresa" id=empresa2>
-        <h2> Conquistas Recentes </h2>
-        <h3> Conquista 1 </h3>
-        <h3> Conquista 2 </h3>
+        <h2> Depósitos à Serem Aceitos </h2>
+        <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem3 >
+				2x latinhas de 220ml
+                <br>
+				<br>
+				<input type="date" id="data3" name="dataDeposito">
+                <br>
+                <br>
+				<input type="text" placeholder="Empresa" name="empresa" id=empresa3>
+                <br>
+                <br>
+                <button type="button" class="buttonDelete" name="deletar" id=deletar3 >
+					<b>EXCLUIR</b>
+					</button>
+        <h2> Depósitos à Serem Aceitos </h2>
+        <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem4 >
+				2x latinhas de 220ml
+                <br>
+				<br>
+				<input type="date" id="data4" name="dataDeposito">
+                <br>
+                <br>
+				<input type="text" placeholder="Empresa" name="empresa" id=empresa4>
+                <br>
+                <br>
+                <button type="button" class="buttonDelete" name="deletar" id=deletar4>
+					<b>EXCLUIR</b>
+					</button>
+        <h2> emoji Conquistas Recentes </h2>
+        <h3> emoji Conquista 1 </h3>
+        <h3> emoji Conquista 2 </h3>
         <h2> + </h2>
 	</body>
 </html>
