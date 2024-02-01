@@ -334,7 +334,9 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarPerfilColetor(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-
+		
+		Usuario usuario = usuarioDAO.recuperarUsuarioPorId((long)1);
+		request.setAttribute("usuario", usuario);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/perfil.jsp");
 		dispatcher.forward(request, response);
 	}
