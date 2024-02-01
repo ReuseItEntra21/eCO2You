@@ -38,11 +38,11 @@ public class Deposito implements Serializable{
 	@Column(name = "data_deposito", nullable = false)
 	private LocalDate data;
 	
-	@ManyToOne
-	@JoinColumn(name = "id_armazem",  nullable = false)
-	private Armazem armazem;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_armazem")
+	private Armazem armazem;;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_coletor")
 	private Coletor coletor;
 	

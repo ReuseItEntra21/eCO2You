@@ -404,7 +404,7 @@ public class Servlet extends HttpServlet {
 	private void mostrarCadastroMaterial(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastro-material.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/administrador/cadastro-material.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -413,7 +413,7 @@ public class Servlet extends HttpServlet {
 
 		List<Material> materiais = materialDAO.recuperarTodosMateriais();
 		request.setAttribute("materiais", materiais);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastro-reciclavel.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/administrador/cadastro-reciclavel.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -433,7 +433,7 @@ public class Servlet extends HttpServlet {
 		List<Armazem> armazens = armazemDAO.recuperarTodosArmazens();
 		request.setAttribute("reciclaveis", reciclaveis);
 		request.setAttribute("armazens", armazens);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastro-deposito.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/cadastro-deposito.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -444,14 +444,14 @@ public class Servlet extends HttpServlet {
 		request.setAttribute("armazens", armazens);
 		List<Material> materiais = materialDAO.recuperarTodosMateriais();
 		request.setAttribute("materiais", materiais);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastro-retirada.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cooperativa/cadastro-retirada.jsp");
 		dispatcher.forward(request, response);
 	}
 
 	private void mostrarCadastroConquista(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastro-conquista.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/administrador/cadastro-conquista.jsp");
 		dispatcher.forward(request, response);
 	}
   
@@ -709,10 +709,7 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 		
 		LocalDate data = LocalDate.parse(request.getParameter("data"));
-		//Armazem armazem = armazemDAO.recuperarArmazemPorId(Long.parseLong(request.getParameter("armazem")));
-		Armazem armazem = new Armazem("Giassi", "giassi@gmail.com", "123456", "", "29320241000108",
-				LocalTime.of(8, 0), LocalTime.of(21, 0), 1000f);
-		usuarioDAO.inserirUsuario(armazem);
+		Armazem armazem = armazemDAO.recuperarArmazemPorId(Long.parseLong(request.getParameter("armazem")));
 		Coletor coletor = new Coletor("seu zé", "da silva", "892.664.937-90", LocalDate.of(1987, 8, 12),
 				"seu.ze@email.com", "12345678");
 		usuarioDAO.inserirUsuario(coletor);
@@ -752,10 +749,7 @@ public class Servlet extends HttpServlet {
 		Cooperativa cooperativa = new Cooperativa("Saturno Ambiental", "44.511.898/0001-38", LocalTime.of(8, 0),
 				LocalTime.of(21, 0), " ", "saturno.ambiental@gmail.com", "123456");
 		usuarioDAO.inserirUsuario(cooperativa);
-		//Armazem armazem = armazemDAO.recuperarArmazemPorId(Long.parseLong(request.getParameter("armazem")));;
-		Armazem armazem = new Armazem("Giassi", "giassi@gmail.com", "123456", "", "29320241000108",
-				LocalTime.of(8, 0), LocalTime.of(21, 0), 1000f);
-		usuarioDAO.inserirUsuario(armazem);
+		Armazem armazem = armazemDAO.recuperarArmazemPorId(Long.parseLong(request.getParameter("armazem")));;
 		retiradaDAO.inserirRetirada(new Retirada(data, cooperativa, armazem));
 
 		Material material = materialDAO.recuperarMaterialPorId(Long.parseLong(request.getParameter("material")));
