@@ -335,7 +335,8 @@ public class Servlet extends HttpServlet {
 	private void mostrarPerfilColetor(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 		
-		Usuario usuario = usuarioDAO.recuperarUsuarioPorId((long)1);
+		long id = Long.parseLong(request.getParameter("id"));
+		Usuario usuario = usuarioDAO.recuperarUsuarioPorId(id);
 		request.setAttribute("usuario", usuario);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/perfil.jsp");
 		dispatcher.forward(request, response);
@@ -465,7 +466,6 @@ public class Servlet extends HttpServlet {
 
 	private void inserirColetor(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-
 		String nome = request.getParameter("nome");
 		String sobrenome = request.getParameter("sobrenome");
 		String cpf = request.getParameter("cpf");
@@ -480,8 +480,7 @@ public class Servlet extends HttpServlet {
 		String telefone = request.getParameter("telefone");
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento,
-				telefone);
+		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento, telefone);
 		usuarioDAO.inserirUsuario(new Coletor(nome, sobrenome, cpf, dataNascimento, email, senha, endereco));
 		response.sendRedirect("/eCO2You/home-coletor");
 	}
@@ -597,10 +596,8 @@ public class Servlet extends HttpServlet {
 		String numeroEndereco = request.getParameter("numeroEndereco");
 		String complemento = request.getParameter("complemento");
 		String telefone = request.getParameter("telefone");
-		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento,
-				telefone);
-		usuarioDAO.inserirUsuario(
-				new Cooperativa(nome, cnpj, email, senha, horarioAbertura, horarioFechamento, endereco));
+		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento, telefone);
+		usuarioDAO.inserirUsuario(new Cooperativa(nome, cnpj, email, senha, horarioAbertura, horarioFechamento, endereco));
 		response.sendRedirect("/eCO2You/home-cooperativa");
 	}
 
