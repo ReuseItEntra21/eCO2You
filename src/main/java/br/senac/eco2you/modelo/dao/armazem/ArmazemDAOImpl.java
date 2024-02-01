@@ -264,7 +264,13 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 	}
 
 	public List<Armazem> buscarPerfilArmazemPeloNomePelaCooperativa(String nome) {
-		try (Session sessao = fabrica.getConexao().openSession()) {
+		Session sessao = null;
+		List<Armazem> armazens = null;
+		
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+			
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 			CriteriaQuery<Armazem> criteria = construtor.createQuery(Armazem.class);
 			Root<Armazem> raizArmazem = criteria.from(Armazem.class);
@@ -276,12 +282,19 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 
 			criteria.where(construtor.equal(juncaoCooperativa.get(Cooperativa_.NOME), nomeArmazemExpression));
 
-			return sessao.createQuery(criteria).setParameter(nomeArmazemExpression, nome).getResultList();
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
+			armazens = sessao.createQuery(criteria).setParameter(nomeArmazemExpression, nome).getResultList();
+			
+			sessao.getTransaction().commit();
+
+			
+		} catch (Exception sqlException) {
+			sqlException.printStackTrace();
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}		}
+		
+		return armazens;
 
 	}
-
+	
 }
