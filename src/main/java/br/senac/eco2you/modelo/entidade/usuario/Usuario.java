@@ -42,56 +42,49 @@ public abstract class Usuario implements Serializable {
 	
 	public Usuario() {}
 	
-	public Usuario(long id, String nome, String email, String senha) {
-		this.id = id;
-		this.nome = nome;
-		this.email = email;
-		this.senha = senha;
-	}
-	
 	public Usuario(String nome, String email, String senha) {
-		this.nome = nome;
-		this.email = email;
-		this.senha = senha;
+		setNome(nome);
+		setEmail(email);
+		setSenha(senha);
 	}
 
 	public Usuario(String nome, String email, String senha, Endereco endereco) {
-		this.nome = nome;
-		this.email = email;
-		this.senha = senha;
-		this.endereco = endereco;
+		setNome(nome);
+		setEmail(email);
+		setSenha(senha);
+		setEndereco(endereco);
 	}
 	
-	public Long getId() {
-		return id;
-	}
-	
-	public void setId(Long id) {
-		this.id = id;
+	public Usuario(long id, String nome, String email, String senha, Endereco endereco) {
+		setId(id);
+		setNome(nome);
+		setEmail(email);
+		setSenha(senha);
+		setEndereco(endereco);
 	}
 
 	public String getNome() {
 		return nome;
 	}
 
-	public void setNome(String novoNome) {
-		this.nome = novoNome;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public String getEmail() {
 		return email;
 	}
 
-	public void setEmail(String novoEmail) {
-		this.email = novoEmail;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getSenha() {
 		return senha;
 	}
 
-	public void setSenha(String novaSenha) {
-		this.senha = novaSenha;
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	public Endereco getEndereco() {
@@ -100,6 +93,14 @@ public abstract class Usuario implements Serializable {
 
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }

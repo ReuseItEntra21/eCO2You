@@ -8,40 +8,49 @@
 	</head>
 	<body>
 		<nav>
-			<a href="home-coletor" target="_blank">
-			<button type="button">Home</button>
-			</a>
-			<a href="depositosPendentes-coletor" target="_blank">
-			<button type="button">Pendentes</button>
-			</a>
-			<a href="ranking-coletor" target="_blank">
-			<button type="button">Ranking</button>
-			</a>
-			<a href="historicoDepositos-coletor">
-			<button type="button">Histórico</button>
-			</a>
-			<a href="buscar-coletor" target="_blank">
-			<button type="button">Lupa</button>
-			</a>
-			<a href="perfil-coletor">
-			<button type="button">Perfil</button>
-			</a>
+			<form action="home-coletor">
+				<button type="submit" name="home" id=home>Home</button>
+			</form>
+			<form action="depositosPendentes-coletor">
+				<button type="submit" name="pendentes" id=pendentes>Pendentes</button>
+			</form>
+			<form action="ranking-coletor">
+				<button type="submit" name="ranking" id=ranking>Ranking</button>
+			</form>
+			<form action="historicoDepositos-coletor">
+				<button type="button" name="historico" id=historico>Histórico</button>
+			</form>
+			<form action="buscar-coletor">
+				<button type="submit" name="lupa" id=lupa>Lupa</button>
+			</form>
+			<form action="perfil-coletor">
+				<button type="submit" name="perfil" id=perfil>Perfil</button>
+			</form>
 		</nav>
         <h2> Ranking </h2>
         <h3> &#129351;  1° &#128100; Nome Pontuação Pontos </h3>
         <h3> &#129352;  2° &#128100; Nome Pontuação Pontos </h3>
         <h3> &#129353;  3° &#128100; Nome Pontuação Pontos </h3>
         <h2> Sua Elo </h2>
-        <input type="image" src="caminho/da/imagem.jpg">
+        <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem1>
         <h2> Depósitos Recentes </h2>
-        <input type="image" src="caminho/da/imagem.jpg">
+        <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem2 >
 				2x latinhas de 220ml
-				<button type="button" class="buttonDelete" >
+				<button type="button" class="buttonDelete" name="deletar" id=deletar1 >
 					<b>EXCLUIR</b>
 					</button>
 				<br>
-				<input type="date" id="data" name="dataDeposito">
-				<input type="text" placeholder="Empresa">
+				<input type="date" id="data1" name="dataDeposito">
+				<input type="text" placeholder="Empresa" name="empresa" id=empresa1>
+        <h2> Depósitos Recentes </h2>
+        <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem3 >
+				2x latinhas de 220ml
+				<button type="button" class="buttonDelete" name="deletar" id=deletar2 >
+					<b>EXCLUIR</b>
+					</button>
+				<br>
+				<input type="date" id="data2" name="dataDeposito">
+				<input type="text" placeholder="Empresa" name="empresa" id=empresa2>
         <h2> Conquistas Recentes </h2>
         <h3> Conquista 1 </h3>
         <h3> Conquista 2 </h3>

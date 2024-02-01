@@ -3,17 +3,18 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Home</title>
+		<title>Home Cooperativa</title>
 		<style><%@include file="../../../resources/css/style.css"%></style>
 	</head>
 	<body>
 		<nav>
-			<a href="./home-cooperativa" target="_blank">
-			<button type="button">Home</button>
-			</a>
-			<a href="./perfil-cooperativa">
-			<button type="button">Perfil</button>
-			</a>
+			<form action="home-cooperativa">
+				<button type="submit" name="home" id=home>Home</button>
+			</form>
+			<form action="perfil-cooperativa">
+				<button type="submit" name="perfil" id=perfil>Perfil</button>
+			</form>
+			<h1>Home Cooperativa</h1>
 		</nav>
 	</body>
 </html>

@@ -9,9 +9,11 @@
 	</head>
 	<body>
 		<br>
-	    <button type="button">Voltar</button>
+	    <form action="home-coletor">
+			<button type="submit" name="voltar" id=voltar>Voltar</button>
+		</form>
 	    <p>4</p>
-	    <img src="Design sem nome (6)-PhotoRoom.png-PhotoRoom.png" alt="">
+	    <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagemErro>
 	    <p>4</p>
 	    <h1>Not found</h1>
 	    <p>Não encontramos esta página.</p>

@@ -30,11 +30,6 @@ public abstract class Empresa extends Usuario implements Serializable {
 	
 	public Empresa() {}
 	
-	public Empresa(long id, String nome, String cnpj, String email, String senha) {
-		super(id, nome, email, senha);
-		setCnpj(cnpj);
-	}
-	
 	public Empresa(String nome, String cnpj, String email, String senha) {
 		super(nome, email, senha);
 		setCnpj(cnpj);
@@ -47,12 +42,35 @@ public abstract class Empresa extends Usuario implements Serializable {
 		setHorarioFechamento(horarioFechamento);
 	}
 	
-	public Empresa(String nome, String cnpj, LocalTime horarioAbertura, LocalTime horarioFechamento, String descricao, Endereco endereco, String email, String senha) {
+	public Empresa(long id, String nome, String cnpj, String email, String senha, LocalTime horarioAbertura, LocalTime horarioFechamento, Endereco endereco) {
+		super(id, nome, email, senha, endereco);
+		setCnpj(cnpj);
+		setHorarioAbertura(horarioAbertura);
+		setHorarioFechamento(horarioFechamento);
+	}
+	
+	public Empresa(String nome, String cnpj, String email, String senha, LocalTime horarioAbertura, LocalTime horarioFechamento) {
+		super(nome, email, senha);
+		setCnpj(cnpj);
+		setHorarioAbertura(horarioAbertura);
+		setHorarioFechamento(horarioFechamento);
+	}
+	
+	public Empresa(String nome, String cnpj, String email, String senha, LocalTime horarioAbertura, LocalTime horarioFechamento, String descricao, Endereco endereco) {
 		super(nome, email, senha, endereco);
 		setCnpj(cnpj);
 		setHorarioAbertura(horarioAbertura);
 		setHorarioFechamento(horarioFechamento);
 	}
+	
+	public Empresa(String nome, String cnpj, String email, String senha, LocalTime horarioAbertura, LocalTime horarioFechamento, String descricao) {
+		super(nome, email, senha);
+		setCnpj(cnpj);
+		setHorarioAbertura(horarioAbertura);
+		setHorarioFechamento(horarioFechamento);
+	}
+	
+	
 
 	public String getCnpj() {
 		return cnpj;

@@ -51,7 +51,7 @@ public class Deposito implements Serializable{
 	private List<ItemDeposito> itensDeposito;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(name = "status_armazem", nullable = true)
+	@Column(name = "status_deposito", nullable = true)
 	private StatusDeposito statusDeDeposito;
 	
 	public Deposito() {}

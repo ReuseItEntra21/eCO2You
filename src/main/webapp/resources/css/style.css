@@ -1,9 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-	background-color: #FFFCF5;
+	background-color: #FFFFF0;
+	padding: 5px;
 }
 
 h1 {
-	font-size: 40px;
+	font-size: 35px;
 	text-align: center;  
 }
 
@@ -18,39 +23,33 @@ h2 {
 .ButtonEntrar {
 	background-color: #0D0D0D;
 	color: #FFFCF5;
-	width: 400px;
-	height: 60px;
+	width: 350px;
+	height: 50px;
+	border-radius: 10px;
 }
 
 .ButtonCriarConta {
 	background-color: #FFFCF5;
 	color: #0D0D0D;
-	width: 280px;
-	height: 60px;
-}
-
-.ButtonLogin {
-	background-color: #FFFCF5;
-	color: #0D0D0D;
-}
-* {
-  box-sizing: border-box;
+	width: 300px;
+	height: 50px;
+	border-radius: 10px;
 }
 
 #regForm {
-  background-color: #ffffff;
+  background-color: #FFFCF5;
   font-family: Raleway;
-  padding: 40px;
-  width: 70%;
-  min-width: 300px;
+  padding: 50px;
+  min-width: 250px;
 }
 
 input {
+  width: 300px;
+  height: 50px;
   padding: 10px;
-  width: 100%;
   font-size: 17px;
-  font-family: Raleway;
-  border: 1px solid #aaaaaa;
+  border: 1px solid #0D0D0D;
+  border-radius: 10px;
 }
 
 input.invalid {
@@ -72,12 +71,12 @@ button:hover {
 .step {
   height: 15px;
   width: 15px;
-  margin: 0 2px;
-  background-color: #bbbbbb;
+  margin: 20px 5px;
+  background-color: #70A970;
   border: none;  
   border-radius: 50%;
   display: inline-block;
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 .step.active {
@@ -86,4 +85,109 @@ button:hover {
 
 .step.finish {
   background-color: #04AA6D;
+}
+.recuperarSenhaEmail{
+    display: block;
+    width: 600px;
+    height: 70px;
+    text-align: left;
+    border-radius: 12px;  
+    font-size: 40px;
+    margin: 5px auto;
+}  
+
+#RecuperarSenha{
+    display: block;
+    text-align: center;
+    font-size: 500%;
+    margin: auto;
+    margin-bottom: 100px;
+}
+
+#Recuperar{
+    display: block;
+    background-color: #0D0D0D;
+    color: #FFFCF5;
+    width: 300px;
+    height: 70px;
+    font-size: 40px;
+    margin: 100px auto;
+}
+
+#cadastrar{
+  display: block;
+  background-color: #0D0D0D;
+  color: #FFFCF5;
+  height: 79px;
+  width: 450px;
+  font-size: 48px;
+  margin: auto;
+}
+#novo-Material-H1{
+  font-size: 60px;
+  color: #0D0D0D;
+}
+#nome_material{
+  display: block;
+  height: 70px;
+  width: 600px;
+  font-size: 40px;
+  margin: auto;
+  margin-bottom: 30px;
+
+.h1-font-60{
+  font-size: 60px;
+}
+#nomeReciclável{
+  display: block;
+  margin: auto;
+  height: 70px;
+  width: 600px;
+  font-size: 40px;
+}
+.h2-mini-name{
+  font-size: 40px;
+  text-align: center;
+}
+#escolher-material{
+  display: block;
+  margin: auto;
+  height: 70px;
+  width: 600px;
+  font-size: 40px;
+}
+#pontos-carbono{
+  display: block;
+  margin: auto;
+  height: 70px;
+  width: 600px;
+  font-size: 40px;
+}
+#peso-reciclavel{
+  display: block;
+  margin: auto;
+  height: 70px;
+  width: 600px;
+  font-size: 40px;  
+}
+#volume-reciclavel{
+  display: block;
+  margin: auto;
+  height: 70px;
+  width: 600px;
+  font-size: 40px;
+}
+#instrucao-reciclavel{
+  display: block;
+  margin: auto;
+  height: 70px;
+  width: 600px;
+  font-size: 40px;
+}
+#cadastrar-reciclavel{
+  display: block;
+  margin: auto;
+  height: 70px;
+  width: 600px;
+  font-size: 40px;
 }

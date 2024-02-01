@@ -10,57 +10,60 @@
 <body>
 	<form action="#">
 		<input type="submit" value="voltar" name="voltar" id=voltar>
-        <button type="button" name="configuracoes" id=configuracoes>configuracoes</button>
 	</form>
 	<img src="#" alt="Imagem Giassi" name="imagem" id=imagem1>
-	<h2>Nome</h2>
+	<h2>Giassi</h2>
 	<p>Horário de funcionamento</p>
-	<p>Dias</p>
-	<p>Horários</p>
+	<p>Segunda a Sábado</p>
+	<p>8h às 22h</p>
 	<p>Domingo</p>
-	<p>Horários</p>
+	<p>8h às 21h</p>
 	<div>
 		Sobre
 	</div>
 	<div>
 		<a href="#">Endereço</a>
 	</div>
-	<p>Número</p>
-	<p>Endereço</p>
+	<p>(47) 3144-1800</p>
+	<p>contato@giassi.com.br</p>
 	<img src="#" alt="Imagem Giassi" name="imagem" id=imagem2>
+	<p>O Giassi Supermercados atua desde 1960 no setor supermercadista.
+		A sede está localizada na cidade de Içara, sul de Santa Catarina.
+		Conta atualmente com 17 lojas instaladas em 12 cidades catarinenses e
+		emprega mais de 7 mil colaboradores. Está entre as 25 maiores redes de
+		supermercados no ranking nacional em faturamento. Pesquisa aplicada
+		pela consultoria CVA Solutions apontou, por três anos, o Giassi
+		Supermercados como a melhor rede de supermercados do Brasil quando
+		considerado o custo-benefício para o cliente.</p>
     <br>
-	<input type=text placeholder=Descrição name=descricao id=descricao>
-    <br>
-    <br>
-	<form action="#">
+    <form action="#">
 		<input type="submit" value="voltar" name="voltar" id=voltar>
-		<button type="button" name="configuracoes" id=configuracoes>configuracoes</button>
 	</form>
 	<img src="#" alt="Imagem Giassi" name="imagem" id=imagem1>
-	<h2>Nome</h2>
+	<h2>Giassi</h2>
 	<p>Horário de funcionamento</p>
-	<p>Dias</p>
-	<p>Horários</p>
+	<p>Segunda a Sábado</p>
+	<p>8h às 22h</p>
 	<p>Domingo</p>
-	<p>Horários</p>
+	<p>8h às 21h</p>
 	<div>
 		<a href="#">Sobre</a>
 	</div>
 	<div>
 		Endereço
 	</div>
-	<p>Número</p>
-	<p>Endereço</p>
+	<p>(47) 3144-1800</p>
+	<p>contato@giassi.com.br</p>
 	<img src="#" alt="Imagem Giassi pelo google maps" name="imagem" id=imagem2>
 	<p>Rua</p>
-	<p>rua</p>
+	<p>São Paulo</p>
 	<p>N°</p>
-	<p>número</p>
+	<p>1277</p>
 	<p>CEP</p>
-	<p>#####-###</p>
+	<p>89012-001</p>
 	<p>Bairro</p>
-	<p>bairro</p>
+	<p>Victor Konder</p>
 	<p>Cidade</p>
-	<p>cidade</p>
+	<p>Blumenau</p>
 </body>
 </html>

@@ -44,13 +44,6 @@ public class Armazem extends Empresa implements Serializable {
 	
 	public Armazem () {}
 	
-	public Armazem(long id, String nome, String cnpj, String email, String senha) {
-		super(id, nome, email, cnpj, senha);
-		setStatusArmazem(statusArmazem);
-		depositos = new ArrayList<>();
-		retiradas = new ArrayList<>();
-	}
-	
 	public Armazem(String nome, String cnpj, String email, String senha) {
 		super(nome, email, cnpj, senha);
 		setStatusArmazem(statusArmazem);
@@ -59,16 +52,30 @@ public class Armazem extends Empresa implements Serializable {
 	}
 	
 	public Armazem(String nome, String cnpj, String email, String senha, float capacidadeArmazenagem, LocalTime horarioAbertura, LocalTime horarioFechamento, Endereco endereco) {
-		super(nome, email, cnpj, senha, horarioAbertura, horarioFechamento, endereco);
+		super(nome, cnpj, email, senha, horarioAbertura, horarioFechamento, endereco);
+		setCapacidadeArmazenagem(capacidadeArmazenagem);
+		depositos = new ArrayList<>();
+		retiradas = new ArrayList<>();
+	}
+	
+	public Armazem(long id, String nome, String cnpj, String email, String senha, float capacidadeArmazenagem, LocalTime horarioAbertura, LocalTime horarioFechamento, Endereco endereco) {
+		super(id, nome, cnpj, email, senha, horarioAbertura, horarioFechamento, endereco);
 		setCapacidadeArmazenagem(capacidadeArmazenagem);
 		depositos = new ArrayList<>();
 		retiradas = new ArrayList<>();
 	}
 	
 	public Armazem(String nome, String email, String senha, String descricao, Endereco endereco, String cnpj, LocalTime horarioFechamento, LocalTime horarioAbertura, float capacidadeArmazem, StatusArmazem statusArmazem) {
-		super(nome, cnpj,horarioAbertura, horarioFechamento, descricao, endereco, email, senha);
+		super(nome, cnpj, email, senha, horarioAbertura, horarioFechamento, descricao, endereco);
 		setCapacidadeArmazenagem(capacidadeArmazem);
 		setStatusArmazem(statusArmazem);
+		depositos = new ArrayList<>();
+		retiradas = new ArrayList<>();
+	}
+	
+	public Armazem(String nome, String email, String senha, String descricao, String cnpj, LocalTime horarioFechamento, LocalTime horarioAbertura, float capacidadeArmazem) {
+		super(nome, cnpj, email, senha, horarioAbertura, horarioFechamento, descricao);
+		setCapacidadeArmazenagem(capacidadeArmazem);
 		depositos = new ArrayList<>();
 		retiradas = new ArrayList<>();
 	}

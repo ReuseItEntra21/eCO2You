@@ -7,8 +7,9 @@ import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
 public interface ColetorDAO {
 
 	Coletor exibirPerfilColetor(String nomeDoColetor);
+	
 	List <Coletor> buscarColetorPorNome(String nome);
-	public List<Coletor> buscarPerfilArmazemPeloNome(String nome); 
-	   
 
+	List<Coletor> buscarPerfilColetorPeloNome(String nome); 
+	   
 }

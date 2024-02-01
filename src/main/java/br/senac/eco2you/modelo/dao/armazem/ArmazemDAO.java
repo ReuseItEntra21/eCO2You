@@ -3,7 +3,6 @@ package br.senac.eco2you.modelo.dao.armazem;
 import java.util.List;
 
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
-import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
 import br.senac.eco2you.modelo.enumeracao.status.armazem.StatusArmazem;
 
 public interface ArmazemDAO {
@@ -16,5 +15,12 @@ public interface ArmazemDAO {
 	
 	List<Armazem> buscarArmazemPeloStatusArmazem(StatusArmazem statusDeArmazem);
 	
-	List<Coletor> buscarPerfilColetorPeloNome(String nome);
+	List<Armazem> recuperarTodosArmazens();
+	
+	List<Armazem> buscarPerfilArmazemPeloNome(String nome);
+
+	List<Armazem> buscarPerfilArmazemPeloNomePelaCooperativa(String nome);
+	
+	Armazem recuperarArmazemPorId(long id);
+	
 }

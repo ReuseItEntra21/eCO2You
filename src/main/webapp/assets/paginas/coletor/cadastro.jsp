@@ -4,12 +4,14 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Cadastro</title>
+	<title>Cadastro Coletor</title>
 	<style><%@include file="../../../resources/css/style.css"%></style>
-	<script><%@include file="../../../resources/css/style.css"%></script>
 </head>
 <body>
 	<div style="float: left">
+		<form action="login">
+			<button type="submit" name="voltar" id=voltar>Voltar</button>
+		</form>
 		<h2>Faça parte dessa mudança!</h2>
 		Conecte-se a uma comunidade comprometida com a sustentabilidade e
 		preservação do meio ambiente
@@ -18,37 +20,34 @@
 		<form id="regForm" action="inserir-coletor">
 		  <h1>Criar Conta</h1>
 		  <div class="tab">
-		    <p><input type="text" placeholder="Nome" oninput="this.className = ''" name="nome"></p>
-		    <p><input type="text" placeholder="Sobrenome" oninput="this.className = ''" name="sobrenome"></p>
+		    <p><input type="text" placeholder="Nome" oninput="this.className = ''" name="nome" id=nome></p>
+		    <p><input type="text" placeholder="Sobrenome" oninput="this.className = ''" name="sobrenome" id=sobrenome></p>
+		    <p><input type="text" placeholder="CPF" oninput="this.className = ''" name="cpf" id=cpf></p>
+		    <p><input type="date" placeholder="Data de Nascimento" oninput="this.className = ''" name="dataNascimento" id=nascimento></p>
 		  </div>
 		  <div class="tab">
-		    <p><input type="text" placeholder="CPF" oninput="this.className = ''" name="cpf"></p>
-		    <p><input type="date" placeholder="Data de Nascimento" oninput="this.className = ''" name="dataNascimento"></p>
+		    <p><input type="text" placeholder="CEP" oninput="this.className = ''" name="cep" id=cep></p>
+		    <p><input type="text" placeholder="Cidade" oninput="this.className = ''" name="cidade" id=cidade></p>
+		    <p><input type="text" placeholder="Bairro" oninput="this.className = ''" name="bairro" id=bairro></p>
+		    <p><input type="text" placeholder="Tipo da Via" oninput="this.className = ''" name="tipoVia" id=via></p>
+		    <p><input type="text" placeholder="Logradouro" oninput="this.className = ''" name="logradouro" id=logradouro></p>
+		    <p><input type="text" placeholder="Número" oninput="this.className = ''" name="numeroEndereco" id=endereco></p>
+		    <p><input type="text" placeholder="Complemento" oninput="this.className = ''" name="complemento" id=complemento></p>
+		    <p><input type="text" placeholder="Telefone" oninput="this.className = ''" name="telefone" id=telefone></p>
 		  </div>
 		  <div class="tab">
-		    <p><input type="email" placeholder="E-mail" oninput="this.className = ''" name="email"></p>
-		    <p><input type="password" placeholder="Senha" oninput="this.className = ''" name="senha"></p>
-		  </div>
-		  <div class="tab">
-		    <p><input type="text" placeholder="CEP" oninput="this.className = ''" name="cep"></p>
-		    <p><input type="text" placeholder="Cidade" oninput="this.className = ''" name="cidade"></p>
-		    <p><input type="text" placeholder="Bairro" oninput="this.className = ''" name="bairro"></p>
-		    <p><input type="text" placeholder="Tipo da Via" oninput="this.className = ''" name="tipoVia"></p>
-		    <p><input type="text" placeholder="Logradouro" oninput="this.className = ''" name="logradouro"></p>
-		    <p><input type="text" placeholder="Número" oninput="this.className = ''" name="numeroEndereco"></p>
-		    <p><input type="text" placeholder="Complemento" oninput="this.className = ''" name="complemento"></p>
-		    <p><input type="text" placeholder="Telefone" oninput="this.className = ''" name="telefone"></p>
+		    <p><input type="email" placeholder="E-mail" oninput="this.className = ''" name="email" id=email></p>
+		    <p><input type="password" placeholder="Senha" oninput="this.className = ''" name="senha" id=senha></p>
 		  </div>
 		  <div style="text-align:center;">
-		    <span class="step"></span>
 		    <span class="step"></span>
 		    <span class="step"></span>
 		    <span class="step"></span>
 		  </div>
 		  <div style="overflow:auto;">
 		    <div>
-		      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
-		      <button type="button" id="nextBtn" onclick="nextPrev(1)">Próximo</button>
+		      <button type="button" name=voltar id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
+		      <button type="button" name=avancar id="nextBtn" onclick="nextPrev(1)">Próximo</button>
 		    </div>
 		  </div>
 		</form>

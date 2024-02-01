@@ -13,6 +13,9 @@ import org.hibernate.Session;
 
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
 import br.senac.eco2you.modelo.entidade.endereco.Endereco_;
+import br.senac.eco2you.modelo.entidade.retirada.Retirada;
+import br.senac.eco2you.modelo.entidade.retirada.Retirada_;
+import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa_;
 import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
@@ -142,6 +145,28 @@ public class CooperativaDAOImpl implements CooperativaDAO {
 					.where(construtor.equal(raizCooperativa.get(Cooperativa_.NOME), nomeDaCooperativa));
 
 			return sessao.createQuery(criteria).uniqueResult();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	public List<Cooperativa> buscarPerfilCooperativaPeloNome(String nome) {
+		try (
+
+				Session sessao = fabrica.getConexao().openSession()) {
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Cooperativa> criteria = construtor.createQuery(Cooperativa.class);
+			Root<Cooperativa> raizCooperativa = criteria.from(Cooperativa.class);
+
+			Join<Cooperativa, Retirada> juncaoDeposito = raizCooperativa.join(Cooperativa_.RETIRADAS);
+			Join<Retirada, Armazem> juncaoArmazem = juncaoDeposito.join(Retirada_.ARMAZEM);
+
+			ParameterExpression<String> nomeCooperativaExpression = construtor.parameter(String.class);
+
+			criteria.where(construtor.equal(juncaoArmazem.get(Cooperativa_.NOME), nomeCooperativaExpression));
+
+			return sessao.createQuery(criteria).setParameter(nomeCooperativaExpression, nome).getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
