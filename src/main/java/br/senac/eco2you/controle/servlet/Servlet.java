@@ -365,7 +365,9 @@ public class Servlet extends HttpServlet {
 	
 	private void mostrarPerfilCooperativa(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cooperativa/perfil.jsp");
+		Usuario usuario = usuarioDAO.recuperarUsuarioPorId((long)3);
+		request.setAttribute("cooperativa", usuario);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cooperativa/editar-perfil.jsp");
 		dispatcher.forward(request, response);
 	}
 
