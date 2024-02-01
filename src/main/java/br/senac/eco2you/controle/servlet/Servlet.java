@@ -58,7 +58,6 @@ public class Servlet extends HttpServlet {
 	private DepositoDAO DepositoDAO;
 	private ConquistaDAO conquistaDAO;
 	private ArmazemDAO armazemDAO;
-	private CooperativaDAO cooperativaDAO;
 	private RetiradaDAO retiradaDAO;
 	private ItemRetiradaDAO itemRetiradaDAO;
 
@@ -70,7 +69,7 @@ public class Servlet extends HttpServlet {
 		DepositoDAO = new DepositoDAOImpl();
 		conquistaDAO = new ConquistaDAOImpl();
 		armazemDAO = new ArmazemDAOImpl();
-		cooperativaDAO = new CooperativaDAOImpl();
+		new CooperativaDAOImpl();
 		retiradaDAO = new RetiradaDAOImpl();
 		itemRetiradaDAO = new ItemRetiradaDAOImpl();
 	}
@@ -658,8 +657,7 @@ public class Servlet extends HttpServlet {
 		float peso = Float.parseFloat(request.getParameter("peso"));
 		float volume = Float.parseFloat(request.getParameter("volume"));
 		String instrucaoReciclavel = request.getParameter("instrucao-reciclavel");
-		reciclavelDAO
-				.inserirReciclavel(new Reciclavel(nome, material, pontosCarbono, peso, volume, instrucaoReciclavel));
+		reciclavelDAO.inserirReciclavel(new Reciclavel(nome, material, pontosCarbono, peso, volume, instrucaoReciclavel));
 		response.sendRedirect("apresentacao");
 	}
 
