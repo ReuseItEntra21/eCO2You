@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -15,28 +17,32 @@
 	        <br>
 	        <br>
 	        <h1> Informações </h1>
-	        <input type="text" id="nome" name="nome" autofocus placeholder="Nome" maxlength="25" size="46"><br>
+	        <input type="text" autofocus placeholder="${usuario.nome}">
 	        <br>
-	        <input type="email" id="email" name="email" placeholder="E-mail" maxlength="45" size="46"><br>
+	        <input type="email" placeholder="${usuario.email}">
 	        <br>
-	        <input type="text" id="cpf" name="cpf" placeholder="Cpf" maxlength="14" size="46">
+	        <input type="text" placeholder="${usuario.cpf}">
 	        <br>
+	        <input type="text" placeholder="${usuario.telefone}">
 	        <br>
-	        <input type="text" id="telefone" name="telefone" placeholder="Telefone" maxlength="17"> <input type="text" id="bairro" name="bairro" placeholder="Endereço Bairro" maxlength="25"><br>
+	        <input type="text" placeholder="${usuario.cep}">
 	        <br>
-	        <input type="text" id="logradouro" name="logradouro" placeholder="Endereço Rua" maxlength="45"> <input type="text" id="cep" name="cep" placeholder="CEP"> <br>
+	        <input type="text" placeholder="${usuario.bairro}">
 	        <br>
-	        <input type="text" id="numero" name="numeroResidencia" placeholder="Número"> <input type="text" id="cidade" name="cidade" placeholder="Cidade" maxlength="25">			
+	        <input type="text" placeholder="${usuario.logradouro}">
 	        <br>
+	        <input type="text" placeholder="${usuario.cep}">
 	        <br>
-	        <input type="text" id="complemento" name="complemento" placeholder="Complementos" size="46">
+	        <input type="text" placeholder="${usuario.numeroResidencia}">
 	        <br>
+	        <input type="text" placeholder="${usuario.cidade}">			
 	        <br>
-	        <input type="submit" value="Alterar a Senha" name="alterar" id=alterar>
-	        <input type="submit" value="Excluir a Conta" name="excluir" id=excluir>
+	        <input type="text" placeholder="${usuario.complemento}">
 	        <br>
+	        <input type="submit" value="Alterar a Senha">
+	        <input type="submit" value="Excluir a Conta">
 	        <br>
-	        <input type="submit" value="Salvar" name="salvar" id=salvar>
+	        <input type="submit" value="Salvar">
     	</form>
     </body>
 </html>
