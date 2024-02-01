@@ -17,7 +17,10 @@
 		   		<button type="submit" name="editar" id=editar>Editar Perfil</button>
 		    </form>
 		    <div>
-				<h2>${usuario.nome}</h2><h2>${usuario.sobrenome}</h2>
+				<h2>${coletor.nome}</h2>
+				<h2>${coletor.sobrenome}</h2>
+				<h2>${coletor.cpf}</h2>
+				
 			</div>
 	        <div class="informacoes-box">
 				<h3># ID</h3>
