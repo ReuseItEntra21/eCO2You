@@ -344,16 +344,17 @@ public class Servlet extends HttpServlet {
 		
 		HttpSession sessao = request.getSession();
 		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
-		
 		request.setAttribute("coletor", coletor);
-		
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/perfil.jsp");
 		dispatcher.forward(request, response);
 	}
 
 	private void mostrarEditarPerfilColetor(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-
+		
+		HttpSession sessao = request.getSession();
+		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/editar-perfil.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -487,12 +488,12 @@ public class Servlet extends HttpServlet {
 		sessao.setAttribute("usuario", usuario);
 		
 		if(usuario instanceof Coletor) {
-			
-			
+
 			Coletor coletor = (Coletor) usuarioDAO.recuperarUsuarioPorId(usuario.getId());
 			
 			response.sendRedirect("/eCO2You/home-coletor");
 			request.setAttribute("coletor", coletor);
+      
 		} else if(usuario instanceof Armazem) {
 			
 			Armazem armazem = (Armazem) usuarioDAO.recuperarUsuarioPorId(usuario.getId());
@@ -511,6 +512,7 @@ public class Servlet extends HttpServlet {
 			
 		} else{
 			response.sendRedirect("/eCO2You/login");
+
 		}
 	}
   
