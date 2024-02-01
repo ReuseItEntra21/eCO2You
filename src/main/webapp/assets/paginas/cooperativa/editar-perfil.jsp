@@ -8,7 +8,7 @@
 	</head>
     <body>
     <br>
-      <form action="home-cooperativa">
+      <form action="/">
 			  <button type="submit" name="voltar" id=voltar>Voltar</button>
 		  </form>
 		  <form action="atualizar-cooperativa">

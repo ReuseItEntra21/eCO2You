@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Home</title>
+<title>Depositos Aceitar</title>
 <style><%@include file="../../../resources/css/style.css"%></style>
 </head>
 <body>
