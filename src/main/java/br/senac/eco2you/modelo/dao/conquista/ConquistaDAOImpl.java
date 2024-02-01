@@ -13,7 +13,6 @@ import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
 
 public class ConquistaDAOImpl implements ConquistaDAO {
 
-	private static final String Usuario = null;
 	private ConexaoFactory fabrica;
 
 	public ConquistaDAOImpl() {
@@ -104,9 +103,9 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 		}
 	}
 
-	public List<Conquista> buscarConquistaUsuario(long id) {
+	public List<Conquista> buscarListaConquistaPeloId(long id) {
 		Session sessao = null;
-
+		List<Conquista> conquistas = null;
 		try {
 			sessao = fabrica.getConexao().openSession();
 			sessao.beginTransaction();
@@ -117,7 +116,7 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 
 			criteria.select(raizConquista).where(construtor.like(raizConquista.get("nome"), "%" + id + "%"));
 
-			return sessao.createQuery(criteria).getResultList();
+			conquistas = sessao.createQuery(criteria).getResultList();
 
 		} catch (Exception sqlException) {
 
@@ -131,7 +130,7 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 				sessao.close();
 			}
 		}
-		return null;
+		return conquistas;
 	}
 
 }
