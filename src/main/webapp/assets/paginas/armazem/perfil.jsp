@@ -15,7 +15,20 @@
         	<button type="submit">Editar Perfil</button>
 		</form>
 		<div>
-			<h2>${usuario.nome}</h2>
-		</div>
+		    	<h2> Nome </h2>
+				<h3>${armazem.nome}</h3>
+				<br>
+				<h2> CNPJ </h2>	
+				<h3>${armazem.cnpj}</h3>
+				<br>
+				<h2> Capacidade de Armazenagem </h2>
+				<h3>${armazem.capacidadeArmazenagem}</h3>
+				<br>
+				<h2> Horario de Abertura </h2>
+				<h3>${armazem.horarioAbertura}</h3>
+				<br>
+				<h2> Horario de Fechamento</h2>
+				<h3>${armazem.horarioFechamento}</h3>
+			</div>
 	</body>
 </html>
