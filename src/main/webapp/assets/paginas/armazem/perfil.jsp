@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,18 +69,19 @@
 	<p>Cidade</p>
 	<input type="text" placeholder="Cidade" id=cidade name=cidade>
 	<h2> Nome </h2>
-				<h3>${armazem.nome}</h3>
-				<br>
-				<h2> CNPJ </h2>	
-				<h3>${armazem.cnpj}</h3>
-				<br>
-				<h2> Capacidade de Armazenagem </h2>
-				<h3>${armazem.capacidadeArmazenagem}</h3>
-				<br>
-				<h2> Horario de Abertura </h2>
-				<h3>${armazem.horarioAbertura}</h3>
-				<br>
-				<h2> Horario de Fechamento</h2>
-				<h3>${armazem.horarioFechamento}</h3>
+
+	<h3>${armazem.nome}</h3>
+	<br>
+	<h2> CNPJ </h2>	
+	<h3>${armazem.cnpj}</h3>
+	<br>
+	<h2> Capacidade de Armazenagem </h2>
+	<h3>${armazem.capacidadeArmazenagem}</h3>
+  <br>
+	<h2> Horario de Abertura </h2>
+	<h3>${armazem.horarioAbertura}</h3>
+	<br>
+	<h2> Horario de Fechamento</h2>
+	<h3>${armazem.horarioFechamento}</h3>
 </body>
 </html>
