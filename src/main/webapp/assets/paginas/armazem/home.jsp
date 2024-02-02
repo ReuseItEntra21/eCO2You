@@ -9,22 +9,19 @@
 </head>
 <body>
 	<nav>
-		<form action="home-coletor">
+		<form action="home-armazem">
 			<button type="submit" name="home" id=home>Home</button>
 		</form>
-		<form action="depositosPendentes-coletor">
-			<button type="submit" name="pendentes" id=pendentes>Pendentes</button>
+		<form action="depositosAgendados-armazem">
+			<button type="submit" name="pendentes" id=agendados>Agendados</button>
 		</form>
-		<form action="ranking-coletor">
-			<button type="submit" name="ranking" id=ranking>Ranking</button>
-		</form>
-		<form action="historicoDepositos-coletor">
+		<form action="historicoDepositos-armazem">
 			<button type="button" name="historico" id=historico>Histórico</button>
 		</form>
 		<form action="buscar-coletor">
 			<button type="submit" name="lupa" id=lupa>Lupa</button>
 		</form>
-		<form action="perfil-coletor">
+		<form action="perfil-armazem">
 			<button type="submit" name="perfil" id=perfil>Perfil</button>
 		</form>
 	</nav>
@@ -75,6 +72,8 @@
     <button type="button" class="buttonDelete" name="aceitar" id=aceitar1>
 		<b>Aceitar</b>
 	</button>
+    <br>
+    <br>
 	<input type="image" src="caminho/da/imagem.jpg" name="imagem"
 		id=imagem4> 2x latinhas de 220ml
 	<br>

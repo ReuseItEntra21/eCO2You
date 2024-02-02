@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<div>
-		    <form action="home-coletor" style="position: fixed;">
+		    <form action="home-armazem" style="position: fixed;">
 		   		<button type="submit" name="voltar" id=voltar>Voltar</button>
 		    </form>
             <br>

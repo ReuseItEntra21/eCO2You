@@ -3,12 +3,14 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Home</title>
+		<title>Recuperar Senha</title>
 		<style><%@include file="../../../resources/css/style.css"%></style>
 	</head>
 	<body>
     <br>
-		<button type="button" name="voltar" id=voltar>Voltar</button>
+		<form action="login">
+			<button type="submit" name="voltar" id=voltar>Voltar</button>
+		</form>
         <h2> Recuperar senha </h2>
         <input type="email" id="email" name="email" placeholder="Informe seu e-mail">
         <br>
@@ -43,6 +45,8 @@
         <input type="password" id="senhaNova" name="senha" placeholder="Informe sua nova senha" maxlength="25" class="recuperarSenha">
         <br>
         <br>
+        <form action="login">
         <button type="button" id="Recuperar" name=recuperar >Recuperar</button>
+        </form>	
 	</body>
 </html>

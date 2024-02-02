@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div style="float: left">
-		<form action="login">
+		<form action="apresentacao">
 			<button type="submit" name="voltar" id=voltar>Voltar</button>
 		</form>
 		<h2>Faça parte dessa mudança!</h2>
