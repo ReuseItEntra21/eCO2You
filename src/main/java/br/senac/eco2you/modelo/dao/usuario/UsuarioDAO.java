@@ -4,7 +4,6 @@ import java.util.List;
 
 import br.senac.eco2you.modelo.entidade.usuario.Usuario;
 
-
 public interface UsuarioDAO {
 
 	void inserirUsuario(Usuario usuario);
@@ -12,13 +11,14 @@ public interface UsuarioDAO {
 	void deletarUsuario(Usuario usuario);
 
 	void atualizarUsuario(Usuario usuario);
-	
+
 	List<Usuario> buscarUsuariosPorNome(String nome);
-	
+
 	Usuario buscarUsuarioPorEmailESenha(String email, String senha);
-	
+
 	Usuario recuperarUsuarioPorEmail(String email);
-	
+
 	Usuario recuperarUsuarioPorId(Long id);
-	
+
+	Usuario recuperarUsuarioComEnderecoPorId(Long id);
 }
