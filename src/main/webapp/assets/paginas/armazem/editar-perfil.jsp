@@ -8,8 +8,7 @@
 	</head>
     <body>
     <br>
-    	<form action="/">
-	        <a href="./perfil-coletor">
+	        <a href="./perfil-armazem">
 				<button type="button" name="voltar" id=voltar>Voltar</button>
 			</a>
 	        <br>
@@ -32,7 +31,10 @@
 	        <input type="text" id="complemento" name="complemento" placeholder="Complementos" size="46">
 	        <br>
 	        <br>
-	        <input type="submit" value="Alterar a Senha" name="alterar" id=alterar>
+	        <form action="recuperar-senha">
+	        <button type="submit" name="alterarSenha" id=alterarSenha>Alterar Senha</button>
+	        </form>
+	        <br>
 	        <input type="submit" value="Excluir a Conta" name="excluir" id=excluir>
 	        <br>
 	        <br>
@@ -40,7 +42,6 @@
             <br>
             <br>
             <button type="button" name="voltar" id=voltar>Voltar</button>
-	        <br>
 	        <h1> Horario de Funcionamento </h1>
 	        <br>
             <input type="text" placeholder="Dia da Semana 1" id=dia1 name=dia>
@@ -58,6 +59,5 @@
             <br>
             <br>
 	        <input type="submit" value="Salvar Alterações" name="salvar" id=salvar>
-    	</form>
     </body>
 </html>

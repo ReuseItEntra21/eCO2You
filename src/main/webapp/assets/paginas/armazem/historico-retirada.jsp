@@ -3,12 +3,12 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Histórico</title>
+		<title>Histórico de Retiradas</title>
 		<style><%@include file="../../../resources/css/style.css"%></style>
 	</head>
 	<body>
 		<form action="/">
-			<a href="./home-coletor">
+			<a href="./home-armazem">
 				<button type="button" name="voltar" id=voltar>Voltar</button>
 			</a>
 			<h1>Histórico de Retiradas</h1>

@@ -8,24 +8,24 @@
 	</head>
 	<body>
 		<nav>
-			<a href="./home-coletor" target="_blank">
-			<button type="button" name="home" id=home>Home</button>
-			</a>
-			<a href="./depositosPendentes-coletor" target="_blank">
-			<button type="button" name="pendentes" id=pendentes>Pendentes</button>
-			</a>
-			<a href="./ranking-coletor" target="_blank">
-			<button type="button"name="ranking" id=ranking>Ranking</button>
-			</a>
-			<a href="./historicoDepositos-coletor">
-			<button type="button"name="historico" id=historico>Histórico</button>
-			</a>
-			<a href="./buscar-coletor" target="_blank">
-			<button type="button"name="lupa" id=lupa>Lupa</button>
-			</a>
-			<a href="./perfil-coletor">
-			<button type="button" name="perfil" id=perfil>Perfil</button>
-			</a>
+			<form action="home-coletor">
+				<button type="submit" name="home" id=home>Home</button>
+			</form>
+			<form action="depositosPendentes-coletor">
+				<button type="submit" name="pendentes" id=pendentes>Pendentes</button>
+			</form>
+			<form action="ranking-coletor">
+				<button type="submit" name="ranking" id=ranking>Ranking</button>
+			</form>
+			<form action="historicoDepositos-coletor">
+				<button type="button" name="historico" id=historico>Histórico</button>
+			</form>
+			<form action="buscar-coletor">
+				<button type="submit" name="lupa" id=lupa>Lupa</button>
+			</form>
+			<form action="perfil-coletor">
+				<button type="submit" name="perfil" id=perfil>Perfil</button>
+			</form>
 		</nav>
 		<form action="./principal-coletor">
 			<h2> Depósitos agendados </h2>
