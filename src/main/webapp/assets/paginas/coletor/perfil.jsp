@@ -17,10 +17,17 @@
 		   		<button type="submit" name="editar" id=editar>Editar Perfil</button>
 		    </form>
 		    <div>
-				<h2>${coletor.nome}</h2>
-				<h2>${coletor.sobrenome}</h2>
-				<h2>${coletor.cpf}</h2>
-				
+		    	<h2> Nome </h2>
+				<h3>${coletor.nome}</h3>
+				<br>
+				<h2> Sobrenome </h2>	
+				<h3>${coletor.sobrenome}</h3>
+				<br>
+				<h2> CPF </h2>
+				<h3>${coletor.cpf}</h3>
+				<br>
+				<h2> Data de Nascimento </h2>
+				<h3>${coletor.dataNascimento}</h3>
 			</div>
 	        <div class="informacoes-box">
 				<h3># ID</h3>

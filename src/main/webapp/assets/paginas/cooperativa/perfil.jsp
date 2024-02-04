@@ -17,12 +17,19 @@
         <button type="button" name="configuracoes" id=configuracoes>configuracoes</button>
 	</form>
 	<img src="#" alt="Imagem" name="imagem" id=imagem1>
-	<h2>Nome</h2>
-	<p>Horário de funcionamento</p>
-	<p>Dias</p>
-	<p>Horários</p>
-	<p>Domingo</p>
-	<p>Horários</p>
+		<div>
+		    	<h2> Nome </h2>
+				<h3>${cooperativa.nome}</h3>
+				<br>
+				<h2> CNPJ </h2>	
+				<h3>${cooperativa.cnpj}</h3>
+				<br>
+				<h2> Horario de Abertura </h2>
+				<h3>${cooperativa.horarioAbertura}</h3>
+				<br>
+				<h2> Horario de Fechamento</h2>
+				<h3>${cooperativa.horarioFechamento}</h3>
+		</div>
 	<div>
 		Sobre
 	</div>
