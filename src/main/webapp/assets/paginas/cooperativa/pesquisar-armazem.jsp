@@ -10,11 +10,11 @@
 <br>
 <input type="submit" value="Lupa" name="lupa" id=lupa1>
         <input type="search" placeholder="Buscar Armazém por nome" size = 22 name="lupa" id=lupa2>
-        <form action="perfil-coletor">
+        <form action="perfil-cooperativa">
 				<button type="submit" name="perfil" id=perfil>Perfil</button>
 			</form>
         <h2>ECO2YOU</h2>
-        <form action="#">
+        <form action="home-cooperativa">
         <div><input type="submit" value="seta volta" name="voltar" id=voltar></div>
     </form>
     <h2>Armazéns em que você já comprou</h2>

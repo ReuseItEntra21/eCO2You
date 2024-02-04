@@ -24,7 +24,10 @@
 		<form action="buscar-coletor">
 			<button type="submit" name="lupa" id=lupa>Lupa</button>
 		</form>
-		<form action="perfil-coletor">
+		<input type="search" id="consulta-nome" name= lupa2 placeholder="Buscar Usuário">
+		<br>
+		<br>
+		<form action="perfil-cooperativa">
 			<button type="submit" name="perfil" id=perfil>Perfil</button>
 		</form>
 	</nav>
