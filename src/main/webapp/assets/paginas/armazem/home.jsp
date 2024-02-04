@@ -21,6 +21,9 @@
 		<form action="buscar-coletor">
 			<button type="submit" name="lupa" id=lupa>Lupa</button>
 		</form>
+		<input type="search" id="consulta-nome" name= lupa2 placeholder="Buscar Coletor">
+		<br>
+		<br>
 		<form action="perfil-armazem">
 			<button type="submit" name="perfil" id=perfil>Perfil</button>
 		</form>
