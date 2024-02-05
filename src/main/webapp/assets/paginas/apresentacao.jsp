@@ -8,12 +8,7 @@
 		<style><%@include file="../../resources/css/style.css"%></style>
 	</head>
 	<body>
-		<form action="login">
-        <input type="image" src="caminho/da/imagem.jpg">
-        Já tem uma conta?
-			<button type="submit" name="voltar" id=voltar class="ButtonLogin" >Fazer Login</button>
-		</form>
-		<br>
+		<a href="<%=request.getContextPath()%>/login">Login</a>
 		<br>
 		<img src="#" alt="" name="imagem" id=imagem1>
 		<img src="#" alt="" name="imagem" id=imagem2>
@@ -39,50 +34,58 @@
 			Na eCO2You, transformamos resíduos em oportunidades, impactando o presente e moldando um futuro melhor. Estamos comprometidos com você e nosso planeta. Vamos construir juntos um mundo onde a sustentabilidade é a norma, eCO2You é a escolha óbvia
 		</h3>
         <h3>Somos uma empresa comprometida com a missão de promover um futuro mais verde e sustentável, transformando resíduos em recursos valiosos. </h3>
-        <h3> Se você se interessou no nosso trabalho e quer fazer parte dessa comunidade, escolha entre três opções de associado e comece a mudar o planeta.
-        </h3>
+        <h3> Se você se interessou no nosso trabalho e quer fazer parte dessa comunidade, escolha entre três opções de associado e comece a mudar o planeta.</h3>
         <h3> Coletor </h3>
-         <pre> 	Os coletores são os 													      		    	                                                        
-        usuários comuns,
+        <pre> 
+        Os coletores são os usuários comuns,
         pessoas que recolhem e
         guardam os recicláveis,
-        e depois enviam para os
-        armazéns. </pre> 
+        depois enviam para os armazéns.
+        <br>
+        <a href="<%=request.getContextPath()%>/cadastro-coletor">Criar Conta como Coletor</a>
+        </pre>
         <h3> Armazém </h3>
-        <pre> 	Os armazéns são os
+        <pre> 
+        Os armazéns são os
         locais, ou empresas, que
         se dispõem a armazenar
         os recicláveis coletados
-        pelos coletores. </pre> 
-        <h3> Cooperativa </h3>
-       	 <pre> 	As cooperativas são as
+        pelos coletores.
+        <br>
+        <a href="<%=request.getContextPath()%>/cadastro-armazem">Criar Conta como Armazém</a>
+        </pre>
+        <h3>Cooperativa</h3>
+       	 <pre>
+       	As cooperativas são as
         empresas e fábricas que
         compram o material
         armazenado dos
         armazéns, e então
         transforma em novos
-        produtos. </pre> 
-        <form action="cadastro-coletor">
-			<button type="submit" name="voltar" id=voltar class="ButtonLogin" >Criar Conta</button>
-		</form>
-        	<h3> eCO2you </h3>
-        <ul>
-			<li>Sobre nós</li>
-			<li>Empresa</li>
-			<li>Objetivo</li>
-		</ul>
+        produtos.
+        <br>
+        <a href="<%=request.getContextPath()%>/cadastro-cooperativa">Criar Conta como Cooperativa</a>
+        </pre> 
 		<footer>
-				<h3> Atendimento </h3>
+			<h3> eCO2you </h3>
+        	<ul>
+				<li>Sobre nós</li>
+				<li>Empresa</li>
+				<li>Objetivo</li>
+			</ul>
+			<h3> Atendimento </h3>
 			<ul>
 				<li>eCO2you@contato.com</li>
 				<li>Termos de uso</li>
 				<li>Suporte</li>
 			</ul>
-				<h3> Redes Sociais </h3>
-             <ul>
+			<h3> Redes Sociais </h3>
+            <ul>
 				<li>Github</li>
 				<li>Linkedin</li>
 			</ul>
 		</footer>
 	</body>
+	<footer>
+	</footer>
 </html>

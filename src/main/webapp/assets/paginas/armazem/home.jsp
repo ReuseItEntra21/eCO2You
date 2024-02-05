@@ -18,10 +18,7 @@
 		<form action="historicoDepositos-armazem">
 			<button type="button" name="historico" id=historico>Histórico</button>
 		</form>
-		<form action="buscar-coletor">
-			<button type="submit" name="lupa" id=lupa>Lupa</button>
-		</form>
-		<input type="search" id="consulta-nome" name= lupa2 placeholder="Buscar Coletor">
+		<input type="search" id="consulta-nome" name= lupa placeholder="Buscar Coletor">
 		<br>
 		<br>
 		<form action="perfil-armazem">
