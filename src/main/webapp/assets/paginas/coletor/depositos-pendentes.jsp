@@ -8,28 +8,43 @@
 	</head>
 	<body>
 		<nav>
-			<form action="home-coletor">
-				<button type="submit" name="home" id=home>Home</button>
-			</form>
-			<form action="depositosPendentes-coletor">
-				<button type="submit" name="pendentes" id=pendentes>Pendentes</button>
-			</form>
-			<form action="ranking-coletor">
-				<button type="submit" name="ranking" id=ranking>Ranking</button>
-			</form>
-			<form action="historicoDepositos-coletor">
-				<button type="button" name="historico" id=historico>Histórico</button>
-			</form>
-			<form action="buscar-coletor">
-				<button type="submit" name="lupa" id=lupa>Lupa</button>
-			</form>
-			<input type="search" id="consulta-nome" name= lupa2 placeholder="Buscar Usuário por nome">
-			<br>
-            <br>
-			<form action="perfil-coletor">
-				<button type="submit" name="perfil" id=perfil>Perfil</button>
-			</form>
-		</nav>
+    	<ul>
+    		<li>
+			<a href="home-coletor" class="dropbtn" id=home>Home</a>
+			</li>
+        </ul>
+        <ul>
+        	<li>
+			<a href="depositosPendentes-coletor" class="dropbtn" id=pendentes>Pendentes</a>
+			</li>
+        </ul>
+        <ul>
+        	<li>
+            <a href="ranking-coletor" class="dropbtn" id=ranking>Ranking</a>
+            </li>
+        </ul>
+        <ul>
+        	<li>
+            <a href="historicoDepositos-coletor" class="dropbtn" id=historico>Histórico</a>
+        	</li>
+        </ul>
+        <ul>
+        	<li>
+            <a href="buscar-coletor" class="dropbtn" id=lupa>Lupa</a>
+            </li>
+        </ul>
+        <ul>
+        	<li>
+        	<input type="search" id="consulta-nome" placeholder="Buscar Usuário">
+        	</li>
+        </ul>
+        <ul>
+        	<li>
+            <a href="perfil-coletor" class="dropbtn" id=perfil>Perfil</a>
+            </li>
+        </ul>    
+        <br>
+    </nav>
 		<form action="./principal-coletor">
 			<h2> Depósitos agendados </h2>
 			

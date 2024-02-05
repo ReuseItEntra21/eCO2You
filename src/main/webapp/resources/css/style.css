@@ -3,8 +3,13 @@
 }
 
 body {
-	background-color: #FFFFF0;
+	background-color: #FEFEFE;
 	padding: 5px;
+}
+
+footer {
+	background-color: #0D0D0D;
+	color: #FEFEFE;
 }
 
 h1 {
@@ -29,7 +34,7 @@ h2 {
 }
 
 .ButtonCriarConta {
-	background-color: #FFFCF5;
+	background-color: #FEFEFE;
 	color: #0D0D0D;
 	width: 300px;
 	height: 50px;
@@ -37,7 +42,7 @@ h2 {
 }
 
 #regForm {
-  background-color: #FFFCF5;
+  background-color: #FEFEFE;
   font-family: Raleway;
   padding: 50px;
   min-width: 250px;
@@ -107,7 +112,7 @@ button:hover {
 #Recuperar{
     display: block;
     background-color: #0D0D0D;
-    color: #FFFCF5;
+    color: #FEFEFE;
     width: 300px;
     height: 70px;
     font-size: 40px;
@@ -117,7 +122,7 @@ button:hover {
 #cadastrar{
   display: block;
   background-color: #0D0D0D;
-  color: #FFFCF5;
+  color: #FEFEFE;
   height: 79px;
   width: 450px;
   font-size: 48px;
@@ -190,4 +195,5 @@ button:hover {
   height: 70px;
   width: 600px;
   font-size: 40px;
+}
 }
