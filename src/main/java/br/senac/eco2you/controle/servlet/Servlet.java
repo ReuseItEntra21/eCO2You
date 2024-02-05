@@ -344,18 +344,20 @@ public class Servlet extends HttpServlet {
  
 	private void mostrarPerfilColetor(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		
 		HttpSession sessao = request.getSession();
 		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
 		request.setAttribute("coletor", coletor);
- 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/perfil.jsp");
 		dispatcher.forward(request, response);
 	}
  
 	private void mostrarEditarPerfilColetor(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		
 		HttpSession sessao = request.getSession();
 		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
+		request.setAttribute("coletor", coletor);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/editar-perfil.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -377,7 +379,7 @@ public class Servlet extends HttpServlet {
 		HttpSession sessao = request.getSession();
 		Cooperativa cooperativa = (Cooperativa) sessao.getAttribute("usuario");
 		request.setAttribute("cooperativa", cooperativa);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cooperativa/editar-perfil.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cooperativa/perfil.jsp");
 		dispatcher.forward(request, response);
 	}
  
@@ -468,47 +470,54 @@ public class Servlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/administrador/cadastro-conquista.jsp");
 		dispatcher.forward(request, response);
 	}
+	
   private void mostrarRecuperarSenha(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
  
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/recuperar-senha.jsp");
 			dispatcher.forward(request, response);
 	}
+  
   private void logar(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException{
+	  
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
 		HttpSession sessao = request.getSession();
 		Usuario usuario = usuarioDAO.buscarUsuarioPorEmailESenha(email, senha);
 		sessao.setAttribute("usuario", usuario);
+		
 		if(usuario instanceof Coletor) {
- 
-			Coletor coletor = (Coletor) usuarioDAO.recuperarUsuarioPorId(usuario.getId());
-			response.sendRedirect("/eCO2You/home-coletor");
+			Coletor coletor = (Coletor) usuarioDAO.recuperarUsuarioComEnderecoPorId(usuario.getId());
 			request.setAttribute("coletor", coletor);
+			response.sendRedirect("/eCO2You/home-coletor");
+		
 		} else if(usuario instanceof Armazem) {
-			Armazem armazem = (Armazem) usuarioDAO.recuperarUsuarioPorId(usuario.getId());
-			response.sendRedirect("/eCO2You/home-armazem");
+			Armazem armazem = (Armazem) usuarioDAO.recuperarUsuarioComEnderecoPorId(usuario.getId());
 			request.setAttribute("armazem", armazem);
-		}else if (usuario instanceof Cooperativa) {
-			Cooperativa cooperativa = (Cooperativa) usuarioDAO.recuperarUsuarioPorId(usuario.getId());
 			response.sendRedirect("/eCO2You/home-armazem");
+			
+		}else if (usuario instanceof Cooperativa) {
+			Cooperativa cooperativa = (Cooperativa) usuarioDAO.recuperarUsuarioComEnderecoPorId(usuario.getId());
 			request.setAttribute("cooperativa", cooperativa);
-			response.sendRedirect("/eCO2You/apresentacao");
+			response.sendRedirect("/eCO2You/home-cooperativa");
+			
 		} else{
 			response.sendRedirect("/eCO2You/login");
  
 		}
 	}
+  
   private void deslogar(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException{
+	  
 	  HttpSession sessao = request.getSession();
 	  sessao.invalidate();
 	  response.sendRedirect("/eCO2You/apresentacao");
   }
 
- 
 	private void inserirColetor(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		
 		String nome = request.getParameter("nome");
 		String sobrenome = request.getParameter("sobrenome");
 		String cpf = request.getParameter("cpf");
