@@ -67,25 +67,24 @@
         <a href="<%=request.getContextPath()%>/cadastro-cooperativa">Criar Conta como Cooperativa</a>
         </pre> 
 		<footer>
-			<h3> eCO2you </h3>
-        	<ul>
-				<li>Sobre nós</li>
-				<li>Empresa</li>
-				<li>Objetivo</li>
-			</ul>
-			<h3> Atendimento </h3>
-			<ul>
-				<li>eCO2you@contato.com</li>
-				<li>Termos de uso</li>
-				<li>Suporte</li>
-			</ul>
-			<h3> Redes Sociais </h3>
-            <ul>
-				<li>Github</li>
-				<li>Linkedin</li>
-			</ul>
+			<table>
+		  		<tr>
+		  			<td><a href="/sobre-nos">Sobre Nós</a></td>
+		  			<td><a href="/suporte">Suporte</a></td>
+		  			<td><a href="/contato">Redes Socias</a></td>
+		  		</tr>
+		  		<tr>
+		  			<td><a href="/suporte">Empresa</a></td>
+		  			<td><a href="/suporte">eCO2you@contato.com</a></td>
+		  			<td><a href="/suporte">Github</a></td>
+		  		</tr>
+		  		<tr>
+		  			<td><a href="/contato">Objetivo</a></td>
+		  			<td><a href="/suporte">Termos de Uso</a></td>
+		  			<td><a href="/suporte">Linkedin</a></td>
+		  		</tr>
+				</table>
+	        <p>&copy; 2024 eCO2you. Todos os direitos reservados.</p>
 		</footer>
 	</body>
-	<footer>
-	</footer>
 </html>
