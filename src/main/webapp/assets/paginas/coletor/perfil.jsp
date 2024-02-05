@@ -9,14 +9,18 @@
 		<style><%@include file="../../../resources/css/coletor/perfil.css"%></style>
 	</head>
 	<body>
-		<div>
-		    <form action="home-coletor">
-		   		<button type="submit" name="voltar" id=voltar>Voltar</button>
-		    </form>
-		    <form action="editarPerfil-coletor">
-		   		<button type="submit" name="editar" id=editar>Editar Perfil</button>
-		    </form>
-		    <nav>
+    	<div>
+        <nav>
+        <ul>
+    		<li>
+                <a href="home-coletor" class="dropbtn" id=voltar>Voltar</a>
+            </li>
+        </ul>    
+        <ul>
+    		<li>    
+                <a href="editarPerfil-coletor" class="dropbtn" id=editar>Editar Perfil</a>
+            </li>
+        </ul>    
     	<ul>
     		<li>
 			<a href="home-coletor" class="dropbtn" id=home>Home</a>
@@ -39,12 +43,7 @@
         </ul>
         <ul>
         	<li>
-            <a href="buscar-coletor" class="dropbtn" id=lupa>Lupa</a>
-            </li>
-        </ul>
-        <ul>
-        	<li>
-        	<input type="search" id="consulta-nome" placeholder="Buscar Usuário">
+        	<input type="search" id="consulta-nome" name= lupa placeholder="Buscar Usuário por nome">
         	</li>
         </ul>
         <ul>
