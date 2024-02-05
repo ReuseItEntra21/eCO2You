@@ -7,7 +7,7 @@
 <title>Home</title>
 <style><%@include file="../../../resources/css/style.css"%></style>
 </head>
-<body>
+	<body>
 	<nav>
 		<form action="home-cooperativa">
 			<button type="submit" name="home" id=home>Home</button>
@@ -30,7 +30,9 @@
 		<form action="perfil-cooperativa">
 			<button type="submit" name="perfil" id=perfil>Perfil</button>
 		</form>
-	</nav>
+	</li>
+        </ul>
+    </nav>
 	<h2>Pedidos de Requerimento Recentes</h2>
 	<input type="image" src="caminho/da/imagem.jpg" name="imagem"
 		id=imagem1>
