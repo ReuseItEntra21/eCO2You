@@ -20,10 +20,7 @@
 			<form action="historicoDepositos-coletor">
 				<button type="button" name="historico" id=historico>Histórico</button>
 			</form>
-			<form action="buscar-coletor">
-				<button type="submit" name="lupa" id=lupa>Lupa</button>
-			</form>
-			<input type="search" id="consulta-nome" name= lupa2 placeholder="Buscar Usuário por nome">
+			<input type="search" id="consulta-nome" name= lupa placeholder="Buscar Usuário por nome">
 			<br>
 			<br>
 			<form action="perfil-coletor">
