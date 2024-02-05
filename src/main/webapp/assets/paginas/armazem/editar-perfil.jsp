@@ -14,7 +14,7 @@
 	        <br>
 	        <br>
 	        <h1> Informações </h1>
-	        <input type="text" id="nome" name="nome" autofocus placeholder="Nome" maxlength="25" size="46"><br>
+	        <input type="text" id="nome" name="nome" autofocus placeholder="${armazem.nome}" maxlength="25" size="46"><br>
 	        <br>
 	        <input type="email" id="email" name="email" placeholder="E-mail" maxlength="45" size="46"><br>
 	        <br>

@@ -30,21 +30,21 @@
 		    <br>
 		    <input type="text" placeholder="${usuario.cpf}">
 		    <br>
-		    <input type="text" placeholder="${usuario.telefone}">
+		    <input type="text" placeholder="${usuario.endereco.telefone}">
 		    <br>
-		    <input type="text" placeholder="${usuario.cep}">
+		    <input type="text" placeholder="${usuario.endereco.cep}">
 		    <br>
-		    <input type="text" placeholder="${usuario.bairro}">
+		    <input type="text" placeholder="${usuario.endereco.bairro}">
 		    <br>
-		    <input type="text" placeholder="${usuario.logradouro}">
+		    <input type="text" placeholder="${usuario.endereco.logradouro}">
 		    <br>
-		    <input type="text" placeholder="${usuario.cep}">
+		    <input type="text" placeholder="${usuario.endereco.cep}">
 		    <br>
-		    <input type="text" placeholder="${usuario.numeroResidencia}">
+		    <input type="text" placeholder="${usuario.endereco.numeroEndereco}">
 		    <br>
-		    <input type="text" placeholder="${usuario.cidade}">			
+		    <input type="text" placeholder="${usuario.endereco.cidade}">			
 		    <br>
-		    <input type="text" placeholder="${usuario.complemento}">
+		    <input type="text" placeholder="${usuario.endereco.complemento}">
 		    <br>
 		    <input type="submit" value="Salvar">
 	    </form>
