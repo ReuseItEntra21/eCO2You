@@ -7,7 +7,7 @@
 <title>Home</title>
 <style><%@include file="../../../resources/css/style.css"%></style>
 </head>
-	<body>
+<body>
 	<nav>
 		<form action="home-cooperativa">
 			<button type="submit" name="home" id=home>Home</button>
@@ -21,18 +21,13 @@
 		<form action="historicoDepositos-coletor">
 			<button type="button" name="historico" id=historico>Histórico</button>
 		</form>
-		<form action="buscar-coletor">
-			<button type="submit" name="lupa" id=lupa>Lupa</button>
-		</form>
-		<input type="search" id="consulta-nome" name= lupa2 placeholder="Buscar Usuário">
+		<input type="search" id="consulta-nome" name= lupa placeholder="Buscar Usuário">
 		<br>
 		<br>
 		<form action="perfil-cooperativa">
 			<button type="submit" name="perfil" id=perfil>Perfil</button>
 		</form>
-	</li>
-        </ul>
-    </nav>
+	</nav>
 	<h2>Pedidos de Requerimento Recentes</h2>
 	<input type="image" src="caminho/da/imagem.jpg" name="imagem"
 		id=imagem1>
