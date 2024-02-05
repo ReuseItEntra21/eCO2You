@@ -40,7 +40,7 @@ public class CooperativaDAOImpl implements CooperativaDAO {
 			CriteriaQuery<Cooperativa> criteria = construtor.createQuery(Cooperativa.class);
 			Root<Cooperativa> raizCooperativa = criteria.from(Cooperativa.class);
 
-			criteria.select(raizCooperativa).where(construtor.like(raizCooperativa.get(nome), "%" + nome + "%"));
+			criteria.select(raizCooperativa).where(construtor.like(raizCooperativa.get(Cooperativa_.NOME), "%" + nome + "%"));
 
 			cooperativas = sessao.createQuery(criteria).getResultList();
 
