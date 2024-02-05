@@ -17,6 +17,39 @@
 <button type="submit" name="editar" id=editar>Editar Perfil</button>
 </form>
 <div>
+<nav>
+    	<ul>
+    		<li>
+			<a href="home-armazem" class="dropbtn" id=home>Home</a>
+			</li>
+        </ul>
+        <ul>
+        	<li>
+			<a href="depositosAgendados-armazem" class="dropbtn" id=agendados>Agendados</a>
+			</li>
+        </ul>
+        <ul>
+        	<li>
+            <a href="historicoDepositos-armazem" class="dropbtn" id=historico>Histórico</a>
+            </li>
+        </ul>
+        <ul>
+        	<li>
+            <a href="buscar-coletor" class="dropbtn" id=lupa>Lupa</a>
+        	</li>
+        </ul>
+        <ul>
+        	<li>
+        	<input type="search" id="consulta-nome" placeholder="Buscar Usuário">
+        	</li>
+        </ul>
+        <ul>
+        	<li>
+            <a href="perfil-armazem" class="dropbtn" id=perfil>Perfil</a>
+            </li>
+        </ul>    
+        <br>
+    </nav>
 <h2> Nome </h2>
 <h3>${coletor.nome}</h3>
 <br>

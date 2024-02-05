@@ -16,6 +16,44 @@
 		    <form action="editarPerfil-coletor">
 		   		<button type="submit" name="editar" id=editar>Editar Perfil</button>
 		    </form>
+		    <nav>
+    	<ul>
+    		<li>
+			<a href="home-coletor" class="dropbtn" id=home>Home</a>
+			</li>
+        </ul>
+        <ul>
+        	<li>
+			<a href="depositosPendentes-coletor" class="dropbtn" id=pendentes>Pendentes</a>
+			</li>
+        </ul>
+        <ul>
+        	<li>
+            <a href="ranking-coletor" class="dropbtn" id=ranking>Ranking</a>
+            </li>
+        </ul>
+        <ul>
+        	<li>
+            <a href="historicoDepositos-coletor" class="dropbtn" id=historico>Histórico</a>
+        	</li>
+        </ul>
+        <ul>
+        	<li>
+            <a href="buscar-coletor" class="dropbtn" id=lupa>Lupa</a>
+            </li>
+        </ul>
+        <ul>
+        	<li>
+        	<input type="search" id="consulta-nome" placeholder="Buscar Usuário">
+        	</li>
+        </ul>
+        <ul>
+        	<li>
+            <a href="perfil-coletor" class="dropbtn" id=perfil>Perfil</a>
+            </li>
+        </ul>    
+        <br>
+    </nav>
 		    <div>
 		    	<h2> Nome </h2>
 				<h3>${coletor.nome}</h3>

@@ -9,25 +9,38 @@
 </head>
 <body>
 	<nav>
-		<form action="home-armazem">
-			<button type="submit" name="home" id=home>Home</button>
-		</form>
-		<form action="depositosAgendados-armazem">
-			<button type="submit" name="pendentes" id=agendados>Agendados</button>
-		</form>
-		<form action="historicoDepositos-armazem">
-			<button type="button" name="historico" id=historico>Histórico</button>
-		</form>
-		<form action="buscar-coletor">
-			<button type="submit" name="lupa" id=lupa>Lupa</button>
-		</form>
-		<input type="search" id="consulta-nome" name= lupa2 placeholder="Buscar Usuário">
-		<br>
-		<br>
-		<form action="perfil-armazem">
-			<button type="submit" name="perfil" id=perfil>Perfil</button>
-		</form>
-	</nav>
+    	<ul>
+    		<li>
+			<a href="home-armazem" class="dropbtn" id=home>Home</a>
+			</li>
+        </ul>
+        <ul>
+        	<li>
+			<a href="depositosAgendados-armazem" class="dropbtn" id=agendados>Agendados</a>
+			</li>
+        </ul>
+        <ul>
+        	<li>
+            <a href="historicoDepositos-armazem" class="dropbtn" id=historico>Histórico</a>
+            </li>
+        </ul>
+        <ul>
+        	<li>
+            <a href="buscar-coletor" class="dropbtn"id=lupa>Lupa</a>
+        	</li>
+        </ul>
+        <ul>
+        	<li>
+        	<input type="search" id="consulta-nome" placeholder="Buscar Usuário">
+        	</li>
+        </ul>
+        <ul>
+        	<li>
+            <a href="perfil-armazem" class="dropbtn" id=perfil>Perfil</a>
+            </li>
+        </ul>    
+        <br>
+    </nav>
 	<h2>Depósitos Agendados</h2>
 	<input type="image" src="caminho/da/imagem.jpg" name="imagem"
 		id=imagem1> 2x latinhas de 220ml
