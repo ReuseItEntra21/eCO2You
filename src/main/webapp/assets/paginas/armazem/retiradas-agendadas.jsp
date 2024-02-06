@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Depositos Agendados</title>
+<title>Retiradas Agendadas</title>
 <style><%@include file="../../../resources/css/style.css"%></style>
 </head>
 <body>
@@ -16,22 +16,12 @@
         </ul>
         <ul>
         	<li>
-			<a href="depositosAgendados-armazem" class="dropbtn" id=agendados1>Depósitos Agendados</a>
+			<a href="depositosAgendados-armazem" class="dropbtn" id=agendados>Agendados</a>
 			</li>
         </ul>
         <ul>
         	<li>
-			<a href="retiradasAgendadas-armazem" class="dropbtn" id=agendadas2>Retiradas Agendadas</a>
-			</li>
-        </ul>
-        <ul>
-        	<li>
-            <a href="historicoDepositos-armazem" class="dropbtn" id=historico1>Histórico Depósitos</a>
-            </li>
-        </ul>
-        <ul>
-        	<li>
-            <a href="historicoRetiradas-armazem" class="dropbtn" id=historico2>Histórico Retiradas</a>
+            <a href="historicoDepositos-armazem" class="dropbtn" id=historico>Histórico</a>
             </li>
         </ul>
         <ul>
@@ -46,7 +36,7 @@
         </ul>    
         <br>
     </nav>
-	<h2>Depósitos Agendados</h2>
+	<h2>Retiradas Agendadas</h2>
 	<input type="image" src="caminho/da/imagem.jpg" name="imagem"
 		id=imagem1> 2x latinhas de 220ml
 	<br>
@@ -54,7 +44,7 @@
 	<input type="date" id="data1" name="dataDeposito">
 	<br>
 	<br>
-	<input type="text" placeholder="Coletor" name="coletor" id=coletor1>
+	<input type="text" placeholder="Cooperativa" name="cooperativa" id=cooperativa1>
 	<br>
 	<br>
 	<button type="button" class="buttonDelete" name="deletar" id=deletar1>
@@ -69,7 +59,7 @@
 	<input type="date" id="data2" name="dataDeposito">
 	<br>
 	<br>
-	<input type="text" placeholder="Coletor" name="coletor" id=coletor2>
+	<input type="text" placeholder="Cooperativa" name="cooperativa" id=cooperativa2>
 	<br>
 	<br>
 	<button type="button" class="buttonDelete" name="deletar" id=deletar2>
