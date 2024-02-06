@@ -8,9 +8,10 @@
 <title>Perfil armazém</title>
 </head>
 <body>
-	<form action="#">
-		<input type="submit" value="voltar" name="voltar" id=voltar>
-	</form>
+	<br>
+		<a href="home-cooperativa" class="dropbtn" id=voltar>Voltar</a>
+		<br>
+		<br>
 	<img src="#" alt="Imagem Giassi" name="imagem" id=imagem1>
 	<h2>Giassi</h2>
 	<p>Horário de funcionamento</p>
@@ -36,9 +37,10 @@
 		Supermercados como a melhor rede de supermercados do Brasil quando
 		considerado o custo-benefício para o cliente.</p>
     <br>
-    <form action="#">
-		<input type="submit" value="voltar" name="voltar" id=voltar>
-	</form>
+    <br>
+		<a href="home-cooperativa" class="dropbtn" id=voltar>Voltar</a>
+		<br>
+		<br>
 	<img src="#" alt="Imagem Giassi" name="imagem" id=imagem1>
 	<h2>Giassi</h2>
 	<p>Horário de funcionamento</p>

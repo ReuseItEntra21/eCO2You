@@ -10,9 +10,9 @@
 	</head>
     <body>
 	    <br>
-	    <form action="perfil-coletor">
-	    	<button type="submit" name="voltar" id=voltar>Voltar</button>
-	    </form>
+	    <a href="home-coletor" class="dropbtn" id=voltar>Voltar</a>
+	    <br>
+	    <br>
 	    <form action="recuperar-senha">
 	    	<button type="submit" name="voltar" id=voltar>Alterar a Senha</button>
 	    </form>
