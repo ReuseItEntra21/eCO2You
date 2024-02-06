@@ -8,6 +8,11 @@
 	</head>
 	<body>
 		<nav>
+        <ul>
+    		<li>
+                <a href="home-coletor" class="dropbtn" id=voltar>Voltar</a>
+            </li>
+        </ul>
     	<ul>
     		<li>
 			<a href="home-coletor" class="dropbtn" id=home>Home</a>
@@ -88,9 +93,10 @@
 				<input type="date" id="data" name="dataDeposito">
 				<input type="text" placeholder="Empresa" name="empresa" id=empresa4>
 			</div>
-			<a href="a/b/elenco.html" target="_blank">
-			<button type="button" name="criar" id=criar>Criar Depósito</button>
-			</a>
 		</form>
+		<br>
+		<form action ="cadastro-deposito">
+        <button type="submit" name="adicionar" id=adicionar> Criar Depósito</button>
+        </form>
 	</body>
 </html>

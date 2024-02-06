@@ -97,6 +97,8 @@
         <h2>Conquistas Recentes </h2>
         <h3> emoji Conquista 1 </h3>
         <h3> emoji Conquista 2 </h3>
-        <h2> + </h2>
+        <form action ="cadastro-deposito">
+        <button type="submit" name="adicionar" id=adicionar> <h2> + </h2></button>
+        </form>
 	</body>
 </html>

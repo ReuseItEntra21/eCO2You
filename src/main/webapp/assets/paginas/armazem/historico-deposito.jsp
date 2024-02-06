@@ -7,23 +7,23 @@
 		<style><%@include file="../../../resources/css/style.css"%></style>
 	</head>
 	<body>
-		<form action="/">
-			<a href="./home-armazem">
+		<form action="historicoDepositos-armazem">
+			<a href="home-armazem">
 				<button type="button" name="voltar" id=voltar>Voltar</button>
 			</a>
 			<h1>Histórico de Depositos</h1>
             <h2>Nome</h2>
-			<input type="submit" value="Flecha" name="flecha" id=flecha1>
+			<button type="button" name="flecha" id=flecha1>Flecha</button>
 			<p>Nome 1</p>
 			<p>Nome 2</p>
             <p>Nome 3</p>
             <h2>Data</h2>
-            <input type="button" value="Flecha" name="flecha" id=flecha2>
+            <button type="button" name="flecha" id=flecha2>Flecha</button>
 			<p>Data 1</p>
 			<p>Data 2</p>
             <p>Data 3</p>
             <h2>Resumo</h2>
-			<input type="submit" value="Flecha" name="clecha" id=flecha4>
+			<button type="button" name="flecha" id=flecha3>Flecha</button>
 			<p>Quantidade do item, tipo de item, peso 1</p>
 			<p>Quantidade do item, tipo de item, peso 2</p>
             <p>Quantidade do item, tipo de item, peso 3</p>
