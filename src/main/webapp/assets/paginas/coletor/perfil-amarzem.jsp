@@ -8,9 +8,8 @@
 <title>Perfil armazém</title>
 </head>
 <body>
-	<form action="#">
-		<input type="submit" value="voltar" name="voltar" id=voltar>
-	</form>
+
+	<a href="home-coletor" class="dropbtn" id=voltar>Voltar</a>
 	<img src="#" alt="Imagem Giassi" name="imagem" id=imagem1>
 	<h2>Giassi</h2>
 	<p>Horário de funcionamento</p>
