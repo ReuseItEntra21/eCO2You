@@ -24,6 +24,11 @@
         </ul>
         <ul>
         	<li>
+			<a href="editar-perfil-coletor" class="dropbtn" id=pendentes>Editar Perfil</a>
+			</li>
+        </ul>
+        <ul>
+        	<li>
             <a href="ranking-coletor" class="dropbtn" id=ranking>Ranking</a>
             </li>
         </ul>

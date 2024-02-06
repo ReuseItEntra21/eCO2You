@@ -165,21 +165,21 @@ public class Servlet extends HttpServlet {
 				mostrarPerfilArmazemCooperativa(request, response);
 				break;	
  
-			case "/editarPerfil-coletor":
+			case "/editar-perfil-coletor":
 				mostrarEditarPerfilColetor(request, response);
 				break;
 			case "/perfil-armazem":
 				mostrarPerfilArmazem(request, response);
 				break;
  
-			case "/editarPerfil-armazem":
+			case "/editar-perfil-armazem":
 				mostrarEditarPerfilArmazem(request, response);
 				break;
 			case "/perfil-cooperativa":
 				mostrarPerfilCooperativa(request, response);
 				break;
  
-			case "/editarPerfil-cooperativa":
+			case "/editar-perfil-cooperativa":
 				mostrarEditarPerfilCooperativa(request, response);
 				break;
 			case "/inserir-coletor":
@@ -451,6 +451,9 @@ public class Servlet extends HttpServlet {
 	}
 	private void mostrarEditarPerfilArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
  
+		HttpSession sessao = request.getSession();
+		Armazem armazem = (Armazem) sessao.getAttribute("usuario");
+		request.setAttribute("armazem", armazem);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/editar-perfil.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -465,6 +468,9 @@ public class Servlet extends HttpServlet {
  
 	private void mostrarEditarPerfilCooperativa(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
  
+		HttpSession sessao = request.getSession();
+		Cooperativa cooperativa = (Cooperativa) sessao.getAttribute("usuario");
+		request.setAttribute("cooperativa", cooperativa);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cooperativa/editar-perfil.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -640,7 +646,7 @@ public class Servlet extends HttpServlet {
 		usuarioDAO.atualizarUsuario(new Coletor(id, nome, sobrenome, cpf, dataNascimento, email, senha, endereco));
 		
 		HttpSession sessao = request.getSession();
-		Usuario usuario = usuarioDAO.buscarUsuarioPorEmailESenha(email, senha);
+		Usuario usuario = usuarioDAO.recuperarUsuarioPorId(id);
 		sessao.setAttribute("usuario", usuario);
 		
 		response.sendRedirect("/eCO2You/home-coletor");
@@ -704,6 +710,11 @@ public class Servlet extends HttpServlet {
 		Endereco endereco = new Endereco();
 		usuarioDAO.atualizarUsuario(new Armazem(id, nome, cnpj, email, senha, capacidadeArmazenagem, horarioAbertura,
 				horarioFechamento, endereco));
+		
+		HttpSession sessao = request.getSession();
+		Usuario usuario = usuarioDAO.recuperarUsuarioPorId(id);
+		sessao.setAttribute("usuario", usuario);
+		
 		response.sendRedirect("/eCO2You/home-armazem");
 	}
  
@@ -742,7 +753,8 @@ public class Servlet extends HttpServlet {
 	private void atualizarCooperativa(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
  
-		Long id = Long.parseLong(request.getParameter("id"));
+		Cooperativa cooperativa = (Cooperativa) request.getSession().getAttribute("usuario");
+		Long id = cooperativa.getId();
 		String nome = request.getParameter("nome");
 		String email = request.getParameter("email");
 		String cnpj = request.getParameter("cnpj");
@@ -759,6 +771,11 @@ public class Servlet extends HttpServlet {
 		String telefone = request.getParameter("telefone");
 		Endereco endereco = new Endereco();
 		usuarioDAO.atualizarUsuario(new Cooperativa(id, nome, cnpj, horarioAbertura, horarioFechamento, endereco, email, senha));
+		
+		HttpSession sessao = request.getSession();
+		Usuario usuario = usuarioDAO.recuperarUsuarioPorId(id);
+		sessao.setAttribute("usuario", usuario);
+		
 		response.sendRedirect("/eCO2You/home-cooperativa");
 	}
  
