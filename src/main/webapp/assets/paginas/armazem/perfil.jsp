@@ -21,12 +21,17 @@
         </ul>
         <ul>
         	<li>
-			<a href="depositosAgendados-armazem" class="dropbtn" id=agendados>Agendados</a>
+			<a href="depositosAgendados-armazem" class="dropbtn" id=agendados1>Depósitos Agendados</a>
 			</li>
         </ul>
         <ul>
         	<li>
-            <a href="historicoDepositos-armazem" class="dropbtn" id=historico>Histórico</a>
+			<a href="retiradasAgendadas-armazem" class="dropbtn" id=agendadas2>Retiradas Agendadas</a>
+			</li>
+        </ul>
+        <ul>
+        	<li>
+            <a href="historicoDepositos-armazem" class="dropbtn" id=historico1>Histórico Depósitos</a>
             </li>
         </ul>
         <ul>

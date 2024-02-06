@@ -8,42 +8,36 @@
 	</head>
 	<body>
 	<br>
-	<a href="home-coletor" class="dropbtn" id=voltar>Voltar</a>
+	<a href="home-cooperativa" class="dropbtn" id=voltar>Voltar</a>
 		<nav>
     	<ul>
     		<li>
-			<a href="home-coletor" class="dropbtn" id=home>Home</a>
+			<a href="home-cooperativa" class="dropbtn" id=home>Home</a>
 			</li>
         </ul>
         <ul>
         	<li>
-			<a href="depositosPendentes-coletor" class="dropbtn" id=pendentes>Pendentes</a>
+			<a href="retiradasPendentes-cooperativa" class="dropbtn" id=pendentes>Pendentes</a>
 			</li>
         </ul>
         <ul>
         	<li>
-            <a href="ranking-coletor" class="dropbtn" id=ranking>Ranking</a>
-            </li>
-        </ul>
-        <ul>
-        	<li>
-            <a href="historicoDepositos-coletor" class="dropbtn" id=historico>Histórico</a>
+            <a href="historicoRetirada-cooperativa" class="dropbtn" id=historico>Histórico</a>
         	</li>
         </ul>
         <ul>
         	<li>
-        	<input type="search" id="consulta-nome" name= lupa placeholder="Buscar Usuário por nome">
+        	<input type="search" id="consulta-nome" name= lupa placeholder="Buscar Armazem por nome">
         	</li>
         </ul>
         <ul>
         	<li>
-            <a href="perfil-coletor" class="dropbtn" id=perfil>Perfil</a>
+            <a href="perfil-cooperativa" class="dropbtn" id=perfil>Perfil</a>
             </li>
         </ul>    
-        <br>
     </nav>
-		<form action="principal-coletor">
-			<h2> Depósitos agendados </h2>
+		<form action="principal-cooperativa">
+			<h2> Retiradas agendadas </h2>
 			
 			<div>
 				<input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem1>
@@ -67,7 +61,7 @@
 				<input type="text" placeholder="Empresa" name="empresa" id=empresa2 >
 			</div>
 			
-			<h2> Depósitos à serem aceitos </h2>
+			<h2> Retiradas à serem aceitas </h2>
 			
 			<div>
 				<input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem3>
@@ -92,6 +86,6 @@
 			</div>
 		</form>
 		<br>
-		<a href="cadastro-deposito" class="dropbtn" id=voltar>Criar Depósito</a>
+		<a href="cadastro-retirada" class="dropbtn" id=voltar>Criar Retirada</a>
 	</body>
 </html>

@@ -8,17 +8,18 @@
 <title>Perfil Cooperativa</title>
 </head>
 <body>
-        <a href="home-coletor" class="dropbtn" id=voltar>Voltar</a>
+    <a href="home-coletor" class="dropbtn" id=voltar>Voltar</a>
 		<nav>
     	<ul>
     		<li>
-			<a href="home-coletor" class="dropbtn" id=home>Home</a>
+			<a href="home-cooperativa" class="dropbtn" id=home>Home</a>
 			</li>
         </ul>
         <ul>
-        	<li>
-			<a href="depositosPendentes-coletor" class="dropbtn" id=pendentes>Pendentes</a>
-			</li>
+          <li>
+			      <a href="depositosPendentes-coletor" class="dropbtn" id=pendentes>Pendentes</a>
+			      <a href="retiradasPendentes-cooperativa" class="dropbtn" id=pendentes>Pendentes</a>
+			    </li>
         </ul>
         <ul>
         	<li>
@@ -33,6 +34,7 @@
         <ul>
         	<li>
             <a href="historicoDepositos-coletor" class="dropbtn" id=historico>Histórico</a>
+            <a href="historicoRetirada-cooperativa" class="dropbtn" id=historico>Histórico</a>
         	</li>
         </ul>
         <ul>
@@ -42,9 +44,14 @@
         </ul>
         <ul>
         	<li>
-            <a href="perfil-coletor" class="dropbtn" id=perfil>Perfil</a>
+            <a href="perfil-cooperativa" class="dropbtn" id=perfil>Perfil</a>
             </li>
         </ul>    
+    </nav>
+	<form action="#">
+    	<a href="#">Editar Informações</a>
+        <br>
+		<a href="#">Editar Horário</a>
         <br>
     </nav>
 	<img src="#" alt="Imagem" name="imagem" id=imagem1>

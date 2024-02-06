@@ -9,25 +9,32 @@
 </head>
 <body>
 	<nav>
-		<form action="home-cooperativa">
-			<button type="submit" name="home" id=home>Home</button>
-		</form>
-		<form action="depositosPendentes-coletor">
-			<button type="submit" name="pendentes" id=pendentes>Pendentes</button>
-		</form>
-		<form action="ranking-coletor">
-			<button type="submit" name="ranking" id=ranking>Ranking</button>
-		</form>
-		<form action="historicoDepositos-coletor">
-			<button type="button" name="historico" id=historico>Histórico</button>
-		</form>
-		<input type="search" id="consulta-nome" name= lupa placeholder="Buscar Usuário">
-		<br>
-		<br>
-		<form action="perfil-cooperativa">
-			<button type="submit" name="perfil" id=perfil>Perfil</button>
-		</form>
-	</nav>
+    	<ul>
+    		<li>
+			<a href="home-cooperativa" class="dropbtn" id=home>Home</a>
+			</li>
+        </ul>
+        <ul>
+        	<li>
+			<a href="retiradasPendentes-cooperativa" class="dropbtn" id=pendentes>Pendentes</a>
+			</li>
+        </ul>
+        <ul>
+        	<li>
+            <a href="historicoRetirada-cooperativa" class="dropbtn" id=historico>Histórico</a>
+        	</li>
+        </ul>
+        <ul>
+        	<li>
+        	<input type="search" id="consulta-nome" name= lupa placeholder="Buscar Usuário por nome">
+        	</li>
+        </ul>
+        <ul>
+        	<li>
+            <a href="perfil-cooperativa" class="dropbtn" id=perfil>Perfil</a>
+            </li>
+        </ul>    
+    </nav>
 	<h2>Pedidos de Requerimento Recentes</h2>
 	<input type="image" src="caminho/da/imagem.jpg" name="imagem"
 		id=imagem1>

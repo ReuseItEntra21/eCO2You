@@ -66,7 +66,7 @@
   }
   
   input.invalid {
-    background-color: #D92B2B;
+    background-color: #FF7A70;
   }
   
   .tab {
@@ -206,19 +206,28 @@
   }
   .Cadastro-coletor-Font50{
     font-size: 50px;
+    padding-left: 20px;
   }
   #Cadastro-coletor-apresentacao{
     margin-top: 87px;
     font-size: 35px;
-
   }
-  .Cadastro-coletor{
-    height: 71.95px;
-    width: 625.90px;
-    padding-right: 20px;
-  }
-  .Cadastro-coleto-data{
-    height: 71.95px;
-    width: 161px;
 
+  #nextBtn{
+    color: #FEFEFE;
+    background-color: #0D0D0D;
+    font-size: 20px;
+    display: inline-block;
+    margin-left: 105px;
+  }
+  #prevBtn{
+    color: #FEFEFE;
+    background-color: #0D0D0D;
+    font-size: 20px;
+    display: inline-block;
+    margin-right: 10px;
+  }
+  ::placeholder{
+    color: #0D0D0D;
+    background-color: #FEFEFE;
   }
