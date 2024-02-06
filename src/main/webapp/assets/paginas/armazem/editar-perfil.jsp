@@ -8,11 +8,9 @@
 	</head>
     <body>
     <br>
-	        <a href="./perfil-armazem">
-				<button type="button" name="voltar" id=voltar>Voltar</button>
-			</a>
 	        <br>
-	        <br>
+	    <a href="perfil-armazem" class="dropbtn" id=voltar>Voltar</a>
+	    <br>
 	        <h1> Informações </h1>
 	        <input type="text" id="nome" name="nome" autofocus placeholder="${armazem.nome}" maxlength="25" size="46"><br>
 	        <br>
@@ -31,9 +29,8 @@
 	        <input type="text" id="complemento" name="complemento" placeholder="Complementos" size="46">
 	        <br>
 	        <br>
-	        <form action="recuperar-senha">
-	        <button type="submit" name="alterarSenha" id=alterarSenha>Alterar Senha</button>
-	        </form>
+	        <a href="recuperar-senha" target="_blank">Alterar a senha</a>
+	        <br>
 	        <br>
 	        <input type="submit" value="Excluir a Conta" name="excluir" id=excluir>
 	        <br>
@@ -41,7 +38,9 @@
 	        <input type="submit" value="Salvar" name="salvar" id=salvar>
             <br>
             <br>
-            <button type="button" name="voltar" id=voltar>Voltar</button>
+            <br>
+	    <a href="perfil-armazem" class="dropbtn" id=voltar>Voltar</a>
+	    <br>
 	        <h1> Horario de Funcionamento </h1>
 	        <br>
             <input type="text" placeholder="Dia da Semana 1" id=dia1 name=dia>

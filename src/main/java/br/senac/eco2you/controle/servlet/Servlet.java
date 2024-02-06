@@ -145,6 +145,10 @@ public class Servlet extends HttpServlet {
 				mostrarDepositosAgendadosArmazem(request, response);
 				break;	
 				
+			case "/retiradasAgendadas-armazem":
+				mostrarRetiradasAgendadasArmazem(request, response);
+				break;		
+				
 			case "/depositosPendentes-cooperativa":
 				mostrarRetiradasPendentesCooperativa(request, response);
 				break;	
@@ -389,6 +393,13 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
  
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/depositos-agendados.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void mostrarRetiradasAgendadasArmazem(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+ 
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/retiradas-agendadas.jsp");
 		dispatcher.forward(request, response);
 	}
  

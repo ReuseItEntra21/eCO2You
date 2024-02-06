@@ -75,46 +75,27 @@
 		<b>EXCLUIR</b>
 	</button>
 	<h2>Armazéns Recomendados</h2>
-	<input type="image" src="caminho/da/imagem.jpg" name="imagem"
-		id=imagem3>
-	<p>Empresa</p>
-	<p>Bairro</p>
-	<form action="#">
-		<div>
-			<input type="button" value="Ver perfil" name="perfil" id=perfil3>
-		</div>
-	</form>
-	<input type="image" src="caminho/da/imagem.jpg" name="imagem"
-		id=imagem4>
-	<p>Empresa</p>
-	<p>Bairro</p>
-	<form action="#">
-		<div>
-			<input type="button" value="Ver perfil" name="perfil" id=perfil4>
-		</div>
-	</form>
-	<input type="image" src="caminho/da/imagem.jpg" name="imagem"
-		id=imagem5>
-	<p>Empresa</p>
-	<p>Bairro</p>
-	<form action="#">
-		<div>
-			<input type="button" value="Ver perfil" name="perfil" id=perfil5>
-		</div>
-	</form>
-	<input type="image" src="caminho/da/imagem.jpg" name="imagem"
-		id=imagem6>
-	<p>Empresa</p>
-	<p>Bairro</p>
-	<form action="#"></form>
-	<input type="image" src="caminho/da/imagem.jpg" name="imagem"
-		id=imagem7>
-	<p>Empresa</p>
-	<p>Bairro</p>
-	<form action="#">
-		<div>
-			<input type="button" value="Ver perfil" name="perfil" id=perfil7>
-		</div>
-	</form>
+    <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem7>
+    <p>Empresa</p>
+    <p>Bairro</p>
+    <a href="perfil-armazem7" class="dropbtn" id=perfil>Perfil</a>
+    <br><br>
+    <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem7>
+    <p>Empresa</p>
+    <p>Bairro</p>
+    <a href="perfil-armazem7" class="dropbtn" id=perfil>Perfil</a>
+    <p>Empresa</p>
+    <p>Bairro</p>
+    <a href="perfil-armazem7" class="dropbtn" id=perfil>Perfil</a>
+	<br><br>
+    <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem7>
+    <p>Empresa</p>
+    <p>Bairro</p>
+    <a href="perfil-armazem7" class="dropbtn" id=perfil>Perfil</a>
+	<br><br>
+    <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem7>
+    <p>Empresa</p>
+    <p>Bairro</p>
+    <a href="perfil-armazem7" class="dropbtn" id=perfil>Perfil</a>
 </body>
 </html>
