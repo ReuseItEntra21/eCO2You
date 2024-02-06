@@ -64,7 +64,6 @@
 				<h3>${coletor.cpf}</h3>
 				<br>
 				<h2> Data de Nascimento </h2>
-				<h3>${coletor.dataNascimento}</h3>
 				
 			</div>
 	        <div class="informacoes-box">

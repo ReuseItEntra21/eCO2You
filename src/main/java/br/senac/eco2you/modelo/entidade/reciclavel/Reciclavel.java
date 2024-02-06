@@ -36,15 +36,15 @@ public class Reciclavel implements Serializable {
 	private int pontosCarbono;
 
 	@Column(name = "peso_reciclavel", nullable = false)
-	private double peso;
+	private float peso;
 
 	@Column(name = "volume_reciclavel", nullable = false)
-	private double volume;
+	private float volume;
 
 	@Column(name = "instrucao_reciclavel", length = 200, nullable = false)
 	private String instrucaoReciclavel;
 
-	public Reciclavel(String nome, Material material, int pontosCarbono, double peso, double volume,
+	public Reciclavel(String nome, Material material, int pontosCarbono, float peso, float volume,
 			String instrucaoReciclavel) {
 		this.nome = nome;
 		this.material = material;
@@ -53,7 +53,19 @@ public class Reciclavel implements Serializable {
 		this.volume = volume;
 		this.instrucaoReciclavel = instrucaoReciclavel;
 	}
-
+	
+	public Reciclavel(Long id, String nome, Material material, int pontosCarbono, float peso, float volume,
+			String instrucaoReciclavel) {
+		
+		this.id = id;
+		this.nome = nome;
+		this.material = material;
+		this.pontosCarbono = pontosCarbono;
+		this.peso = peso;
+		this.volume = volume;
+		this.instrucaoReciclavel = instrucaoReciclavel;
+	}
+	
 	public Reciclavel() {
 	}
 
