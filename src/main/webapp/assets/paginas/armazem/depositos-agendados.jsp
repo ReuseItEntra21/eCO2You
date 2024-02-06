@@ -26,11 +26,6 @@
         </ul>
         <ul>
         	<li>
-            <a href="buscar-coletor" class="dropbtn"id=lupa>Lupa</a>
-        	</li>
-        </ul>
-        <ul>
-        	<li>
         	<input type="search" id="consulta-nome" placeholder="Buscar Usuário">
         	</li>
         </ul>
