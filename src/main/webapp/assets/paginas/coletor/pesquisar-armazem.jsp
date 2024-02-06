@@ -8,12 +8,8 @@
 </head>
 <body>
 <br>
+<a href="home-coletor" class="dropbtn" id=voltar>Voltar</a>
 <nav>
-        <ul>
-    		<li>
-                <a href="home-coletor" class="dropbtn" id=voltar>Voltar</a>
-            </li>
-        </ul>
     	<ul>
     		<li>
 			<a href="home-coletor" class="dropbtn" id=home>Home</a>

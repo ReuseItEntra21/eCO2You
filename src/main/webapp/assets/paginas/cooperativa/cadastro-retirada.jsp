@@ -9,10 +9,8 @@
 		<title>Cadastro</title>
 		<style><%@include file="../../../resources/css/style.css"%></style>
     </head>
-    <form action="/">
-			<br>
-	        	<button type="button" name="voltar" id=voltar>Voltar</button>
-			</form>
+    <br>
+   <a href="home-cooperativa" class="dropbtn" id=voltar>Voltar</a>
     <body>
     	<form action="inserir-retirada" method="post">
 	        <h1> Nova Retirada </h1>

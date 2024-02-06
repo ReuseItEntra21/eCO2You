@@ -7,10 +7,9 @@
 		<style><%@include file="../../../resources/css/style.css"%></style>
 	</head>
 	<body>
-		<form action="historicoDepositos-armazem">
-			<a href="home-armazem">
-				<button type="button" name="voltar" id=voltar>Voltar</button>
-			</a>
+	<br>	
+			<a href="home-armazem" class="dropbtn" id=voltar>Voltar</a>
+			<form action="historicoDepositos-armazem">
 			<h1>Histórico de Depositos</h1>
             <h2>Nome</h2>
 			<button type="button" name="flecha" id=flecha1>Flecha</button>

@@ -7,10 +7,9 @@
 		<style><%@include file="../../../resources/css/style.css"%></style>
 	</head>
 	<body>
-		<form action="/">
-			<a href="./home-armazem">
-				<button type="button" name="voltar" id=voltar>Voltar</button>
-			</a>
+		<br>	
+		<a href="home-armazem" class="dropbtn" id=voltar>Voltar</a>
+		<form action="home-armazem">
 			<h1>Histórico de Retiradas</h1>
             <h2>Comprador</h2>
 			<input type="submit" value="Flecha" name="flecha" id=flecha1>
