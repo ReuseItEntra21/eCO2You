@@ -36,8 +36,13 @@
         </ul>
         <ul>
         	<li>
-            <a href="historicoRetiradas-armazem" class="dropbtn" id=historico2>Histórico Retiradas</a>
-            </li>
+			<a href="editar-perfil-armazem" class="dropbtn" id=pendentes>Editar Perfil</a>
+			</li>
+        </ul>
+        <ul>
+        	<li>
+            <a href="buscar-coletor" class="dropbtn" id=lupa>Lupa</a>
+        	</li>
         </ul>
         <ul>
         	<li>

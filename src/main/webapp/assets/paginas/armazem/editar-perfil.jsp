@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,34 +11,39 @@
     <body>
     <br>
 	        <br>
-	    <a href="perfil-armazem" class="dropbtn" id=voltar>Voltar</a>
-	    <br>
-	        <h1> Informações </h1>
-	        <input type="text" id="nome" name="nome" autofocus placeholder="${armazem.nome}" maxlength="25" size="46"><br>
-	        <br>
-	        <input type="email" id="email" name="email" placeholder="E-mail" maxlength="45" size="46"><br>
-	        <br>
-	        <input type="text" id="cnpj" name="cnpj" placeholder="Cnpj" maxlength="18" size="46">
-	        <br>
-	        <br>
-	        <input type="text" id="telefone" name="telefone" placeholder="Telefone" maxlength="17"> <input type="text" id="bairro" name="bairro" placeholder="Endereço Bairro" maxlength="25"><br>
-	        <br>
-	        <input type="text" id="logradouro" name="logradouro" placeholder="Endereço Rua" maxlength="45"> <input type="text" id="cep" name="cep" placeholder="CEP"> <br>
-	        <br>
-	        <input type="text" id="numero" name="numeroResidencia" placeholder="Número"> <input type="text" id="cidade" name="cidade" placeholder="Cidade" maxlength="25">			
-	        <br>
-	        <br>
-	        <input type="text" id="complemento" name="complemento" placeholder="Complementos" size="46">
-	        <br>
-	        <br>
-	        <a href="recuperar-senha" target="_blank">Alterar a senha</a>
-	        <br>
-	        <br>
-	        <input type="submit" value="Excluir a Conta" name="excluir" id=excluir>
-	        <br>
-	        <br>
-	        <input type="submit" value="Salvar" name="salvar" id=salvar>
-            <br>
+	    <form action="atualizar-armazem">
+			<h1> Informações </h1>
+			<br>
+		    <input type="text" value="<c:out value='${armazem.nome}' />" id="nome" name="nome" autofocus placeholder="Informe o seu Nome">
+		    <br>
+		    <input type="text" value="<c:out value='${armazem.cnpj}' />" id="cnpj" name="cnpj" placeholder="Informe o seu CNPJ">  
+		    <br>
+		    <input type="email" value="<c:out value='${armazem.email}' />" id="email" name="email" placeholder="Informe o seu Email">
+		    <br>
+		    <input type="number" value="<c:out value='${armazem.capacidadeArmazenagem}' />" id="capacidadeArmazenagem" name="capacidadeArmazenagem" placeholder="Informe o Número">
+		    <br>
+		    <input type="time" value="<c:out value='${armazem.horarioAbertura}' />" id="horarioAbertura" name="horarioAbertura" placeholder="Informe o seu Horario de Abertura">  
+		    <br>
+		    <input type="time" value="<c:out value='${armazem.horarioFechamento}' />" id="horarioFechamento" name="horarioFechamento" placeholder="Informe o seu Horario de Fechamento">  
+		    <br>
+		    <input type="tel" value="<c:out value='${armazem.endereco.telefone}' />" id="telefone" name="telefone" placeholder="Informe o seu Telefone">
+		    <br>
+		    <input type="number" value="<c:out value='${armazem.endereco.cep}' />" id="cep" name="cep" placeholder="Informe o seu CEP">
+		    <br>
+		    <input type="text" value="<c:out value='${armazem.endereco.cidade}' />" id="cidade" name="cidade" placeholder="Informe a sua Cidade">
+		    <br>
+		    <input type="text" value="<c:out value='${armazem.endereco.bairro}' />" id="bairro" name="bairro" placeholder="Informe o seu Bairro">
+		    <br>
+		    <input type="text" value="<c:out value='${armazem.endereco.logradouro}' />" id="logradouro" name="logradouro" placeholder="Informe o Logradouro">
+		    <br>
+		    <input type="number" value="<c:out value='${armazem.endereco.numeroEndereco}' />" id="numeroEndereco" name="numeroEndereco" placeholder="Informe o Número">
+		    <br>
+		    <input type="text" value="<c:out value='${armazem.endereco.complemento}' />" id="complemento" name="complemento" placeholder="Informe o complemento">
+		    <br>
+		    <input type="text" value="<c:out value='${armazem.senha}' />" id="senha" name="senha" placeholder="Informe a Senha">
+		    <br>
+		    <input type="submit" value="Salvar">
+	    </form>
             <br>
             <br>
 	    <a href="perfil-armazem" class="dropbtn" id=voltar>Voltar</a>
