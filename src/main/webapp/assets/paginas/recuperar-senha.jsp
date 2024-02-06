@@ -10,7 +10,7 @@
 <body>
 	<div style="text-align: center;">
 	<h1>Recuperar Senha</h1>
-		<form id="regForm" action="apresentacao">
+		<form id="regForm" action="login">
 		  <div class="tab">
 		  	<p>E-mail</p>
 		    <p><input type="email" oninput="this.className = ''" name="email" id=email></p>

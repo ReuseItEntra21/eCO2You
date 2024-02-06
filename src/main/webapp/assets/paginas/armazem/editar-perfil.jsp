@@ -10,10 +10,6 @@
 	</head>
     <body>
     <br>
-	        <a href="./perfil-armazem">
-				<button type="button" name="voltar" id=voltar>Voltar</button>
-			</a>
-	        <br>
 	        <br>
 	    <form action="atualizar-armazem">
 			<h1> Informações </h1>
@@ -49,7 +45,9 @@
 		    <input type="submit" value="Salvar">
 	    </form>
             <br>
-            <button type="button" name="voltar" id=voltar>Voltar</button>
+            <br>
+	    <a href="perfil-armazem" class="dropbtn" id=voltar>Voltar</a>
+	    <br>
 	        <h1> Horario de Funcionamento </h1>
 	        <br>
             <input type="text" placeholder="Dia da Semana 1" id=dia1 name=dia>
