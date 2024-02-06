@@ -8,7 +8,6 @@
 	<style><%@include file="../../../resources/css/style.css"%></style>
 </head>
 <body>
-	<body>
 	<div style="float: left">
 		<form action="apresentacao">
 			<button type="submit" name="voltar" id=voltar>Voltar</button>
@@ -24,12 +23,12 @@
 		<form id="regForm" action="inserir-coletor">
 		  <h1 class="Cadastro-coletor-Font50">Nova Conta</h1>
 		  <div class="tab">
-		    <p><input type="text" placeholder="Nome" oninput="this.className = ''" name="nome" id=nome class="Cadastro-coletor"></p>
-		    <p><input type="text" placeholder="Sobrenome" oninput="this.className = ''" name="sobrenome" id=sobrenome class="Cadastro-coletor"></p>
-		    <p><input type="text" placeholder="CPF" oninput="this.className = ''" name="cpf" id=cpf></p>
-		    <p><input type="date" placeholder="Data de Nascimento" oninput="this.className = ''" name="dataNascimento" id=nascimento class="Cadastro-coletor-data"></p>
-            <p><input type="email" placeholder="E-mail" oninput="this.className = ''" name="email" id=email class="Cadastro-coletor"></p>
-		    <p><input type="password" placeholder="Senha" oninput="this.className = ''" name="senha" id=senha class="Cadastro-coletor"></p>
+		    <p><input type="text" placeholder="Nome" oninput="this.className = ''" name="nome" id=nome ></p>
+		    <p><input type="text" placeholder="Sobrenome" oninput="this.className = ''" name="sobrenome" id=sobrenome ></p>
+		    <p><input type="text" placeholder="CPF" oninput="this.className = ''" name="cpf" id=cpf ></p>
+		    <p><input type="date" placeholder="Data de Nascimento" oninput="this.className = ''" name="dataNascimento" id=nascimento></p>
+            <p><input type="email" placeholder="E-mail" oninput="this.className = ''" name="email" id=email ></p>
+		    <p><input type="password" placeholder="Senha" oninput="this.className = ''" name="senha" id=senha ></p>
 		  </div>
 		  <div class="tab">
 		    <p><input type="text" placeholder="CEP" oninput="this.className = ''" name="cep" id=cep></p>
