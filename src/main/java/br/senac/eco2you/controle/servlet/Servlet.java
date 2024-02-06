@@ -488,18 +488,18 @@ public class Servlet extends HttpServlet {
 		
 		if(usuario instanceof Coletor) {
 			Coletor coletor = (Coletor) usuarioDAO.recuperarUsuarioComEnderecoPorId(usuario.getId());
-			request.setAttribute("coletor", coletor);
 			response.sendRedirect("/eCO2You/home-coletor");
+			request.setAttribute("coletor", coletor);
 		
 		} else if(usuario instanceof Armazem) {
 			Armazem armazem = (Armazem) usuarioDAO.recuperarUsuarioComEnderecoPorId(usuario.getId());
-			request.setAttribute("armazem", armazem);
 			response.sendRedirect("/eCO2You/home-armazem");
+			request.setAttribute("armazem", armazem);
 			
 		}else if (usuario instanceof Cooperativa) {
 			Cooperativa cooperativa = (Cooperativa) usuarioDAO.recuperarUsuarioComEnderecoPorId(usuario.getId());
-			request.setAttribute("cooperativa", cooperativa);
 			response.sendRedirect("/eCO2You/home-cooperativa");
+			request.setAttribute("cooperativa", cooperativa);
 			
 		} else{
 			response.sendRedirect("/eCO2You/login");
