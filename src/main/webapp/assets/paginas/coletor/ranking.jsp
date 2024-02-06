@@ -8,10 +8,7 @@
 		<style><%@include file="../../../resources/css/style.css"%></style>
 	</head>
 	<body>
-		<a href="./home-coletor">
-        	<br>
-			<button type="button" name="voltar" id=voltar>Voltar</button>
-		</a>
+		<a href="home-coletor" class="dropbtn" id=voltar>Voltar</a>
 		<nav>
     	<ul>
     		<li>

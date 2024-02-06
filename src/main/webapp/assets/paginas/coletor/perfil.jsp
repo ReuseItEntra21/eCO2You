@@ -10,17 +10,8 @@
 	</head>
 	<body>
     	<div>
-        <nav>
-        <ul>
-    		<li>
-                <a href="home-coletor" class="dropbtn" id=voltar>Voltar</a>
-            </li>
-        </ul>    
-        <ul>
-    		<li>    
-                <a href="editarPerfil-coletor" class="dropbtn" id=editar>Editar Perfil</a>
-            </li>
-        </ul>    
+        <a href="home-coletor" class="dropbtn" id=voltar>Voltar</a>
+		<nav>
     	<ul>
     		<li>
 			<a href="home-coletor" class="dropbtn" id=home>Home</a>

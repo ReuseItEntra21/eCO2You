@@ -7,12 +7,9 @@
 		<style><%@include file="../../../resources/css/style.css"%></style>
 	</head>
 	<body>
+	<br>
+	<a href="home-coletor" class="dropbtn" id=voltar>Voltar</a>
 		<nav>
-        <ul>
-    		<li>
-                <a href="home-coletor" class="dropbtn" id=voltar>Voltar</a>
-            </li>
-        </ul>
     	<ul>
     		<li>
 			<a href="home-coletor" class="dropbtn" id=home>Home</a>
@@ -95,8 +92,6 @@
 			</div>
 		</form>
 		<br>
-		<form action ="cadastro-deposito">
-        <button type="submit" name="adicionar" id=adicionar> Criar Depósito</button>
-        </form>
+		<a href="cadastro-deposito" class="dropbtn" id=voltar>Criar Depósito</a>
 	</body>
 </html>

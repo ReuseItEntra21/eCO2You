@@ -38,7 +38,6 @@
             <a href="perfil-coletor" class="dropbtn" id=perfil>Perfil</a>
             </li>
         </ul>    
-        <br>
     </nav>
         <h2> Ranking </h2>
         <h3> &#129351;  1° &#128100; Nome Pontuação Pontos </h3>
@@ -97,8 +96,6 @@
         <h2>Conquistas Recentes </h2>
         <h3> emoji Conquista 1 </h3>
         <h3> emoji Conquista 2 </h3>
-        <form action ="cadastro-deposito">
-        <button type="submit" name="adicionar" id=adicionar> <h2> + </h2></button>
-        </form>
+        <a href="cadastro-deposito" class="dropbtn" id=voltar><h2>+</h2></a>
 	</body>
 </html>

@@ -7,6 +7,7 @@
 		<style><%@include file="../../../resources/css/style.css"%></style>
 	</head>
 	<body>
+	<br>
             <a href="home-coletor" class="dropbtn" id=voltar>Voltar</a>
             <form action="historicoDepositos-coletor">
 			<h1>Histórico de Depositos</h1>

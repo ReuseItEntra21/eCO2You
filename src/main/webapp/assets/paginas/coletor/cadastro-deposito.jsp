@@ -9,9 +9,8 @@
 		<title>Cadastro</title>
 		<style><%@include file="../../../resources/css/style.css"%></style>
     </head>
-    <form action="apresentacao">
-		<button type="submit" name="voltar" id=voltar>Voltar</button>
-	</form>
+    <br>
+		<a href="home-coletor" class="dropbtn" id=voltar>Voltar</a>
     <body>
     	<nav>
     	<ul>
