@@ -8,14 +8,45 @@
 <title>Perfil Cooperativa</title>
 </head>
 <body>
-	<form action="#">
-    	<a href="#">Editar Informações</a>
+        <a href="home-coletor" class="dropbtn" id=voltar>Voltar</a>
+		<nav>
+    	<ul>
+    		<li>
+			<a href="home-coletor" class="dropbtn" id=home>Home</a>
+			</li>
+        </ul>
+        <ul>
+        	<li>
+			<a href="depositosPendentes-coletor" class="dropbtn" id=pendentes>Pendentes</a>
+			</li>
+        </ul>
+        <ul>
+        	<li>
+			<a href="editar-perfil-cooperativa" class="dropbtn" id=pendentes>Editar Perfil</a>
+			</li>
+        </ul>
+        <ul>
+        	<li>
+            <a href="ranking-coletor" class="dropbtn" id=ranking>Ranking</a>
+            </li>
+        </ul>
+        <ul>
+        	<li>
+            <a href="historicoDepositos-coletor" class="dropbtn" id=historico>Histórico</a>
+        	</li>
+        </ul>
+        <ul>
+        	<li>
+        	<input type="search" id="consulta-nome" name= lupa placeholder="Buscar Usuário por nome">
+        	</li>
+        </ul>
+        <ul>
+        	<li>
+            <a href="perfil-coletor" class="dropbtn" id=perfil>Perfil</a>
+            </li>
+        </ul>    
         <br>
-		<a href="#">Editar Horário</a>
-        <br>
-		<input type="submit" value="voltar" name="voltar" id=voltar>
-        <button type="button" name="configuracoes" id=configuracoes>configuracoes</button>
-	</form>
+    </nav>
 	<img src="#" alt="Imagem" name="imagem" id=imagem1>
 		<div>
 		    	<h2> Nome </h2>

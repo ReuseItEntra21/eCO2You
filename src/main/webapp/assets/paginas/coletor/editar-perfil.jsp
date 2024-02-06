@@ -43,7 +43,7 @@
 		    <br>
 		    <input type="text" value="<c:out value='${coletor.endereco.logradouro}' />" id="logradouro" name="logradouro" placeholder="Informe o Logradouro">
 		    <br>
-		    <input type="number" value="<c:out value='${coletor.endereco.numeroEndereco}' />" id="numeroEndereco" name="numeroEndereco" placeholder="Informe o Logradouro">
+		    <input type="number" value="<c:out value='${coletor.endereco.numeroEndereco}' />" id="numeroEndereco" name="numeroEndereco" placeholder="Informe o Número">
 		    <br>
 		    <input type="text" value="<c:out value='${coletor.endereco.complemento}' />" id="complemento" name="complemento" placeholder="Informe o complemento">
 		    <br>

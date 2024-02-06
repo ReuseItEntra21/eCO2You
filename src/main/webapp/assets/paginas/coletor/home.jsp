@@ -94,8 +94,11 @@
 					<b>EXCLUIR</b>
 					</button>
         <h2>Conquistas Recentes </h2>
-        <h3> emoji Conquista 1 </h3>
-        <h3> emoji Conquista 2 </h3>
+        
+        <c:forEach var="material" items="${materiais}">
+        			<option value="${material.id}">${material.nome}</option>
+    			</c:forEach>
+    			
         <a href="cadastro-deposito" class="dropbtn" id=voltar><h2>+</h2></a>
 	</body>
 </html>

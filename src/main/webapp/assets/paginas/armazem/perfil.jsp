@@ -31,6 +31,11 @@
         </ul>
         <ul>
         	<li>
+			<a href="editar-perfil-armazem" class="dropbtn" id=pendentes>Editar Perfil</a>
+			</li>
+        </ul>
+        <ul>
+        	<li>
             <a href="buscar-coletor" class="dropbtn" id=lupa>Lupa</a>
         	</li>
         </ul>
