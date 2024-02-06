@@ -125,6 +125,14 @@ public class Servlet extends HttpServlet {
 				mostrarHistoricoDepositosArmazem(request, response);
 				break;	
 				
+			case "/historicoRetiradas-armazem":
+				mostrarHistoricoRetiradasArmazem(request, response);
+				break;
+				
+			case "/historicoRetiradas-cooperativa":
+				mostrarHistoricoRetiradasCooperativa(request, response);
+				break;	
+				
 			case "/ranking-coletor":
 				mostrarRankingColetor(request, response);
 				break;
@@ -135,6 +143,10 @@ public class Servlet extends HttpServlet {
  
 			case "/depositosAgendados-armazem":
 				mostrarDepositosAgendadosArmazem(request, response);
+				break;	
+				
+			case "/depositosPendentes-cooperativa":
+				mostrarRetiradasPendentesCooperativa(request, response);
 				break;	
 				
 			case "/perfil-coletor":
@@ -338,6 +350,20 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
  
+	private void mostrarHistoricoRetiradasArmazem(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+ 
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/historico-retirada.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void mostrarHistoricoRetiradasCooperativa(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+ 
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cooperativa/historico.jsp");
+		dispatcher.forward(request, response);
+	}
+	
 	private void mostrarRankingColetor(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
  
@@ -351,6 +377,14 @@ public class Servlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/depositos-pendentes.jsp");
 		dispatcher.forward(request, response);
 	}
+	
+	private void mostrarRetiradasPendentesCooperativa(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+ 
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cooperativa/depositos-pendentes.jsp");
+		dispatcher.forward(request, response);
+	}
+	
 	private void mostrarDepositosAgendadosArmazem(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
  
