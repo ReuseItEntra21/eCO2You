@@ -22,29 +22,32 @@
 	    <form action="deslogar">
 	    	<button type="submit" name="voltar" id=voltar>Deslogar</button>
 	    </form>
-	    <form action="perfil-coletor">
+	    <form action="atualizar-coletor">
 			<h1> Informações </h1>
-		    <input type="text" autofocus placeholder="${usuario.nome}">
+			<br>
+		    <input type="text" value="<c:out value='${coletor.nome}' />" id="nome" name="nome" autofocus placeholder="Informe o seu Nome">
 		    <br>
-		    <input type="email" placeholder="${usuario.email}">
+		    <input type="text" value="<c:out value='${coletor.sobrenome}' />" id="sobrenome" name="sobrenome" autofocus placeholder="Informe o seu Nome">
 		    <br>
-		    <input type="text" placeholder="${usuario.cpf}">
+		    <input type="text" value="<c:out value='${coletor.cpf}' />" id="cpf" name="cpf" placeholder="Informe o seu CPF">  
 		    <br>
-		    <input type="text" placeholder="${usuario.endereco.telefone}">
+		    <input type="email" value="<c:out value='${coletor.email}' />" id="email" name="email" placeholder="Informe o seu Email">
 		    <br>
-		    <input type="text" placeholder="${usuario.endereco.cep}">
+		    <input type="tel" value="<c:out value='${coletor.endereco.telefone}' />" id="telefone" name="telefone" placeholder="Informe o seu Telefone">
 		    <br>
-		    <input type="text" placeholder="${usuario.endereco.bairro}">
+		    <input type="number" value="<c:out value='${coletor.endereco.cep}' />" id="cep" name="cep" placeholder="Informe o seu CEP">
 		    <br>
-		    <input type="text" placeholder="${usuario.endereco.logradouro}">
+		    <input type="text" value="<c:out value='${coletor.endereco.cidade}' />" id="cidade" name="cidade" placeholder="Informe a sua Cidade">
 		    <br>
-		    <input type="text" placeholder="${usuario.endereco.cep}">
+		    <input type="text" value="<c:out value='${coletor.endereco.bairro}' />" id="bairro" name="bairro" placeholder="Informe o seu Bairro">
 		    <br>
-		    <input type="text" placeholder="${usuario.endereco.numeroEndereco}">
+		    <input type="text" value="<c:out value='${coletor.endereco.logradouro}' />" id="logradouro" name="logradouro" placeholder="Informe o Logradouro">
 		    <br>
-		    <input type="text" placeholder="${usuario.endereco.cidade}">			
+		    <input type="number" value="<c:out value='${coletor.endereco.numeroEndereco}' />" id="numeroEndereco" name="numeroEndereco" placeholder="Informe o Logradouro">
 		    <br>
-		    <input type="text" placeholder="${usuario.endereco.complemento}">
+		    <input type="text" value="<c:out value='${coletor.endereco.complemento}' />" id="complemento" name="complemento" placeholder="Informe o complemento">
+		    <br>
+		    <input type="text" value="<c:out value='${coletor.senha}' />" id="senha" name="senha" placeholder="Informe a Senha">
 		    <br>
 		    <input type="submit" value="Salvar">
 	    </form>
