@@ -136,6 +136,7 @@ public class CooperativaDAOImpl implements CooperativaDAO {
 	}
 
 	public Cooperativa exibirPerfilCooperativa(String nomeDaCooperativa) {
+		Cooperativa cooperativa = null;
 		try (Session sessao = fabrica.getConexao().openSession()) {
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 			CriteriaQuery<Cooperativa> criteria = construtor.createQuery(Cooperativa.class);
@@ -144,11 +145,12 @@ public class CooperativaDAOImpl implements CooperativaDAO {
 			criteria.select(raizCooperativa)
 					.where(construtor.equal(raizCooperativa.get(Cooperativa_.NOME), nomeDaCooperativa));
 
-			return sessao.createQuery(criteria).uniqueResult();
+			cooperativa = sessao.createQuery(criteria).uniqueResult();
 		} catch (Exception e) {
 			e.printStackTrace();
-			return null;
+			
 		}
+	return cooperativa;
 	}
 
 	public List<Cooperativa> buscarPerfilCooperativaPeloNome(String nome) {
