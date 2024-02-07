@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -95,9 +97,19 @@
 					</button>
         <h2>Conquistas Recentes </h2>
         
-        <c:forEach var="material" items="${materiais}">
-        			<option value="${material.id}">${material.nome}</option>
-    			</c:forEach>
+        <c:forEach var="deposito" items="${depositos}">
+        			<h3>Armazem:</h3>
+        			<p>${deposito.armazem}</p>
+        			<br>
+        			<h3>Data:</h3>
+        			<p>${deposito.data}</p>
+        			<br>
+        			<h3>Reciclavel:</h3>
+        			<p>${deposito.reciclavel}</p>
+        			<br>
+        			<h3>Quantidade do Reciclavel:</h3>
+        			<p>${deposito.quantidadeReciclaveis}</p>
+    	</c:forEach>
     			
         <a href="cadastro-deposito" class="dropbtn" id=voltar><h2>+</h2></a>
 	</body>
