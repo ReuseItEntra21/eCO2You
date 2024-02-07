@@ -5,11 +5,11 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Cadastro Coletor</title>
-	<style><%@include file="../../../resources/css/style.css"%></style>
+	<style><%@include file="../../../resources/css/coletor/cadastro.css"%></style>
 </head>
 <body>
 	<div style="float: left">
-		<a href="apresenteacao" class="dropbtn" id=voltar>Voltar</a>
+    <a href="login" name="voltar" id=voltar>Voltar</a>
 		<h2 class="Cadastro-coletor-Font50">Faça parte dessa mudança!</h2>
 		<p id="Cadastro-coletor-apresentacao">
             Conecte-se a uma comunidade <br>
@@ -41,12 +41,11 @@
 		  <div style="text-align:center;">
 		    <span class="step"></span>
 		    <span class="step"></span>
+		    <span class="step"></span>
 		  </div>
-		  <div style="overflow:auto;">
-		    <div>
-		      <button type="button" name=voltar id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
-		      <button type="button" name=avancar id="nextBtn" onclick="nextPrev(1)">Próximo</button>
-		    </div>
+		  <div>
+		    <button type="button" name=voltar id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
+		    <button type="button" name=avancar id="nextBtn" onclick="nextPrev(1)">Próximo</button>
 		  </div>
 		</form>
 	</div>

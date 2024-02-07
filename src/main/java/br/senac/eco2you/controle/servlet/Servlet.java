@@ -94,9 +94,11 @@ public class Servlet extends HttpServlet {
 			case "/login":
 				mostrarLogin(request, response);
 				break;
+				
 			case "/logar":
 				logar(request, response);
 				break;
+				
 			case "/deslogar":
 				deslogar(request, response);
 				break;
