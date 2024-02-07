@@ -339,6 +339,13 @@ public class Servlet extends HttpServlet {
 		HttpSession sessao = request.getSession();
 		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
 		request.setAttribute("coletor", coletor);
+ 
+		List<Deposito> depositos = DepositoDAO.recuperarDepositos();
+		request.setAttribute("depositos", depositos);
+		
+		List<Conquista> conquistas = conquistaDAO.buscarListaConquistaPeloId(0);
+		request.setAttribute("conquistas", conquistas);
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/home.jsp");
 		dispatcher.forward(request, response);
 	}

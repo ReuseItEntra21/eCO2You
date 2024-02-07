@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -15,5 +17,20 @@
 	       	<input class="flex-item" type="search" id="consulta-nome" placeholder="Buscar Usuário">
 	        <a class="flex-item" href="perfil-coletor" class="dropbtn" id=perfil>Olá "${usuario.nome}"</a>
     	</nav>	
+        <h2>Conquistas Recentes </h2>
+        
+        <c:forEach var="deposito" items="${depositos}">
+        			<h3>Armazem:</h3>
+        			<p>${deposito.armazem}</p>
+        			<br>
+        			<h3>Data:</h3>
+        			<p>${deposito.data}</p>
+        			<br>
+        			<h3>Reciclavel:</h3>
+        			<p>${deposito.reciclavel}</p>
+        			<br>
+        			<h3>Quantidade do Reciclavel:</h3>
+        			<p>${deposito.quantidadeReciclaveis}</p>
+    	</c:forEach>
 	</body>
 </html>
