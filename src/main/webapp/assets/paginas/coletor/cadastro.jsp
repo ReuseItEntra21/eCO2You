@@ -8,8 +8,8 @@
 	<style><%@include file="../../../resources/css/coletor/cadastro.css"%></style>
 </head>
 <body>
-	<a href="login" name="voltar" id=voltar>Voltar</a>
 	<div style="float: left">
+    <a href="login" name="voltar" id=voltar>Voltar</a>
 		<h2 class="Cadastro-coletor-Font50">Faça parte dessa mudança!</h2>
 		<p id="Cadastro-coletor-apresentacao">
             Conecte-se a uma comunidade <br>

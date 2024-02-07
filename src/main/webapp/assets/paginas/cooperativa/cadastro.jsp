@@ -8,9 +8,7 @@
     </head>
     <body>
     <div style="float: left">
-    	<form action="apresentacao">
-			<button type="submit" name="voltar" id=voltar>Voltar</button>
-		</form>
+    	<a href="apresenteacao" class="dropbtn" id=voltar>Voltar</a>
 		<h2>Faça parte dessa mudança!</h2>
 		Conecte-se a uma comunidade comprometida com a sustentabilidade e
 		preservação do meio ambiente
