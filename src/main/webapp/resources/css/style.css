@@ -28,7 +28,7 @@
   background-color: #439E6F;
   }
   
-   .flex-container {
+  .flex-container {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -62,59 +62,11 @@
       border-radius: 10px;
   }
   
-  #regForm {
-    background-color: #F4F3F2;
-    font-family: Raleway;
-    padding: 50px;
-    min-width: 250px;
-  }
   
-  input {
-    width: 300px;
-    height: 50px;
-    padding: 10px;
-    font-size: 17px;
-    border: 1px solid #0D0D0D;
-    border-radius: 10px;
-  }
   
-  input.invalid {
-    background-color: #FF7A70;
-  }
-  
-  .tab {
-    display: none;
-  }
-  
-  button:hover {
-    opacity: 0.8;
-  }
-  
-  #prevBtn {
-    background-color: #bbbbbb;
-  }
-  
-  .step {
-    height: 15px;
-    width: 15px;
-    margin: 20px 5px;
-    background-color: #439E6F;
-    border: none;  
-    border-radius: 50%;
-    display: inline-block;
-    opacity: 0.8;
-  }
-  
-  .step.active {
-    opacity: 1;
-  }
-  
-  .step.finish {
-    background-color: #439E6F;
-  }
   .recuperarSenhaEmail{
       display: block;
-      width: 600px;
+      width: 300px;
       height: 70px;
       text-align: left;
       border-radius: 12px;  
@@ -149,10 +101,12 @@
     font-size: 48px;
     margin: auto;
   }
+  
   #novo-Material-H1{
     font-size: 60px;
     color: #0D0D0D;
   }
+  
   #nome_material{
     display: block;
     height: 70px;
@@ -160,10 +114,8 @@
     font-size: 40px;
     margin: auto;
     margin-bottom: 30px;
-}
-  .h1-font-60{
-    font-size: 60px;
-  }
+	}
+
   #nomeReciclável{
     display: block;
     margin: auto;
@@ -226,20 +178,7 @@
     font-size: 35px;
   }
 
-  #nextBtn{
-    color: #F4F3F2;
-    background-color: #0D0D0D;
-    font-size: 20px;
-    display: inline-block;
-    margin-left: 105px;
-  }
-  #prevBtn{
-    color: #F4F3F2;
-    background-color: #0D0D0D;
-    font-size: 20px;
-    display: inline-block;
-    margin-right: 10px;
-  }
+  
   ::placeholder{
     color: #0D0D0D;
     background-color: #F4F3F2;
