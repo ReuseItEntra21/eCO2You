@@ -44,7 +44,7 @@
         </ul>
         <ul>
         	<li>
-            <a href="perfil-coletor" class="dropbtn" id=perfil>Perfil</a>
+            <a href="editar-perfil-coletor" class="dropbtn" id=perfil>Editar Perfil</a>
             </li>
         </ul>    
         <br>

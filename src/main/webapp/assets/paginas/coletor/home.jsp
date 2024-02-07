@@ -9,14 +9,16 @@
 		<style><%@include file="../../../resources/css/style.css"%></style>
 	</head>
 	<body>
+	<header>
 		<nav class="flex-container">
 			<a class="flex-item" href="home-coletor"id=home>Home</a>
 			<a class="flex-item" href="depositosPendentes-coletor" id=pendentes>Pendentes</a>
 	        <a class="flex-item" href="historicoDepositos-coletor" id=historico>Histórico</a>
 	        <a class="flex-item" href="ranking-coletor" id=ranking>Ranking</a>
 	       	<input class="flex-item" type="search" id="consulta-nome" placeholder="Buscar Usuário">
-	        <a class="flex-item" href="perfil-coletor" class="dropbtn" id=perfil>Olá "${usuario.nome}"</a>
+	        <a class="flex-item" href="perfil-coletor" class="dropbtn" id=perfil>Olá ${usuario.nome}</a>
     	</nav>	
+	</header>
         <h2>Conquistas Recentes </h2>
         
         <c:forEach var="deposito" items="${depositos}">
