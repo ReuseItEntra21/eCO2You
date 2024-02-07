@@ -336,6 +336,12 @@ public class Servlet extends HttpServlet {
 	private void mostrarHomeColetor(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
  
+		List<Deposito> depositos = DepositoDAO.recuperarDepositos();
+		request.setAttribute("depositos", depositos);
+		
+		List<Conquista> conquistas = conquistaDAO.buscarListaConquistaPeloId(0);
+		request.setAttribute("conquistas", conquistas);
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/home.jsp");
 		dispatcher.forward(request, response);
 	}
