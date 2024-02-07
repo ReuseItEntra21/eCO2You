@@ -9,9 +9,7 @@
 </head>
 <body>
 	<div style="float: left">
-		<form action="apresentacao">
-			<button type="submit" name="voltar" id=voltar>Voltar</button>
-		</form>
+		<a href="apresenteacao" class="dropbtn" id=voltar>Voltar</a>
 		<h2 class="Cadastro-coletor-Font50">Faça parte dessa mudança!</h2>
 		<p id="Cadastro-coletor-apresentacao">
             Conecte-se a uma comunidade <br>
