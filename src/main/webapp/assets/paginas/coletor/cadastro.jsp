@@ -40,10 +40,7 @@
 		    <p><input type="text" placeholder="Complemento" oninput="this.className = ''" name="complemento" id=complemento></p>
 		    <p><input type="text" placeholder="Telefone" oninput="this.className = ''" name="telefone" id=telefone></p>
 		  </div>
-		  <div class="tab">
-		  </div>
 		  <div style="text-align:center;">
-		    <span class="step"></span>
 		    <span class="step"></span>
 		    <span class="step"></span>
 		  </div>

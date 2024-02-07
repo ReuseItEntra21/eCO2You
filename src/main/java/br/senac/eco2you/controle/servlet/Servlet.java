@@ -335,7 +335,10 @@ public class Servlet extends HttpServlet {
  
 	private void mostrarHomeColetor(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
- 
+		
+		HttpSession sessao = request.getSession();
+		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
+		request.setAttribute("coletor", coletor);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/home.jsp");
 		dispatcher.forward(request, response);
 	}
