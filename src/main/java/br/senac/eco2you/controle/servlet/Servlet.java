@@ -55,7 +55,7 @@ public class Servlet extends HttpServlet {
 	private MaterialDAO materialDAO;
 	private ReciclavelDAO reciclavelDAO;
 	private ItemDepositoDAO itemDepositoDAO;
-	private DepositoDAO DepositoDAO;
+	private DepositoDAO depositoDAO;
 	private ConquistaDAO conquistaDAO;
 	private ArmazemDAO armazemDAO;
 	private RetiradaDAO retiradaDAO;
@@ -66,7 +66,7 @@ public class Servlet extends HttpServlet {
 		materialDAO = new MaterialDAOImpl();
 		reciclavelDAO = new ReciclavelDAOImpl();
 		itemDepositoDAO = new ItemDepositoDAOImpl();
-		DepositoDAO = new DepositoDAOImpl();
+		depositoDAO = new DepositoDAOImpl();
 		conquistaDAO = new ConquistaDAOImpl();
 		armazemDAO = new ArmazemDAOImpl();
 		new CooperativaDAOImpl();
@@ -337,10 +337,11 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 		
 		HttpSession sessao = request.getSession();
+		
 		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
 		request.setAttribute("coletor", coletor);
  
-		List<Deposito> depositos = DepositoDAO.recuperarDepositos();
+		List<Deposito> depositos = depositoDAO.recuperarDepositos();
 		request.setAttribute("depositos", depositos);
 		
 		List<Conquista> conquistas = conquistaDAO.buscarListaConquistaPeloId(0);
@@ -663,7 +664,7 @@ public class Servlet extends HttpServlet {
 		String telefone = request.getParameter("telefone");
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-		Endereco endereco = new Endereco();
+		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento, telefone);
 		usuarioDAO.atualizarUsuario(new Coletor(id, nome, sobrenome, cpf, dataNascimento, email, senha, endereco));
 		
 		HttpSession sessao = request.getSession();
@@ -728,7 +729,7 @@ public class Servlet extends HttpServlet {
 		String telefone = request.getParameter("telefone");
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-		Endereco endereco = new Endereco();
+		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento, telefone);
 		usuarioDAO.atualizarUsuario(new Armazem(id, nome, cnpj, email, senha, capacidadeArmazenagem, horarioAbertura,
 				horarioFechamento, endereco));
 		
@@ -790,7 +791,7 @@ public class Servlet extends HttpServlet {
 		String numeroEndereco = request.getParameter("numeroEndereco");
 		String complemento = request.getParameter("complemento");
 		String telefone = request.getParameter("telefone");
-		Endereco endereco = new Endereco();
+		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento, telefone);
 		usuarioDAO.atualizarUsuario(new Cooperativa(id, nome, cnpj, horarioAbertura, horarioFechamento, endereco, email, senha));
 		
 		HttpSession sessao = request.getSession();
@@ -877,7 +878,7 @@ public class Servlet extends HttpServlet {
 		Armazem armazem = armazemDAO.recuperarArmazemPorId(Long.parseLong(request.getParameter("armazem")));
 		Coletor coletor =  (Coletor) request.getSession().getAttribute("coletor");
 		LocalDate data = LocalDate.parse(request.getParameter("data"));	
-		DepositoDAO.inserirDeposito(new Deposito(data, armazem, coletor));
+		depositoDAO.inserirDeposito(new Deposito(data, armazem, coletor));
  
 		Reciclavel reciclavel = reciclavelDAO.recuperarReciclavelPorId(Long.parseLong(request.getParameter("reciclavel")));
 		int quantidadeReciclaveis = Integer.parseInt(request.getParameter("quantidade-reciclaveis"));
@@ -892,7 +893,7 @@ public class Servlet extends HttpServlet {
 		LocalDate data = LocalDate.parse(request.getParameter("data"));
 		Armazem armazem = armazemDAO.recuperarArmazemPorId(Long.parseLong(request.getParameter("armazem")));
 		Coletor coletor =  (Coletor) request.getSession().getAttribute("coletor");
-		DepositoDAO.inserirDeposito(new Deposito(data, armazem, coletor));
+		depositoDAO.inserirDeposito(new Deposito(data, armazem, coletor));
 		
 		Reciclavel reciclavel = reciclavelDAO.recuperarReciclavelPorId(Long.parseLong(request.getParameter("reciclavel")));
 		int quantidadeReciclaveis = Integer.parseInt(request.getParameter("quantidade-reciclaveis"));

@@ -9,47 +9,36 @@
 		<style><%@include file="../../../resources/css/style.css"%></style>
 	</head>
     <body>
-	    <br>
-	    <a href="home-coletor" class="dropbtn" id=voltar>Voltar</a>
-	    <br>
-	    <br>
-	    <form action="recuperar-senha">
-	    	<button type="submit" name="voltar" id=voltar>Alterar a Senha</button>
-	    </form>
-	    <form action=".">
-	    	<button type="submit" name="voltar" id=voltar>Excluir a Conta</button>
-	    </form>
-	    <form action="deslogar">
-	    	<button type="submit" name="voltar" id=voltar>Deslogar</button>
-	    </form>
+	    <a href="home-coletor" id=voltar>Voltar</a>
 	    <form action="atualizar-coletor">
 			<h1> Informações </h1>
 			<br>
-		    <input type="text" value="<c:out value='${coletor.nome}' />" id="nome" name="nome" autofocus placeholder="Informe o seu Nome">
+		    <input type="text" value="${coletor.nome}" id="nome" name="nome">
+		    <input type="text" value="${coletor.sobrenome}" id="sobrenome" name="sobrenome">
 		    <br>
-		    <input type="text" value="<c:out value='${coletor.sobrenome}' />" id="sobrenome" name="sobrenome" autofocus placeholder="Informe o seu Nome">
+		    <input type="text" value="${coletor.cpf}" id="cpf" name="cpf">  
+		    <input type="email" value="${coletor.email}" id="email" name="email">
 		    <br>
-		    <input type="text" value="<c:out value='${coletor.cpf}' />" id="cpf" name="cpf" placeholder="Informe o seu CPF">  
+		    <input type="tel" value="${coletor.endereco.telefone}" id="telefone" name="telefone">
+		    <input type="text" value="${coletor.endereco.cep}" id="cep" name="cep">
 		    <br>
-		    <input type="email" value="<c:out value='${coletor.email}' />" id="email" name="email" placeholder="Informe o seu Email">
+		    <input type="text" value="${coletor.endereco.cidade}" id="cidade" name="cidade" placeholder="Informe a sua Cidade">
+		    <input type="text" value="${coletor.endereco.bairro}" id="bairro" name="bairro">
 		    <br>
-		    <input type="tel" value="<c:out value='${coletor.endereco.telefone}' />" id="telefone" name="telefone" placeholder="Informe o seu Telefone">
+		    <input type="text" value="${coletor.endereco.logradouro}" id="logradouro" name="logradouro">
+		    <input type="number" value="${coletor.endereco.numeroEndereco}" id="numeroEndereco" name="numeroEndereco">
 		    <br>
-		    <input type="number" value="<c:out value='${coletor.endereco.cep}' />" id="cep" name="cep" placeholder="Informe o seu CEP">
+		    <input type="text" value="${coletor.endereco.tipoVia}" id="tipoVia" name="tipoVia">
+		    <input type="text" value="${coletor.endereco.complemento}" id="complemento" name="complemento">
 		    <br>
-		    <input type="text" value="<c:out value='${coletor.endereco.cidade}' />" id="cidade" name="cidade" placeholder="Informe a sua Cidade">
-		    <br>
-		    <input type="text" value="<c:out value='${coletor.endereco.bairro}' />" id="bairro" name="bairro" placeholder="Informe o seu Bairro">
-		    <br>
-		    <input type="text" value="<c:out value='${coletor.endereco.logradouro}' />" id="logradouro" name="logradouro" placeholder="Informe o Logradouro">
-		    <br>
-		    <input type="number" value="<c:out value='${coletor.endereco.numeroEndereco}' />" id="numeroEndereco" name="numeroEndereco" placeholder="Informe o Número">
-		    <br>
-		    <input type="text" value="<c:out value='${coletor.endereco.complemento}' />" id="complemento" name="complemento" placeholder="Informe o complemento">
-		    <br>
-		    <input type="text" value="<c:out value='${coletor.senha}' />" id="senha" name="senha" placeholder="Informe a Senha">
+		    <input type="text" value="${coletor.senha}" id="senha" name="senha">
 		    <br>
 		    <input type="submit" value="Salvar">
 	    </form>
+	    <div>
+		    <a href="recuperar-senha" id=voltar>Alterar a Senha</a>
+		    <a href="*" id=voltar>Excluir a Conta</a>
+		    <a href="deslogar" id=deslogar>Deslogar</a>
+	    </div>
 	</body>
 </html>
