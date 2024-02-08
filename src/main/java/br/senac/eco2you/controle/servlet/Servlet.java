@@ -336,7 +336,7 @@ public class Servlet extends HttpServlet {
 		List<Deposito> depositos = depositoDAO.recuperarDepositos();
 		request.setAttribute("depositos", depositos);
 		
-		List<Conquista> conquistas = conquistaDAO.buscarListaConquistaPeloId(0);
+		List<Conquista> conquistas = conquistaDAO.buscarListaConquistaPeloId(coletor.getId());
 		request.setAttribute("conquistas", conquistas);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/home.jsp");
