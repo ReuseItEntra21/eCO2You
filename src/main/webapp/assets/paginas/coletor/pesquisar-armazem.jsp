@@ -47,43 +47,50 @@
     </nav>
     <h2>Armazéns que você já depositou</h2>
     <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem1>
-    <p>Empresa</p>
-    <p>Bairro</p>
+    <br>
+    <a href="status-armazem1" class="dropbtn" id=perfil>StatusArmazem</a>
+    <br>
     <a href="perfil-armazem1" class="dropbtn" id=perfil>Perfil</a>
     <br>
     <br>
    <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem2>
-    <p>Empresa</p>
-    <p>Bairro</p>
+   	<br>
+ 	<a href="status-armazem2" class="dropbtn" id=perfil>StatusArmazem</a>
+    <br>
     <a href="perfil-armazem2" class="dropbtn" id=perfil>Perfil</a>
     <h2>Armazéns Recomendados</h2>
    	<input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem3>
-    <p>Empresa</p>
-    <p>Bairro</p>
+    <br>
+    <a href="status-armazem3" class="dropbtn" id=perfil>StatusArmazem</a>
+    <br>
     <a href="perfil-armazem3" class="dropbtn" id=perfil>Perfil</a>
     <br>
     <br>
    	<input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem4>
-    <p>Empresa</p>
-    <p>Bairro</p>
+    <br>
+    <a href="status-armazem4" class="dropbtn" id=perfil>StatusArmazem</a>
+    <br>
     <a href="perfil-armazem4" class="dropbtn" id=perfil>Perfil</a>
     <br>
     <br>
    	<input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem5>
-    <p>Empresa</p>
-    <p>Bairro</p>
+    <br>
+    <a href="status-armazem5" class="dropbtn" id=perfil>StatusArmazem</a>
+    <br>
     <a href="perfil-armazem5" class="dropbtn" id=perfil>Perfil</a>
     <br>
     <br>
    	<input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem6>
-    <p>Empresa</p>
-    <p>Bairro</p>
+  	<br>
+    <a href="status-armazem6" class="dropbtn" id=perfil>StatusArmazem</a>
+    <br>
     <a href="perfil-armazem6" class="dropbtn" id=perfil>Perfil</a>
     <br>
     <br>
     <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem7>
-    <p>Empresa</p>
-    <p>Bairro</p>
+	<br>
+    <a href="status-armazem7" class="dropbtn" id=perfil>StatusArmazem</a>
+    <br>
     <a href="perfil-armazem7" class="dropbtn" id=perfil>Perfil</a>
 </body>
 </html>
