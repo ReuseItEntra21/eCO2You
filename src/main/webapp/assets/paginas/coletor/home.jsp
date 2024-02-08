@@ -30,10 +30,10 @@
 					</div>
 				</div>
 				 <div class=flex-item>
-		        	<c:forEach var="conquista" items="${conquistas}">
-			        	<div class="image-conquista-box">
-							&#127941;
-							${conquista.nome}
+		        	<c:forEach var="deposito" items="${depositos}">
+			        	<div class="deposito-box">
+			        		Status: ${deposito.statusDeDeposito}
+			        		Data: ${deposito.data}
 						</div>
 		    		</c:forEach>
 		       	</div>
