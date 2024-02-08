@@ -8,40 +8,7 @@
 	</head>
 	<body>
 	<br>
-	<a href="home-coletor" class="dropbtn" id=voltar>Voltar</a>
-		<nav>
-    	<ul>
-    		<li>
-			<a href="home-coletor" class="dropbtn" id=home>Home</a>
-			</li>
-        </ul>
-        <ul>
-        	<li>
-			<a href="depositosPendentes-coletor" class="dropbtn" id=pendentes>Pendentes</a>
-			</li>
-        </ul>
-        <ul>
-        	<li>
-            <a href="ranking-coletor" class="dropbtn" id=ranking>Ranking</a>
-            </li>
-        </ul>
-        <ul>
-        	<li>
-            <a href="historicoDepositos-coletor" class="dropbtn" id=historico>Histórico</a>
-        	</li>
-        </ul>
-        <ul>
-        	<li>
-        	<input type="search" id="consulta-nome" name= lupa placeholder="Buscar Usuário por nome">
-        	</li>
-        </ul>
-        <ul>
-        	<li>
-            <a href="perfil-coletor" class="dropbtn" id=perfil>Perfil</a>
-            </li>
-        </ul>    
-        <br>
-    </nav>
+	<a href="home-coletor" id=voltar>Voltar</a>
 		<form action="principal-coletor">
 			<h2> Depósitos agendados </h2>
 			
