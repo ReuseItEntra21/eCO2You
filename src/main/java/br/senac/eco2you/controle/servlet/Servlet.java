@@ -155,10 +155,6 @@ public class Servlet extends HttpServlet {
 				mostrarRetiradasPendentesCooperativa(request, response);
 				break;	
 				
-			case "/perfil-coletor":
-				mostrarPerfilColetor(request, response);
-				break;
-				
 			case "/perfilDoColetor-armazem":
 				mostrarPerfilColetorArmazem(request, response);
 				break;	
@@ -174,15 +170,9 @@ public class Servlet extends HttpServlet {
 			case "/editar-perfil-coletor":
 				mostrarEditarPerfilColetor(request, response);
 				break;
-			case "/perfil-armazem":
-				mostrarPerfilArmazem(request, response);
-				break;
  
 			case "/editar-perfil-armazem":
 				mostrarEditarPerfilArmazem(request, response);
-				break;
-			case "/perfil-cooperativa":
-				mostrarPerfilCooperativa(request, response);
 				break;
  
 			case "/editar-perfil-cooperativa":
@@ -416,16 +406,6 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
  
-	private void mostrarPerfilColetor(HttpServletRequest request, HttpServletResponse response)
-			throws SQLException, IOException, ServletException {
-		
-		HttpSession sessao = request.getSession();
-		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
-		request.setAttribute("coletor", coletor);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/perfil.jsp");
-		dispatcher.forward(request, response);
-	}
- 
 	private void mostrarPerfilColetorArmazem(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 		
@@ -465,28 +445,13 @@ public class Servlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/editar-perfil.jsp");
 		dispatcher.forward(request, response);
 	}
-	private void mostrarPerfilArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
- 
-		HttpSession sessao = request.getSession();
-		Armazem armazem = (Armazem) sessao.getAttribute("usuario");
-		request.setAttribute("armazem", armazem);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/perfil.jsp");
-		dispatcher.forward(request, response);
-	}
+
 	private void mostrarEditarPerfilArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
  
 		HttpSession sessao = request.getSession();
 		Armazem armazem = (Armazem) sessao.getAttribute("usuario");
 		request.setAttribute("armazem", armazem);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/editar-perfil.jsp");
-		dispatcher.forward(request, response);
-	}
-	private void mostrarPerfilCooperativa(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
- 
-		HttpSession sessao = request.getSession();
-		Cooperativa cooperativa = (Cooperativa) sessao.getAttribute("usuario");
-		request.setAttribute("cooperativa", cooperativa);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cooperativa/perfil.jsp");
 		dispatcher.forward(request, response);
 	}
  
