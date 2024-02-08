@@ -13,7 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
- 
+import javax.swing.text.DateFormatter;
+
 import br.senac.eco2you.modelo.dao.armazem.ArmazemDAO;
 import br.senac.eco2you.modelo.dao.armazem.ArmazemDAOImpl;
 import br.senac.eco2you.modelo.dao.conquista.ConquistaDAO;
@@ -331,9 +332,10 @@ public class Servlet extends HttpServlet {
 		HttpSession sessao = request.getSession();
 		
 		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
+		
 		request.setAttribute("coletor", coletor);
  
-		List<Deposito> depositos = depositoDAO.recuperarDepositos();
+		List<Deposito> depositos = depositoDAO.buscarDepositoPeloColetor(coletor);
 		request.setAttribute("depositos", depositos);
 		
 		List<Conquista> conquistas = conquistaDAO.buscarListaConquistaPeloId(coletor.getId());
@@ -520,6 +522,7 @@ public class Servlet extends HttpServlet {
 	private void mostrarCadastroDeposito(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
  
+		
 		List<Reciclavel> reciclaveis = reciclavelDAO.recuperarTodosReciclaveis();
 		List<Armazem> armazens = armazemDAO.recuperarTodosArmazens();
 		request.setAttribute("reciclaveis", reciclaveis);
@@ -843,7 +846,7 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 		
 		Armazem armazem = armazemDAO.recuperarArmazemPorId(Long.parseLong(request.getParameter("armazem")));
-		Coletor coletor =  (Coletor) request.getSession().getAttribute("coletor");
+		Coletor coletor =  (Coletor) request.getSession().getAttribute("usuario");
 		LocalDate data = LocalDate.parse(request.getParameter("data"));	
 		depositoDAO.inserirDeposito(new Deposito(data, armazem, coletor));
  
@@ -880,6 +883,7 @@ public class Servlet extends HttpServlet {
  
 	private void inserirRetirada(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		
 		LocalDate data = LocalDate.parse(request.getParameter("data"));
 		Cooperativa cooperativa = new Cooperativa("Saturno Ambiental", "44.511.898/0001-38", LocalTime.of(8, 0),
 				LocalTime.of(21, 0), " ", "saturno.ambiental@gmail.com", "123456");

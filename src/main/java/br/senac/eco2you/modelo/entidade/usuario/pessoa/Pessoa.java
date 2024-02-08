@@ -64,11 +64,11 @@ public abstract class Pessoa extends Usuario implements Serializable {
 		this.cpf = cpf;
 	}
  
-	public LocalDate getDatanascimento() {
+	public LocalDate getDataNascimento() {
 		return dataNascimento;
 	}
  
-	public void setDatanascimento(LocalDate dataNascimento) {
+	public void setDataNascimento(LocalDate dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 }

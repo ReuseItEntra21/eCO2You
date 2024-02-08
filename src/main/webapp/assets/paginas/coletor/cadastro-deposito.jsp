@@ -48,8 +48,7 @@
     	<form action="inserir-deposito" method="post">
 	        <h1> Depósito </h1>
 	        <br>
-          <br>
-          <h2>Escolha a Data para o Depósito</h2>
+            <h2>Escolha a Data para o Depósito</h2>
 	        <input type="date" id="data" name="data" autofocus placeholder="Data para Depositar" maxlength="25" size="20">
 	        <br>
 	        <br>
@@ -73,12 +72,7 @@
 	        <input type="number" id="quantidade-reciclaveis" name="quantidade-reciclaveis" autofocus placeholder="quantidade" maxlength="25"size="20">
 	        <br>
 	        <br>
-	        <br>
+			<button type="submit" name="depositar" id=depositar class="ButtonEntrar">Fazer Deposito</button>
 	     </form>
-	     <form action = "historicoDepositos-coletor">
-	        <button type="submit" name="depositar" id=depositar class="ButtonEntrar">Fazer Deposito</button>
-	        <br>
-	        <br>
-        </form>
     </body>
 </html>

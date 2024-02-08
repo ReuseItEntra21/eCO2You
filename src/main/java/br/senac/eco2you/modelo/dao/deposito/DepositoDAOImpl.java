@@ -360,7 +360,7 @@ public class DepositoDAOImpl implements DepositoDAO {
 		return depositos;
 	}
 
-	public List<Deposito> buscarDepositoPeloColetor(String nomeDoColetor) {
+	public List<Deposito> buscarDepositoPeloColetor(Coletor coletor) {
 		Session sessao = null;
 
 		List<Deposito> depositos = null;
@@ -373,9 +373,7 @@ public class DepositoDAOImpl implements DepositoDAO {
 
 			criteria.select(raizDeposito)
 
-					.where(construtor.equal(raizDeposito.get(Deposito_.COLETOR), nomeDoColetor))
-
-					.where(construtor.equal(raizDeposito.get(Deposito_.COLETOR), nomeDoColetor));
+					.where(construtor.equal(raizDeposito.get(Deposito_.COLETOR), coletor));
 
 			return sessao.createQuery(criteria).getResultList();
 		} catch (Exception e) {

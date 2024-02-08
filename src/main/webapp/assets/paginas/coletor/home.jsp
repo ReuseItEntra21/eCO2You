@@ -17,7 +17,7 @@
 			        	<img alt="Imagem do Usuário" src="">
 			        </div>
 			        <div>
-			        	<h3>${coletor.nome} ${coletor.sobrenome}</h3>
+			        	<h3>${coletor.nome} ${coletor.sobrenome} ${coletor.dataNascimento}</h3>
 			        </div>
 					<div class="informacoes-box">
 						<h3># ${coletor.id} </h3>
