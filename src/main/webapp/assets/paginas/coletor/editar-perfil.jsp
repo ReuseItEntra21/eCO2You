@@ -36,8 +36,6 @@
 		    <input type="submit" value="Salvar">
 	    </form>
 	    <div>
-		    <a href="recuperar-senha" id=alterarSenha>Alterar a Senha</a>
-		    <a href="*" id=excluirConta>Excluir a Conta</a>
 		    <a href="deslogar" id=deslogar>Deslogar</a> 
 	    </div>
 	</body>
