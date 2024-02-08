@@ -294,6 +294,7 @@ public class Servlet extends HttpServlet {
 			case "/recuperar-senha":
 				mostrarRecuperarSenha(request, response);
 				break;
+				
 			default:
 				mostrarApresentacao(request, response);
 				break;
