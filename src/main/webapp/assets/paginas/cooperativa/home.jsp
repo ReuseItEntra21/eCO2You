@@ -8,33 +8,7 @@
 <style><%@include file="../../../resources/css/style.css"%></style>
 </head>
 <body>
-	<nav>
-    	<ul>
-    		<li>
-			<a href="home-cooperativa" class="dropbtn" id=home>Home</a>
-			</li>
-        </ul>
-        <ul>
-        	<li>
-			<a href="retiradasPendentes-cooperativa" class="dropbtn" id=pendentes>Pendentes</a>
-			</li>
-        </ul>
-        <ul>
-        	<li>
-            <a href="historicoRetirada-cooperativa" class="dropbtn" id=historico>Histórico</a>
-        	</li>
-        </ul>
-        <ul>
-        	<li>
-        	<input type="search" id="consulta-nome" name= lupa placeholder="Buscar Usuário por nome">
-        	</li>
-        </ul>
-        <ul>
-        	<li>
-            <a href="perfil-cooperativa" class="dropbtn" id=perfil>Perfil</a>
-            </li>
-        </ul>    
-    </nav>
+	<%@ include file="../../../assets/paginas/cooperativa/menu.jsp"%>
 	<h2>Pedidos de Requerimento Recentes</h2>
 	<input type="image" src="caminho/da/imagem.jpg" name="imagem"
 		id=imagem1>
@@ -78,24 +52,42 @@
     <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem7>
     <p>Empresa</p>
     <p>Bairro</p>
-    <a href="perfil-armazem7" class="dropbtn" id=perfil>Perfil</a>
+    <input type=text id=status1 placeholder=Status name=status>
+    <br>
+    <br>
+    <a href="perfil-armazem7" class="dropbtn" id=perfil>Ver Perfil</a>
     <br><br>
     <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem7>
     <p>Empresa</p>
     <p>Bairro</p>
-    <a href="perfil-armazem7" class="dropbtn" id=perfil>Perfil</a>
+    <input type=text id=status2 placeholder=Status name=status>
+    <br>
+    <br>
+    <a href="perfil-armazem7" class="dropbtn" id=perfil>Ver Perfil</a>
     <p>Empresa</p>
     <p>Bairro</p>
-    <a href="perfil-armazem7" class="dropbtn" id=perfil>Perfil</a>
+    <input type=text id=status3 placeholder=Status name=status>
+    <br>
+    <br>
+    <a href="perfil-armazem7" class="dropbtn" id=perfil>Ver Perfil</a>
 	<br><br>
     <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem7>
     <p>Empresa</p>
     <p>Bairro</p>
-    <a href="perfil-armazem7" class="dropbtn" id=perfil>Perfil</a>
+    <input type=text id=status4 placeholder=Status name=status>
+    <br>
+    <br>
+    <a href="perfil-armazem7" class="dropbtn" id=perfil>Ver Perfil</a>
 	<br><br>
     <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem7>
     <p>Empresa</p>
     <p>Bairro</p>
-    <a href="perfil-armazem7" class="dropbtn" id=perfil>Perfil</a>
+    <input type=text id=status5 placeholder=Status name=status>
+    <br>
+    <br>
+    <a href="perfil-armazem7" class="dropbtn" id=perfil>Ver Perfil</a>
+    <br>
+    <br>
+		<a href="cadastro-retirada" class="dropbtn" id=voltar>Fazer Retirada</a>
 </body>
 </html>
