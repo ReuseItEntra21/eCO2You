@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
- 
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.swing.text.DateFormatter;
 
 import br.senac.eco2you.modelo.dao.armazem.ArmazemDAO;
 import br.senac.eco2you.modelo.dao.armazem.ArmazemDAOImpl;
@@ -490,7 +489,20 @@ public class Servlet extends HttpServlet {
  
 	private void mostrarHomeCooperativa(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		
+		
+		HttpSession sessao = request.getSession();
+		
+		Cooperativa cooperativa = (Cooperativa) sessao.getAttribute("usuario");
+		
+		request.setAttribute("cooperativa", cooperativa);
  
+		List<Retirada> retiradas = retiradaDAO.buscarRetiradaPelaCooperativa(getServletInfo());
+		request.setAttribute("depositos", depositos);
+		
+		List<Conquista> conquistas = conquistaDAO.buscarListaConquistaPeloId(coletor.getId());
+		request.setAttribute("conquistas", conquistas);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cooperativa/home.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -523,7 +535,6 @@ public class Servlet extends HttpServlet {
 	private void mostrarCadastroDeposito(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
  
-		
 		List<Reciclavel> reciclaveis = reciclavelDAO.recuperarTodosReciclaveis();
 		List<Armazem> armazens = armazemDAO.recuperarTodosArmazens();
 		request.setAttribute("reciclaveis", reciclaveis);

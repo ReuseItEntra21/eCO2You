@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +10,47 @@
 </head>
 <body>
 	<%@ include file="../../../assets/paginas/cooperativa/menu.jsp"%>
+	
+		<div class="box">
+			<div class="flex-container">
+				<div class="flex-item">
+			        <div>
+			        	<img alt="Imagem do Usuário" src="">
+			        </div>
+			        <div>
+			        	<h3>${cooperativa.nome} ${cooperativa.cnpj} </h3>
+			        </div>
+					<div class="informacoes-box">
+						<h3> Posição </h3>
+					</div>
+					<div class="informacoes-box">
+						<h3> Pontuação </h3>
+					</div>
+				</div>
+				 <div class=flex-item>
+		        	<c:forEach var="retirada" items="${retiradas}">
+			        	<div class="deposito-box">
+			        		Status: ${deposito.statusDeDeposito}
+			        		Data: ${deposito.data}
+						</div>
+		    		</c:forEach>
+		       	</div>
+				<div class=flex-item>
+		        	<c:forEach var="conquista" items="${conquistas}">
+			        	<div class="conquista-box">
+			        		<div class="image-conquista-box">
+			        			&#127941;
+			        		</div>
+							${conquista.nome}
+						</div>
+		    		</c:forEach>
+		       	</div>
+	       	</div>
+	       	<button style="float: right;">+</button>
+		</div>
+	
+	
+	
 	<h2>Pedidos de Requerimento Recentes</h2>
 	<input type="image" src="caminho/da/imagem.jpg" name="imagem"
 		id=imagem1>
