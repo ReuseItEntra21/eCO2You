@@ -8,6 +8,8 @@ import br.senac.eco2you.modelo.enumeracao.status.retirada.StatusRetirada;
 
 public interface RetiradaDAO {
 
+	List<Retirada> recuperarRetiradas();
+	
 	void inserirRetirada(Retirada retirada);
 
 	void deletarRetirada(Retirada retirada);
