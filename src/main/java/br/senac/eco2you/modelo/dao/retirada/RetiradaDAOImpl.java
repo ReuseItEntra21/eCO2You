@@ -11,7 +11,6 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
-import br.senac.eco2you.modelo.entidade.deposito.Deposito;
 import br.senac.eco2you.modelo.entidade.retirada.Retirada;
 import br.senac.eco2you.modelo.entidade.retirada.Retirada_;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
@@ -236,6 +235,28 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 
 		return retiradas;
 
+	}
+	
+	public List<Retirada> buscarRetiradasPelaCooperativa(Cooperativa cooperativa) {
+		
+		Session sessao = null;
+		List<Retirada> retiradas = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Retirada> criteria = construtor.createQuery(Retirada.class);
+			Root<Retirada> raizRetirada = criteria.from(Retirada.class);
+
+			criteria.select(raizRetirada)
+
+					.where(construtor.equal(raizRetirada.get(Retirada_.COOPERATIVA), cooperativa));
+
+			return sessao.createQuery(criteria).getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return retiradas;
 	}
 
 	public List<Retirada> buscarRetiradaPeloArmazem(String nome) {
