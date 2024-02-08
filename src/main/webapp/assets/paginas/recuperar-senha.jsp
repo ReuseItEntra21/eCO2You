@@ -9,23 +9,21 @@
 </head>
 <body>
 	<div style="text-align: center;">
-	<h1>Recuperar Senha</h1>
+	<h1 id="recuperarSenha">Recuperar Senha</h1>
 		<form id="regForm" action="login">
 		  <div class="tab">
-		  	<p>E-mail</p>
-		    <p><input type="email" oninput="this.className = ''" name="email" id=email></p>
-		    <p>Confirme seu E-mail</p>
-		    <p><input type="email" oninput="this.className = ''" name="email" id=email></p>
+		  	<p class="senhaE-mailEcodigo">E-mail</p>
+		    <p><input type="email" placeholder="Informe o E-mail" oninput="this.className = ''" name="email" id=email class="e-mail"></p>
+		    <p><input type="email" placeholder="Confirme o E-mail" oninput="this.className = ''" name="email" id=email class="e-mail"></p>
 		  </div>
 		  <div class="tab">
-		  <p>Código que recebeu em seu E-mail</p>
-		    <p><input type="number" oninput="this.className = ''" name="codigo" id=codigo></p>
+		  <p class="senhaE-mailEcodigo">Código que recebeu em seu E-mail</p>
+		    <p><input type="number" oninput="this.className = ''" name="codigo" id=codigo class="codigo"></p>
 		  </div>
 		  <div class="tab">
-		 	 <p>Informe a nova senha</p>
-		    <p><input type="password" placeholder="Senha" oninput="this.className = ''" name="senha" id=senha></p>
-		    <p>Confirme a nova Senha</p>
-		    <p><input type="password" placeholder="Senha" oninput="this.className = ''" name="senha" id=senha></p>
+		 	 <p class="senhaE-mailEcodigo">Nova senha</p>
+		    <p><input type="password" placeholder="Senha" oninput="this.className = ''" name="senha" id=senha class="senha"></p>
+		    <p><input type="password" placeholder="Senha" oninput="this.className = ''" name="senha" id=senha class="senha"></p>
 		  </div>
 		  <div style="text-align:center;">
 		    <span class="step"></span>
