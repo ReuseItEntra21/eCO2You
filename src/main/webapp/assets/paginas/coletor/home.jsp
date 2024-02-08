@@ -6,33 +6,49 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Home</title>
-		<style><%@include file="../../../resources/css/style.css"%></style>
+		<style><%@include file="../../../resources/css/coletor/home.css"%></style>
 	</head>
 	<body>
-	<header>
-		<nav class="flex-container">
-			<a class="flex-item" href="home-coletor"id=home>Home</a>
-			<a class="flex-item" href="depositosPendentes-coletor" id=pendentes>Pendentes</a>
-	        <a class="flex-item" href="historicoDepositos-coletor" id=historico>Histórico</a>
-	        <a class="flex-item" href="ranking-coletor" id=ranking>Ranking</a>
-	       	<input class="flex-item" type="search" id="consulta-nome" placeholder="Buscar Usuário">
-	        <a class="flex-item" href="perfil-coletor" class="dropbtn" id=perfil>Olá ${usuario.nome}</a>
-    	</nav>	
-	</header>
-        <h2>Conquistas Recentes </h2>
-        
-        <c:forEach var="deposito" items="${depositos}">
-        			<h3>Armazem:</h3>
-        			<p>${deposito.armazem}</p>
-        			<br>
-        			<h3>Data:</h3>
-        			<p>${deposito.data}</p>
-        			<br>
-        			<h3>Reciclavel:</h3>
-        			<p>${deposito.reciclavel}</p>
-        			<br>
-        			<h3>Quantidade do Reciclavel:</h3>
-        			<p>${deposito.quantidadeReciclaveis}</p>
-    	</c:forEach>
+		<%@ include file="../../../assets/paginas/coletor/menu.jsp"%>
+		<div class="box">
+			<div class="flex-container">
+				<div class="flex-item">
+			        <div>
+			        	<img alt="Imagem do Usuário" src="">
+			        </div>
+			        <div>
+			        	<h3>${coletor.nome} ${coletor.sobrenome}</h3>
+			        </div>
+					<div class="informacoes-box">
+						<h3># ${coletor.id} </h3>
+					</div>
+					<div class="informacoes-box">
+						<h3> Posição </h3>
+					</div>
+					<div class="informacoes-box">
+						<h3> Pontuação </h3>
+					</div>
+				</div>
+				 <div class=flex-item>
+		        	<c:forEach var="conquista" items="${conquistas}">
+			        	<div class="image-conquista-box">
+							&#127941;
+							${conquista.nome}
+						</div>
+		    		</c:forEach>
+		       	</div>
+				<div class=flex-item>
+		        	<c:forEach var="conquista" items="${conquistas}">
+			        	<div class="conquista-box">
+			        		<div class="image-conquista-box">
+			        			&#127941;
+			        		</div>
+							${conquista.nome}
+						</div>
+		    		</c:forEach>
+		       	</div>
+	       	</div>
+	       	<button style="float: right;">+</button>
+		</div>
 	</body>
 </html>
