@@ -87,8 +87,8 @@ public class Servlet extends HttpServlet {
  
 			switch (action) {
  
-			case "/apresentacao":
-				mostrarApresentacao(request, response);
+			case "/landing-page":
+				mostrarLandingPage(request, response);
 				break;
  
 			case "/login":
@@ -295,7 +295,7 @@ public class Servlet extends HttpServlet {
 				break;
 				
 			default:
-				mostrarApresentacao(request, response);
+				mostrarLandingPage(request, response);
 				break;
 			}
  
@@ -312,10 +312,10 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
  
-	private void mostrarApresentacao(HttpServletRequest request, HttpServletResponse response)
+	private void mostrarLandingPage(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
  
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/apresentacao.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/landing-page.jsp");
 		dispatcher.forward(request, response);
 	}
  
@@ -616,7 +616,7 @@ public class Servlet extends HttpServlet {
 	  
 	  HttpSession sessao = request.getSession();
 	  sessao.invalidate();
-	  response.sendRedirect("/eCO2You/apresentacao");
+	  response.sendRedirect("/eCO2You/landing-page");
   }
 
 	private void inserirColetor(HttpServletRequest request, HttpServletResponse response)
@@ -860,7 +860,7 @@ public class Servlet extends HttpServlet {
 		float volume = Float.parseFloat(request.getParameter("volume"));
 		String instrucaoReciclavel = request.getParameter("instrucao-reciclavel");
 		reciclavelDAO.inserirReciclavel(new Reciclavel(nome, material, pontosCarbono, peso, volume, instrucaoReciclavel));
-		response.sendRedirect("apresentacao");
+		response.sendRedirect("landing-page");
 	}
  
 	private void atualizarReciclavel(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
@@ -945,6 +945,6 @@ public class Servlet extends HttpServlet {
 		int pontos = Integer.parseInt(request.getParameter("pontos"));
 		String descricao = request.getParameter("descricao");
 		conquistaDAO.inserirConquista(new Conquista(nome, pontos, descricao));
-		response.sendRedirect("apresentacao");
+		response.sendRedirect("landing-page");
 	}
 }
