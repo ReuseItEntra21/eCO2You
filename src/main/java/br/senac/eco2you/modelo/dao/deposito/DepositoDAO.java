@@ -29,10 +29,10 @@ public interface DepositoDAO {
  
     List<Deposito> buscarDepositoPeloArmazemEColetor(String nomeDoArmazem, String nomeDoColetor);
 
-	List<Deposito> buscarDepositoPeloArmazemEColetorEStatus(String nomeDoArmazem, String nomeDoColetor, StatusDeposito status);
+	  List<Deposito> buscarDepositoPeloArmazemEColetorEStatus(String nomeDoArmazem, String nomeDoColetor, StatusDeposito status);
 
-	List<Deposito> buscarDepositoPeloArmazemEColetorEData(String nomeDoColetor, String nomeDoArmazem, LocalDate data);
-    
+	  List<Deposito> buscarDepositoPeloArmazemEColetorEData(String nomeDoColetor, String nomeDoArmazem, LocalDate data);
+  
     List<Deposito> buscarDepositoPeloColetor(Coletor coletor);
     
     List<Deposito> buscarDepositoPeloColetorEArmazem(String nomeDoColetor, String nomeDoArmazem);

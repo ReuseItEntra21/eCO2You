@@ -346,6 +346,14 @@ public class Servlet extends HttpServlet {
  
 	private void mostrarHistoricoDepositosColetor(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		
+		HttpSession sessao = request.getSession();
+		
+		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
+		request.setAttribute("coletor", coletor);
+ 
+		List<Deposito> depositos = depositoDAO.recuperarDepositos();
+		request.setAttribute("depositos", depositos);
  
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/historico-depositos.jsp");
 		dispatcher.forward(request, response);
