@@ -10,7 +10,7 @@
 			<img alt="Histórico de Retiradas" src="">
 		</a>
 		<a class="flex-item" href="cadastro-retirada" id=cadastro-retirada>
-			<img alt="Cadastrar Retirada" src="">
+			<img alt="Nova Retirada" src="">
 		</a>
 		<a class="flex-item" href="editar-perfil-cooperativa" id=cadastro-retirada>
 			<img alt="Editar Perfil" src="">

@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,35 +10,40 @@
 </head>
 <body>
 	<%@ include file="../../../assets/paginas/armazem/menu.jsp"%>
-	<h2>Depósitos Agendados</h2>
-	<input type="image" src="caminho/da/imagem.jpg" name="imagem"
-		id=imagem1> 2x latinhas de 220ml
-	<br>
-	<input type="date" id="data1" name="dataDeposito">
-	<br>
-	<input type="text" placeholder="Coletor" name="coletor" id=coletor1>
-	<br>
-	<input type="image" src="caminho/da/imagem.jpg" name="imagem"
-		id=imagem2> 2x latinhas de 220ml
-	<br>
-	<input type="date" id="data2" name="dataDeposito">
-	<br>
-	<input type="text" placeholder="Coletor" name="coletor" id=coletor2>
-	<br>
-	<h2>Depósitos à Serem Aceitos</h2>
-	<input type="image" src="caminho/da/imagem.jpg" name="imagem"
-		id=imagem3> 2x latinhas de 220ml
-	<br>
-	<input type="date" id="data3" name="dataDeposito">
-	<br>
-	<input type="text" placeholder="Coletor" name="coletor" id=coletor3>
-    <br>
-	<input type="image" src="caminho/da/imagem.jpg" name="imagem"
-		id=imagem4> 2x latinhas de 220ml
-	<br>
-	<input type="date" id="data4" name="dataDeposito">
-	<br>
-	<input type="text" placeholder="Coletor" name="coletor" id=coletor4>
-	<br>
+	<div class="box">
+			<div class="flex-container">
+				<div class="flex-item">
+			        <div>
+			        	<img alt="Imagem do Usuário" src="">
+			        </div>
+			        <div>
+			        	<h3>Nome: ${armazem.nome} #CNPJ ${armazem.cnpj} </h3>
+			        </div>
+					<div class="informacoes-box">
+						<h3> Posição </h3>
+					</div>
+					<div class="informacoes-box">
+						<h3> Pontuação </h3>
+					</div>
+				</div>
+				 <div class=flex-item>
+		        	<c:forEach var="retirada" items="${retiradas}">
+			        	<div class="deposito-box">
+			        		Status: ${retirada.statusDeRetirada}
+			        		Data: ${retirada.data}
+						</div>
+		    		</c:forEach>
+		       	</div>
+		       	<div class=flex-item>
+		        	<c:forEach var="deposito" items="${depositos}">
+			        	<div class="deposito-box">
+			        		Status: ${deposito.statusDeDeposito}
+			        		Data: ${deposito.data}
+						</div>
+		    		</c:forEach>
+		       	</div>
+	       	</div>
+	       	<button style="float: right;">+</button>
+		</div>
 </body>
 </html>
