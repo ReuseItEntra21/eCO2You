@@ -5,11 +5,11 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Histórico</title>
+		<title>Histórico Retirada</title>
 		<style><%@include file="../../../resources/css/style.css"%></style>
 	</head>
 	<body>
-    	<a href="home-coletor" class="dropbtn" id=voltar>Voltar</a>
+    	<a href="home-cooperativa" class="dropbtn" id=voltar>Voltar</a>
     	<table border="1" style="width: 99vw;">
 			<thead>
 				<tr>
@@ -18,10 +18,10 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="deposito" items="${depositos}">
+				<c:forEach var="retirada" items="${retirada}">
 					<tr>
-						<td>${deposito.data}</td>
-						<td>${deposito.armazem.nome}</td>
+						<td>${retirada.data}</td>
+						<td>${retirada.armazem.nome}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
