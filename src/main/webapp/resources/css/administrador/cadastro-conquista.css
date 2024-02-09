@@ -1,0 +1,42 @@
+*{
+    background-color: #fefefe;
+    color: #0d0d0d;
+}
+#voltar {
+    border: none;
+
+}
+#h1Titulo{
+    font-size: 60px;
+    text-align: center;
+    margin: 0;
+}
+h2{
+    font-size: 20px;
+}
+.nomeIpontosIdescricao{
+    width: 20vw;
+    height: 5vh;
+    border-radius: 12px;
+    border: 1px solid #0d0d0d;
+    font-size: 16px;
+    margin: 0 auto;
+    display: block;
+}
+#cadastrar{
+    background-color: #0d0d0d;
+    color: #fefefe;
+    width: 10vw;
+    height: 5vh;
+    margin: 0 auto;
+    display: block;
+}
+::placeholder{
+    color: #0d0d0d;
+    font-size: 16px;
+    padding-left: 10px;
+}
+.h2InDiv{
+    text-align: center;
+    margin-left: -130px;
+}
