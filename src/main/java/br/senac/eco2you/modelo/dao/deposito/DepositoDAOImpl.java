@@ -13,6 +13,7 @@ import org.hibernate.Session;
 
 import br.senac.eco2you.modelo.entidade.deposito.Deposito;
 import br.senac.eco2you.modelo.entidade.deposito.Deposito_;
+import br.senac.eco2you.modelo.entidade.usuario.Usuario_;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem_;
 import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
@@ -232,6 +233,42 @@ public class DepositoDAOImpl implements DepositoDAO {
 
 		return depositos;
 
+	}
+	
+	public Deposito buscarDepositoPeloId(Long id) {
+
+		Session sessao = null;
+		Deposito deposito = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Deposito> criteria = construtor.createQuery(Deposito.class);
+			Root<Deposito> raizUsuario = criteria.from(Deposito.class);
+
+			criteria.select(raizUsuario).where(construtor.equal(raizUsuario.get(Usuario_.ID), id));
+
+			deposito = sessao.createQuery(criteria).getSingleResult();
+
+			return deposito;
+
+		} catch (Exception sqlException) {
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return deposito;
+		
 	}
 
 	public List<Deposito> buscarDepositoPeloArmazem(String nome) {

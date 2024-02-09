@@ -147,6 +147,10 @@ public class Servlet extends HttpServlet {
 				mostrarDepositosAgendadosArmazem(request, response);
 				break;	
 				
+			case "/informacoes-deposito":
+				mostrarInformacoesDeposito(request, response);
+				break;
+				
 			case "/retiradasAgendadas-armazem":
 				mostrarRetiradasAgendadasArmazem(request, response);
 				break;		
@@ -349,6 +353,20 @@ public class Servlet extends HttpServlet {
  
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/historico-depositos.jsp");
 		dispatcher.forward(request, response);
+	}
+	
+	private void mostrarInformacoesDeposito(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+ 
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/informacoes-deposito.jsp");
+		dispatcher.forward(request, response);
+		
+		
+		
+		
+		
+		
+		
 	}
 	
 	private void mostrarHistoricoDepositosArmazem(HttpServletRequest request, HttpServletResponse response)
@@ -631,11 +649,7 @@ public class Servlet extends HttpServlet {
 		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento, telefone);
 		usuarioDAO.inserirUsuario(new Coletor(nome, sobrenome, cpf, dataNascimento, email, senha, endereco));
 		
-		HttpSession sessao = request.getSession();
-		Usuario usuario = usuarioDAO.buscarUsuarioPorEmailESenha(email, senha);
-		sessao.setAttribute("usuario", usuario);
-		
-		response.sendRedirect("/eCO2You/home-coletor");
+		response.sendRedirect("/eCO2You/login");
 		
 	}
  
@@ -701,11 +715,7 @@ public class Servlet extends HttpServlet {
 		usuarioDAO.inserirUsuario(new Armazem(nome, cnpj, email, senha, capacidadeArmazenagem, horarioAbertura,
 				horarioFechamento, endereco));
 		
-		HttpSession sessao = request.getSession();
-		Usuario usuario = usuarioDAO.buscarUsuarioPorEmailESenha(email, senha);
-		sessao.setAttribute("usuario", usuario);
-		
-		response.sendRedirect("/eCO2You/home-armazem");
+		response.sendRedirect("/eCO2You/login");
 	}
  
 	private void atualizarArmazem(HttpServletRequest request, HttpServletResponse response)
@@ -769,11 +779,7 @@ public class Servlet extends HttpServlet {
 		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento, telefone);
 		usuarioDAO.inserirUsuario(new Cooperativa(nome, cnpj, horarioAbertura, horarioFechamento, endereco, email, senha));
 		
-		HttpSession sessao = request.getSession();
-		Usuario usuario = usuarioDAO.buscarUsuarioPorEmailESenha(email, senha);
-		sessao.setAttribute("usuario", usuario);
-		
-		response.sendRedirect("/eCO2You/home-cooperativa");
+		response.sendRedirect("/eCO2You/login");
 	}
  
 	private void atualizarCooperativa(HttpServletRequest request, HttpServletResponse response)
