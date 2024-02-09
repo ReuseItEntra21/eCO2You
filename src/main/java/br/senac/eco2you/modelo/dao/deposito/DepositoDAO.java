@@ -29,8 +29,6 @@ public interface DepositoDAO {
 
 	List<Deposito> buscarDepositoPeloArmazemEColetorEData(String nomeDoColetor, String nomeDoArmazem, LocalDate data);
     
-    List<Deposito> buscarDepositoPeloColetor(String nomeDoColetor);
-    
     List<Deposito> buscarDepositoPeloColetorEArmazem(String nomeDoColetor, String nomeDoArmazem);
  
     List<Deposito> buscarDepositoPeloColetorEArmazemEStatus(String nomeDoColetor, String nomeDoArmazem, StatusDeposito status);
