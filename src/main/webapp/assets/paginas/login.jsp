@@ -9,7 +9,7 @@
 		<body>
 		<div>
 			<div style="float:left">
-			<a href="apresenteacao" class="dropbtn" id=voltar>Voltar</a>
+			<a href="landing-page" class="dropbtn" id=voltar>Voltar</a>
 			<h1 id="login">Login</h1>
 				<form action="logar" method="post">
 					<input type="email" id="email" name="email" placeholder="E-mail" maxlength="25" class="e-mailEsenha">
