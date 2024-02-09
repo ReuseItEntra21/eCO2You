@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
- 
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
- 
+
 import br.senac.eco2you.modelo.dao.armazem.ArmazemDAO;
 import br.senac.eco2you.modelo.dao.armazem.ArmazemDAOImpl;
 import br.senac.eco2you.modelo.dao.conquista.ConquistaDAO;
@@ -293,6 +293,7 @@ public class Servlet extends HttpServlet {
 			case "/recuperar-senha":
 				mostrarRecuperarSenha(request, response);
 				break;
+				
 			default:
 				mostrarApresentacao(request, response);
 				break;
@@ -333,7 +334,7 @@ public class Servlet extends HttpServlet {
 		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
 		request.setAttribute("coletor", coletor);
  
-		List<Deposito> depositos = depositoDAO.recuperarDepositos();
+		List<Deposito> depositos = depositoDAO.buscarDepositoPeloColetor(coletor);
 		request.setAttribute("depositos", depositos);
 		
 		List<Conquista> conquistas = conquistaDAO.buscarListaConquistaPeloId(coletor.getId());
@@ -482,6 +483,17 @@ public class Servlet extends HttpServlet {
 	private void mostrarHomeArmazem(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
  
+		HttpSession sessao = request.getSession();
+		
+		Armazem armazem = (Armazem) sessao.getAttribute("usuario");
+		request.setAttribute("armazem", armazem);
+		
+		List<Deposito> depositos = depositoDAO.buscarDepositoPeloArmazem(armazem);
+		request.setAttribute("depositos", depositos);
+ 
+		List<Retirada> retiradas = retiradaDAO.buscarRetiradasPeloArmazem(armazem);
+		request.setAttribute("retiradas", retiradas);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/home.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -495,7 +507,16 @@ public class Servlet extends HttpServlet {
  
 	private void mostrarHomeCooperativa(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		
+		HttpSession sessao = request.getSession();
+		
+		Cooperativa cooperativa = (Cooperativa) sessao.getAttribute("usuario");
+		
+		request.setAttribute("cooperativa", cooperativa);
  
+		List<Retirada> retiradas = retiradaDAO.buscarRetiradasPelaCooperativa(cooperativa);
+		request.setAttribute("retiradas", retiradas);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cooperativa/home.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -617,7 +638,13 @@ public class Servlet extends HttpServlet {
 		String senha = request.getParameter("senha");
 		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento, telefone);
 		usuarioDAO.inserirUsuario(new Coletor(nome, sobrenome, cpf, dataNascimento, email, senha, endereco));
+		
+		HttpSession sessao = request.getSession();
+		Usuario usuario = usuarioDAO.buscarUsuarioPorEmailESenha(email, senha);
+		sessao.setAttribute("usuario", usuario);
+		
 		response.sendRedirect("/eCO2You/home-coletor");
+		
 	}
  
 	private void atualizarColetor(HttpServletRequest request, HttpServletResponse response)
@@ -681,6 +708,11 @@ public class Servlet extends HttpServlet {
 				telefone);
 		usuarioDAO.inserirUsuario(new Armazem(nome, cnpj, email, senha, capacidadeArmazenagem, horarioAbertura,
 				horarioFechamento, endereco));
+		
+		HttpSession sessao = request.getSession();
+		Usuario usuario = usuarioDAO.buscarUsuarioPorEmailESenha(email, senha);
+		sessao.setAttribute("usuario", usuario);
+		
 		response.sendRedirect("/eCO2You/home-armazem");
 	}
  
@@ -744,6 +776,11 @@ public class Servlet extends HttpServlet {
 		String telefone = request.getParameter("telefone");
 		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento, telefone);
 		usuarioDAO.inserirUsuario(new Cooperativa(nome, cnpj, horarioAbertura, horarioFechamento, endereco, email, senha));
+		
+		HttpSession sessao = request.getSession();
+		Usuario usuario = usuarioDAO.buscarUsuarioPorEmailESenha(email, senha);
+		sessao.setAttribute("usuario", usuario);
+		
 		response.sendRedirect("/eCO2You/home-cooperativa");
 	}
  
@@ -851,7 +888,7 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 		
 		Armazem armazem = armazemDAO.recuperarArmazemPorId(Long.parseLong(request.getParameter("armazem")));
-		Coletor coletor =  (Coletor) request.getSession().getAttribute("coletor");
+		Coletor coletor =  (Coletor) request.getSession().getAttribute("usuario");
 		LocalDate data = LocalDate.parse(request.getParameter("data"));	
 		depositoDAO.inserirDeposito(new Deposito(data, armazem, coletor));
  
@@ -888,17 +925,16 @@ public class Servlet extends HttpServlet {
  
 	private void inserirRetirada(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		
 		LocalDate data = LocalDate.parse(request.getParameter("data"));
-		Cooperativa cooperativa = new Cooperativa("Saturno Ambiental", "44.511.898/0001-38", LocalTime.of(8, 0),
-				LocalTime.of(21, 0), " ", "saturno.ambiental@gmail.com", "123456");
-		usuarioDAO.inserirUsuario(cooperativa);
+		Cooperativa cooperativa = (Cooperativa) request.getSession().getAttribute("usuario");
 		Armazem armazem = armazemDAO.recuperarArmazemPorId(Long.parseLong(request.getParameter("armazem")));;
 		retiradaDAO.inserirRetirada(new Retirada(data, cooperativa, armazem));
  
 		Material material = materialDAO.recuperarMaterialPorId(Long.parseLong(request.getParameter("material")));
 		float peso = Float.parseFloat(request.getParameter("peso"));
 		itemRetiradaDAO.inserirItemRetirada(new ItemRetirada(material, peso));
-		response.sendRedirect("/eCO2You/apresentacao");
+		response.sendRedirect("/eCO2You/home-cooperativa");
  
 	}
  

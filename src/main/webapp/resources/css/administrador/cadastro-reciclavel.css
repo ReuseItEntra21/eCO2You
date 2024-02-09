@@ -1,0 +1,61 @@
+*{
+    background-color: #fefefe;
+    color: #0d0d0d;
+}
+#titulo01{
+    text-align: center;
+}
+#voltar{
+    border: none;
+    text-align: left;
+}
+.recursosReciclavel{
+    height: 5vh;
+    width: 16vw;
+    border-radius: 12px;
+    border: 1px solid #0d0d0d;
+    padding-left: 10px;
+}
+::placeholder{
+    font-size: 16px;
+    color: #0d0d0d;
+}
+#nome{
+    margin-left: 450px;
+    margin-right: 50px;
+    margin-top: 50px;
+}
+
+#material{
+    margin-left: 450px;
+    margin-right: 50px;
+    height: 5.3vh;
+    width: 16.9vw;
+    border-radius: 12px;
+    border: 1px solid #0d0d0d;
+    padding-left: 10px;
+}
+#pontos-carbono{
+    margin-left: 450px;
+    margin-right: 50px;
+}
+#peso{
+    margin-right: auto;
+    margin-top: 50px;
+
+}
+#volume{
+    margin-left: auto;
+}
+#instrucao-reciclavel{
+    margin-right: auto;
+}
+#cadastrar{
+    background-color: #0d0d0d;
+    color: #fefefe;
+    width: 20vh;
+    height: 5vh;
+    font-size: 14px;
+    text-align: center;
+    margin-left: 655px;
+}
