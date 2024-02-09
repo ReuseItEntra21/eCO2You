@@ -285,6 +285,29 @@ public class DepositoDAOImpl implements DepositoDAO {
 		return depositos;
 
 	}
+	
+	public List<Deposito> buscarDepositoPeloArmazem(Armazem armazem) {
+		
+		Session sessao = null;
+		List<Deposito> depositos = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Deposito> criteria = construtor.createQuery(Deposito.class);
+			Root<Deposito> raizDeposito = criteria.from(Deposito.class);
+
+			criteria.select(raizDeposito)
+
+					.where(construtor.equal(raizDeposito.get(Deposito_.ARMAZEM), armazem));
+
+			return sessao.createQuery(criteria).getResultList();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return depositos;
+	}
 
 	public List<Deposito> buscarDepositoPeloArmazemEColetor(String nomeDoArmazem, String nomeDoColetor) {
 

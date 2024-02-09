@@ -332,7 +332,6 @@ public class Servlet extends HttpServlet {
 		HttpSession sessao = request.getSession();
 		
 		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
-		
 		request.setAttribute("coletor", coletor);
  
 		List<Deposito> depositos = depositoDAO.buscarDepositoPeloColetor(coletor);
@@ -476,6 +475,17 @@ public class Servlet extends HttpServlet {
 	private void mostrarHomeArmazem(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
  
+		HttpSession sessao = request.getSession();
+		
+		Armazem armazem = (Armazem) sessao.getAttribute("usuario");
+		request.setAttribute("armazem", armazem);
+		
+		List<Deposito> depositos = depositoDAO.buscarDepositoPeloArmazem(armazem);
+		request.setAttribute("depositos", depositos);
+ 
+		List<Retirada> retiradas = retiradaDAO.buscarRetiradasPeloArmazem(armazem);
+		request.setAttribute("retiradas", retiradas);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/home.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -489,7 +499,6 @@ public class Servlet extends HttpServlet {
  
 	private void mostrarHomeCooperativa(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		
 		
 		HttpSession sessao = request.getSession();
 		

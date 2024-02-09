@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import br.senac.eco2you.modelo.entidade.deposito.Deposito;
+import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
 import br.senac.eco2you.modelo.enumeracao.status.deposito.StatusDeposito;
 
@@ -23,6 +24,8 @@ public interface DepositoDAO {
     List<Deposito> buscarDepositoPelaData(LocalDate data);
  
     List<Deposito> buscarDepositoPeloArmazem(String nome);
+    
+    List<Deposito> buscarDepositoPeloArmazem(Armazem armazem);
  
     List<Deposito> buscarDepositoPeloArmazemEColetor(String nomeDoArmazem, String nomeDoColetor);
 
