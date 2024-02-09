@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div style="float: left">
-    <a href="login" name="voltar" id=voltar>Voltar</a>
+    <a href="apresentacao" name="voltar" id=voltar>Voltar</a>
 		<h2 class="Cadastro-coletor-Font50">Faça parte dessa mudança!</h2>
 		<p id="Cadastro-coletor-apresentacao">
             Conecte-se a uma comunidade <br>
