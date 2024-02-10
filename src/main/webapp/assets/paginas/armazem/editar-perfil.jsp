@@ -40,22 +40,5 @@
 		    <br>
 		    <input type="submit" value="Salvar" id="salvar">
 	    </form>
-            <br>
-	    	<br>
-	        <h1> Horario de Funcionamento </h1>
-	        <br>
-            <div>
-				<input type="text" placeholder="Dia da Semana 1" id=dia1 name=dia>
-				<p>A</p>
-				<input type="text" placeholder="Dia da Semana 2" id=dia2 name=dia>
-			</div>
-            <br>
-            <div>
-				<input type="text" placeholder="Horario 1" id=horario1 name=horario>
-				<p> Às </p>
-				<input type="text" placeholder="Horario 2" id=horario2 name=horario>
-			</div>
-            <br>
-	        <input type="submit" value="Salvar Alterações" name="salvar" id=salvar>
     </body>
 </html>
