@@ -18,6 +18,10 @@
             <br>
             <h2>Coletor</h2>
 			<br>	
+			<h2>reciclavel</h2>
+			<br>
+			<h2>Quantidade do Reciclável</h2>
+			<br>
 		</form>
 	</body>
 </html>

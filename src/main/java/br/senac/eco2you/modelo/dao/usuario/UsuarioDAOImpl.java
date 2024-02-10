@@ -17,7 +17,6 @@ import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
 public class UsuarioDAOImpl implements UsuarioDAO {
 	
 	private ConexaoFactory fabrica;
-	private Usuario usuario;
 
 	public UsuarioDAOImpl() {
 		fabrica = new ConexaoFactory();
@@ -141,7 +140,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	public Usuario buscarUsuarioPorEmailESenha(String email, String senha) {
 
 		Session sessao = null;
-		usuario = null;
+		Usuario usuario = null;
 
 		try {
 			sessao = fabrica.getConexao().openSession();
@@ -160,7 +159,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 			criteria.where(predicateUsuarioLogin);
 
-			Usuario usuario = sessao.createQuery(criteria).getSingleResult();
+			 usuario = sessao.createQuery(criteria).getSingleResult();
 
 			return usuario;
 
@@ -183,7 +182,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	public Usuario recuperarUsuarioPorEmail(String email) {
 		
 		Session sessao = null;
-		usuario = null;
+		Usuario usuario = null;
 
 		try {
 			sessao = fabrica.getConexao().openSession();
@@ -195,7 +194,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 			criteria.select(raizUsuario).where(construtor.equal(raizUsuario.get(Usuario_.EMAIL), email));
 
-			Usuario usuario = sessao.createQuery(criteria).getSingleResult();
+			usuario = sessao.createQuery(criteria).getSingleResult();
 
 			return usuario;
 
@@ -219,7 +218,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	public Usuario recuperarUsuarioPorId(Long id) {
 		
 		Session sessao = null;
-		usuario = null;
+		Usuario usuario = null;
 
 		try {
 			sessao = fabrica.getConexao().openSession();
@@ -231,7 +230,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 			criteria.select(raizUsuario).where(construtor.equal(raizUsuario.get(Usuario_.ID), id));
 
-			Usuario usuario = sessao.createQuery(criteria).getSingleResult();
+			usuario = sessao.createQuery(criteria).getSingleResult();
 
 			return usuario;
 

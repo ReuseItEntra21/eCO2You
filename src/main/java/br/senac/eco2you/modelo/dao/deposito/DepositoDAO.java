@@ -22,6 +22,8 @@ public interface DepositoDAO {
     List<Deposito> buscarDepositoPeloStatusDeposito(StatusDeposito statusDeDeposito);
  
     List<Deposito> buscarDepositoPelaData(LocalDate data);
+    
+    Deposito buscarDepositoPeloId(Long id);
  
     List<Deposito> buscarDepositoPeloArmazem(String nome);
     
