@@ -5,22 +5,17 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>eCO2You</title>
-		<style><%@include file="../../resources/css/apresentacao.css"%></style>
+		<style><%@include file="../../resources/css/landing-page.css"%></style>
 	</head>
 	<body>
-		<nav>
-		<a href="#">Coletas</a>
-		<a href="#">Ranking</a>
-		<a href="#">Cadastra-se</a>
-		<a href="#">Entrar</a>
-	</nav>
-	<h1>CONECTANDO DOADORES COM PONTOS DE COLETA.</h1>
-	<p>Transfommando sua contribuição em impacto sustentável.</p>
-	<input type="submit" value="Seja um coletor" id="serColetor">
-	<input type="submit" value="Pontos de coleta" id="pontosColeta">
-	<h2>Descubra uma nova maneira de fazer a diferença no mundo. Na Eco2You, estamos unindo comunidades em prol da sustentabilidade. Conectamos pessoas que desejam contribuir com materiais recicláveis a armazéns comprometidos com o meio ambiente. Nosso objetivo é criar um impacto positivo e duradouro em nosso planeta.</h2>
-	<h3>Sobre os coletores</h3>
-	<div class="flex-container">
+		<%@ include file="../../../assets/paginas/menu.jsp"%>
+		<h1>CONECTANDO DOADORES COM PONTOS DE COLETA.</h1>
+		<p>Transfommando sua contribuição em impacto sustentável.</p>
+		<input type="submit" value="Seja um coletor" id="serColetor">
+		<input type="submit" value="Pontos de coleta" id="pontosColeta">
+		<h2>Descubra uma nova maneira de fazer a diferença no mundo. Na Eco2You, estamos unindo comunidades em prol da sustentabilidade. Conectamos pessoas que desejam contribuir com materiais recicláveis a armazéns comprometidos com o meio ambiente. Nosso objetivo é criar um impacto positivo e duradouro em nosso planeta.</h2>
+		<h3>Sobre os coletores</h3>
+		<div class="flex-container">
         	<div class="flex-item">
 	        	<h3> Coletor </h3>
 		        Os coletores são os usuários comuns,
@@ -67,7 +62,24 @@
 	<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci autem a esse consectetur laboriosam illum iure eum temporibus quis sed? Itaque odit magni aliquam perferendis, accusamus soluta non sint dolorum.</p>
 	<br>
 	<footer>
-		
-	</footer>
+			<table>
+		  		<tr>
+		  			<td><a href="/sobre-nos">Sobre Nós</a></td>
+		  			<td><a href="/suporte">Suporte</a></td>
+		  			<td><a href="/contato">Redes Socias</a></td>
+		  		</tr>
+		  		<tr>
+		  			<td><a href="/suporte">Empresa</a></td>
+		  			<td><a href="/suporte">eCO2you@contato.com</a></td>
+		  			<td><a href="/suporte">Github</a></td>
+		  		</tr>
+		  		<tr>
+		  			<td><a href="/contato">Objetivo</a></td>
+		  			<td><a href="/suporte">Termos de Uso</a></td>
+		  			<td><a href="/suporte">Linkedin</a></td>
+		  		</tr>
+				</table>
+	        <p>&copy; 2024 eCO2you. Todos os direitos reservados.</p>
+		</footer>
 	</body>
 </html>
