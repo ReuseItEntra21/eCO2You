@@ -6,62 +6,62 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>eCO2You</title>
 		<style><%@include file="../../resources/css/landing-page.css"%></style>
+		<style><%@include file="../../resources/css/menu.css"%></style>
 	</head>
 	<body>
 		<%@ include file="../../../assets/paginas/menu.jsp"%>
-		<h1>CONECTANDO DOADORES COM PONTOS DE COLETA.</h1>
-		<p>Transfommando sua contribuição em impacto sustentável.</p>
-		<input type="submit" value="Seja um coletor" id="serColetor">
-		<input type="submit" value="Pontos de coleta" id="pontosColeta">
-		<h2>Descubra uma nova maneira de fazer a diferença no mundo. Na Eco2You, estamos unindo comunidades em prol da sustentabilidade. Conectamos pessoas que desejam contribuir com materiais recicláveis a armazéns comprometidos com o meio ambiente. Nosso objetivo é criar um impacto positivo e duradouro em nosso planeta.</h2>
-		<h3>Sobre os coletores</h3>
-		<div class="flex-container">
-        	<div class="flex-item">
+		<div class="box">
+			<h2>CONECTANDO DOADORES COM PONTOS DE COLETA.</h2 >
+			<p>Transfommando sua contribuição em impacto sustentável.</p>
+			<a href="<%=request.getContextPath()%>/cadastro-coletor">Ser um Coletor</a>
+			<a href="<%=request.getContextPath()%>/cadastro-coletor">Ser um Coletor</a>
+			<img alt="Imagem" src="">
+		</div>
+		<p>Descubra uma nova maneira de fazer a diferença no mundo. Na Eco2You, estamos unindo comunidades em prol da sustentabilidade. Conectamos pessoas que desejam contribuir com materiais recicláveis a armazéns comprometidos com o meio ambiente. Nosso objetivo é criar um impacto positivo e duradouro em nosso planeta.</p>
+		<h2>Venha reciclar com a Gente</h2>
+		<div class="container-usuarios">
+        	<div class="item-usuarios">
+        		<img alt="Imagem Coletor" src="">
 	        	<h3> Coletor </h3>
 		        Os coletores são os usuários comuns,
 		        pessoas que recolhem e
 		        guardam os recicláveis,
 		        depois enviam para os armazéns.
-		        <div class="usuarios-button">
-		        	<a href="<%=request.getContextPath()%>/cadastro-coletor">Ser um Coletor</a>
-		        </div>
+		        <a href="<%=request.getContextPath()%>/cadastro-coletor">Ser um Coletor</a>
 	        </div>
-	        <div class="flex-item">
+	        <div class="item-usuarios">
+	        	<img alt="Imagem Armazém" src="">
 		        <h3> Armazém </h3>
 			    Os armazéns são as empresas,
 			    que se dispõem a armazenar
 			    os recicláveis coletados.
-			    <div class="usuarios-button">
 			    <a href="<%=request.getContextPath()%>/cadastro-armazem">Ser um Armazém</a>
-			    </div>
 	        </div>
-	        <div class="flex-item">
+	        <div class="item-usuarios">
+	        	<img alt="Imagem Cooperativa" src="">
 		        <h3>Cooperativa</h3>
 				    As cooperativas são as empresas,
 				    que retiram o material armazenado,
 				    e então realiza a reciclágem.
-				<div class="usuarios-button">
 				<a href="<%=request.getContextPath()%>/cadastro-cooperativa">Ser uma Cooperativa</a>
 			</div>
-		</div>
-    </div>
-	<h2>PERGUNTAS FREQUENTES</h2>
-	<p>Qual seria o sistema de classificação?</p>
-	<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci autem a esse consectetur laboriosam illum iure eum temporibus quis sed? Itaque odit magni aliquam perferendis, accusamus soluta non sint dolorum.</p>
-	<br>
-	<p>Qual seria o sistema de classificação?</p>
-	<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci autem a esse consectetur laboriosam illum iure eum temporibus quis sed? Itaque odit magni aliquam perferendis, accusamus soluta non sint dolorum.</p>
-	<br>
-	<p>Qual seria o sistema de classificação?</p>
-	<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci autem a esse consectetur laboriosam illum iure eum temporibus quis sed? Itaque odit magni aliquam perferendis, accusamus soluta non sint dolorum.</p>
-	<br>
-	<p>Qual seria o sistema de classificação?</p>
-	<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci autem a esse consectetur laboriosam illum iure eum temporibus quis sed? Itaque odit magni aliquam perferendis, accusamus soluta non sint dolorum.</p>
-	<br>
-	<p>Qual seria o sistema de classificação?</p>
-	<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci autem a esse consectetur laboriosam illum iure eum temporibus quis sed? Itaque odit magni aliquam perferendis, accusamus soluta non sint dolorum.</p>
-	<br>
-	<footer>
+    	</div>
+    	<h2>PERGUNTAS FREQUENTES</h2>
+    	<div class="container-perguntas-frequentes">
+    		<div class="item-perguntas-frequentes">
+	    		<h3>O que é Ranking?</h3>
+				<p>Além das conquistas, contamos com um sistema de Ranking Global onde os coletores são classificados de aacordo com a pontuação adiquirida atravéz de depósitos.</p>
+    		</div>
+			<div class="item-perguntas-frequentes">
+				<h3>Quais materiais são aceitos?</h3>
+				<p>Atualmente aceitamos papelão, plástico, alumínio e vidro, mas estamos em constante evolução, trabalhando para sermos capazes de aceitarmos mais e mais materiais.</p>
+			</div>
+			<div class="item-perguntas-frequentes">
+				<h3>E quanto custa?</h3>
+				<p>É gratuito, não existe custo associado aos nossos serviços. Nosso objetivo é facilitar e reciclagem e melhorar a logística envolvida nesse processo.</p>
+			</div>
+    	</div>
+		<footer>
 			<table>
 		  		<tr>
 		  			<td><a href="/sobre-nos">Sobre Nós</a></td>
