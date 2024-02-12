@@ -4,25 +4,34 @@
   }
   
   body {
-  height: 100vh;
+	width: 100vw;
+	background-color: #FFFFFF;
   }
   
-  h3 {
-   text-align: center;
+  a{
+  	text-decoration: none;
+  	color: #FFFFFF;
   }
   
-  nav {
-  	margin: 0 0.5vh 0 0.5vh;
-  	padding: 1vh;
-  	height: 5vh;
-  	border-bottom: solid 1px;
-  	border-left: solid 1px; 
-  	border-right: solid 1px; 
-  	border-radius: 0px 0px 10px 10px;
-  	background-color: #439E6F;
+  .box {
+  	height: 60vh;
+  	background-color: #F3F2F0;
+  	margin-bottom: 1vw;
   }
   
-  .flex-container {
+  .box a {
+  	display: inline-block;
+  	background-color: #ABCCA1;
+  	color: #0C4040;
+  	border-radius: 6px;
+  	padding: 0.5vw;
+  	align-items: center;
+  	text-align: center;
+    cursor: pointer;
+    width: 8vw;
+  }
+  
+  .container-usuarios {
   	display: flex;
   	flex-flow: row nowrap;
   	justify-content: space-evenly;
@@ -30,49 +39,64 @@
   	height: 50vh;
   }
 
-  .flex-item {
-  	background-color: #FFFFF0;
-  	border: solid 1px;
-  	border-radius: 10px;
-  	padding: 1vw;
-  	height: 30vh;
+  .item-usuarios {
+  	background-color: #F3F2F0;
+  	border-radius: 6px;
+  	padding: 1.5vw;
+  	height: 35vh;
   	min-width: 10vw;
   	width: 20vw;
   	max-width: 30vw;
   	flex-shrink: 1;
-  	transition: flex-grow 0.3s ease;
+  	transition: flex-grow 0.5s ease;
   }
 
-  .flex-item:hover {
+  .item-usuarios:hover {
   	flex-grow: 1;
   }
   
-  .usuarios-button {
-  	background-color: #0D0D0D;
-  	border: solid 1px;
-  	border-radius: 10px;
+  .item-usuarios a {
+  	display: block;
+  	align-items: center;
+  	background-color: #0C4040;
+  	border-radius: 6px;
   	padding: 0.5vw;
   	text-align: center;
+    cursor: pointer;
+    width: 10vw;
+  	transition: width 0.3s ease;
   }
   
-  .usuarios-button:hover {
-  	background-color: #439E6F;
+  .item-usuarios a:hover {
+  	width: 12vw;
+  }
+  
+  .container-perguntas-frequentes {
+  	display: flex;
+  	flex-flow: row nowrap;
+  	justify-content: space-evenly;
+  	align-items: center;
+  	border-radius: 8px;
+  	height: 40vh;
+  	margin: 3vw;
+  	padding: 1vw;
+  	background-color: #ABCCA1;
+  }
+  
+  .item-perguntas-frequentes {
+  	width: 30vw;
   }
   
   footer {
       display: block;
-      background-color: #0D0D0D;
-      color: #F4F3F2;
-      border-radius: 10px;
+      background-color: #0C4040;
+      color: #F3F2F0;
+      border-radius: 8px 8px 0px 0px;
       padding: 25px;
+      margin: 0 0.25vh 0 0.25vh;
       text-align: center;
   }
   
   footer a {
   	margin: 0 30px;
-  }
-  
-  a {
-  	color: #F4F3F2;
-  	text-decoration: none;
   }
