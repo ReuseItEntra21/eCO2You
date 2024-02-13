@@ -65,25 +65,6 @@
 				</div>
 	    	</div>
     	</div>
-		<footer>
-			<table>
-		  		<tr>
-		  			<td><a href="/sobre-nos">Sobre Nós</a></td>
-		  			<td><a href="/suporte">Suporte</a></td>
-		  			<td><a href="/contato">Redes Socias</a></td>
-		  		</tr>
-		  		<tr>
-		  			<td><a href="/suporte">Empresa</a></td>
-		  			<td><a href="/suporte">eCO2you@contato.com</a></td>
-		  			<td><a href="/suporte">Github</a></td>
-		  		</tr>
-		  		<tr>
-		  			<td><a href="/contato">Objetivo</a></td>
-		  			<td><a href="/suporte">Termos de Uso</a></td>
-		  			<td><a href="/suporte">Linkedin</a></td>
-		  		</tr>
-				</table>
-	        <p>&copy; 2024 eCO2You. Todos os direitos reservados.</p>
-		</footer>
+		<%@ include file="footer.jsp"%>
 	</body>
 </html>

@@ -3,9 +3,9 @@
 		<a>
 			<img alt="Logo" src="">
 		</a>
-		<a href="#">Coletas</a>
-		<a href="#">Ranking</a>
-		<a class="*flex-item" href="<%=request.getContextPath()%>/">Cadastra-se</a>
+		<a href="/login">Coletas</a>
+		<a href="/login">Ranking</a>
+		<a class="*flex-item" href="<%=request.getContextPath()%>/">Cadastrar-se</a>
 		<a class="*flex-item" href="<%=request.getContextPath()%>/login">Entrar</a>
 		<a>
 			<img alt="Foto" src="">
