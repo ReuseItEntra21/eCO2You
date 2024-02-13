@@ -6,7 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Home</title>
-		<style><%@include file="../../../resources/css/coletor/home.css"%></style>
+		<style><%@include file="../../../assets/css/coletor/home.css"%></style>
 	</head>
 	<body>
 		<%@ include file="../../../assets/paginas/coletor/menu.jsp"%>

@@ -6,7 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Histórico</title>
-		<style><%@include file="../../../resources/css/style.css"%></style>
+		<style><%@include file="../../../assets/css/style.css"%></style>
 	</head>
 	<body>
     	<a href="home-coletor" class="dropbtn" id=voltar>Voltar</a>

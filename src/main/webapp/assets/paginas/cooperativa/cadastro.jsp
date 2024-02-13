@@ -4,7 +4,7 @@
      <head>
 	    <meta charset="UTF-8">
 		<title>Cadastro Cooperativa</title>
-		<style><%@include file="../../../resources/css/style.css"%></style>
+		<style><%@include file="../../../assets/css/style.css"%></style>
     </head>
     <body>
     <div style="float: left">

@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Cadastro Coletor</title>
-	<style><%@include file="../../../resources/css/coletor/cadastro.css"%></style>
+	<style><%@include file="../../../assets/css/coletor/cadastro.css"%></style>
 </head>
 <body>
 	<div style="float: left">

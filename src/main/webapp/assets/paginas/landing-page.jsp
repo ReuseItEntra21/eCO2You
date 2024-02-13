@@ -5,11 +5,11 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>eCO2You</title>
-		<style><%@include file="../../resources/css/landing-page.css"%></style>
-		<style><%@include file="../../resources/css/menu.css"%></style>
+		<style><%@include file="../css/landing-page.css"%></style>
+		<style><%@include file="../css/menu.css"%></style>
 	</head>
 	<body>
-		<%@ include file="../../../assets/paginas/menu.jsp"%>
+		<%@ include file="menu.jsp"%>
 		<div class="box">
 			<h2>CONECTANDO DOADORES COM PONTOS DE COLETA.</h2 >
 			<p>Transfommando sua contribuição em impacto sustentável.</p>

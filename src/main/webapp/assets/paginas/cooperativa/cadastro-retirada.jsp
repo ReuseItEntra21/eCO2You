@@ -7,7 +7,7 @@
     <head>
 	    <meta charset="UTF-8">
 		<title>Cadastro</title>
-		<style><%@include file="../../../resources/css/style.css"%></style>
+		<style><%@include file="../../../assets/css/style.css"%></style>
     </head>
     <br>
    <a href="home-cooperativa" class="dropbtn" id=voltar>Voltar</a>
