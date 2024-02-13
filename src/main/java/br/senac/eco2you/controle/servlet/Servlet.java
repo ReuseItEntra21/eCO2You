@@ -567,8 +567,10 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
  
 		List<Reciclavel> reciclaveis = reciclavelDAO.recuperarTodosReciclaveis();
+		List<Material> materiais = materialDAO.recuperarTodosMateriais();
 		List<Armazem> armazens = armazemDAO.recuperarTodosArmazens();
 		request.setAttribute("reciclaveis", reciclaveis);
+		request.setAttribute("materiais", materiais);
 		request.setAttribute("armazens", armazens);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/cadastro-deposito.jsp");
 		dispatcher.forward(request, response);
