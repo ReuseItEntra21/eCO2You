@@ -5,23 +5,22 @@
 	    <meta charset="UTF-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <title>NOT FOUND</title>
-	    <script src="https://kit.fontawesome.com/9b206050e6.js" crossorigin="anonymous"></script>
 	    <style><%@include file="../../assets/css/style.css"%></style>
 	</head>
 	<body>
-		<br>
-	    <form action="home-coletor">
-			<button type="submit" name="voltar" id="voltar"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
-		</form>
-	    <div id="container" class="flex">
+	<nav>
+			<a href="">Menu</a>
+			<a href="">Coletas</a>
+			<a href="">Ranking</a>
+			<a href="">Cadastra-se</a>
+			<a href="">Entrar</a>
+		</nav>
+		<p>ERRO</p>
+	    <div>
 			<p id="item1">4</p>
-			<img id="item2" src="Simbolo2.png" >
+			<p id="intem2">0</p>
 			<p id="item3">4</p>
 		</div>
-	    <h1 id="Not-found">Not found</h1>
-		
-	    <p id="descricao1">Não encontramos esta página.</p>
-	    <p id="descricao2">Estamos consertando, volte mais tarde.</p>
-		
+		<p>Alguma coisa deu errado</p>
 	</body>
 </html>
