@@ -14,7 +14,7 @@
 			<thead>
 				<tr>
 					<th>Data</th>
-					<th>Coletor</th>
+					<th>Cooperativa</th>
 				</tr>
 			</thead>
 			<tbody>

@@ -155,7 +155,7 @@ public class Servlet extends HttpServlet {
 				mostrarRetiradasAgendadasArmazem(request, response);
 				break;		
 				
-			case "/depositosPendentes-cooperativa":
+			case "/retiradasPendentes-cooperativa":
 				mostrarRetiradasPendentesCooperativa(request, response);
 				break;	
 				
