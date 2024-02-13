@@ -17,7 +17,6 @@
             preservação do meio ambiente.
         </p>
 	</div>
-	<div style="float: right">
 		<form id="regForm" action="inserir-coletor">
 		  <h1 class="Cadastro-coletor-Font50">Nova Conta</h1>
 		  <div class="tab">
@@ -48,7 +47,6 @@
 		    <button type="button" name=avancar id="nextBtn" onclick="nextPrev(1)">Próximo</button>
 		  </div>
 		</form>
-	</div>
 	<script>
 		var currentTab = 0;
 		showTab(currentTab);
