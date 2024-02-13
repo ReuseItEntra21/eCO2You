@@ -6,7 +6,7 @@
 		<a class="flex-item" href="retiradasPendentes-cooperativa" id=pendentes>
 			<img alt="Retiradas Pendentes" src="">
 		</a>
-	    <a class="flex-item" href="historicoRetiradas-cooperativa" id=historico>
+	    <a class="flex-item" href="historicoRetirada-cooperativa" id=historico>
 			<img alt="Histórico de Retiradas" src="">
 		</a>
 		<a class="flex-item" href="cadastro-retirada" id=cadastro-retirada>
