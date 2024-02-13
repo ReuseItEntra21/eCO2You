@@ -6,7 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Histórico Retirada</title>
-		<style><%@include file="../../../resources/css/style.css"%></style>
+		<style><%@include file="../../css/style.css"%></style>
 	</head>
 	<body>
     	<a href="home-cooperativa" class="dropbtn" id=voltar>Voltar</a>

@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Home</title>
-<style><%@include file="../../../resources/css/style.css"%></style>
+<style><%@include file="../../css/style.css"%></style>
 </head>
 <body>
 	<%@ include file="../../../assets/paginas/armazem/menu.jsp"%>

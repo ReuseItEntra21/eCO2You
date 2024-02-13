@@ -7,7 +7,7 @@
 		<meta charset="UTF-8">
 		<title>Editar Perfil</title>
 		<script src="https://kit.fontawesome.com/9b206050e6.js" crossorigin="anonymous"></script>
-		<style><%@include file="../../../resources/css/style.css"%></style>
+		<style><%@include file="../../css/style.css"%></style>
 	</head>
     <body>
     <br>

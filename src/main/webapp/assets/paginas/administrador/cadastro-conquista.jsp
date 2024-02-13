@@ -5,7 +5,7 @@
 	    <meta charset="UTF-8">
 		<title>Cadastro</title>
 		<script src="https://kit.fontawesome.com/9b206050e6.js" crossorigin="anonymous"></script>
-		<style><%@include file="../../../resources/css/style.css"%></style>
+		<style><%@include file="../../css/style.css"%></style>
     </head>
     <form action="apresentacao">
 		<button type="submit" name="voltar" id="voltar"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>

@@ -4,7 +4,7 @@
     <head>
 	    <meta charset="UTF-8">
 		<title>Cadastro</title>
-		<style><%@include file="../../../resources/css/style.css"%></style>
+		<style><%@include file="../../css/style.css"%></style>
 		<script src="https://kit.fontawesome.com/9b206050e6.js" crossorigin="anonymous"></script>
     </head>
    <form action="apresentacao">

@@ -5,7 +5,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Perfil Coletor</title>
-		<style><%@include file="../../../resources/css/coletor/perfil.css"%></style>
+		<style><%@include file="../../../assets/css/coletor/perfil.css"%></style>
 	</head>
 	<body>
 		<div>

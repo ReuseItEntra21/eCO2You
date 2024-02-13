@@ -6,7 +6,7 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <title>NOT FOUND</title>
 	    <script src="https://kit.fontawesome.com/9b206050e6.js" crossorigin="anonymous"></script>
-	    <style><%@include file="../../resources/css/style.css"%></style>
+	    <style><%@include file="../../assets/css/style.css"%></style>
 	</head>
 	<body>
 		<br>
