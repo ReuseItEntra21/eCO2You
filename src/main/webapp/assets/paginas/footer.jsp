@@ -1,25 +1,25 @@
 <footer>
 			<table>
             	<tr>
-                	<td><a href="/contato">eCO2You</a></td>
-                    <td><a href="/suporte">Atendimento</a></td>
-                    <td><a href="/suporte">Dúvidas</a></td>
+                	<td><a class="*flex-item" href="<%=request.getContextPath()%>/contato">eCO2You</a></td>
+                    <td><a class="*flex-item" href="<%=request.getContextPath()%>/suporte">Atendimento</a></td>
+                    <td><a class="*flex-item" href="<%=request.getContextPath()%>/suporte">DÃºvidas</a></td>
                 </tr>
 		  		<tr>
-                	<td><a href="/sobre-nos">Sobre Nós</a></td>
-		  			<td><a href="/contato">Contato</a></td>
-                    <td><a href="/suporte">Perguntas Frequentes</a></td>
+                	<td><a class="*flex-item" href="<%=request.getContextPath()%>sobre-nos">Sobre NÃ³s</a></td>
+		  			<td><a class="*flex-item" href="<%=request.getContextPath()%>/contato">Contato</a></td>
+                    <td><a class="*flex-item" href="<%=request.getContextPath()%>suporte">Perguntas Frequentes</a></td>
 		  		</tr>
 		  		<tr>
-                	<td><a href="/landing-page">Página Inicial</a></td>
-		  			<td><a href="/suporte">Termos de Uso</a></td>
-		  			<td><a href="/ranking-coletor">Ranking</a></td>
+                	<td><a class="*flex-item" href="<%=request.getContextPath()%>/landing-page">PÃ¡gina Inicial</a></td>
+		  			<td><a class="*flex-item" href="<%=request.getContextPath()%>/suporte">Termos de Uso</a></td>
+		  			<td><a class="*flex-item" href="<%=request.getContextPath()%>/ranking-coletor">Ranking</a></td>
 		  		</tr>
 				</table>
                 <table>
                 <tr>
-                <td> <a href="/contato">in</a> <a href="/contato">G</a>  <a href="/contato">X</a>  </td> 	
-                <td><p>desenvolvido no <a href="/*">entra21</a></p></td>
+                <td> <a class="*flex-item" href="<%=request.getContextPath()%>/contato">in</a> <a class="*flex-item" href="<%=request.getContextPath()%>/contato">G</a>  <a class="*flex-item" href="<%=request.getContextPath()%>/contato">X</a>  </td> 	
+                <td><p>desenvolvido no <a class="*flex-item" href="<%=request.getContextPath()%>/contato">entra21</a></p></td>
                 <td><p>&copy; 2024 eCO2You. Todos os direitos reservados.</p></td>
                 </tr>
                 </table>
