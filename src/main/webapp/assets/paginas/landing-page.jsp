@@ -12,12 +12,12 @@
 		<%@ include file="menu.jsp"%>
 		<div class="box">
 			<h2>CONECTANDO DOADORES COM PONTOS DE COLETA.</h2 >
-			<p>Transfommando sua contribuição em impacto sustentável.</p>
+			<p>Transfomando sua contribuição em impacto sustentável.</p>
 			<a href="<%=request.getContextPath()%>/cadastro-coletor">Ser um Coletor</a>
 			<a href="<%=request.getContextPath()%>/cadastro-coletor">Ser um Coletor</a>
 			<img alt="Imagem" src="">
 		</div>
-		<p>Descubra uma nova maneira de fazer a diferença no mundo. Na Eco2You, estamos unindo comunidades em prol da sustentabilidade. Conectamos pessoas que desejam contribuir com materiais recicláveis a armazéns comprometidos com o meio ambiente. Nosso objetivo é criar um impacto positivo e duradouro em nosso planeta.</p>
+		<p>Descubra uma nova maneira de fazer a diferença no mundo. Na eCO2You, estamos unindo comunidades em prol da sustentabilidade. Conectamos pessoas que desejam contribuir com materiais recicláveis a armazéns comprometidos com o meio ambiente. Nosso objetivo é criar um impacto positivo e duradouro em nosso planeta.</p>
 		<div class="usuarios">
 			<h2>Venha reciclar com a Gente</h2>
 			<div class="container-usuarios">
@@ -41,9 +41,7 @@
 		        <div class="items-usuarios">
 		        	<img alt="Imagem Cooperativa" src="">
 			        <h3>Cooperativa</h3>
-					    As cooperativas são as empresas,
-					    que retiram o material armazenado,
-					    e então realiza a reciclágem.
+					    As cooperativas são as empresas que retiram o material armazenado e, posteriormente, realizam a reciclagem.
 					<a href="<%=request.getContextPath()%>/cadastro-cooperativa">Ser uma Cooperativa</a>
 				</div>
 	    	</div>
@@ -85,7 +83,7 @@
 		  			<td><a href="/suporte">Linkedin</a></td>
 		  		</tr>
 				</table>
-	        <p>&copy; 2024 eCO2you. Todos os direitos reservados.</p>
+	        <p>&copy; 2024 eCO2You. Todos os direitos reservados.</p>
 		</footer>
 	</body>
 </html>

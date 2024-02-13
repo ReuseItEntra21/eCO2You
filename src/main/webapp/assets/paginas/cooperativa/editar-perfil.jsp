@@ -6,11 +6,13 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Editar Perfil</title>
+        <script src="https://kit.fontawesome.com/9b206050e6.js" crossorigin="anonymous"></script>
 		<style><%@include file="../../../assets/css/style.css"%></style>
 	</head>
     <body>
     <br>
       <form action="atualizar-cooperativa">
+      <button type="submit" name="voltar" id="voltar"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
 			<h1> Informações </h1>
 			<br>
 		    <input type="text" value="<c:out value='${cooperativa.nome}' />" id="nome" name="nome" autofocus placeholder="Informe o seu Nome">
