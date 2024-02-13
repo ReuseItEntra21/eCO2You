@@ -12,9 +12,6 @@
 		<a class="flex-item" href="cadastro-retirada" id=cadastro-retirada>
 			<img alt="Nova Retirada" src="">
 		</a>
-		<a class="flex-item" href="editar-perfil-cooperativa" id=cadastro-retirada>
-			<img alt="Editar Perfil" src="">
-		</a>
 	    <input class="flex-item" type="search" id="consulta-nome" placeholder="Buscar Armazém">
 		<a class="flex-item" href="editar-perfil-cooperativa" class="dropbtn" id=perfil>
 			<img alt="Olá ${usuario.nome}" src="">
