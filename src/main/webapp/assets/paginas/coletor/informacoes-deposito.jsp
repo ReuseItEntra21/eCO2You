@@ -13,14 +13,19 @@
 			<h1>Informações deposito</h1>
             <br>
             <h2>Armazem</h2>
+            <h3>${deposito.armazem.nome}</h3>
             <br>
             <h2>Data</h2>
+            <h3>${deposito.data}</h3>
             <br>
             <h2>Coletor</h2>
+            <h3>${deposito.coletor.nome}</h3>
 			<br>	
 			<h2>reciclavel</h2>
+			<h3></h3>
 			<br>
 			<h2>Quantidade do Reciclável</h2>
+			<h3></h3>
 			<br>
 		</form>
 	</body>
