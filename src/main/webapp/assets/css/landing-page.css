@@ -33,7 +33,7 @@
   
   .vl {
     border-left: 2px solid black;
-    height: 45vh;
+    height: 35vh;
   }
   
   .usuarios {
@@ -88,7 +88,7 @@
   	flex-flow: row nowrap;
   	justify-content: space-evenly;
   	align-items: center;
-  	height: 40vh;
+  	height: 35vh;
   	margin: 1vw;
   	padding: 1vw;
   }

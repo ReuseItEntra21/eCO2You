@@ -424,8 +424,8 @@ public class Servlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/depositos-agendados.jsp");
 		dispatcher.forward(request, response);
 	}
-	
-	private void mostrarRetiradasAgendadasArmazem(HttpServletRequest request, HttpServletResponse response)
+		
+		private void mostrarRetiradasAgendadasArmazem(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
  
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/retiradas-agendadas.jsp");
@@ -565,10 +565,10 @@ public class Servlet extends HttpServlet {
  
 	private void mostrarCadastroDeposito(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
- 
-		List<Reciclavel> reciclaveis = reciclavelDAO.buscarReciclaveis();
-		List<Material> materiais = materialDAO.buscarMateriais();
-		List<Armazem> armazens = armazemDAO.buscarArmazens();
+
+		List<Reciclavel> reciclaveis = reciclavelDAO.buscarTodosReciclaveis();
+		List<Armazem> armazens = armazemDAO.buscarTodosArmazens();
+		List<Material> materiais = materialDAO.buscarTodosMateriais();
 		request.setAttribute("reciclaveis", reciclaveis);
 		request.setAttribute("materiais", materiais);
 		request.setAttribute("armazens", armazens);
@@ -898,7 +898,7 @@ public class Servlet extends HttpServlet {
 		Coletor coletor =  (Coletor) request.getSession().getAttribute("usuario");
 		LocalDate data = LocalDate.parse(request.getParameter("data"));	
 		depositoDAO.inserirDeposito(new Deposito(data, armazem, coletor));
- 
+    
 		Reciclavel reciclavel = reciclavelDAO.buscarReciclavelPorId(Long.parseLong(request.getParameter("reciclavel")));
 		int quantidadeReciclaveis = Integer.parseInt(request.getParameter("quantidade-reciclaveis"));
 		itemDepositoDAO.inserirItemDeposito(new ItemDeposito(reciclavel, quantidadeReciclaveis));
@@ -906,20 +906,20 @@ public class Servlet extends HttpServlet {
  
 	}
  
-//	private void atualizarDeposito(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
-//
-//		Long id = Long.parseLong(request.getParameter("id"));
-//		LocalDate data = LocalDate.parse(request.getParameter("data"));
-//		Armazem armazem = armazemDAO.recuperarArmazemPorId(Long.parseLong(request.getParameter("armazem")));
-//		Coletor coletor =  (Coletor) request.getSession().getAttribute("coletor");
-//		depositoDAO.inserirDeposito(new Deposito(data, armazem, coletor));
-//		
-//		Reciclavel reciclavel = reciclavelDAO.recuperarReciclavelPorId(Long.parseLong(request.getParameter("reciclavel")));
-//		int quantidadeReciclaveis = Integer.parseInt(request.getParameter("quantidade-reciclaveis"));
-//		itemDepositoDAO.inserirItemDeposito(new ItemDeposito(reciclavel, quantidadeReciclaveis));
-//		response.sendRedirect("/eCO2You/home-coletor");
-//		
-//	}
+	private void atualizarDeposito(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
+
+		Long id = Long.parseLong(request.getParameter("id"));
+		LocalDate data = LocalDate.parse(request.getParameter("data"));
+		Armazem armazem = armazemDAO.buscarArmazemPorId(Long.parseLong(request.getParameter("armazem")));
+		Coletor coletor =  (Coletor) request.getSession().getAttribute("coletor");
+		depositoDAO.inserirDeposito(new Deposito(data, armazem, coletor));
+		
+		Reciclavel reciclavel = reciclavelDAO.buscarReciclavelPorId(Long.parseLong(request.getParameter("reciclavel")));
+		int quantidadeReciclaveis = Integer.parseInt(request.getParameter("quantidade-reciclaveis"));
+		itemDepositoDAO.inserirItemDeposito(new ItemDeposito(reciclavel, quantidadeReciclaveis));
+		response.sendRedirect("/eCO2You/home-coletor");
+		
+	}
 	
 //	private void deletarDeposito(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 //		
