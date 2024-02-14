@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -24,6 +26,6 @@
         <h3>8° &#128100; Nome Pontuação Pontos </h3>
         <h3>9° &#128100; Nome Pontuação Pontos </h3>
         <h3>10° &#128100; Nome Pontuação Pontos </h3>
-        <h3>N° &#128100; Nome do Usuário ??? Pontos </h3>
+        <h3>N° &#128100; ${usuario.nome} ??? Pontos </h3>
 	</body>
 </html>

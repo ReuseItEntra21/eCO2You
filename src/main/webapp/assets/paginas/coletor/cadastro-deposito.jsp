@@ -41,7 +41,7 @@
     				</c:forEach>
 				</select>
 				<h2>Escolha a Quantidade do Reciclavel</h2>
-	        	<input type="number" id="quantidade-reciclaveis" name="quantidade-reciclaveis">
+	        	<input type="number" id="quantidade-reciclaveis" name="quantidade-reciclaveis" min=1>
 		  	</div>
 			<div style="text-align:center;">
 			    <span class="step"></span>

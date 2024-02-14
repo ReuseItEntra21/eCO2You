@@ -7,19 +7,13 @@
 		<style><%@include file="../../css/style.css"%></style>
 		<script src="https://kit.fontawesome.com/9b206050e6.js" crossorigin="anonymous"></script>
     </head>
-   <form action="apresentacao">
-		
-        <button type="submit" name="voltar" id="voltar"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
-	</form>
     <body>
+    <h2>Cadastrar Material</h2>
     	<form action="inserir-material" method="post">
-    <h1 id="novo-Material-H1"> Novo Material </h1>
-    <br>
-    <br>
-    <input type="text" id="nome_material" name="nome" autofocus placeholder="Nome do material" maxlength="25"size="35">
-    <br>
-    <br>
-    <button type="submit" name="cadastrar" id=cadastrar class="ButtonEntrar">Cadastrar Material</button>
+    <h1 id="novo-Material-H1"> NOVO MATERIAL </h1>
+    <h4>Nome</h4>
+    <input type="text" id="nome_material" name="nome" autofocus maxlength="25"size="35">
+    <button type="submit" name="cadastrar" id=cadastrar class="ButtonEntrar">Cadastrar material</button>
   </form>
     </body>
-</html> 
+</html>
