@@ -170,7 +170,7 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 		return armazens;
 	}
 
-	public List<Armazem> recuperarTodosArmazens() {
+	public List<Armazem> buscarTodosArmazens() {
 		Session sessao = null;
 		List<Armazem> armazens = null;
 
@@ -208,7 +208,7 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 		return armazens;
 	}
 
-	public Armazem recuperarArmazemPorId(long id) {
+	public Armazem buscarArmazemPorId(long id) {
 		Session sessao = null;
 		Armazem armazem = null;
 

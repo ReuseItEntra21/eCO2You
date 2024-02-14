@@ -11,12 +11,14 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.senac.eco2you.modelo.entidade.conquista.Conquista;
 import br.senac.eco2you.modelo.entidade.deposito.Deposito;
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
+import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.pessoa.Pessoa;
  
 @Entity
@@ -32,6 +34,10 @@ public class Coletor extends Pessoa implements Serializable {
 	@JoinTable(name = "coletor_conquista", joinColumns = @JoinColumn(name = "id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_conquista"))
 	private List<Conquista> conquistas = new ArrayList<Conquista>();
 
+	@ManyToOne
+    @JoinColumn(name = "armazem_id")
+    private Armazem armazem;
+	
 	public Coletor() {}
 	
 	public Coletor(String nome, String sobrenome, String cpf, LocalDate dataNascimento, String email, String senha) {
