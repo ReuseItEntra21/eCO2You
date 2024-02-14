@@ -12,9 +12,9 @@ public interface ReciclavelDAO {
 
 	void atualizarReciclavel(Reciclavel reciclavel);
 	
-	List<Reciclavel> recuperarTodosReciclaveis();
+	List<Reciclavel> buscarTodosReciclaveis();
 
 	List<Reciclavel> buscarReciclavelPeloNome(String nome);
 	
-	Reciclavel recuperarReciclavelPorId(long id);
+	Reciclavel buscarReciclavelPorId(long id);
 }
