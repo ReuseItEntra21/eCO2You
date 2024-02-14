@@ -3,8 +3,7 @@
 <html>
     <head>
 	    <meta charset="UTF-8">
-		<title>Cadastro</title>
-		<style><%@include file="../../css/style.css"%></style>
+		<title>Cadastro</title>/style>
 		<script src="https://kit.fontawesome.com/9b206050e6.js" crossorigin="anonymous"></script>
     </head>
     <body>

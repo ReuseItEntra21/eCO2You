@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Pedidos Retiradas</title>
-<style><%@include file="../../../assets/css/style.css"%></style>
 </head>
 <body>
 	<nav>

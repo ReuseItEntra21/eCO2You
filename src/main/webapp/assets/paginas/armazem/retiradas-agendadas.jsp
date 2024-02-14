@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Retiradas Agendadas</title>
-<style><%@include file="../../../assets/css/style.css"%></style>
 </head>
 <body>
 	<%@ include file="../../../assets/paginas/armazem/menu.jsp"%>

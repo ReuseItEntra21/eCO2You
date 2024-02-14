@@ -4,7 +4,6 @@
     <head>
 	    <meta charset="UTF-8">
 		<title>Cadastro Armazem</title>
-		<style><%@include file="../../css/style.css"%></style>
     </head>
     <body>
     <div style="float: left">
