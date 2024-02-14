@@ -105,7 +105,7 @@ public class ItemRetiradaDAOImpl implements ItemRetiradaDAO {
 		}
 	}
 
-	public List<ItemRetirada> recuperarItensRetirada() {
+	public List<ItemRetirada> buscarItensRetirada() {
 
 		Session sessao = null;
 		List<ItemRetirada> clientes = null;

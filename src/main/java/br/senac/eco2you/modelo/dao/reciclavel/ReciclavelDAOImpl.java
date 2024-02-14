@@ -144,7 +144,7 @@ public class ReciclavelDAOImpl implements ReciclavelDAO {
 		return Collections.emptyList();
 	}
 	
-	public List<Reciclavel> recuperarTodosReciclaveis() {
+	public List<Reciclavel> buscarTodosReciclaveis() {
 
 		Session sessao = null;
 		List<Reciclavel> reciclaveis = null;
@@ -183,7 +183,7 @@ public class ReciclavelDAOImpl implements ReciclavelDAO {
 		return reciclaveis;
 	}
 	
-	public Reciclavel recuperarReciclavelPorId(long id) {
+	public Reciclavel buscarReciclavelPorId(long id) {
 		
 		Session sessao = null;
 		Reciclavel reciclavel = null;

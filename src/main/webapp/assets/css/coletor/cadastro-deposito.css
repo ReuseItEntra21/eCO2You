@@ -1,0 +1,77 @@
+  #regForm {
+    font-family: Raleway;
+  }
+  
+  input {
+    width: 20vw;
+    height: 5vh;
+    padding: 10px 15px 10px 15px;
+    font-size: 16px;
+    border: 1px solid #0D0D0D;
+    border-radius: 2vh;
+  }
+  
+  input.invalid {
+    background-color: #FF7A70;
+  }
+  
+  .tab {
+    display: none;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  #nextBtn{
+    color: #F4F3F2;
+    background-color: #0D0D0D;
+    font-size: 20px;
+    display: inline;
+    float: right;
+    width: 10vw;
+  }
+  
+  #prevBtn{
+    color: #F4F3F2;
+    background-color: #0D0D0D;
+    font-size: 20px;
+    display: inline;
+    float: left;
+    width: 10vw;
+  }
+  
+  .container-armazens {
+  	display: flex;
+  	flex-flow: row nowrap;
+  	justify-content: flex-start;
+  	align-items: center;
+  	height: 45vh;
+  }
+  
+  .item-armazens {
+  	background-color: #F3F2F0;
+  	border-radius: 6px;
+  	margin: 1vw;
+  	padding: 1.5vw;
+  	height: 30vh;
+  }
+  
+  .step {
+    height: 15px;
+    width: 15px;
+    margin: 20px 5px;
+    background-color: #439E6F;
+    border: none;  
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.75;
+  }
+  
+  .step.active {
+    opacity: 1;
+  }
+  
+  .step.finish {
+    background-color: #439E6F;
+  }

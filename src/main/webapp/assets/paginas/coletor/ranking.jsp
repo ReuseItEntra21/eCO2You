@@ -5,13 +5,10 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Ranking</title>
-		<style><%@include file="../../../resources/css/style.css"%></style>
+		<style><%@include file="../../../assets/css/style.css"%></style>
 	</head>
 	<body>
-		<a href="./home-coletor">
-        	<br>
-			<button type="button" name="voltar" id=voltar>Voltar</button>
-		</a>
+		<%@ include file="../../../assets/paginas/coletor/menu.jsp"%>
         <br>
         <br>
         <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem1>

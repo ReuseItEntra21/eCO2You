@@ -8,62 +8,54 @@
 </head>
 <body>
 <br>
-<input type="submit" value="Lupa" name="lupa" id=lupa1>
-        <input type="search" placeholder="Buscar Armazém por nome" size = 22 name="lupa" id=lupa2>
-        <h2>ECO2YOU</h2>
-        <form action="#">
-        <div><input type="submit" value="seta volta" name="voltar" id=voltar></div>
-    </form>
+<a href="home-coletor" class="dropbtn" id=voltar>Voltar</a>
+<%@ include file="../../../assets/paginas/coletor/menu.jsp"%>
     <h2>Armazéns que você já depositou</h2>
     <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem1>
-    <p>Empresa</p>
-    <p>Bairro</p>
-    <form action="#">
-        <input type="range" value="1.000" name="range" id=range1>
-        <div><input type="button" value="Ver perfil" name="perfil" id=perfil1></div>
-    </form>
+    <br>
+    <a href="status-armazem1" class="dropbtn" id=perfil>StatusArmazem</a>
+    <br>
+    <a href="perfil-armazem1" class="dropbtn" id=perfil>Perfil</a>
+    <br>
+    <br>
    <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem2>
-    <p>Empresa</p>
-    <p>Bairro</p>
-    <form action="#">
-        <input type="range" value="1.000" name="range" id=range2>
-        <div><input type="button" value="Ver perfil" name="perfil" id=perfil2></div>
-    </form>
+   	<br>
+ 	<a href="status-armazem2" class="dropbtn" id=perfil>StatusArmazem</a>
+    <br>
+    <a href="perfil-armazem2" class="dropbtn" id=perfil>Perfil</a>
     <h2>Armazéns Recomendados</h2>
    	<input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem3>
-    <p>Empresa</p>
-    <p>Bairro</p>
-    <form action="#">
-        <input type="range" value="1.000" name="range" id=range3>
-        <div><input type="button" value="Ver perfil" name="perfil" id=perfil3></div>
-    </form>
+    <br>
+    <a href="status-armazem3" class="dropbtn" id=perfil>StatusArmazem</a>
+    <br>
+    <a href="perfil-armazem3" class="dropbtn" id=perfil>Perfil</a>
+    <br>
+    <br>
    	<input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem4>
-    <p>Empresa</p>
-    <p>Bairro</p>
-    <form action="#">
-        <input type="range" value="1.000" name="range" id=range4>
-        <div><input type="button" value="Ver perfil" name="perfil" id=perfil4></div>
-    </form>
+    <br>
+    <a href="status-armazem4" class="dropbtn" id=perfil>StatusArmazem</a>
+    <br>
+    <a href="perfil-armazem4" class="dropbtn" id=perfil>Perfil</a>
+    <br>
+    <br>
    	<input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem5>
-    <p>Empresa</p>
-    <p>Bairro</p>
-    <form action="#">
-        <input type="range" value="1.000" name="range" id=range5>
-        <div><input type="button" value="Ver perfil" name="perfil" id=perfil5></div>
-    </form>
+    <br>
+    <a href="status-armazem5" class="dropbtn" id=perfil>StatusArmazem</a>
+    <br>
+    <a href="perfil-armazem5" class="dropbtn" id=perfil>Perfil</a>
+    <br>
+    <br>
    	<input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem6>
-    <p>Empresa</p>
-    <p>Bairro</p>
-    <form action="#">
-        <input type="range" value="1.000" name="range" id=range6>
-        <div><input type="button" value="Ver perfil" name="perfil" id=perfil6></div>
-    </form>
+  	<br>
+    <a href="status-armazem6" class="dropbtn" id=perfil>StatusArmazem</a>
+    <br>
+    <a href="perfil-armazem6" class="dropbtn" id=perfil>Perfil</a>
+    <br>
+    <br>
     <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem7>
-    <p>Empresa</p>
-    <p>Bairro</p>
-    <form action="#">
-        <input type="range" value="1.000" name="range" id=range7>
-        <div><input type="button" value="Ver perfil" name="perfil" id=perfil7></div>
-    </form>
+	<br>
+    <a href="status-armazem7" class="dropbtn" id=perfil>StatusArmazem</a>
+    <br>
+    <a href="perfil-armazem7" class="dropbtn" id=perfil>Perfil</a>
 </body>
 </html>

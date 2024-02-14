@@ -106,7 +106,7 @@ public class ItemDepositoDAOImpl implements ItemDepositoDAO {
 		}
 	}
 
-	public List<ItemDeposito> recuperarItensDeposito() {
+	public List<ItemDeposito> buscarItensDeposito() {
 
 		Session sessao = null;
 		List<ItemDeposito> itensDeposito = null;

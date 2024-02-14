@@ -1,0 +1,101 @@
+*{
+    background-color: #fefefe;
+    color: #0d0d0d;
+    font-family: 'Poppins', sans-serif;
+}
+#voltar{
+    border: none;
+    font-size: 40px;
+    
+}
+h1{
+    text-align: center;
+    font-size: 50px;
+}
+input{
+    height: 5vh;
+    width: 15vw;
+    border: 1px solid #0d0d0d;
+    border-radius: 12px;
+    font-size: 16px;
+    padding-left: 5px;
+    margin-top: 5px;
+    
+}
+ 
+#salvar{
+    background-color: #0d0d0d;
+    color: #fefefe;
+    height: 5vh;
+    width: 15vw;
+    margin: 0 auto;
+    display: block;
+    font-size: x-large;
+    margin-top: 50px;
+}
+::placeholder{
+    color: #0d0d0d;
+    padding-left: 5px;
+    font-size: 16px;
+}
+div{
+    text-align: center;
+    margin-top: 40px;
+}
+#cep02{
+    text-align: center;
+    margin-top: 2px;
+    margin-right: 295px;
+}
+p{
+    display: inline;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#Deslogar{
+    border: #0d0d0d;
+    border-style: solid;
+    border-radius: 12px;
+    font-size: x-large;
+    border-width: 2px;
+    padding: 10px;
+    text-decoration: none;
+    background-color: #0d0d0d;
+    color: #fefefe;
+     
+}
+
+#AtualizarSenha{
+    border: #0d0d0d;
+    border-style: solid;
+    border-radius: 12px;
+    font-size: x-large;
+    border-width: 2px;
+    padding: 10px;
+    text-decoration: none;
+    background-color: #0d0d0d;
+    color: #fefefe;
+    text-align: center;
+    margin-left: 500px;
+   
+}
+#excConta{
+    border: #0d0d0d;
+    border-style: solid;
+    border-radius: 12px;
+    font-size: x-large;
+    border-width: 2px;
+    padding: 10px;
+    text-decoration: none;
+    background-color: #0d0d0d;
+    color: #fefefe;
+    
+}
+
+#atualizar{
+    text-align: right;
+
+
+
+}

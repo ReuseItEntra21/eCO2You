@@ -1,59 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>Home</title>
-		<style><%@include file="../../../resources/css/style.css"%></style>
+		<style><%@include file="../../../assets/css/coletor/home.css"%></style>
 	</head>
 	<body>
-		<nav>
-			<form action="home-coletor">
-				<button type="submit" name="home" id=home>Home</button>
-			</form>
-			<form action="depositosPendentes-coletor">
-				<button type="submit" name="pendentes" id=pendentes>Pendentes</button>
-			</form>
-			<form action="ranking-coletor">
-				<button type="submit" name="ranking" id=ranking>Ranking</button>
-			</form>
-			<form action="historicoDepositos-coletor">
-				<button type="button" name="historico" id=historico>Histórico</button>
-			</form>
-			<form action="buscar-coletor">
-				<button type="submit" name="lupa" id=lupa>Lupa</button>
-			</form>
-			<form action="perfil-coletor">
-				<button type="submit" name="perfil" id=perfil>Perfil</button>
-			</form>
-		</nav>
-        <h2> Ranking </h2>
-        <h3> &#129351;  1° &#128100; Nome Pontuação Pontos </h3>
-        <h3> &#129352;  2° &#128100; Nome Pontuação Pontos </h3>
-        <h3> &#129353;  3° &#128100; Nome Pontuação Pontos </h3>
-        <h2> Sua Elo </h2>
-        <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem1>
-        <h2> Depósitos Recentes </h2>
-        <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem2 >
-				2x latinhas de 220ml
-				<button type="button" class="buttonDelete" name="deletar" id=deletar1 >
-					<b>EXCLUIR</b>
-					</button>
-				<br>
-				<input type="date" id="data1" name="dataDeposito">
-				<input type="text" placeholder="Empresa" name="empresa" id=empresa1>
-        <h2> Depósitos Recentes </h2>
-        <input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem3 >
-				2x latinhas de 220ml
-				<button type="button" class="buttonDelete" name="deletar" id=deletar2 >
-					<b>EXCLUIR</b>
-					</button>
-				<br>
-				<input type="date" id="data2" name="dataDeposito">
-				<input type="text" placeholder="Empresa" name="empresa" id=empresa2>
-        <h2> Conquistas Recentes </h2>
-        <h3> Conquista 1 </h3>
-        <h3> Conquista 2 </h3>
-        <h2> + </h2>
+		<%@ include file="../../../assets/paginas/coletor/menu.jsp"%>
+		<div class="box">
+			<div class="flex-container">
+				<div class="flex-item">
+			        <div>
+			        	<img alt="Imagem do Usuário" src="">
+			        </div>
+			        <div>
+			        	<h3>${coletor.nome} ${coletor.sobrenome} ${coletor.dataNascimento}</h3>
+			        </div>
+					<div class="informacoes-box">
+						<h3># ${coletor.id} </h3>
+					</div>
+					<div class="informacoes-box">
+						<h3> Posição </h3>
+					</div>
+					<div class="informacoes-box">
+						<h3> Pontuação </h3>
+					</div>
+				</div>
+				 <div class=flex-item>
+		        	<c:forEach var="deposito" items="${depositos}">
+			        	<div class="deposito-box">
+			        		Status: ${deposito.statusDeDeposito}
+			        		Data: ${deposito.data}
+						</div>
+		    		</c:forEach>
+		       	</div>
+				<div class=flex-item>
+		        	<c:forEach var="conquista" items="${conquistas}">
+			        	<div class="conquista-box">
+			        		<div class="image-conquista-box">
+			        			&#127941;
+			        		</div>
+							${conquista.nome}
+						</div>
+		    		</c:forEach>
+		       	</div>
+	       	</div>
+	       	<button style="float: right;">+</button>
+		</div>
 	</body>
 </html>

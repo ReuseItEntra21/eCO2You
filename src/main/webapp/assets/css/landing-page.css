@@ -1,0 +1,112 @@
+  * {
+  	padding: 0;
+  	margin: 0;
+  }
+  
+  body {
+	width: 100vw;
+	background-color: #FFFFFF;
+  }
+  
+  a{
+  	text-decoration: none;
+  	color: #FFFFFF;
+  }
+  
+  .box {
+  	height: 60vh;
+  	background-color: #F3F2F0;
+  	margin-bottom: 1vw;
+  }
+  
+  .box a {
+  	display: inline-block;
+  	background-color: #ABCCA1;
+  	color: #0C4040;
+  	border-radius: 6px;
+  	padding: 0.5vw;
+  	align-items: center;
+  	text-align: center;
+    cursor: pointer;
+    width: 8vw;
+  }
+  
+  .vl {
+    border-left: 2px solid black;
+    height: 45vh;
+  }
+  
+  .usuarios {
+    margin: 2vw 4vw 2vw 4vw;
+  	padding: 1vw;
+  }
+  
+  .container-usuarios {
+  	display: flex;
+  	flex-flow: row nowrap;
+  	justify-content: space-evenly;
+  	align-items: center;
+  	height: 50vh;
+  }
+
+  .items-usuarios {
+  	background-color: #F3F2F0;
+  	border-radius: 6px;
+  	padding: 1.5vw;
+  	height: 35vh;
+  	min-width: 10vw;
+  	width: 20vw;
+  	max-width: 30vw;
+  	flex-shrink: 1;
+  	transition: flex-grow 0.5s ease;
+  }
+
+  .items-usuarios:hover {
+  	flex-grow: 1;
+  }
+  
+  .items-usuarios a {
+  	display: block;
+  	align-items: center;
+  	background-color: #0C4040;
+  	border-radius: 6px;
+  	padding: 0.5vw;
+  	text-align: center;
+    cursor: pointer;
+    width: 10vw;
+  }
+  
+  .perguntas-frequentes {
+  	background-color: #ABCCA1;
+  	border-radius: 8px;
+  	margin: 2vw 4vw 2vw 4vw;
+  	padding: 1vw;
+  }
+  
+  .container-perguntas-frequentes {
+  	display: flex;
+  	flex-flow: row nowrap;
+  	justify-content: space-evenly;
+  	align-items: center;
+  	height: 40vh;
+  	margin: 1vw;
+  	padding: 1vw;
+  }
+  
+  .items-perguntas-frequentes {
+  	width: 30vw;
+  }
+  
+  footer {
+      display: block;
+      background-color: #0C4040;
+      color: #F3F2F0;
+      border-radius: 8px 8px 0px 0px;
+      padding: 25px;
+      margin: 0 0.25vh 0 0.25vh;
+      text-align: center;
+  }
+  
+  footer a {
+  	margin: 0 30px;
+  }

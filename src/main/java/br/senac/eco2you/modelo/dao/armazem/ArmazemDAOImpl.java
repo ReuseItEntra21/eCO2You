@@ -1,18 +1,16 @@
 package br.senac.eco2you.modelo.dao.armazem;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Join;
+import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
-import br.senac.eco2you.modelo.entidade.deposito.Deposito;
-import br.senac.eco2you.modelo.entidade.deposito.Deposito_;
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
 import br.senac.eco2you.modelo.entidade.endereco.Endereco_;
 import br.senac.eco2you.modelo.entidade.retirada.Retirada;
@@ -21,7 +19,6 @@ import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem_;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa_;
-import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
 import br.senac.eco2you.modelo.enumeracao.status.armazem.StatusArmazem;
 import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
 
@@ -34,7 +31,7 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 
 	public List<Armazem> buscarArmazensPorNome(String nome) {
 		Session sessao = null;
-		List<Armazem> armazens = new ArrayList<Armazem>();
+		List<Armazem> armazens = null;
 
 		try {
 			sessao = fabrica.getConexao().openSession();
@@ -44,8 +41,10 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 			CriteriaQuery<Armazem> criteria = construtor.createQuery(Armazem.class);
 			Root<Armazem> raizArmazem = criteria.from(Armazem.class);
 
-			criteria.select(raizArmazem).where(construtor.like(raizArmazem.get(nome), "%" + nome + "%"));
+			criteria.select(raizArmazem).where(construtor.like(raizArmazem.get(Armazem_.NOME), "%" + nome + "%"));
 			armazens = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
 
 		} catch (Exception sqlException) {
 
@@ -138,7 +137,7 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 	public List<Armazem> buscarArmazemPeloStatusArmazem(StatusArmazem statusArmazem) {
 
 		Session sessao = null;
-		List<Armazem> retiradas = null;
+		List<Armazem> armazens = null;
 
 		try {
 			sessao = fabrica.getConexao().openSession();
@@ -151,7 +150,7 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 
 			criteria.select(raizArmazem)
 					.where(construtor.equal(raizArmazem.get(Armazem_.STATUS_ARMAZEM), statusDeArmazem));
-			retiradas = sessao.createQuery(criteria).setParameter(statusDeArmazem, statusArmazem).getResultList();
+			armazens = sessao.createQuery(criteria).setParameter(statusDeArmazem, statusArmazem).getResultList();
 
 			sessao.getTransaction().commit();
 
@@ -168,10 +167,10 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 			}
 		}
 
-		return retiradas;
+		return armazens;
 	}
 
-	public List<Armazem> recuperarTodosArmazens() {
+	public List<Armazem> buscarTodosArmazens() {
 		Session sessao = null;
 		List<Armazem> armazens = null;
 
@@ -209,7 +208,7 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 		return armazens;
 	}
 
-	public Armazem recuperarArmazemPorId(long id) {
+	public Armazem buscarArmazemPorId(long id) {
 		Session sessao = null;
 		Armazem armazem = null;
 
@@ -241,47 +240,41 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 		}
 
 		return armazem;
+	
 	}
-
-	public List<Armazem> buscarPerfilArmazemPeloNome(String nome) {
-		try (Session sessao = fabrica.getConexao().openSession()) {
-			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-			CriteriaQuery<Armazem> criteria = construtor.createQuery(Armazem.class);
-			Root<Armazem> raizArmazem = criteria.from(Armazem.class);
-
-			Join<Armazem, Deposito> juncaoDeposito = raizArmazem.join(Armazem_.DEPOSITOS);
-			Join<Deposito, Coletor> juncaoArmazem = juncaoDeposito.join(Deposito_.COLETOR);
-
-			ParameterExpression<String> nomeArmazemExpression = construtor.parameter(String.class);
-
-			criteria.where(construtor.equal(juncaoArmazem.get(Armazem_.NOME), nomeArmazemExpression));
-
-			return sessao.createQuery(criteria).setParameter(nomeArmazemExpression, nome).getResultList();
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-
+	//Essa consulta não estava retornando nada, entao fiz por innerJoin, porém ainda precisa ser testada.
 	public List<Armazem> buscarPerfilArmazemPeloNomePelaCooperativa(String nome) {
-		try (Session sessao = fabrica.getConexao().openSession()) {
+		Session sessao = null;
+		List<Armazem> armazens = null;
+		
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+			
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 			CriteriaQuery<Armazem> criteria = construtor.createQuery(Armazem.class);
 			Root<Armazem> raizArmazem = criteria.from(Armazem.class);
 
-			Join<Armazem, Retirada> juncaoDeposito = raizArmazem.join(Armazem_.RETIRADAS);
+			Join<Armazem, Retirada> juncaoDeposito = raizArmazem.join(Armazem_.RETIRADAS, JoinType.INNER);
 			Join<Retirada, Cooperativa> juncaoCooperativa = juncaoDeposito.join(Retirada_.COOPERATIVA);
 
 			ParameterExpression<String> nomeArmazemExpression = construtor.parameter(String.class);
 
 			criteria.where(construtor.equal(juncaoCooperativa.get(Cooperativa_.NOME), nomeArmazemExpression));
 
-			return sessao.createQuery(criteria).setParameter(nomeArmazemExpression, nome).getResultList();
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
+			armazens = sessao.createQuery(criteria).setParameter(nomeArmazemExpression, nome).getResultList();
+			
+			sessao.getTransaction().commit();
+
+			
+		} catch (Exception sqlException) {
+			sqlException.printStackTrace();
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}		}
+		
+		return armazens; 
 
 	}
-
+	
 }

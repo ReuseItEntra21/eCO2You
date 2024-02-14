@@ -4,10 +4,12 @@
     <head>
 	    <meta charset="UTF-8">
 		<title>Cadastro</title>
-		<style><%@include file="../../../resources/css/style.css"%></style>
+		<style><%@include file="../../css/style.css"%></style>
+		<script src="https://kit.fontawesome.com/9b206050e6.js" crossorigin="anonymous"></script>
     </head>
-    <form action="apresentacao">
-		<button type="submit" name="voltar" id=voltar>Voltar</button>
+   <form action="apresentacao">
+		
+        <button type="submit" name="voltar" id="voltar"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
 	</form>
     <body>
     	<form action="inserir-material" method="post">
@@ -20,4 +22,4 @@
     <button type="submit" name="cadastrar" id=cadastrar class="ButtonEntrar">Cadastrar Material</button>
   </form>
     </body>
-</html>
+</html> 
