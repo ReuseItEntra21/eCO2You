@@ -12,5 +12,5 @@ public interface ItemRetiradaDAO {
 
 	void atualizarItemRetirada(ItemRetirada itemRetirada);
 
-	List<ItemRetirada> recuperarItensRetirada();
+	List<ItemRetirada> buscarItensRetirada();
 }
