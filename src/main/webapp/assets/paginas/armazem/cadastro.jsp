@@ -4,10 +4,11 @@
     <head>
 	    <meta charset="UTF-8">
 		<title>Cadastro Armazem</title>
-		<style><%@include file="../../../resources/css/style.css"%></style>
+		<style><%@include file="../../css/style.css"%></style>
     </head>
     <body>
     <div style="float: left">
+    	<a href="apresenteacao" class="dropbtn" id=voltar>Voltar</a>
 		<h2>Faça parte dessa mudança!</h2>
 		Conecte-se a uma comunidade comprometida com a sustentabilidade e
 		preservação do meio ambiente

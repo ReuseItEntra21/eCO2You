@@ -293,7 +293,7 @@ public class Main {
 
 		// =============================================================================================================
 
-		Reciclavel reciclavel02 = new Reciclavel("Lata", aluminio, 10, 0.5, 0.6, "Limpe antes de reciclar");
+		Reciclavel reciclavel02 = new Reciclavel("Lata", aluminio, 10, 0.5,  0.6, "Limpe antes de reciclar");
 		ReciclavelDAO reciclavelDAO02 = new ReciclavelDAOImpl();
 		reciclavelDAO02.inserirReciclavel(reciclavel02);
 

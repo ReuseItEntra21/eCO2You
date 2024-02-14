@@ -22,7 +22,7 @@ public abstract class Pessoa extends Usuario implements Serializable {
 	@Column(name = "cpf_pessoa", length = 14, nullable = false)
 	private String cpf;
  
-	@Column(name = "data_nascimento_usuario", nullable = false)
+	@Column(name = "data_nascimento_pessoa", nullable = true)
 	private LocalDate dataNascimento;
 	
 	public Pessoa() {}
@@ -36,6 +36,13 @@ public abstract class Pessoa extends Usuario implements Serializable {
 	
 	public Pessoa(String nome, String sobrenome, String cpf, LocalDate dataNascimento, String email, String senha, Endereco endereco) {
 		super(nome, email, senha, endereco);
+		this.sobrenome = sobrenome;
+		this.cpf = cpf;
+		this.dataNascimento = dataNascimento;
+	}
+	
+	public Pessoa(long id, String nome, String sobrenome, String cpf, LocalDate dataNascimento, String email, String senha, Endereco endereco) {
+		super(id, nome, email, senha, endereco);
 		this.sobrenome = sobrenome;
 		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
@@ -57,11 +64,11 @@ public abstract class Pessoa extends Usuario implements Serializable {
 		this.cpf = cpf;
 	}
  
-	public LocalDate getDatanascimento() {
+	public LocalDate getDataNascimento() {
 		return dataNascimento;
 	}
  
-	public void setDatanascimento(LocalDate dataNascimento) {
+	public void setDataNascimento(LocalDate dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 }

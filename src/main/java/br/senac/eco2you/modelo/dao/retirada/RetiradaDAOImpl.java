@@ -153,7 +153,7 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 			Root<Retirada> raizRetirada = criteria.from(Retirada.class);
 			ParameterExpression<LocalDate> dataRetirada = construtor.parameter(LocalDate.class);
 			criteria.where(construtor.equal(raizRetirada.get(Retirada_.data), dataRetirada));
-			
+
 			criteria.select(raizRetirada);
 
 			retiradas = sessao.createQuery(criteria).setParameter(dataRetirada, data).getResultList();
@@ -237,6 +237,28 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 
 	}
 
+	public List<Retirada> buscarRetiradasPelaCooperativa(Cooperativa cooperativa) {
+
+		Session sessao = null;
+		List<Retirada> retiradas = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Retirada> criteria = construtor.createQuery(Retirada.class);
+			Root<Retirada> raizRetirada = criteria.from(Retirada.class);
+
+			criteria.select(raizRetirada)
+
+					.where(construtor.equal(raizRetirada.get(Retirada_.COOPERATIVA), cooperativa));
+
+			return sessao.createQuery(criteria).getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return retiradas;
+	}
+
 	public List<Retirada> buscarRetiradaPeloArmazem(String nome) {
 
 		Session sessao = null;
@@ -287,6 +309,29 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 
 		return retiradas;
 
+	}
+
+	public List<Retirada> buscarRetiradasPeloArmazem(Armazem armazem) {
+
+		Session sessao = null;
+		List<Retirada> retiradas = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Retirada> criteria = construtor.createQuery(Retirada.class);
+			Root<Retirada> raizDeposito = criteria.from(Retirada.class);
+
+			criteria.select(raizDeposito)
+
+					.where(construtor.equal(raizDeposito.get(Retirada_.ARMAZEM), armazem));
+
+			return sessao.createQuery(criteria).getResultList();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return retiradas;
 	}
 
 	public List<Retirada> buscarRetiradaPeloStatusRetirada(StatusRetirada statusRetirada) {
@@ -439,12 +484,50 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 					.where(construtor.and(construtor.equal(juncaoCooperativa.get(Cooperativa_.NOME), nomeDaCooperativa),
 							construtor.equal(juncaoArmazem.get(Armazem_.NOME), nomeDoArmazem),
 							construtor.equal(raizRetirada.get(Retirada_.DATA), data)));
-			
+
 			return sessao.createQuery(criteria).getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
-		}
 	}
 
+	public List<Retirada> recuperarRetiradas() {
+		Session sessao = null;
+		List<Retirada> retiradas = null;
+
+		try {
+
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Retirada> criteria = construtor.createQuery(Retirada.class);
+			Root<Retirada> raizCliente = criteria.from(Retirada.class);
+
+			criteria.select(raizCliente);
+
+			retiradas = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return retiradas;
+	}
+
+}

@@ -1,63 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>Editar Perfil</title>
-		<style><%@include file="../../../resources/css/style.css"%></style>
+		<script src="https://kit.fontawesome.com/9b206050e6.js" crossorigin="anonymous"></script>
+		<style><%@include file="../../css/style.css"%></style>
 	</head>
     <body>
     <br>
-    	<form action="/">
-	        <a href="./perfil-coletor">
-				<button type="button" name="voltar" id=voltar>Voltar</button>
-			</a>
 	        <br>
-	        <br>
-	        <h1> Informações </h1>
-	        <input type="text" id="nome" name="nome" autofocus placeholder="Nome" maxlength="25" size="46"><br>
-	        <br>
-	        <input type="email" id="email" name="email" placeholder="E-mail" maxlength="45" size="46"><br>
-	        <br>
-	        <input type="text" id="cpf" name="cpf" placeholder="Cpf" maxlength="14" size="46">
-	        <br>
-	        <br>
-	        <input type="text" id="telefone" name="telefone" placeholder="Telefone" maxlength="17"> <input type="text" id="bairro" name="bairro" placeholder="Endereço Bairro" maxlength="25"><br>
-	        <br>
-	        <input type="text" id="logradouro" name="logradouro" placeholder="Endereço Rua" maxlength="45"> <input type="text" id="cep" name="cep" placeholder="CEP"> <br>
-	        <br>
-	        <input type="text" id="numero" name="numeroResidencia" placeholder="Número"> <input type="text" id="cidade" name="cidade" placeholder="Cidade" maxlength="25">			
-	        <br>
-	        <br>
-	        <input type="text" id="complemento" name="complemento" placeholder="Complementos" size="46">
-	        <br>
-	        <br>
-	        <input type="submit" value="Alterar a Senha" name="alterar" id=alterar>
-	        <input type="submit" value="Excluir a Conta" name="excluir" id=excluir>
-	        <br>
-	        <br>
-	        <input type="submit" value="Salvar" name="salvar" id=salvar>
-            <br>
-            <br>
-            <button type="button" name="voltar" id=voltar>Voltar</button>
-	        <br>
-	        <h1> Horario de Funcionamento </h1>
-	        <br>
-            <input type="text" placeholder="Dia da Semana 1" id=dia1 name=dia>
-	        <br>
-            <h3> A </h3>
-            <input type="text" placeholder="Dia da Semana 2" id=dia2 name=dia>
-            <br>
-            <br>
-            <br>
-            <br>
-            <input type="text" placeholder="Horario 1" id=horario1 name=horario>
-	        <br>
-            <h3> Às </h3>
-            <input type="text" placeholder="Horario 2" id=horario2 name=horario>
-            <br>
-            <br>
-	        <input type="submit" value="Salvar Alterações" name="salvar" id=salvar>
-    	</form>
+	    <form action="atualizar-armazem">
+	    <button type="submit" name="voltar" id="voltar"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
+			<h1> Informações </h1>
+					<div>
+					<input type="text" value="<c:out value='${armazem.nome}' />" id="nome" name="nome" autofocus placeholder="Informe o seu Nome"">
+					<input type="number" value="<c:out value='${armazem.endereco.cep}' />" id="cep" name="cep" placeholder="Informe o seu CEP">
+					<br>
+					<input type="email" value="<c:out value='${armazem.email}' />" id="email" name="email" placeholder="Informe o seu Email">
+					<input type="text" value="<c:out value='${armazem.cnpj}' />" id="cnpj" name="cnpj" placeholder="Informe o seu CNPJ">
+					<br>
+					<input type="tel" value="<c:out value='${armazem.endereco.telefone}' />" id="telefone" name="telefone" placeholder="Informe o seu Telefone">
+					<input type="number" value="<c:out value='${armazem.endereco.numeroEndereco}' />" id="numeroEndereco" name="numeroEndereco" placeholder="Informe o Número">
+					<br>
+					<input type="text" value="<c:out value='${armazem.senha}' />" id="senha" name="senha" placeholder="Informe a Senha">
+					<input type="text" value="<c:out value='${armazem.endereco.cidade}' />" id="cidade" name="cidade" placeholder="Informe a sua Cidade">
+								<br>
+					<input type="time" value="<c:out value='${armazem.horarioAbertura}' />" id="horarioAbertura" name="horarioAbertura" placeholder="Informe o seu Horario de Abertura">
+								<input type="text" value="<c:out value='${armazem.endereco.bairro}' />" id="bairro" name="bairro" placeholder="Informe o seu Bairro">
+								<br>
+					<input type="time" value="<c:out value='${armazem.horarioFechamento}' />" id="horarioFechamento" name="horarioFechamento" placeholder="Informe o seu Horario de Fechamento">
+					<input type="text" value="<c:out value='${armazem.endereco.logradouro}' />" id="logradouro" name="logradouro" placeholder="Informe o Logradouro">
+					<br>
+					<input type="number" value="<c:out value='${armazem.capacidadeArmazenagem}' />" id="capacidadeArmazenagem" name="capacidadeArmazenagem" placeholder="Informe o Número">
+					<input type="text" value="<c:out value='${armazem.endereco.complemento}' />" id="complemento" name="complemento" placeholder="Informe o complemento">
+				</div>
+		    <br>
+		    <input type="submit" value="Salvar" id="salvar">
+	    </form>
     </body>
 </html>

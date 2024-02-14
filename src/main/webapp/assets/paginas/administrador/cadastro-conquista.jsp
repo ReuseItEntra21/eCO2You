@@ -4,32 +4,33 @@
     <head>
 	    <meta charset="UTF-8">
 		<title>Cadastro</title>
-		<style><%@include file="../../../resources/css/style.css"%></style>
+		<script src="https://kit.fontawesome.com/9b206050e6.js" crossorigin="anonymous"></script>
+		<style><%@include file="../../css/style.css"%></style>
     </head>
     <form action="apresentacao">
-		<button type="submit" name="voltar" id=voltar>Voltar</button>
+		<button type="submit" name="voltar" id="voltar"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
 	</form>
     <body>
     	<form action="inserir-conquista" method="post">
-	        <h1> Nova Conquista </h1>
+	        <h1 id="h1Titulo"> Nova Conquista </h1>
 	        <br>
 	        <br>
-	        <h2> Nome da Conquista </h2>
-	        <input type="text" id="nome" name="nome" autofocus placeholder="Nome da Conquista" maxlength="25"size="15">
+	        <div class="h2InDiv">
+				<h2> Nome da Conquista </h2>
+			</div>
+	        <input type="text" id="nome" name="nome" autofocus placeholder="Nome da Conquista" maxlength="25"size="15" class="nomeIpontosIdescricao">
 	        <br>
 	        <br>
-	        <h2> Pontos da Conquista </h2>
-	        <input type="number" id="pontos" name="pontos" autofocus placeholder="Pontos da Conquista" maxlength="25"size="15">
+	        <div class="h2InDiv">
+				<h2> Pontos da Conquista </h2>
+			</div>
+	        <input type="number" id="pontos" name="pontos" autofocus placeholder="Pontos da Conquista" maxlength="25"size="15" class="nomeIpontosIdescricao">
 	        <br>
 	        <br>
-	        <input type="text" id="descricao" name="descricao" autofocus placeholder="Descrição da Conquista" maxlength="25"size="15">
+	        <input type="text" id="descricao" name="descricao" autofocus placeholder="Descrição da Conquista" maxlength="25"size="15" class="nomeIpontosIdescricao">
 	        <br>
 	        <br>
-	        <button type="submit" name="cadastrar" id=cadastrar class="ButtonEntrar">Cadastrar Conquista</button>
-	        <br>
-	        <br>
-	        <h2>Faça parte dessa mudança!</h2>
-			<Pre>Conecte-se a uma comunidade<br> comprometida com a <br>sustentabilidade e preservação<br> do meio ambiente.</Pre>
+	        <div><button type="submit" name="cadastrar" id=cadastrar class="ButtonEntrar">Cadastrar Conquista</button></div>
         </form>
     </body>
 </html>
