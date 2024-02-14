@@ -144,7 +144,7 @@ public class ReciclavelDAOImpl implements ReciclavelDAO {
 		return Collections.emptyList();
 	}
 	
-	public List<Reciclavel> buscarTodosReciclaveis() {
+	public List<Reciclavel> buscarReciclaveis() {
 
 		Session sessao = null;
 		List<Reciclavel> reciclaveis = null;

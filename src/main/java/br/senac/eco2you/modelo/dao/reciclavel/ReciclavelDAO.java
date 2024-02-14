@@ -12,7 +12,7 @@ public interface ReciclavelDAO {
 
 	void atualizarReciclavel(Reciclavel reciclavel);
 	
-	List<Reciclavel> buscarTodosReciclaveis();
+	List<Reciclavel> buscarReciclaveis();
 
 	List<Reciclavel> buscarReciclavelPeloNome(String nome);
 	

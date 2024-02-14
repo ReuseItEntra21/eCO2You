@@ -15,8 +15,7 @@ public interface ArmazemDAO {
 	
 	List<Armazem> buscarArmazemPeloStatusArmazem(StatusArmazem statusDeArmazem);
 	
-	List<Armazem> buscarTodosArmazens();
-	
+	List<Armazem> buscarArmazens();
 	
 	List<Armazem> buscarPerfilArmazemPeloNomePelaCooperativa(String nome);
 	

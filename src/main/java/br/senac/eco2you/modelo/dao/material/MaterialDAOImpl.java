@@ -101,7 +101,7 @@ public class MaterialDAOImpl implements MaterialDAO{
 		}
 	}
 	
-	public List<Material> buscarTodosMateriais() {
+	public List<Material> buscarMateriais() {
 		
 		Session sessao = null;
 		List<Material> materiais = null;
