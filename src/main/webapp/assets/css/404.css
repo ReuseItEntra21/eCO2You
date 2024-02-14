@@ -1,66 +1,47 @@
 *{
-    background-color: #fefefe;
-    color: #0d0d0d;
-    font-family: 'Poppins', sans-serif;
-    
+    margin: 0px;
+    text-decoration: none;
 }
-
-#voltar{
-
-    border-style: none;
-    font-size: 40px;
-    text-align: start;
-
+nav{
+    background-color: #ffffff;
+    padding: 20px 20px 20px 20px;
 }
-#container{
-    height: 400px;
-    width: 240x;
-    align-items: center;
-    background-color: #fefefe;
-    text-align: center;
-    font-size: 175px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    
+svg{
+    height: 1294px;
+    width: 1920px;
 }
-
-
-.flex{
-    display: flex;
-    flex-wrap: wrap;
-    font-family: 'Poppins', sans-serif;
-    margin-left: 755px;
+#Eco2you{
+    height: 58px;
+    width: 80px;
+    text-align: left;
+    padding-right: 500px;
 }
-#descricao1{
-text-align: center;
-font-size: large;
-font-weight: 800;
-margin-top: 30px;
+.link-nav{
+    padding-left: 100px;
 
 }
-#descricao2{
-    text-align: center;
-    font-size: large;
-    font-weight: 800;
-    margin-top: 15px; 
-}
-
-
-#Not-found{
-    text-align: center;
-    font-size: 40px;
-    font-weight: 800;
-    margin-top: 0px;
-}
-img{
-    width: 120px;
-    height: 120px;
-    
-}
-#simbolo{
-	width: 100px;
-	height: 100px;
-	background: url(Simbolo2.png) 0 0;
-}
-
-
+.container {
+    display: inline-block;
+    position: relative;
+  }
+.container p {
+    position: absolute;
+    top: 647px;
+    right: 960px;
+    font-size: 200px;
+    color: white;
+  }
+.container h2 {
+    position: absolute;
+    top: 650px;
+    right: 1200px;
+    font-size: 24px;
+    color: white;
+  }
+.container h3 {
+    position: absolute;
+    top: 860px;
+    right: 930px;
+    font-size: 24px;
+    color: white;
+  }
