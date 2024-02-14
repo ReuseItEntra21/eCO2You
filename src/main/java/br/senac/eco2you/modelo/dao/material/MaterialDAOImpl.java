@@ -101,7 +101,7 @@ public class MaterialDAOImpl implements MaterialDAO{
 		}
 	}
 	
-	public List<Material> recuperarTodosMateriais() {
+	public List<Material> buscarTodosMateriais() {
 		
 		Session sessao = null;
 		List<Material> materiais = null;
@@ -140,7 +140,7 @@ public class MaterialDAOImpl implements MaterialDAO{
 		return materiais;
 	}
 	
-	public Material recuperarMaterialPorId(long id) {
+	public Material buscarMaterialPorId(long id) {
 		
 		Session sessao = null;
 		Material material = null;
