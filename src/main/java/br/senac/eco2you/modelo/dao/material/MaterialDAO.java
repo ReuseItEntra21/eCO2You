@@ -12,7 +12,7 @@ public interface MaterialDAO {
 
 	void atualizarMaterial(Material material);
 	
-	List<Material> buscarTodosMateriais();
+	List<Material> buscarMateriais();
 	
 	Material buscarMaterialPorId(long id);
 }
