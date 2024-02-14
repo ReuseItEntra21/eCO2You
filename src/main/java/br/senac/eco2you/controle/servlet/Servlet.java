@@ -335,7 +335,7 @@ public class Servlet extends HttpServlet {
 	private void mostrarPerfilColetor(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 		
-		Usuario usuario = usuarioDAO.recuperarUsuarioPorId((long)1);
+		Usuario usuario = usuarioDAO.buscarUsuarioPorId((long)1);
 		request.setAttribute("usuario", usuario);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/perfil.jsp");
 		dispatcher.forward(request, response);
@@ -351,7 +351,7 @@ public class Servlet extends HttpServlet {
 	private void mostrarPerfilArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
 
 		long id = Long.parseLong(request.getParameter("id"));
-		Armazem armazem = armazemDAO.recuperarArmazemPorId(id);
+		Armazem armazem = armazemDAO.buscarArmazemPorId(id);
 		request.setAttribute("armazem", armazem);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/perfil.jsp");
 		dispatcher.forward(request, response);
@@ -413,7 +413,7 @@ public class Servlet extends HttpServlet {
 	private void mostrarCadastroReciclavel(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
-		List<Material> materiais = materialDAO.recuperarTodosMateriais();
+		List<Material> materiais = materialDAO.buscarTodosMateriais();
 		request.setAttribute("materiais", materiais);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastro-reciclavel.jsp");
 		dispatcher.forward(request, response);
@@ -422,7 +422,7 @@ public class Servlet extends HttpServlet {
 	private void mostrarCadastroItemDeposito(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
-		List<Reciclavel> reciclaveis = reciclavelDAO.recuperarTodosReciclaveis();
+		List<Reciclavel> reciclaveis = reciclavelDAO.buscarTodosReciclaveis();
 		request.setAttribute("reciclaveis", reciclaveis);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastro-item-deposito.jsp");
 		dispatcher.forward(request, response);
@@ -431,8 +431,8 @@ public class Servlet extends HttpServlet {
 	private void mostrarCadastroDeposito(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
-		List<Reciclavel> reciclaveis = reciclavelDAO.recuperarTodosReciclaveis();
-		List<Armazem> armazens = armazemDAO.recuperarTodosArmazens();
+		List<Reciclavel> reciclaveis = reciclavelDAO.buscarTodosReciclaveis();
+		List<Armazem> armazens = armazemDAO.buscarTodosArmazens();
 		request.setAttribute("reciclaveis", reciclaveis);
 		request.setAttribute("armazens", armazens);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastro-deposito.jsp");
@@ -442,9 +442,9 @@ public class Servlet extends HttpServlet {
 	private void mostrarCadastroRetirada(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
-		List<Armazem> armazens = armazemDAO.recuperarTodosArmazens();
+		List<Armazem> armazens = armazemDAO.buscarTodosArmazens();
 		request.setAttribute("armazens", armazens);
-		List<Material> materiais = materialDAO.recuperarTodosMateriais();
+		List<Material> materiais = materialDAO.buscarTodosMateriais();
 		request.setAttribute("materiais", materiais);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cadastro-retirada.jsp");
 		dispatcher.forward(request, response);
@@ -513,7 +513,7 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException {
 
 		long id = Long.parseLong(request.getParameter("id"));
-		Usuario usuario = usuarioDAO.recuperarUsuarioPorId(id);
+		Usuario usuario = usuarioDAO.buscarUsuarioPorId(id);
 		usuarioDAO.deletarUsuario(usuario);
 		response.sendRedirect("eCO2You/");
 
@@ -574,7 +574,7 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException {
 
 		long id = Long.parseLong(request.getParameter("id"));
-		Usuario usuario = usuarioDAO.recuperarUsuarioPorId(id);
+		Usuario usuario = usuarioDAO.buscarUsuarioPorId(id);
 		usuarioDAO.deletarUsuario(usuario);
 		response.sendRedirect("eCO2You/");
 
@@ -620,7 +620,7 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException {
 
 		long id = Long.parseLong(request.getParameter("id"));
-		Usuario usuario = usuarioDAO.recuperarUsuarioPorId(id);
+		Usuario usuario = usuarioDAO.buscarUsuarioPorId(id);
 		usuarioDAO.deletarUsuario(usuario);
 		response.sendRedirect("eCO2You/");
 
@@ -647,7 +647,7 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException {
 
 		long id = Long.parseLong(request.getParameter("id"));
-		Material material = materialDAO.recuperarMaterialPorId(id);
+		Material material = materialDAO.buscarMaterialPorId(id);
 		materialDAO.deletarMaterial(material);
 		response.sendRedirect("/home");
 
@@ -657,7 +657,7 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 
 		String nome = request.getParameter("nome");
-		Material material = materialDAO.recuperarMaterialPorId(Long.parseLong(request.getParameter("material")));
+		Material material = materialDAO.buscarMaterialPorId(Long.parseLong(request.getParameter("material")));
 		int pontosCarbono = Integer.parseInt(request.getParameter("pontos-carbono"));
 		float peso = Float.parseFloat(request.getParameter("peso"));
 		float volume = Float.parseFloat(request.getParameter("volume"));
@@ -721,7 +721,7 @@ public class Servlet extends HttpServlet {
 		DepositoDAO.inserirDeposito(new Deposito(data, armazem, coletor));
 
 		Reciclavel reciclavel = reciclavelDAO
-				.recuperarReciclavelPorId(Long.parseLong(request.getParameter("reciclavel")));
+				.buscarReciclavelPorId(Long.parseLong(request.getParameter("reciclavel")));
 		int quantidadeReciclaveis = Integer.parseInt(request.getParameter("quantidade-reciclaveis"));
 		itemDepositoDAO.inserirItemDeposito(new ItemDeposito(reciclavel, quantidadeReciclaveis));
 		response.sendRedirect("/eCO2You/apresentacao");
@@ -760,7 +760,7 @@ public class Servlet extends HttpServlet {
 		usuarioDAO.inserirUsuario(armazem);
 		retiradaDAO.inserirRetirada(new Retirada(data, cooperativa, armazem));
 
-		Material material = materialDAO.recuperarMaterialPorId(Long.parseLong(request.getParameter("material")));
+		Material material = materialDAO.buscarMaterialPorId(Long.parseLong(request.getParameter("material")));
 		float peso = Float.parseFloat(request.getParameter("peso"));
 		itemRetiradaDAO.inserirItemRetirada(new ItemRetirada(material, peso));
 		response.sendRedirect("/eCO2You/apresentacao");
