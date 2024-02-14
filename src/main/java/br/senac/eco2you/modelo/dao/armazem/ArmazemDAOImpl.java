@@ -170,7 +170,7 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 		return armazens;
 	}
 
-	public List<Armazem> buscarTodosArmazens() {
+	public List<Armazem> buscarArmazens() {
 		Session sessao = null;
 		List<Armazem> armazens = null;
 
