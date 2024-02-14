@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Depositos Aceitar</title>
-<style><%@include file="../../css/style.css"%></style>
 </head>
 <body>
 	<nav>

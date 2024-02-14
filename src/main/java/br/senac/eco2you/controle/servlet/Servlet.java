@@ -566,9 +566,9 @@ public class Servlet extends HttpServlet {
 	private void mostrarCadastroDeposito(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
-		List<Reciclavel> reciclaveis = reciclavelDAO.buscarTodosReciclaveis();
-		List<Armazem> armazens = armazemDAO.buscarTodosArmazens();
-		List<Material> materiais = materialDAO.buscarTodosMateriais();
+		List<Reciclavel> reciclaveis = reciclavelDAO.buscarReciclaveis();
+		List<Armazem> armazens = armazemDAO.buscarArmazens();
+		List<Material> materiais = materialDAO.buscarMateriais();
 		request.setAttribute("reciclaveis", reciclaveis);
 		request.setAttribute("materiais", materiais);
 		request.setAttribute("armazens", armazens);

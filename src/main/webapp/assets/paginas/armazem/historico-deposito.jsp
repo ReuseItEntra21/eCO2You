@@ -6,7 +6,6 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Histórico Deposito</title>
-		<style><%@include file="../../css/style.css"%></style>
 	</head>
 	<body>
     	<a href="home-armazem" class="dropbtn" id=voltar>Voltar</a>
