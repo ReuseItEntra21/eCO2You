@@ -15,7 +15,7 @@ public interface DepositoDAO {
  
     void atualizarDeposito(Deposito deposito);
  
-    List<Deposito> recuperarDepositos();
+    List<Deposito> buscarDepositos();
  
     List<Deposito> buscarDepositoPeloStatusDeposito(StatusDeposito statusDeDeposito);
  

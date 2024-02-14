@@ -115,7 +115,7 @@ public class DepositoDAOImpl implements DepositoDAO {
 		}
 	}
 
-	public List<Deposito> recuperarDepositos() {
+	public List<Deposito> buscarDepositos() {
 		Session sessao = null;
 		List<Deposito> depositos = null;
 
