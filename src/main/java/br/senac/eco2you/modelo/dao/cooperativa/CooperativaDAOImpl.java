@@ -1,11 +1,11 @@
 package br.senac.eco2you.modelo.dao.cooperativa;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Join;
+import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
@@ -30,7 +30,7 @@ public class CooperativaDAOImpl implements CooperativaDAO {
 
 	public List<Cooperativa> buscarCooperativaPorNome(String nome) {
 		Session sessao = null;
-		List<Cooperativa> cooperativas = new ArrayList<Cooperativa>();
+		List<Cooperativa> cooperativas = null;
 
 		try {
 			sessao = fabrica.getConexao().openSession();
@@ -40,9 +40,12 @@ public class CooperativaDAOImpl implements CooperativaDAO {
 			CriteriaQuery<Cooperativa> criteria = construtor.createQuery(Cooperativa.class);
 			Root<Cooperativa> raizCooperativa = criteria.from(Cooperativa.class);
 
-			criteria.select(raizCooperativa).where(construtor.like(raizCooperativa.get(Cooperativa_.NOME), "%" + nome + "%"));
+			criteria.select(raizCooperativa)
+					.where(construtor.like(raizCooperativa.get(Cooperativa_.NOME), "%" + nome + "%"));
 
 			cooperativas = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
 
 		} catch (Exception sqlException) {
 
@@ -62,7 +65,7 @@ public class CooperativaDAOImpl implements CooperativaDAO {
 
 	public List<Cooperativa> buscarCooperativasPeloBairro(String bairro) {
 		Session sessao = null;
-		List<Cooperativa> cooperativas = new ArrayList<>();
+		List<Cooperativa> cooperativas = null;
 
 		try {
 			sessao = fabrica.getConexao().openSession();
@@ -100,7 +103,7 @@ public class CooperativaDAOImpl implements CooperativaDAO {
 
 	public List<Cooperativa> buscarCooperativasPelaCidade(String cidade) {
 		Session sessao = null;
-		List<Cooperativa> cooperativas = new ArrayList<>();
+		List<Cooperativa> cooperativas = null;
 
 		try {
 			sessao = fabrica.getConexao().openSession();
@@ -137,7 +140,12 @@ public class CooperativaDAOImpl implements CooperativaDAO {
 
 	public Cooperativa exibirPerfilCooperativa(String nomeDaCooperativa) {
 		Cooperativa cooperativa = null;
-		try (Session sessao = fabrica.getConexao().openSession()) {
+		Session sessao = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 			CriteriaQuery<Cooperativa> criteria = construtor.createQuery(Cooperativa.class);
 			Root<Cooperativa> raizCooperativa = criteria.from(Cooperativa.class);
@@ -146,36 +154,46 @@ public class CooperativaDAOImpl implements CooperativaDAO {
 					.where(construtor.equal(raizCooperativa.get(Cooperativa_.NOME), nomeDaCooperativa));
 
 			cooperativa = sessao.createQuery(criteria).uniqueResult();
+
+			sessao.getTransaction().commit();
+
 		} catch (Exception e) {
 			e.printStackTrace();
-			
+
 		}
-	return cooperativa;
+		return cooperativa;
 	}
 
 	public List<Cooperativa> buscarPerfilCooperativaPeloNome(String nome) {
-		try (
+		List<Cooperativa> cooperativas = null;
+		Session sessao = null;
 
-				Session sessao = fabrica.getConexao().openSession()) {
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 			CriteriaQuery<Cooperativa> criteria = construtor.createQuery(Cooperativa.class);
 			Root<Cooperativa> raizCooperativa = criteria.from(Cooperativa.class);
 
-			Join<Cooperativa, Retirada> juncaoDeposito = raizCooperativa.join(Cooperativa_.RETIRADAS);
+			Join<Cooperativa, Retirada> juncaoDeposito = raizCooperativa.join(Cooperativa_.RETIRADAS, JoinType.INNER);
 			Join<Retirada, Armazem> juncaoArmazem = juncaoDeposito.join(Retirada_.ARMAZEM);
 
 			ParameterExpression<String> nomeCooperativaExpression = construtor.parameter(String.class);
 
 			criteria.where(construtor.equal(juncaoArmazem.get(Cooperativa_.NOME), nomeCooperativaExpression));
 
-			return sessao.createQuery(criteria).setParameter(nomeCooperativaExpression, nome).getResultList();
+			cooperativas = sessao.createQuery(criteria).setParameter(nomeCooperativaExpression, nome).getResultList();
+
+			sessao.getTransaction().commit();
+
 		} catch (Exception e) {
 			e.printStackTrace();
-			return null;
+			return cooperativas;
 		}
+		return cooperativas;
 	}
 
-	@Override
 	public Cooperativa recuperarCooperativaPeloId(Long id) {
 		Session sessao = null;
 		Cooperativa cooperativa = null;
@@ -191,6 +209,8 @@ public class CooperativaDAOImpl implements CooperativaDAO {
 			criteria.select(raizCooperativa).where(construtor.equal(raizCooperativa.get(Cooperativa_.ID), id));
 
 			cooperativa = sessao.createQuery(criteria).getSingleResult();
+
+			sessao.getTransaction().commit();
 
 		} catch (Exception sqlException) {
 			sqlException.printStackTrace();
