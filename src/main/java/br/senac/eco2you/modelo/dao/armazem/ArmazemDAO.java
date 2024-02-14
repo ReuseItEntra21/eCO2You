@@ -15,12 +15,12 @@ public interface ArmazemDAO {
 	
 	List<Armazem> buscarArmazemPeloStatusArmazem(StatusArmazem statusDeArmazem);
 	
-	List<Armazem> recuperarTodosArmazens();
+	List<Armazem> buscarTodosArmazens();
 	
 	List<Armazem> buscarPerfilArmazemPeloNome(String nome);
 
 	List<Armazem> buscarPerfilArmazemPeloNomePelaCooperativa(String nome);
 	
-	Armazem recuperarArmazemPorId(long id);
+	Armazem buscarArmazemPorId(long id);
 	
 }
