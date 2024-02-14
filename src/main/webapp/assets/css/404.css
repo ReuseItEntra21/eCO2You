@@ -7,7 +7,7 @@ nav{
     padding: 20px 20px 20px 20px;
 }
 svg{
-    height: 1294px;
+    height: 849px;
     width: 1920px;
 }
 #Eco2you{
@@ -26,22 +26,24 @@ svg{
   }
 .container p {
     position: absolute;
-    top: 647px;
-    right: 960px;
+    top: 350px;
+    right: 900px;
     font-size: 200px;
     color: white;
   }
 .container h2 {
     position: absolute;
-    top: 650px;
-    right: 1200px;
+    top: 360px;
+    right: 1140px;
     font-size: 24px;
     color: white;
+    opacity: 70%;
   }
 .container h3 {
     position: absolute;
-    top: 860px;
-    right: 930px;
+    top: 560px;
+    right: 860px;
     font-size: 24px;
     color: white;
+    opacity: 70%;
   }
