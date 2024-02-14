@@ -1,11 +1,11 @@
 package br.senac.eco2you.modelo.dao.armazem;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Join;
+import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
@@ -31,7 +31,7 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 
 	public List<Armazem> buscarArmazensPorNome(String nome) {
 		Session sessao = null;
-		List<Armazem> armazens = new ArrayList<Armazem>();
+		List<Armazem> armazens = null;
 
 		try {
 			sessao = fabrica.getConexao().openSession();
@@ -41,8 +41,10 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 			CriteriaQuery<Armazem> criteria = construtor.createQuery(Armazem.class);
 			Root<Armazem> raizArmazem = criteria.from(Armazem.class);
 
-			criteria.select(raizArmazem).where(construtor.like(raizArmazem.get(nome), "%" + nome + "%"));
+			criteria.select(raizArmazem).where(construtor.like(raizArmazem.get(Armazem_.NOME), "%" + nome + "%"));
 			armazens = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
 
 		} catch (Exception sqlException) {
 
@@ -135,7 +137,7 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 	public List<Armazem> buscarArmazemPeloStatusArmazem(StatusArmazem statusArmazem) {
 
 		Session sessao = null;
-		List<Armazem> retiradas = null;
+		List<Armazem> armazens = null;
 
 		try {
 			sessao = fabrica.getConexao().openSession();
@@ -148,7 +150,7 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 
 			criteria.select(raizArmazem)
 					.where(construtor.equal(raizArmazem.get(Armazem_.STATUS_ARMAZEM), statusDeArmazem));
-			retiradas = sessao.createQuery(criteria).setParameter(statusDeArmazem, statusArmazem).getResultList();
+			armazens = sessao.createQuery(criteria).setParameter(statusDeArmazem, statusArmazem).getResultList();
 
 			sessao.getTransaction().commit();
 
@@ -165,7 +167,7 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 			}
 		}
 
-		return retiradas;
+		return armazens;
 	}
 
 	public List<Armazem> recuperarTodosArmazens() {
@@ -240,7 +242,7 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 		return armazem;
 	
 	}
-
+	//Essa consulta não estava retornando nada, entao fiz por innerJoin, porém ainda precisa ser testada.
 	public List<Armazem> buscarPerfilArmazemPeloNomePelaCooperativa(String nome) {
 		Session sessao = null;
 		List<Armazem> armazens = null;
@@ -253,7 +255,7 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 			CriteriaQuery<Armazem> criteria = construtor.createQuery(Armazem.class);
 			Root<Armazem> raizArmazem = criteria.from(Armazem.class);
 
-			Join<Armazem, Retirada> juncaoDeposito = raizArmazem.join(Armazem_.RETIRADAS);
+			Join<Armazem, Retirada> juncaoDeposito = raizArmazem.join(Armazem_.RETIRADAS, JoinType.INNER);
 			Join<Retirada, Cooperativa> juncaoCooperativa = juncaoDeposito.join(Retirada_.COOPERATIVA);
 
 			ParameterExpression<String> nomeArmazemExpression = construtor.parameter(String.class);
@@ -271,7 +273,7 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 				sessao.getTransaction().rollback();
 			}		}
 		
-		return armazens;
+		return armazens; 
 
 	}
 	
