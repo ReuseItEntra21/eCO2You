@@ -356,7 +356,7 @@ public class Servlet extends HttpServlet {
 		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
 		request.setAttribute("coletor", coletor);
  
-		List<Deposito> depositos = depositoDAO.recuperarDepositos();
+		List<Deposito> depositos = depositoDAO.buscarDepositos();
 		request.setAttribute("depositos", depositos);
  
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/historico-depositos.jsp");
@@ -426,12 +426,8 @@ public class Servlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/depositos-agendados.jsp");
 		dispatcher.forward(request, response);
 	}
-	
-	private void mostrarPerfilArmazem(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
-
-		long id = Long.parseLong(request.getParameter("id"));
-		Armazem armazem = armazemDAO.buscarArmazemPorId(id);
-	private void mostrarRetiradasAgendadasArmazem(HttpServletRequest request, HttpServletResponse response)
+		
+		private void mostrarRetiradasAgendadasArmazem(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
  
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/retiradas-agendadas.jsp");
@@ -574,8 +570,7 @@ public class Servlet extends HttpServlet {
 
 		List<Reciclavel> reciclaveis = reciclavelDAO.buscarTodosReciclaveis();
 		List<Armazem> armazens = armazemDAO.buscarTodosArmazens();
-		List<Reciclavel> reciclaveis = reciclavelDAO.recuperarTodosReciclaveis();
-		List<Material> materiais = materialDAO.recuperarTodosMateriais();
+		List<Material> materiais = materialDAO.buscarTodosMateriais();
 		request.setAttribute("reciclaveis", reciclaveis);
 		request.setAttribute("materiais", materiais);
 		request.setAttribute("armazens", armazens);
@@ -692,7 +687,7 @@ public class Servlet extends HttpServlet {
 		usuarioDAO.atualizarUsuario(new Coletor(id, nome, sobrenome, cpf, dataNascimento, email, senha, endereco));
 		
 		HttpSession sessao = request.getSession();
-		Usuario usuario = usuarioDAO.recuperarUsuarioPorId(id);
+		Usuario usuario = usuarioDAO.buscarUsuarioPorId(id);
 		sessao.setAttribute("usuario", usuario);
 		
 		response.sendRedirect("/eCO2You/home-coletor");
@@ -759,7 +754,7 @@ public class Servlet extends HttpServlet {
 				horarioFechamento, endereco));
 		
 		HttpSession sessao = request.getSession();
-		Usuario usuario = usuarioDAO.recuperarUsuarioPorId(id);
+		Usuario usuario = usuarioDAO.buscarUsuarioPorId(id);
 		sessao.setAttribute("usuario", usuario);
 		
 		response.sendRedirect("/eCO2You/home-armazem");
@@ -821,7 +816,7 @@ public class Servlet extends HttpServlet {
 		usuarioDAO.atualizarUsuario(new Cooperativa(id, nome, cnpj, horarioAbertura, horarioFechamento, endereco, email, senha));
 		
 		HttpSession sessao = request.getSession();
-		Usuario usuario = usuarioDAO.recuperarUsuarioPorId(id);
+		Usuario usuario = usuarioDAO.buscarUsuarioPorId(id);
 		sessao.setAttribute("usuario", usuario);
 		
 		response.sendRedirect("/eCO2You/home-cooperativa");
@@ -881,7 +876,7 @@ public class Servlet extends HttpServlet {
 
 		Long id = Long.parseLong(request.getParameter("id"));
 		String nome = request.getParameter("nome");
-		Material material = materialDAO.recuperarMaterialPorId(Long.parseLong(request.getParameter("material")));
+		Material material = materialDAO.buscarMaterialPorId(Long.parseLong(request.getParameter("material")));
 		int pontosCarbono = Integer.parseInt(request.getParameter("pontosCarbono"));
 		float peso = Float.parseFloat(request.getParameter("peso"));
 		float volume = Float.parseFloat(request.getParameter("volume"));
@@ -901,11 +896,11 @@ public class Servlet extends HttpServlet {
 	private void inserirDeposito(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 		
-		Armazem armazem = armazemDAO.recuperarArmazemPorId(Long.parseLong(request.getParameter("armazem")));
+		Armazem armazem = armazemDAO.buscarArmazemPorId(Long.parseLong(request.getParameter("armazem")));
 		Coletor coletor =  (Coletor) request.getSession().getAttribute("usuario");
 		LocalDate data = LocalDate.parse(request.getParameter("data"));	
 		depositoDAO.inserirDeposito(new Deposito(data, armazem, coletor));
-		Reciclavel reciclavel = reciclavelDAO.recuperarReciclavelPorId(Long.parseLong(request.getParameter("reciclavel")));
+		Reciclavel reciclavel = reciclavelDAO.buscarReciclavelPorId(Long.parseLong(request.getParameter("reciclavel")));
 		int quantidadeReciclaveis = Integer.parseInt(request.getParameter("quantidade-reciclaveis"));
 		itemDepositoDAO.inserirItemDeposito(new ItemDeposito(reciclavel, quantidadeReciclaveis));
 		response.sendRedirect("/eCO2You/home-coletor");
@@ -916,11 +911,11 @@ public class Servlet extends HttpServlet {
 
 		Long id = Long.parseLong(request.getParameter("id"));
 		LocalDate data = LocalDate.parse(request.getParameter("data"));
-		Armazem armazem = armazemDAO.recuperarArmazemPorId(Long.parseLong(request.getParameter("armazem")));
+		Armazem armazem = armazemDAO.buscarArmazemPorId(Long.parseLong(request.getParameter("armazem")));
 		Coletor coletor =  (Coletor) request.getSession().getAttribute("coletor");
 		depositoDAO.inserirDeposito(new Deposito(data, armazem, coletor));
 		
-		Reciclavel reciclavel = reciclavelDAO.recuperarReciclavelPorId(Long.parseLong(request.getParameter("reciclavel")));
+		Reciclavel reciclavel = reciclavelDAO.buscarReciclavelPorId(Long.parseLong(request.getParameter("reciclavel")));
 		int quantidadeReciclaveis = Integer.parseInt(request.getParameter("quantidade-reciclaveis"));
 		itemDepositoDAO.inserirItemDeposito(new ItemDeposito(reciclavel, quantidadeReciclaveis));
 		response.sendRedirect("/eCO2You/home-coletor");
@@ -941,7 +936,7 @@ public class Servlet extends HttpServlet {
 		
 		LocalDate data = LocalDate.parse(request.getParameter("data"));
 		Cooperativa cooperativa = (Cooperativa) request.getSession().getAttribute("usuario");
-		Armazem armazem = armazemDAO.recuperarArmazemPorId(Long.parseLong(request.getParameter("armazem")));;
+		Armazem armazem = armazemDAO.buscarArmazemPorId(Long.parseLong(request.getParameter("armazem")));;
 		retiradaDAO.inserirRetirada(new Retirada(data, cooperativa, armazem));
 
 		Material material = materialDAO.buscarMaterialPorId(Long.parseLong(request.getParameter("material")));
