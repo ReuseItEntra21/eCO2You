@@ -12,5 +12,5 @@ public interface ItemDepositoDAO {
 
 	void atualizarItemDeposito(ItemDeposito itemDeposito);
 
-	List<ItemDeposito> recuperarItensDeposito();
+	List<ItemDeposito> buscarItensDeposito();
 }
