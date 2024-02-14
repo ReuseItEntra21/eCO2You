@@ -179,7 +179,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		return usuario;
 	}
 
-	public Usuario recuperarUsuarioPorEmail(String email) {
+	public Usuario buscarUsuarioPorEmail(String email) {
 		
 		Session sessao = null;
 		usuario = null;
@@ -215,7 +215,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		
 	}
 	
-	public Usuario recuperarUsuarioPorId(Long id) {
+	public Usuario buscarUsuarioPorId(Long id) {
 		
 		Session sessao = null;
 		usuario = null;

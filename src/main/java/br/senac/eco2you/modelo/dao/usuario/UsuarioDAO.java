@@ -17,8 +17,8 @@ public interface UsuarioDAO {
 	
 	Usuario buscarUsuarioPorEmailESenha(String email, String senha);
 	
-	Usuario recuperarUsuarioPorEmail(String email);
+	Usuario buscarUsuarioPorEmail(String email);
 	
-	Usuario recuperarUsuarioPorId(Long id);
+	Usuario buscarUsuarioPorId(Long id);
 	
 }
