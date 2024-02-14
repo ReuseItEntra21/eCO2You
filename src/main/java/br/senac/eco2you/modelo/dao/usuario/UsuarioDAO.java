@@ -15,10 +15,10 @@ public interface UsuarioDAO {
 	List<Usuario> buscarUsuariosPorNome(String nome);
 
 	Usuario buscarUsuarioPorEmailESenha(String email, String senha);
-
-	Usuario recuperarUsuarioPorEmail(String email);
-
-	Usuario recuperarUsuarioPorId(Long id);
+	
+	Usuario buscarUsuarioPorEmail(String email);
+	
+	Usuario buscarUsuarioPorId(Long id);
 
 	Usuario recuperarUsuarioComEnderecoPorId(Long id);
 }
