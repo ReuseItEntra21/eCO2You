@@ -10,6 +10,7 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
+import br.senac.eco2you.modelo.entidade.retirada.Retirada;
 import br.senac.eco2you.modelo.entidade.usuario.Usuario;
 import br.senac.eco2you.modelo.entidade.usuario.Usuario_;
 import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
@@ -108,7 +109,9 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 	public List<Usuario> buscarUsuariosPorNome(String nome) {
 		Session sessao = null;
+		List<Usuario> usuarios = null;
 
+			
 		try {
 			sessao = fabrica.getConexao().openSession();
 			sessao.beginTransaction();
@@ -119,7 +122,9 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 			criteria.select(raizUsuario).where(construtor.like(raizUsuario.get("nome"), "%" + nome + "%"));
 
-			return sessao.createQuery(criteria).getResultList();
+			usuarios = sessao.createQuery(criteria).getResultList();
+			
+			sessao.getTransaction().commit();
 
 		} catch (Exception sqlException) {
 
@@ -133,7 +138,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 				sessao.close();
 			}
 		}
-		return null;
+		return usuarios;
 
 	}
 
@@ -159,10 +164,11 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 			criteria.where(predicateUsuarioLogin);
 
-			 usuario = sessao.createQuery(criteria).getSingleResult();
+			usuario = sessao.createQuery(criteria).getSingleResult();
 
-			return usuario;
+			sessao.getTransaction().commit();
 
+			 
 		} catch (Exception sqlException) {
 			sqlException.printStackTrace();
 
@@ -196,7 +202,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 			usuario = sessao.createQuery(criteria).getSingleResult();
 
-			return usuario;
+			sessao.getTransaction().commit();
 
 		} catch (Exception sqlException) {
 			sqlException.printStackTrace();
@@ -232,7 +238,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 			usuario = sessao.createQuery(criteria).getSingleResult();
 
-			return usuario;
+			sessao.getTransaction().commit();
 
 		} catch (Exception sqlException) {
 			sqlException.printStackTrace();

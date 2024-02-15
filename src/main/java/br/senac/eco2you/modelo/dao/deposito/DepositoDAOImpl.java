@@ -118,6 +118,7 @@ public class DepositoDAOImpl implements DepositoDAO {
 	}
 
 	public List<Deposito> buscarDepositos() {
+		
 		Session sessao = null;
 		List<Deposito> depositos = null;
 
@@ -237,7 +238,7 @@ public class DepositoDAOImpl implements DepositoDAO {
 	}
 
 	public Deposito buscarDepositoPeloId(Long id) {
-
+		
 		Session sessao = null;
 		Deposito deposito = null;
 
@@ -253,8 +254,9 @@ public class DepositoDAOImpl implements DepositoDAO {
 
 			deposito = sessao.createQuery(criteria).getSingleResult();
 
-			return deposito;
+			sessao.getTransaction().commit();
 
+			
 		} catch (Exception sqlException) {
 			sqlException.printStackTrace();
 
@@ -275,23 +277,17 @@ public class DepositoDAOImpl implements DepositoDAO {
 	public List<Deposito> buscarDepositoPeloArmazem(String nome) {
 
 		Session sessao = null;
-
 		List<Deposito> depositos = null;
 
 		try {
 
 			sessao = fabrica.getConexao().openSession();
-
 			sessao.beginTransaction();
 
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-
 			CriteriaQuery<Deposito> criteria = construtor.createQuery(Deposito.class);
-
 			Root<Deposito> raizArmazem = criteria.from(Deposito.class);
-
 			Join<Deposito, Armazem> juncaoRetiradaArmazem = raizArmazem.join(Deposito_.armazem);
-
 			ParameterExpression<String> nomeArmazem = construtor.parameter(String.class);
 
 			criteria.select(raizArmazem).where(construtor.equal(juncaoRetiradaArmazem.get(Armazem_.NOME), nomeArmazem));
@@ -339,8 +335,10 @@ public class DepositoDAOImpl implements DepositoDAO {
 
 					.where(construtor.equal(raizDeposito.get(Deposito_.ARMAZEM), armazem));
 
-			return sessao.createQuery(criteria).getResultList();
+			depositos = sessao.createQuery(criteria).getResultList();
 
+			sessao.getTransaction().commit();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -350,7 +348,6 @@ public class DepositoDAOImpl implements DepositoDAO {
 	public List<Deposito> buscarDepositoPeloArmazemEColetor(String nomeDoArmazem, String nomeDoColetor) {
 
 		Session sessao = null;
-
 		List<Deposito> depositos = null;
 
 		try {
@@ -373,8 +370,8 @@ public class DepositoDAOImpl implements DepositoDAO {
 
 	public List<Deposito> buscarDepositoPeloArmazemEColetorEStatus(String nomeDoArmazem, String nomeDoColetor,
 			StatusDeposito status) {
+		
 		Session sessao = null;
-
 		List<Deposito> depositos = null;
 
 		try {
@@ -389,7 +386,10 @@ public class DepositoDAOImpl implements DepositoDAO {
 							construtor.equal(juncaoColetor.get(Coletor_.NOME), nomeDoColetor),
 							construtor.equal(raizDeposito.get(Deposito_.STATUS_DE_DEPOSITO), status)));
 
-			return sessao.createQuery(criteria).getResultList();
+			depositos = sessao.createQuery(criteria).getResultList();
+		
+			sessao.getTransaction().commit();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -398,8 +398,8 @@ public class DepositoDAOImpl implements DepositoDAO {
 
 	public List<Deposito> buscarDepositoPeloArmazemEColetorEData(String nomeDoColetor, String nomeDoArmazem,
 			LocalDate data) {
+		
 		Session sessao = null;
-
 		List<Deposito> depositos = null;
 
 		try {
@@ -414,7 +414,10 @@ public class DepositoDAOImpl implements DepositoDAO {
 							construtor.equal(juncaoColetor.get(Coletor_.NOME), nomeDoColetor),
 							construtor.equal(raizDeposito.get(Deposito_.DATA), data)));
 
-			return sessao.createQuery(criteria).getResultList();
+			depositos = sessao.createQuery(criteria).getResultList();
+			
+			sessao.getTransaction().commit();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -422,8 +425,8 @@ public class DepositoDAOImpl implements DepositoDAO {
 	}
 
 	public List<Deposito> buscarDepositoPeloColetor(Coletor coletor) {
+		
 		Session sessao = null;
-
 		List<Deposito> depositos = null;
 
 		try {
@@ -436,7 +439,10 @@ public class DepositoDAOImpl implements DepositoDAO {
 
 					.where(construtor.equal(raizDeposito.get(Deposito_.COLETOR), coletor));
 
-			return sessao.createQuery(criteria).getResultList();
+			depositos = sessao.createQuery(criteria).getResultList();
+			
+			sessao.getTransaction().commit();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -444,9 +450,10 @@ public class DepositoDAOImpl implements DepositoDAO {
 	}
 
 	public List<Deposito> buscarDepositoPeloColetorEArmazem(String nomeDoColetor, String nomeDoArmazem) {
+		
 		Session sessao = null;
-
 		List<Deposito> depositos = null;
+		
 		try {
 			sessao = fabrica.getConexao().openSession();
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
@@ -458,7 +465,10 @@ public class DepositoDAOImpl implements DepositoDAO {
 					.where(construtor.and(construtor.equal(raizDeposito.get(Deposito_.COLETOR), nomeDoColetor),
 							construtor.equal(juncaoArmazem.get(Armazem_.NOME), nomeDoArmazem)));
 
-			return sessao.createQuery(criteria).getResultList();
+			depositos = sessao.createQuery(criteria).getResultList();
+		
+			sessao.getTransaction().commit();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -467,8 +477,8 @@ public class DepositoDAOImpl implements DepositoDAO {
 
 	public List<Deposito> buscarDepositoPeloColetorEArmazemEStatus(String nomeDoColetor, String nomeDoArmazem,
 			StatusDeposito status) {
+	
 		Session sessao = null;
-
 		List<Deposito> depositos = null;
 
 		try {
@@ -483,7 +493,10 @@ public class DepositoDAOImpl implements DepositoDAO {
 							construtor.equal(juncaoArmazem.get(Armazem_.NOME), nomeDoArmazem),
 							construtor.equal(raizDeposito.get(Deposito_.STATUS_DE_DEPOSITO), status)));
 
-			return sessao.createQuery(criteria).getResultList();
+			depositos = sessao.createQuery(criteria).getResultList();
+			
+			sessao.getTransaction().commit();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -492,8 +505,8 @@ public class DepositoDAOImpl implements DepositoDAO {
 
 	public List<Deposito> buscarDepositoPeloColetorEArmazemEData(String nomeDoColetor, String nomeDoArmazem,
 			LocalDate data) {
+	
 		Session sessao = null;
-
 		List<Deposito> depositos = null;
 
 		try {
@@ -508,7 +521,10 @@ public class DepositoDAOImpl implements DepositoDAO {
 							construtor.equal(juncaoArmazem.get(Armazem_.NOME), nomeDoArmazem),
 							construtor.equal(raizDeposito.get(Deposito_.DATA), data)));
 
-			return sessao.createQuery(criteria).getResultList();
+			depositos = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -516,7 +532,8 @@ public class DepositoDAOImpl implements DepositoDAO {
 	}
 	
 	public Deposito buscarDepositoComItemDepositoPorId(Long id) {
-	    Session sessao = null;
+	   
+		Session sessao = null;
 	    Deposito deposito = null;
 
 	    try {
@@ -535,6 +552,8 @@ public class DepositoDAOImpl implements DepositoDAO {
 
 	        deposito = sessao.createQuery(criteria).uniqueResult();
 	        
+			sessao.getTransaction().commit();
+
 	    } catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -543,6 +562,7 @@ public class DepositoDAOImpl implements DepositoDAO {
 	}
 
 	public List<Deposito> buscarProximoDeposito(StatusDeposito statusDeposito, LocalDate data) {
+		
 		Session sessao = null;
 		List<Deposito> depositos = null;
 

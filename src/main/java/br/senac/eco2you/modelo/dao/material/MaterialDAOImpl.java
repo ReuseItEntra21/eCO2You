@@ -157,7 +157,7 @@ public class MaterialDAOImpl implements MaterialDAO{
 
 			material = sessao.createQuery(criteria).getSingleResult();
 
-			return material;
+			sessao.getTransaction().commit();
 
 		} catch (Exception sqlException) {
 			sqlException.printStackTrace();
