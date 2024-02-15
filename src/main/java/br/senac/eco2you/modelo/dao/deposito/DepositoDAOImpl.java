@@ -543,28 +543,27 @@ public class DepositoDAOImpl implements DepositoDAO {
 	}
 
 	public List<Deposito> buscarProximoDeposito(StatusDeposito statusDeposito, LocalDate data) {
-
 		Session sessao = null;
-
 		List<Deposito> depositos = null;
 
 		try {
 			sessao = fabrica.getConexao().openSession();
+		    sessao.beginTransaction();
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 			CriteriaQuery<Deposito> criteria = construtor.createQuery(Deposito.class);
 			Root<Deposito> raizDeposito = criteria.from(Deposito.class);
 
 				
 			criteria.where(
-					construtor.equal(raizDeposito.get(Deposito_.STATUS_DE_DEPOSITO), statusDeposito),
-					construtor.greaterThanOrEqualTo(raizDeposito.get(Deposito_.DATA), data)
-			);
+				    construtor.equal(raizDeposito.get(Deposito_.STATUS_DE_DEPOSITO), statusDeposito),
+				    construtor.greaterThan(raizDeposito.get(Deposito_.DATA), data));
 
 			criteria.orderBy(construtor.asc(raizDeposito.get(Deposito_.DATA)));
 			
-			depositos = sessao.createQuery(criteria).getResultList();
+			depositos = sessao.createQuery(criteria).setMaxResults(1).getResultList();
 	
-		
+			sessao.getTransaction().commit();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -572,5 +571,3 @@ public class DepositoDAOImpl implements DepositoDAO {
 
 	}
 }
-
-

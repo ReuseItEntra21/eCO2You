@@ -2,7 +2,7 @@ body{
     background-color: #E8EDDE;
 }
 .box{
-    background-color: #ffffff;
+    background-color: #ffffff40;
     border-radius: 8px;
     width: 683px;
     margin: 0px 600px;
@@ -19,10 +19,14 @@ h2{
     text-align: center;
     color: #0B3B3C;
     font-size: 50px;
+    padding-top: 100px;
 }
 input{
     height: 53px;
     width: 426px;
+    font-size: 20px;
+    border: 2px solid #000000;
+    margin-bottom: 20px;
 }
 .nome_material{
     text-align: center;
@@ -32,7 +36,12 @@ input{
     margin-left: 125px;
     font-size: 14px;
 }
-.cadastrar_material{
-    text-align: center;
+.box button{
+    margin-left: 125px;
+    height: 53px;
+    width: 433px;
     margin-top: 30px;
+    padding: 20px;
+    background-color: #50806B;
+    color: #ffffff;
 }

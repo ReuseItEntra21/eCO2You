@@ -680,7 +680,7 @@ public class Servlet extends HttpServlet {
 		String bairro = request.getParameter("bairro");
 		String tipoVia = request.getParameter("tipoVia");
 		String logradouro = request.getParameter("logradouro");
-		String numeroEndereco = request.getParameter("numeroEndereco");
+		String numero = request.getParameter("numero");
 		String complemento = request.getParameter("complemento");
 		String telefone = request.getParameter("telefone");
 		String email = request.getParameter("email");

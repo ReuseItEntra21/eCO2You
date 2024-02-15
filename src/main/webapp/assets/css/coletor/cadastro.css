@@ -1,24 +1,50 @@
-#regForm {
-    background-color: #F4F3F2;
-    font-family: Raleway;
-    border: solid 1px;
-    border-radius: 10px;
-    padding: 0vh 2vw 0vh 2vw;
-    min-width: 250px;
-    height: 97vh;
+  * {
+	 margin: 0;
+	 padding: 0;
+  }
+	
+  body {
+	  background-color: #E8EDDE;
+  }
+  
+  #regForm {
+	  background-color: #EEF2E7;
+	  border-radius: 10px;
+	  width: 35vw;
+	  height: 80vh;
+  }
+  
+  .container-cadastro {
+	display: flex;
+  	flex-flow: column nowrap;
+  	justify-content: center;
+  	align-items: center;
+  	align-content: center;
+  }
+  
+  .item-cadastro {
+	  margin: 1vw;
   }
   
   input {
-    width: 20vw;
+    width: 22vw;
     height: 5vh;
-    padding: 10px 15px 10px 15px;
+    padding: 0.5vh;
     font-size: 16px;
-    border: 1px solid #0D0D0D;
-    border-radius: 2vh;
+    border: none;
+    border-radius: 5px;
   }
   
   input.invalid {
     background-color: #FF7A70;
+  }
+  
+  #telefone {
+	 width: 10vw; 
+  }
+  
+  #nascimento {	
+	  width: 10vw;
   }
   
   .tab {
@@ -30,21 +56,27 @@
   }
   
   #nextBtn{
-    color: #F4F3F2;
-    background-color: #0D0D0D;
+	border: none;
+	border-radius: 5px;
+    color: #FFFFFF;
+    background-color: #50806B;
     font-size: 20px;
     display: inline;
     float: right;
-    width: 10vw;
+    height: 5vh;
+    width: 22vw;
   }
   
   #prevBtn{
-    color: #F4F3F2;
-    background-color: #0D0D0D;
+	border: none;
+	border-radius: 5px;
+    color: #FFFFFF;
+    background-color: #50806B;
     font-size: 20px;
     display: inline;
     float: left;
-    width: 10vw;
+    height: 5vh;
+    width: 22vw;
   }
   
   .step {
