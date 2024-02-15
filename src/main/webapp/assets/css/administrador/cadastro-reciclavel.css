@@ -1,14 +1,30 @@
-body {	
-	background-color: #FFFFFF;
-	justify-content: center;
-	align-items: center;
+body{
+    background-color: #E8EDDE;
 }
-
-.container {
-	background-color: #E8EDDE;
-	border-radius: 1vh;
-	width: 75vw;
-	height: 70vh;
-	padding: 2vw;
-	margin: 2vw;
+.container{
+    background-color: #FFFFFF40;
+    margin: 80px 400px;
+}
+input{
+    height: 53px;
+    width: 347px;
+    margin-top: 40px;
+    margin-right: 40px;
+}
+#material{
+    height: 59px;
+    width: 355px;
+    margin-top: 40px;
+    margin-right: 40px;
+}
+}
+div{
+    text-align: center;
+}
+#titulo01{
+    font-size: 30px;
+    background-color: #50806B;
+    margin: -10px;
+    padding: 20px;
+    color: #ffffff;
 }
