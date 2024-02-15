@@ -513,7 +513,9 @@ public class DepositoDAOImpl implements DepositoDAO {
 			e.printStackTrace();
 		}
 		return depositos;
-	}public Deposito buscarDepositoComItemDepositoPorId(Long id) {
+	}
+	
+	public Deposito buscarDepositoComItemDepositoPorId(Long id) {
 	    Session sessao = null;
 	    Deposito deposito = null;
 
@@ -532,6 +534,13 @@ public class DepositoDAOImpl implements DepositoDAO {
 
 
 	        deposito = sessao.createQuery(criteria).uniqueResult();
+	        
+	    } catch (Exception e) {
+			e.printStackTrace();
+		}
+		return deposito;
+
+	}
 
 	public List<Deposito> buscarProximoDeposito(StatusDeposito statusDeposito, LocalDate data) {
 
