@@ -73,6 +73,15 @@ public class Retirada implements Serializable{
         ItensRetirada = new ArrayList<>();
     }
     
+    public Retirada(Long id, LocalDate data, Cooperativa cooperativa, Armazem armazem) {
+    	setId(id);
+    	setData(data);
+    	setStatusDeRetirada(statusDeRetirada);
+        setCooperativa(cooperativa);
+        setArmazem(armazem);
+        ItensRetirada = new ArrayList<>();
+    }
+    
     public Long getId() {
 		return id;
 	}

@@ -81,6 +81,15 @@ public class Deposito implements Serializable{
 		itensDeposito = new ArrayList<>();
 	}
 	
+	public Deposito(Long id, LocalDate data, Armazem armazem, Coletor coletor) {
+		setId(id);
+		setArmazem(armazem);
+		setColetor(coletor);
+		setStatusDeDeposito(statusDeDeposito);
+		setData(data);
+		itensDeposito = new ArrayList<>();
+	}
+	
 	public Long getId() {
 		return id;
 	}
