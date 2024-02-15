@@ -24,16 +24,7 @@
 					<td><c:out value="${deposito.armazem}" /></td>
 					<td><c:out value="${deposito.status}" /></td>
 				</tr>
-				<c:forEach var="contato" items="${contatos}">
-					<tr>
-						<td><c:out value="${deposito}" /></td>					
-						<td><c:out value="${contato}" /></td>
-							<td>
-							<a href="editar?id=<c:out value='${deposito.id}'/>">Editar</a>
-							<a href="deletar?id=<c:out value='${deposito.id}'/>">Deletar</a>
-						</td>
-					</tr>
-				</c:forEach>
+				
 			</tbody>
 		</table>
 	</body>
