@@ -30,6 +30,7 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 	}
 
 	public List<Armazem> buscarArmazensPorNome(String nome) {
+		
 		Session sessao = null;
 		List<Armazem> armazens = null;
 
@@ -63,6 +64,7 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 	}
 
 	public List<Armazem> buscarArmazemPeloBairro(String bairro) {
+		
 		Session sessao = null;
 		List<Armazem> armazens = null;
 
@@ -99,6 +101,7 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 	}
 
 	public List<Armazem> buscarArmazemPeloCidade(String cidade) {
+		
 		Session sessao = null;
 		List<Armazem> armazens = null;
 
@@ -171,6 +174,7 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 	}
 
 	public List<Armazem> buscarArmazens() {
+		
 		Session sessao = null;
 		List<Armazem> armazens = null;
 
@@ -209,6 +213,7 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 	}
 
 	public Armazem buscarArmazemPorId(long id) {
+		
 		Session sessao = null;
 		Armazem armazem = null;
 
@@ -224,7 +229,8 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 
 			armazem = sessao.createQuery(criteria).getSingleResult();
 
-			return armazem;
+			sessao.getTransaction().commit();
+
 
 		} catch (Exception sqlException) {
 			sqlException.printStackTrace();
@@ -244,6 +250,7 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 	}
 	//Essa consulta não estava retornando nada, entao fiz por innerJoin, porém ainda precisa ser testada.
 	public List<Armazem> buscarPerfilArmazemPeloNomePelaCooperativa(String nome) {
+		
 		Session sessao = null;
 		List<Armazem> armazens = null;
 		
@@ -265,7 +272,6 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 			armazens = sessao.createQuery(criteria).setParameter(nomeArmazemExpression, nome).getResultList();
 			
 			sessao.getTransaction().commit();
-
 			
 		} catch (Exception sqlException) {
 			sqlException.printStackTrace();
