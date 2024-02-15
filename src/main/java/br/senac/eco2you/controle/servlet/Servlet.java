@@ -366,8 +366,8 @@ public class Servlet extends HttpServlet {
 	private void mostrarInformacoesDeposito(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 		
-		Deposito deposito = depositoDAO.buscarDepositoComItemDepositoPeloId((request.getAttribute("id")));
-		request.setAttribute("deposito", deposito);
+//		Deposito deposito = depositoDAO.buscarDepositoPeloId((request.getAttribute("id")));
+//		request.setAttribute("deposito", deposito);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/informacoes-deposito.jsp");
 		dispatcher.forward(request, response);
