@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Join;
+import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
@@ -512,7 +513,25 @@ public class DepositoDAOImpl implements DepositoDAO {
 			e.printStackTrace();
 		}
 		return depositos;
-	}
+	}public Deposito buscarDepositoComItemDepositoPorId(Long id) {
+	    Session sessao = null;
+	    Deposito deposito = null;
+
+	    try {
+	        sessao = fabrica.getConexao().openSession();
+	        sessao.beginTransaction();
+
+	        CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+	        CriteriaQuery<Deposito> criteria = construtor.createQuery(Deposito.class);
+	        Root<Deposito> raizDeposito= criteria.from(Deposito.class);
+
+	       
+	        raizDeposito.fetch("itemdeposito", JoinType.LEFT);
+
+	        criteria.select(raizDeposito).where(construtor.equal(raizDeposito.get("id"), id));
+
+
+	        deposito = sessao.createQuery(criteria).uniqueResult();
 
 	public List<Deposito> buscarProximoDeposito(StatusDeposito statusDeposito, LocalDate data) {
 
@@ -543,5 +562,6 @@ public class DepositoDAOImpl implements DepositoDAO {
 		return depositos;
 
 	}
-
 }
+
+
