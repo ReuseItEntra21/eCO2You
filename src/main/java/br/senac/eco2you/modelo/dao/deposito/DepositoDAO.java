@@ -43,6 +43,8 @@ public interface DepositoDAO {
     List<Deposito> buscarDepositoPeloColetorEArmazemEStatus(String nomeDoColetor, String nomeDoArmazem, StatusDeposito status);
     
     List<Deposito> buscarDepositoPeloColetorEArmazemEData(String nomeDoColetor, String nomeDoArmazem, LocalDate data);
+    
+    List<Deposito> buscarProximoDeposito(StatusDeposito statusDeposito, LocalDate data);
 
 	void deletarDeposito(Deposito deposito);
 
