@@ -270,10 +270,10 @@ public class Servlet extends HttpServlet {
 				inserirDeposito(request, response);
 				break;
 				
-//			case "/atualizar-Deposito":
-//				atualizarDeposito(request, response);
-//				break;
-//				
+			case "/atualizar-Deposito":
+				atualizarDeposito(request, response);
+				break;
+				
 //			case "/deletar-Deposito":
 //				deletarDeposito(request, response);
 //				break;
@@ -284,6 +284,14 @@ public class Servlet extends HttpServlet {
  
 			case "/inserir-retirada":
 				inserirRetirada(request, response);
+				break;
+				
+			case "/atualizar-retirada":
+				atualizarRetirada(request, response);
+				break;
+				
+			case "/informacoes-retirada":
+				mostrarInformacoesRetirada(request, response);
 				break;
  
 			case "/cadastro-conquista":
@@ -366,8 +374,19 @@ public class Servlet extends HttpServlet {
 	private void mostrarInformacoesDeposito(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 		
-//		Deposito deposito = depositoDAO.buscarDepositoPeloId((request.getAttribute("id")));
-//		request.setAttribute("deposito", deposito);
+		Deposito deposito = depositoDAO.buscarDepositoComItemDepositoPorId((Long.parseLong(request.getAttribute("id").toString())));
+		request.setAttribute("deposito", deposito);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/informacoes-deposito.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	private void mostrarInformacoesRetirada(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		
+		Deposito deposito = depositoDAO.buscarDepositoComItemDepositoPorId((Long.parseLong(request.getAttribute("id").toString())));
+		request.setAttribute("deposito", deposito);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/informacoes-deposito.jsp");
 		dispatcher.forward(request, response);
@@ -910,7 +929,7 @@ public class Servlet extends HttpServlet {
 		LocalDate data = LocalDate.parse(request.getParameter("data"));
 		Armazem armazem = armazemDAO.buscarArmazemPorId(Long.parseLong(request.getParameter("armazem")));
 		Coletor coletor =  (Coletor) request.getSession().getAttribute("coletor");
-		depositoDAO.inserirDeposito(new Deposito(data, armazem, coletor));
+		depositoDAO.inserirDeposito(new Deposito(id, data, armazem, coletor));
 		
 		Reciclavel reciclavel = reciclavelDAO.buscarReciclavelPorId(Long.parseLong(request.getParameter("reciclavel")));
 		int quantidadeReciclaveis = Integer.parseInt(request.getParameter("quantidade-reciclaveis"));
@@ -935,6 +954,22 @@ public class Servlet extends HttpServlet {
 		Cooperativa cooperativa = (Cooperativa) request.getSession().getAttribute("usuario");
 		Armazem armazem = armazemDAO.buscarArmazemPorId(Long.parseLong(request.getParameter("armazem")));;
 		retiradaDAO.inserirRetirada(new Retirada(data, cooperativa, armazem));
+ 
+		Material material = materialDAO.buscarMaterialPorId(Long.parseLong(request.getParameter("material")));
+		float peso = Float.parseFloat(request.getParameter("peso"));
+		itemRetiradaDAO.inserirItemRetirada(new ItemRetirada(material, peso));
+		response.sendRedirect("/eCO2You/home-cooperativa");
+ 
+	}
+	
+	private void atualizarRetirada(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		
+		Long id = Long.parseLong(request.getParameter("id"));
+		LocalDate data = LocalDate.parse(request.getParameter("data"));
+		Cooperativa cooperativa = (Cooperativa) request.getSession().getAttribute("usuario");
+		Armazem armazem = armazemDAO.buscarArmazemPorId(Long.parseLong(request.getParameter("armazem")));;
+		retiradaDAO.inserirRetirada(new Retirada(id, data, cooperativa, armazem));
  
 		Material material = materialDAO.buscarMaterialPorId(Long.parseLong(request.getParameter("material")));
 		float peso = Float.parseFloat(request.getParameter("peso"));
