@@ -3,11 +3,13 @@
 <html>
     <head>
 	    <meta charset="UTF-8">
-		<title>Cadastro</title>/style>
-		<script src="https://kit.fontawesome.com/9b206050e6.js" crossorigin="anonymous"></script>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Cadastro</title>
+		<style><%@include file="../../css/administrador/cadastro-material.css"%></style>
+		
     </head>
     <body>
- 		<div>
+ 		 <div>
             <h2>Cadastrar Material</h2>
         </div>
             <div class="box">
