@@ -34,6 +34,7 @@
 			        	<div class="deposito-box">
 			        		Status: ${deposito.statusDeDeposito}
 			        		Data: ${deposito.data}
+			        		<a href="editar-deposito?id=<c:out value='${deposito.id}'/>">Editar</a>
 						</div>
 		    		</c:forEach>
 		       	</div>
