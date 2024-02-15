@@ -10,49 +10,38 @@
 		<style><%@include file="../../css/coletor/cadastro-deposito.css"%></style>
     </head>
     <body>
-    	<a href="home-coletor" id=voltar>Voltar</a>
+    <%@ include file="../../../assets/paginas/coletor/menu.jsp"%>
     	<form id="regForm" action="inserir-deposito" method="post">
-	    	<h1> Depósito </h1>
+	    	<span> Armazéns </span>
 	    	<div class="tab">
-	        	<h2>Escolha o Armazem</h2>
+	        	<span>Encontre o melhor ponto de entrega para você</span>
+                <input type=search id=search name=search>
+                <span id=resultados>número de resultados</span>
+                <span>Aceitam</span>
+            <label>
+  			<input type="checkbox" name="quantidade" value="reciclavel">${reciclavel.nome} 
+			</label>
 	        	<div class="container-armazens">
 	        		<c:forEach var="armazem" items="${armazens}">
 	    				<div class="item-armazens">
 	    					<img alt="Imagem Armazem" src="">
-	    					<h3>${armazem.nome}</h3>
-	    					<p>${armazem.id}</p>
+	    					<span>${armazem.nome}</span>
+                            <span>${armazem.tipoVia}</span>
+	    					<span>${armazem.logradouro}</span>
+                            <span>${armazem.bairro}</span>
+                            <form action="/perfil-armazem">
+                            <button type="button">Solicite a Coleta</button>
+                            </form>
 	    				</div>
     				</c:forEach>
-	        	</div>
-		  	</div>
-		  	<div class="tab">
-		  		<h2>Escolha a Data para o Depósito</h2>
-            	<input type="date" id="data" name="data">
-            	<h2>Escolha o Material</h2>
-	        	<select name="material">
-    				<c:forEach var="material" items="${materiais}">
-        				<option value="${material.id}">${material.nome}</option>
-    				</c:forEach>
-				</select>
-				<h2>Escolha o Reciclável</h2>
-	        	<select name="reciclavel">
-    				<c:forEach var="reciclavel" items="${reciclaveis}">
-        				<option value="${reciclavel.id}">${reciclavel.nome}</option>
-    				</c:forEach>
-				</select>
-				<h2>Escolha a Quantidade do Reciclavel</h2>
-	        	<input type="number" id="quantidade-reciclaveis" name="quantidade-reciclaveis" min=1>
-		  	</div>
-			<div style="text-align:center;">
-			    <span class="step"></span>
-			    <span class="step"></span>
-			    <span class="step"></span>
-		 	</div>
-		 	<div>
-			    <button type="button" name=voltar id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
-			    <button type="button" name=avancar id="nextBtn" onclick="nextPrev(1)">Próximo</button>
-		  </div>
-	     </form>
+         <c:forEach var="armazem" items="${armazens}">           
+	     <input type=number id=numero1 name=numero>
+         <input type=number id=numero2 name=numero>
+         <input type=number id=numero3 name=numero>
+         <input type=number id=numero4 name=numero>
+         <span>...</span>
+         <input type=number id=numero5 name=numero>
+		 </c:forEach>
 	     <script>
 			var currentTab = 0;
 			showTab(currentTab);
@@ -109,5 +98,6 @@
 			  x[n].className += " active";
 			}
 		</script>
+		<%@ include file="../footer.jsp"%>
     </body>
 </html>
