@@ -17,10 +17,10 @@
 	    	<span> Armazéns</span>
 		    <span>Encontre o melhor ponto de entrega para você</span>
 	    </div>
-	    <div class="search-armazem">
-	    	<input type=search id=search name=search>
-	        <span id=resultados>número de resultados</span>
-	    </div>
+	    <form action="resultado-procurar-armazem">
+			<input type="text" placeholder="pesquisar armazem por nome" oninput="this.className = ''" name="pesquisar" id=pesquisar>
+			<input type="submit">
+		</form>
 	    <div>
 	    	<span>Aceitam</span>
 	        <c:forEach var="reciclavel" items="${reciclaveis}">
@@ -43,6 +43,18 @@
 		    	</div>
 			</c:forEach>
 		</div>
+		<c:forEach var="armazem" items="${armazens}">
+		    	<div class="item-armazem">
+		    		<div id="image-armazem">
+		    			
+		    		</div>
+			    	<span id="nome-armazem">${armazem.nome}</span>
+		            <span>${armazem.endereco.tipoVia}</span>
+			    	<span>${armazem.endereco.logradouro}</span>
+		            <span>${armazem.endereco.bairro}</span>
+		            
+		    	</div>
+			</c:forEach>
 		 <%@ include file="../footer.jsp"%>
     </body>
 </html>
