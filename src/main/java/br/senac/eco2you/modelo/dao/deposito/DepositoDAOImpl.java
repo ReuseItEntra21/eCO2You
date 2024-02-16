@@ -545,7 +545,7 @@ public class DepositoDAOImpl implements DepositoDAO {
 	        Root<Deposito> raizDeposito= criteria.from(Deposito.class);
 
 	       
-	        raizDeposito.fetch("itemDeposito", JoinType.LEFT);
+	        raizDeposito.fetch("itensDeposito", JoinType.LEFT);
 
 	        criteria.select(raizDeposito).where(construtor.equal(raizDeposito.get("id"), id));
 

@@ -22,7 +22,15 @@
 				<tr>
 					<td><c:out value="${deposito.data}" /></td>					
 					<td><c:out value="${deposito.armazem}" /></td>
-					<td><c:out value="${deposito.status}" /></td>
+					<td><c:out value="${deposito.statusDeDeposito}" /></td>
+				</tr>
+				
+				<tr>
+					<c:forEach var="itemDeposito" items="${deposito.itensDeposito}">
+						<tr>
+							<td><c:out value="${deposito.itensDeposito.nome}" /></td>
+						</tr>
+					</c:forEach>
 				</tr>
 				
 			</tbody>
