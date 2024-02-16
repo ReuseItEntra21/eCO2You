@@ -1,4 +1,6 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -11,7 +13,7 @@
     <body>
         <a href="home-coletor" id=voltar><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
         <form action="atualizar-coletor">
-            <h1> Informações </h1>
+            <h1> InformaÃ§Ãµes </h1>
             <br>
             <div>
                 <input type="text" value="${coletor.nome}" id="nome" name="nome" placeholder="Informe seu nome">
@@ -27,9 +29,9 @@
                 <input type="text" value="${coletor.endereco.bairro}" id="bairro" name="bairro" placeholder="Informe seu bairro">
                 <br>
                 <input type="text" value="${coletor.endereco.logradouro}" id="logradouro" name="logradouro" placeholder="Informe seu logradouro">
-                <input type="number" value="${coletor.endereco.numeroEndereco}" id="numeroEndereco" name="numeroEndereco" placeholder="Informe o número de residência">
+                <input type="number" value="${coletor.endereco.numeroEndereco}" id="numeroEndereco" name="numeroEndereco" placeholder="Informe o nÃºmero de residÃªncia">
                 <br>
-                <input type="text" value="${coletor.endereco.tipoVia}" id="tipoVia" name="tipoVia" placeholder="Informe o tipo de via da sua residência">
+                <input type="text" value="${coletor.endereco.tipoVia}" id="tipoVia" name="tipoVia" placeholder="Informe o tipo de via da sua residÃªncia">
                 <input type="text" value="${coletor.endereco.complemento}" id="complemento" name="complemento" placeholder="Complementos">
                 <br>
                 </div>

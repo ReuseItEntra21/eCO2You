@@ -685,7 +685,7 @@ public class Servlet extends HttpServlet {
 		String telefone = request.getParameter("telefone");
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numero, complemento,
+		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento,
 				telefone);
 		enderecoDAO.inserirEndereco(endereco);
 		usuarioDAO.inserirUsuario(new Coletor(nome, sobrenome, cpf, dataNascimento, email, senha, endereco));
@@ -950,10 +950,12 @@ public class Servlet extends HttpServlet {
 		usuarioDAO.inserirUsuario(armazem);
 		Coletor coletor = (Coletor) request.getSession().getAttribute("usuario");
 		LocalDate data = LocalDate.parse(request.getParameter("data"));
-		depositoDAO.inserirDeposito(new Deposito(data, armazem, coletor));
+		Deposito deposito = new Deposito(data, armazem, coletor);
+		depositoDAO.inserirDeposito(deposito);
 
 		Reciclavel reciclavel = reciclavelDAO.buscarReciclavelPorId(Long.parseLong(request.getParameter("reciclavel")));
 		int quantidadeReciclaveis = Integer.parseInt(request.getParameter("quantidade-reciclaveis"));
+		deposito.inserirItemDeposito(new ItemDeposito(reciclavel, quantidadeReciclaveis));
 		itemDepositoDAO.inserirItemDeposito(new ItemDeposito(reciclavel, quantidadeReciclaveis));
 		response.sendRedirect("/eCO2You/home-coletor");
 
