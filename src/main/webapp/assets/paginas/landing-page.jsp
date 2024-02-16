@@ -8,6 +8,7 @@
 		<title>eCO2You</title>
 		<style><%@include file="../css/landing-page.css"%></style>
 		<style><%@include file="../css/menu.css"%></style>
+		<style><%@include file="../css/footer.css"%></style>
 	</head>
 	<body>
 		<%@ include file="menu.jsp"%>
