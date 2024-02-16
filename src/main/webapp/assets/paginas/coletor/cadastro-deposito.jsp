@@ -13,6 +13,28 @@
     </head>
     <body>
 	    <%@ include file="../../../assets/paginas/coletor/menu.jsp"%>
-		 <%@ include file="../footer.jsp"%>
+	    <div class="title">Oferta de Depósito</div>
+	    <div class="container-form">
+	    	<form action="">
+		    	<div class="item-form">
+		    		<label></label>
+		    		<input type="date">
+		    	</div>
+		    	<div class="item-form">
+		    		<label></label>
+		    		<input type="text">
+		    	</div>
+		    	<div class="item-form">
+		    		<label></label>
+		    		<input type="text">
+		    	</div>
+		    	<div class="item-form">
+		    		<label></label>
+		    		<input type="text">
+		    	</div>
+	    		<button type="submit">Agendar</button>
+	    	</form>
+	    </div>
+		<%@ include file="../footer.jsp"%>
     </body>
 </html>

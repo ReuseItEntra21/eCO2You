@@ -31,15 +31,15 @@
 	    </div>
 	    <div class="container-armazem">
 			<c:forEach var="armazem" items="${armazens}">
-		    	<div class="item-armazem">
-		    		<div id="image-armazem">
-		    			<img alt="Imagem" src="">
-		    		</div>
-			    	<span id="nome-armazem">${armazem.nome}</span>
-		            <span>${armazem.endereco.tipoVia}</span>
-			    	<span>${armazem.endereco.logradouro}</span>
-		            <span>${armazem.endereco.bairro}</span>
-		            <a href="/cadastro-deposito">Faça um Depósito</a>
+				<div class="item-armazem">
+			    	<div id="image-armazem">
+				    	<img alt="Imagem" src="">
+			    	</div>
+					<span id="nome-armazem">${armazem.nome}</span>
+					<span>${armazem.endereco.cidade}</span>
+			    	<span>${armazem.endereco.bairro}</span>
+			    	<p>${armazem.endereco.tipoVia} ${armazem.endereco.logradouro} ${armazem.endereco.numeroEndereco}</p>
+			    	<a href="cadastro-deposito">Faça um Depósito</a>
 		    	</div>
 			</c:forEach>
 		</div>
