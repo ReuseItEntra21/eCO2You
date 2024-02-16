@@ -270,6 +270,10 @@ public class Servlet extends HttpServlet {
 			case "/cadastro-deposito":
 				mostrarCadastroDeposito(request, response);
 				break;
+				
+			case "/buscar-armazem":
+				mostrarBuscarArmazem(request, response);
+				break;
 
 			case "/inserir-deposito":
 				inserirDeposito(request, response);
@@ -601,6 +605,19 @@ public class Servlet extends HttpServlet {
 		request.setAttribute("materiais", materiais);
 		request.setAttribute("armazens", armazens);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/cadastro-deposito.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void mostrarBuscarArmazem(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+
+		List<Reciclavel> reciclaveis = reciclavelDAO.buscarReciclaveis();
+		List<Armazem> armazens = armazemDAO.buscarArmazens();
+		List<Material> materiais = materialDAO.buscarMateriais();
+		request.setAttribute("reciclaveis", reciclaveis);
+		request.setAttribute("materiais", materiais);
+		request.setAttribute("armazens", armazens);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/buscar-armazem.jsp");
 		dispatcher.forward(request, response);
 	}
 
