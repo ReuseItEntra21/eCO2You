@@ -685,7 +685,7 @@ public class Servlet extends HttpServlet {
 		String telefone = request.getParameter("telefone");
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento,
+		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numero, complemento,
 				telefone);
 		enderecoDAO.inserirEndereco(endereco);
 		usuarioDAO.inserirUsuario(new Coletor(nome, sobrenome, cpf, dataNascimento, email, senha, endereco));

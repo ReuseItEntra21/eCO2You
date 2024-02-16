@@ -1,3 +1,46 @@
-*{
-    background-color: #FFFFFF;
-}
+  *{
+  	margin: 0;
+  	padding: 0;
+  	box-sizing: border-box;
+  	font-family: "Poppins", sans-serif;
+  }
+  
+  body {
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	background-color: #E8EDDE;
+  	min-height: 100vh;
+  }
+
+  .container-login {
+  	width: 35vw;
+  	background-color: #EEF2E7;
+  	color: #000000;
+	display: flex;
+  	flex-flow: column nowrap;
+  	justify-content: center;
+  	align-items: center;
+  	align-content: center;
+  	border-radius: 10px;
+	height: 70vh;
+  }
+  
+  .container-login span {
+  	font: 35px;
+  	text-align: center;
+  }
+  
+  .item-login {
+  	display: block;
+	margin: 1vw;
+  }
+  
+  .item-login input {
+    width: 22vw;
+    height: 5vh;
+    padding: 1vh;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+  }

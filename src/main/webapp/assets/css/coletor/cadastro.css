@@ -7,52 +7,27 @@
 	  background-color: #E8EDDE;
   }
   
-  #regForm {
-	  background-color: #EEF2E7;
-	  border-radius: 10px;
-	  width: 35vw;
-	  height: 80vh;
-  }
-  
-  .container-cadastro {
-	display: flex;
-  	flex-flow: column nowrap;
-  	justify-content: center;
-  	align-items: center;
-  	align-content: center;
-  }
-  
-  .item-cadastro {
-	  margin: 1vw;
-  }
-  
-  input {
-    width: 22vw;
-    height: 5vh;
-    padding: 0.5vh;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-  }
-  
-  input.invalid {
-    background-color: #FF7A70;
-  }
-  
-  #telefone {
-	 width: 10vw; 
-  }
-  
-  #nascimento {	
-	  width: 10vw;
-  }
-  
   .tab {
     display: none;
   }
   
-  button:hover {
-    opacity: 0.8;
+  .container-cadastro {
+  	display: flex;
+  	flex-flow: column nowrap;
+  	justify-content: center;
+  	align-items: center;
+  	background-color: #EEF2E7;
+  	width: 35vw;
+  	height: 70vh;
+  }
+  
+  .item-cadastro input{
+  	display: block;
+  	width: 22vw;
+  	height: 5vh;
+  	border-radius: 5px;
+  	border: 0;
+  	padding: 0 0.5vw 0 0.5vw;
   }
   
   #nextBtn{
@@ -64,7 +39,7 @@
     display: inline;
     float: right;
     height: 5vh;
-    width: 22vw;
+    width: 20vw;
   }
   
   #prevBtn{
@@ -76,7 +51,7 @@
     display: inline;
     float: left;
     height: 5vh;
-    width: 22vw;
+    width: 20vw;
   }
   
   .step {
