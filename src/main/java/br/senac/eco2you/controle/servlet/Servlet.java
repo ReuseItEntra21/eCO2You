@@ -314,6 +314,14 @@ public class Servlet extends HttpServlet {
 			case "/recuperar-senha":
 				mostrarRecuperarSenha(request, response);
 				break;
+				
+			case "/procurar-armazem":
+				mostrarProcurarArmazem(request, response);
+				break;
+				
+			case "/resultado-procurar-armazem":
+				resultadoProcurarArmazem(request, response);
+				break;
 
 			default:
 				mostrarLandingPage(request, response);
@@ -644,6 +652,13 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/recuperar-senha.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void mostrarProcurarArmazem(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/procurar-armazem.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -1045,4 +1060,42 @@ public class Servlet extends HttpServlet {
 		conquistaDAO.inserirConquista(new Conquista(nome, pontos, descricao));
 		response.sendRedirect("landing-page");
 	}
+	
+	public void resultadoProcurarArmazem (HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		
+		List<Armazem> armazens = armazemDAO.buscarArmazensPorNome(request.getParameter("pesquisar"));
+		request.setAttribute("armazens", armazens);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/procurar-armazem.jsp");
+		dispatcher.forward(request, response);
+		
+		
+		
+	}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 }
