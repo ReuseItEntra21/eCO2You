@@ -111,9 +111,9 @@ public class Servlet extends HttpServlet {
 			case "/cadastro-coletor":
 				mostrarCadastroColetor(request, response);
 				break;
-
-			case "/home-coletor":
-				mostrarHomeColetor(request, response);
+				
+			case "/perfil-coletor":
+				mostrarPerfilColetor(request, response);
 				break;
 
 			case "/home-armazem":
@@ -347,11 +347,11 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-	private void mostrarHomeColetor(HttpServletRequest request, HttpServletResponse response)
+	private void mostrarPerfilColetor(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
 		HttpSession sessao = request.getSession();
-
+		
 		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
 		request.setAttribute("coletor", coletor);
 
@@ -361,7 +361,7 @@ public class Servlet extends HttpServlet {
 		List<Conquista> conquistas = conquistaDAO.buscarListaConquistaPeloId(coletor.getId());
 		request.setAttribute("conquistas", conquistas);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/home.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/perfil.jsp");
 		dispatcher.forward(request, response);
 	}
 
