@@ -44,5 +44,8 @@ public interface DepositoDAO {
     
     List<Deposito> buscarProximoDeposito(StatusDeposito statusDeposito, LocalDate data);
 
-	public Deposito buscarDepositoComItemDepositoPorId(Long id);
+	Deposito buscarDepositoComItemDepositoPorId(Long id);
+	
+	List<Deposito> buscarDepositoPeloColetorEStatus(Long id, StatusDeposito status);
+
 }

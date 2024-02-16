@@ -327,6 +327,7 @@ public class DepositoDAOImpl implements DepositoDAO {
 
 		try {
 			sessao = fabrica.getConexao().openSession();
+	        sessao.beginTransaction();
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 			CriteriaQuery<Deposito> criteria = construtor.createQuery(Deposito.class);
 			Root<Deposito> raizDeposito = criteria.from(Deposito.class);
@@ -336,6 +337,7 @@ public class DepositoDAOImpl implements DepositoDAO {
 					.where(construtor.equal(raizDeposito.get(Deposito_.ARMAZEM), armazem));
 
 			depositos = sessao.createQuery(criteria).getResultList();
+
 
 			sessao.getTransaction().commit();
 			
@@ -352,6 +354,7 @@ public class DepositoDAOImpl implements DepositoDAO {
 
 		try {
 			sessao = fabrica.getConexao().openSession();
+	        sessao.beginTransaction();
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 			CriteriaQuery<Deposito> criteria = construtor.createQuery(Deposito.class);
 			Root<Deposito> raizDeposito = criteria.from(Deposito.class);
@@ -361,7 +364,10 @@ public class DepositoDAOImpl implements DepositoDAO {
 					.where(construtor.and(construtor.equal(raizDeposito.get(Deposito_.ARMAZEM), nomeDoArmazem),
 							construtor.equal(juncaoColetor.get(Coletor_.NOME), nomeDoColetor)));
 
-			return sessao.createQuery(criteria).getResultList();
+			depositos = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -376,6 +382,7 @@ public class DepositoDAOImpl implements DepositoDAO {
 
 		try {
 			sessao = fabrica.getConexao().openSession();
+	        sessao.beginTransaction();
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 			CriteriaQuery<Deposito> criteria = construtor.createQuery(Deposito.class);
 			Root<Deposito> raizDeposito = criteria.from(Deposito.class);
@@ -404,6 +411,7 @@ public class DepositoDAOImpl implements DepositoDAO {
 
 		try {
 			sessao = fabrica.getConexao().openSession();
+	        sessao.beginTransaction();
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 			CriteriaQuery<Deposito> criteria = construtor.createQuery(Deposito.class);
 			Root<Deposito> raizDeposito = criteria.from(Deposito.class);
@@ -415,9 +423,9 @@ public class DepositoDAOImpl implements DepositoDAO {
 							construtor.equal(raizDeposito.get(Deposito_.DATA), data)));
 
 			depositos = sessao.createQuery(criteria).getResultList();
-			
+		
 			sessao.getTransaction().commit();
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -431,6 +439,7 @@ public class DepositoDAOImpl implements DepositoDAO {
 
 		try {
 			sessao = fabrica.getConexao().openSession();
+	        sessao.beginTransaction();
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 			CriteriaQuery<Deposito> criteria = construtor.createQuery(Deposito.class);
 			Root<Deposito> raizDeposito = criteria.from(Deposito.class);
@@ -440,9 +449,9 @@ public class DepositoDAOImpl implements DepositoDAO {
 					.where(construtor.equal(raizDeposito.get(Deposito_.COLETOR), coletor));
 
 			depositos = sessao.createQuery(criteria).getResultList();
-			
+
 			sessao.getTransaction().commit();
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -456,6 +465,7 @@ public class DepositoDAOImpl implements DepositoDAO {
 		
 		try {
 			sessao = fabrica.getConexao().openSession();
+	        sessao.beginTransaction();
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 			CriteriaQuery<Deposito> criteria = construtor.createQuery(Deposito.class);
 			Root<Deposito> raizDeposito = criteria.from(Deposito.class);
@@ -466,7 +476,7 @@ public class DepositoDAOImpl implements DepositoDAO {
 							construtor.equal(juncaoArmazem.get(Armazem_.NOME), nomeDoArmazem)));
 
 			depositos = sessao.createQuery(criteria).getResultList();
-		
+
 			sessao.getTransaction().commit();
 
 		} catch (Exception e) {
@@ -483,6 +493,7 @@ public class DepositoDAOImpl implements DepositoDAO {
 
 		try {
 			sessao = fabrica.getConexao().openSession();
+	        sessao.beginTransaction();
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 			CriteriaQuery<Deposito> criteria = construtor.createQuery(Deposito.class);
 			Root<Deposito> raizDeposito = criteria.from(Deposito.class);
@@ -496,7 +507,7 @@ public class DepositoDAOImpl implements DepositoDAO {
 			depositos = sessao.createQuery(criteria).getResultList();
 			
 			sessao.getTransaction().commit();
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -511,6 +522,7 @@ public class DepositoDAOImpl implements DepositoDAO {
 
 		try {
 			sessao = fabrica.getConexao().openSession();
+	        sessao.beginTransaction();
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 			CriteriaQuery<Deposito> criteria = construtor.createQuery(Deposito.class);
 			Root<Deposito> raizDeposito = criteria.from(Deposito.class);
@@ -522,9 +534,9 @@ public class DepositoDAOImpl implements DepositoDAO {
 							construtor.equal(raizDeposito.get(Deposito_.DATA), data)));
 
 			depositos = sessao.createQuery(criteria).getResultList();
-
-			sessao.getTransaction().commit();
 			
+			sessao.getTransaction().commit();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -539,7 +551,6 @@ public class DepositoDAOImpl implements DepositoDAO {
 	    try {
 	        sessao = fabrica.getConexao().openSession();
 	        sessao.beginTransaction();
-
 	        CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 	        CriteriaQuery<Deposito> criteria = construtor.createQuery(Deposito.class);
 	        Root<Deposito> raizDeposito= criteria.from(Deposito.class);
@@ -590,4 +601,33 @@ public class DepositoDAOImpl implements DepositoDAO {
 		return depositos;
 
 	}
+
+	public List<Deposito> buscarDepositoPeloColetorEStatus(Long id, StatusDeposito statusDeposito) {
+		
+		Session sessao = null;
+		List<Deposito> depositos = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+		    sessao.beginTransaction();
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Deposito> criteria = construtor.createQuery(Deposito.class);
+			Root<Deposito> raizDeposito = criteria.from(Deposito.class);
+			
+			criteria.where(
+				    construtor.equal(raizDeposito.get(Deposito_.COLETOR), id),
+				    construtor.equal(raizDeposito.get(Deposito_.STATUS_DE_DEPOSITO), statusDeposito ));
+			
+			
+			depositos = sessao.createQuery(criteria).getResultList();
+		
+			sessao.getTransaction().commit();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return depositos;
+	}
+
+
 }
