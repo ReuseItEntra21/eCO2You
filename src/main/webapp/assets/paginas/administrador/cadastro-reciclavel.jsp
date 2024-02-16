@@ -11,7 +11,7 @@
     <form action="apresentacao">
 	</form>
     <body>
-    	<h1 id="titulo01"> Novo Reciclável </h1>
+    	 <h1 id="titulo01"> Novo Reciclável </h1>
     	<div class="container">
     		<form action="inserir-reciclavel" method="post">
                 <h1> Novo Reciclável </h1>
