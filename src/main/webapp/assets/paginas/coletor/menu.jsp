@@ -6,7 +6,7 @@
 		<a class="flex-item" href="depositosPendentes-coletor" id=pendentes>
 			<img alt="Pendentes" src="">
 		</a>
-		<a class="flex-item" href="cadastro-deposito" id=novoDeposito>
+		<a class="flex-item" href="buscar-armazem" id=novoDeposito>
 			<img alt="Novo Deposito" src="">
 		</a>
 	    <a class="flex-item" href="historicoDepositos-coletor" id=historico>

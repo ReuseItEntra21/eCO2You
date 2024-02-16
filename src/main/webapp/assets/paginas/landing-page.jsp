@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
@@ -7,6 +8,7 @@
 		<title>eCO2You</title>
 		<style><%@include file="../css/landing-page.css"%></style>
 		<style><%@include file="../css/menu.css"%></style>
+		<style><%@include file="../css/footer.css"%></style>
 	</head>
 	<body>
 		<%@ include file="menu.jsp"%>
@@ -65,28 +67,6 @@
 				</div>
 	    	</div>
     	</div>
-		<footer>
-			<table>
-            	<tr>
-                	<td><a class="*flex-item" href="<%=request.getContextPath()%>/contato">eCO2You</a></td>
-                    <td><a class="*flex-item" href="<%=request.getContextPath()%>/suporte">Atendimento</a></td>
-                    <td><a class="*flex-item" href="<%=request.getContextPath()%>/suporte">Dúvidas</a></td>
-                    <td><a class="*flex-item" href="<%=request.getContextPath()%>/contato"><img alt="Instagram" src=""></a></td>
-                </tr>
-		  		<tr>
-                	<td><a class="*flex-item" href="<%=request.getContextPath()%>sobre-nos">Sobre Nós</a></td>
-		  			<td><a class="*flex-item" href="<%=request.getContextPath()%>/contato">Contato</a></td>
-                    <td><a class="*flex-item" href="<%=request.getContextPath()%>suporte">Perguntas Frequentes</a></td>
-                    <td><a class="*flex-item" href="<%=request.getContextPath()%>/contato"><img alt="Linkedin" src=""></a></td>
-		  		</tr>
-		  		<tr>
-                	<td><a class="*flex-item" href="<%=request.getContextPath()%>/landing-page">Página Inicial</a></td>
-		  			<td><a class="*flex-item" href="<%=request.getContextPath()%>/suporte">Termos de Uso</a></td>
-		  			<td><a class="*flex-item" href="<%=request.getContextPath()%>/ranking-coletor">Ranking</a></td>
-		  			<td><a class="*flex-item" href="<%=request.getContextPath()%>/contato"><img alt="X" src=""></a></td>
-		  		</tr>
-			</table>
-	    	&copy; 2024 eCO2You. Todos os direitos reservados.
-		</footer>
+		<%@ include file="footer.jsp"%>
 	</body>
 </html>

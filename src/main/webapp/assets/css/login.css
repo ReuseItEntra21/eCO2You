@@ -1,3 +1,69 @@
 *{
-    background-color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+    background-color: #E8EDDE;
+    min-height: 100vh;
+}
+
+.container-login {
+    justify-content: center;
+    align-items: center;
+    width: 35vw;
+    background-color: #EEF2E7;
+    color: #000000;
+    display: flex;
+    flex-flow: column nowrap;
+    border-radius: 10px;
+    height: 70vh;
+    margin-left: 600px;
+    margin-top: 150px;
+}
+
+.container-login span {
+    font: 35px;
+    text-align: center;
+}
+
+.item-login {
+    display: block;
+  margin: 1vw;
+}
+
+.item-login input {
+  width: 22vw;
+  height: 5vh;
+  padding: 1vh;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+}
+span{
+    font-size: 50px;
+    margin-top: -200px;
+}
+a{
+    text-decoration: none;
+    color: #000000;
+}
+button{
+    width: 22vw;
+    height: 5vh;
+    background-color: #50806B;
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 20px;
+}
+.registrar{
+    text-align: center;
+    margin-top: 5px;
+}
+.esqueceuSenha{
+    margin-top: 15px;
 }

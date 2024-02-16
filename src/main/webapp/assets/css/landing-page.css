@@ -94,15 +94,3 @@
   .items-perguntas-frequentes {
   	width: 30vw;
   }
-  
-  footer {
-      display: block;
-      background-color: #50806B;
-      color: #FFFFFF;
-      padding: 25px;
-      text-align: center;
-  }
-  
-  footer a {
-  	margin: 0 30px;
-  }

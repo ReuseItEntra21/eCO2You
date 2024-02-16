@@ -118,6 +118,8 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 
 			conquistas = sessao.createQuery(criteria).getResultList();
 
+			sessao.getTransaction().commit();
+			
 		} catch (Exception sqlException) {
 
 			sqlException.printStackTrace();
