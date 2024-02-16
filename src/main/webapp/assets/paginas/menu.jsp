@@ -1,7 +1,7 @@
 <header>
 	<nav>
-		<a>
-			<img alt="Logo" src="">
+		<a href="landing-page" style="height: 50; width: 50;">
+			<img alt="eCO2You" src="../images/eCO2You.svg">
 		</a>
 		<a class="*flex-item" href="<%=request.getContextPath()%>/login">Coletas</a>
 		<a class="*flex-item" href="<%=request.getContextPath()%>/login">Ranking</a>

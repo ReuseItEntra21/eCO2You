@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Cadastro Cooperativa</title>
-	<style><%@include file="../../../assets/css/cooperativa/cadastro.css"%></style>
+	<style><%@include file="../../css/cooperativa/cadastro.css"%></style>
 </head>
 <body>
     <a href="apresentacao" name="voltar" id=voltar>Voltar</a>

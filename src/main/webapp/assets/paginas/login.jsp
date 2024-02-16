@@ -1,27 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<title>Login</title>
-	<style><%@ include file="../css/login.css" %></style>
-</head>
+	<head>
+		<meta charset="UTF-8">
+		<title>Login</title>
+		<style><%@ include file="../css/login.css" %></style>
+	</head>
 	<body>
-	<div class="box-login">
-		<h1 id="login">Login</h1>
+		<a href="landing-page"> Voltar</a>
+		<div class="container-login">
+			<span>Login</span>
 			<form action="logar" method="post">
-				<div>
+				<div class="item-login">
 					<p>Email</p>
 					<input type="email" id="email" name="email" placeholder="username@gmail.com" maxlength="25" class="e-mailEsenha">
 				</div>
-				<div>
+				<div class="item-login">
 					<p>Senha</p>
 					<input type="password" id="senha" name="senha" placeholder="senha" maxlength="25" class="e-mailEsenha">
 					<a href="recuperar-senha" target="_blank" id="esqueceuSenha">Esqueceu a senha?</a>
 				</div>
-				<div>
-					<button type="submit" >Confirmar</button>
-            		<a href="cadastro-coletor" id="cadastrar">Não tem um Conta?</a>
+				<div class="item-login">
+					<button type="submit">Entrar</button>
+	            	<p>Não tem um Conta? <a href="cadastro-coletor">Registre-se</a></p>
 				</div>
 			</form>
 		</div>
