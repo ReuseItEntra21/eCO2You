@@ -20,10 +20,6 @@
 				<label for="nome">Nome</label>
 				<input type="text" placeholder="user name" oninput="this.className = ''" name="nome" id=nome >
 			</div>
-			<div>
-				<label for="sobrenome">Sobrenome</label>
-		    	<input type="text" placeholder="user last name" oninput="this.className = ''" name="sobrenome" id=sobrenome >
-			</div>
 		    <label for="cnpj">CNPJ</label>
 		    <input type="text" placeholder="00.000.000/0000-00" oninput="this.className = ''" name="cnpj" id=cnpj >
 		    <label for="telefone">Telefone</label>
