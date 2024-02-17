@@ -663,17 +663,17 @@ public class Servlet extends HttpServlet {
 
 		if (usuario instanceof Coletor) {
 			Coletor coletor = (Coletor) usuarioDAO.recuperarUsuarioComEnderecoPorId(usuario.getId());
-			response.sendRedirect("/eCO2You/home-coletor");
+			response.sendRedirect("/eCO2You/perfil-coletor");
 			request.setAttribute("coletor", coletor);
 
 		} else if (usuario instanceof Armazem) {
 			Armazem armazem = (Armazem) usuarioDAO.recuperarUsuarioComEnderecoPorId(usuario.getId());
-			response.sendRedirect("/eCO2You/home-armazem");
+			response.sendRedirect("/eCO2You/perfil-armazem");
 			request.setAttribute("armazem", armazem);
 
 		} else if (usuario instanceof Cooperativa) {
 			Cooperativa cooperativa = (Cooperativa) usuarioDAO.recuperarUsuarioComEnderecoPorId(usuario.getId());
-			response.sendRedirect("/eCO2You/home-cooperativa");
+			response.sendRedirect("/eCO2You/perfil-cooperativa");
 			request.setAttribute("cooperativa", cooperativa);
 
 		} else {
