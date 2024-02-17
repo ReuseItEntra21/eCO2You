@@ -2,96 +2,86 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Recuperar Senha</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Senha</title>
 </head>
 <body>
-	<div style="text-align: center;">
-	<h1 id="recuperarSenha">Recuperar Senha</h1>
-		<form id="regForm" action="login">
-		  <div class="tab">
-		  	<p class="senhaE-mailEcodigo">E-mail</p>
-		    <p><input type="email" placeholder="Informe o E-mail" oninput="this.className = ''" name="email" id=email class="e-mail"></p>
-		    <p><input type="email" placeholder="Confirme o E-mail" oninput="this.className = ''" name="email" id=email class="e-mail"></p>
-		  </div>
-		  <div class="tab">
-		  <p class="senhaE-mailEcodigo">Código que recebeu em seu E-mail</p>
-		    <p><input type="number" oninput="this.className = ''" name="codigo" id=codigo class="codigo"></p>
-		  </div>
-		  <div class="tab">
-		 	 <p class="senhaE-mailEcodigo">Nova senha</p>
-		    <p><input type="password" placeholder="Senha" oninput="this.className = ''" name="senha" id=senha class="senha"></p>
-		    <p><input type="password" placeholder="Senha" oninput="this.className = ''" name="senha" id=senha class="senha"></p>
-		  </div>
-		  <div style="text-align:center;">
-		    <span class="step"></span>
-		    <span class="step"></span>
-		    <span class="step"></span>
-		  </div>
-		  <div style="overflow:auto;">
-		    <div>
-		      <button type="button" name=voltar id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
-		      <button type="button" name=avancar id="nextBtn" onclick="nextPrev(1)">Próximo</button>
-		    </div>
-		  </div>
-		</form>
-	</div>
-	<script>
-		var currentTab = 0;
-		showTab(currentTab);
-		
-		function showTab(n) {
-		  var x = document.getElementsByClassName("tab");
-		  x[n].style.display = "block";
-		  if (n == 0) {
-		    document.getElementById("prevBtn").style.display = "none";
-		  } else {
-		    document.getElementById("prevBtn").style.display = "inline";
-		  }
-		  if (n == (x.length - 1)) {
-		    document.getElementById("nextBtn").innerHTML = "Fazer Parte";
-		  } else {
-		    document.getElementById("nextBtn").innerHTML = "Próximo";
-		  }
-		  fixStepIndicator(n)
-		}
-		
-		function nextPrev(n) {
-		  var x = document.getElementsByClassName("tab");
-		  if (n == 1 && !validateForm()) return false;
-		  x[currentTab].style.display = "none";
-		  currentTab = currentTab + n;
-		  if (currentTab >= x.length) {
-		    document.getElementById("regForm").submit();
-		    return false;
-		  }
-		  showTab(currentTab);
-		}
-		
-		function validateForm() {
-		  var x, y, i, valid = true;
-		  x = document.getElementsByClassName("tab");
-		  y = x[currentTab].getElementsByTagName("input");
-		  for (i = 0; i < y.length; i++) {
-		    if (y[i].value == "") {
-		      y[i].className += " invalid";
-		      valid = false;
-		    }
-		  }
-		  if (valid) {
-		    document.getElementsByClassName("step")[currentTab].className += " finish";
-		  }
-		  return valid;
-		}
-		
-		function fixStepIndicator(n) {
-		  var i, x = document.getElementsByClassName("step");
-		  for (i = 0; i < x.length; i++) {
-		    x[i].className = x[i].className.replace(" active", "");
-		  }
-		  x[n].className += " active";
-		}
-	</script>
+<div>
+    <a href="login" class="">Voltar</a>
+    <span id="recuperarSenha">Recuperar Senha</span>
+    <div>
+        <label for="email1">E-mail</label>
+        <input type="email" placeholder="username@gmail.com" name="email1" id="email1" onchange="validarFormulario()" oninput="this.className = ''" required>
+    </div>
+    <div>
+        <label for="email2">Confirme seu e-mail</label>
+        <input type="email" placeholder="username@gmail.com" name="email2" id="email2" onchange="validarFormulario()" oninput="this.className = ''" required>
+    </div>
+    <button type="submit" id="proximo1" disabled>Próximo</button>
+    <script>
+        function validarFormulario() {
+            const email1 = document.getElementById("email1").value;
+            const email2 = document.getElementById("email2").value;
+            const botao = document.getElementById("proximo1");
+
+            if (email1 === email2 && email1 != "") {
+                botao.disabled = false;
+            } else {
+                botao.disabled = true;
+            }
+        }
+    </script>
+</div> 
+<div>
+    <a href="login" class="">Voltar</a>
+    <span id="recuperarSenha">Recuperar Senha</span>
+    <span>Informe o código que recebeu por e-mail</span>
+    <input type="number" name="codigo" id="codigo1" class="codigo" min="0" max="9" oninput="this.className = ''" required>
+    <input type="number" name="codigo" id="codigo2" class="codigo" min="0" max="9" oninput="this.className = ''" required>
+    <input type="number" name="codigo" id="codigo3" class="codigo" min="0" max="9" oninput="this.className = ''" required>
+    <input type="number" name="codigo" id="codigo4" class="codigo" min="0" max="9" oninput="this.className = ''" required>
+    <button type="submit" id="recuperar">Recuperar</button>
+</div>
+<div>
+    <a href="login" class="">Voltar</a>
+    <span id="recuperarSenha">Recuperar Senha</span>
+    <div class="tab">
+        <label for="senha">Nova senha:</label>
+        <input type="password" id="senha" placeholder="Senha" onchange="validarFormulario2()" oninput="this.className = ''" required>
+        <button onclick="togglePassword()">Mostrar/Esconder Senha</button>
+        <label for="outra-senha">Confirme sua nova senha:</label>
+        <input type="password" id="outra-senha" placeholder="Senha" onchange="validarFormulario2()" oninput="this.className = ''" required>
+        <button onclick="togglePassword2()">Mostrar/Esconder Senha</button>
+        <form action =/eCO2You/login>
+        <button type="submit" id="submeter" disabled>Finalizar</button>
+        </form>
+    </div>
+    <script>
+        function validarFormulario2() {
+            const senha = document.getElementById("senha").value;
+            const outraSenha = document.getElementById("outra-senha").value;
+            const botao = document.getElementById("submeter");
+
+            if (senha === outraSenha && senha != "") {
+                botao.disabled = false;
+            } else {
+                botao.disabled = true;
+            }
+        }
+
+        function togglePassword() {
+            const senhaInput = document.getElementById("senha");
+            const tipoAtual = senhaInput.type;
+            senhaInput.type = (tipoAtual === "password") ? "text" : "password";
+        }
+
+        function togglePassword2() {
+            const senhaInput = document.getElementById("outra-senha");
+            const tipoAtual = senhaInput.type;
+            senhaInput.type = (tipoAtual === "password") ? "text" : "password";
+        }
+    </script>
+</div>
 </body>
 </html>
