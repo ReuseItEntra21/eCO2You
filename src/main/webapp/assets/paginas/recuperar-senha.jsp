@@ -53,7 +53,9 @@
         <label for="outra-senha">Confirme sua nova senha:</label>
         <input type="password" id="outra-senha" placeholder="Senha" onchange="validarFormulario2()" oninput="this.className = ''" required>
         <button onclick="togglePassword2()">Mostrar/Esconder Senha</button>
+        <form action =/eCO2You/login>
         <button type="submit" id="submeter" disabled>Finalizar</button>
+        </form>
     </div>
     <script>
         function validarFormulario2() {
