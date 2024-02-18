@@ -9,7 +9,7 @@
 		<title>Perfil Coletor</title>
 		<script src="https://kit.fontawesome.com/9b206050e6.js" crossorigin="anonymous"></script>
 		<style><%@include file="../../css/coletor/perfil.css"%></style>
-		<style><%@include file="../../css/menu.css"%></style>
+		<style><%@include file="../../css/coletor/menu.css"%></style>
 	</head>
 	<body>
 		<%@ include file="../../../assets/paginas/coletor/menu.jsp"%>

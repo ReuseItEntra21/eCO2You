@@ -1,10 +1,10 @@
 nav {
-  	padding: 1vh;
-  	height: 5vh;
-  	background-color: #FFFFFF;
-  }
-  
-  nav a {
+	padding: 1vh;
+	height: 15vh;
+	background-color: #FFFFFF;
+}
+
+nav a {
 	text-decoration: none;
-  	color: #000000;
-  }
+	color: #000000;
+}
