@@ -15,7 +15,6 @@
 	    <a class="flex-item" href="ranking-coletor" id=ranking>
 			<img alt="Ranking" src="">
 		</a>
-	    <input class="flex-item" type="search" id="consulta-nome" placeholder="Buscar Usuário">
 		<a class="flex-item" href="editar-perfil-coletor" class="dropbtn" id=perfil>
 			<img alt="Olá ${usuario.nome}" src="">
 		</a>

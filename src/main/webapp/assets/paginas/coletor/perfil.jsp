@@ -8,22 +8,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Perfil Coletor</title>
 		<script src="https://kit.fontawesome.com/9b206050e6.js" crossorigin="anonymous"></script>
-		<style><%@include file="../../css/menu.css"%></style>
 		<style><%@include file="../../css/coletor/perfil.css"%></style>
+		<style><%@include file="../../css/menu.css"%></style>
 	</head>
 	<body>
 		<%@ include file="../../../assets/paginas/coletor/menu.jsp"%>
-		<nav>
-				<img src="../../images/eCO2You.svg" alt="logo eco2you" class="eco2you-logo">
-				<div class="link-nav-div">
-				<a href="" class="link-nav">Menu</a>
-				<a href="" class="link-nav">Coletas</a>
-				<a href="" class="link-nav">Ranking</a>
-				<a href="" class="link-nav">Cadastra-se</a>
-				<a href="" class="link-nav">Entrar</a>
-				<div class="user-icon"><i class="fa-regular fa-user"></i></div>
-			</div>
-		</nav>
 		<div class="tresPontos-icon"><i class="fa-solid fa-ellipsis"></i></div>
 		<div class="container-perfil">
 			<div class="item-perfil">
@@ -31,7 +20,7 @@
 				<div class="funcao-perfil">
 					<a href="/editar-perfil-coletor" id=editarPerfil>Editar Perfil</a>
 					<div class="relogio-icon"><i class="fa-regular fa-clock"></i></div>
-					<a href="/ranking-coletor" id=ranking>Primeiro</a>
+					<a href="/ranking-coletor" id=ranking-button>Primeiro</a>
 					<span id="pontos-coletor">859Pts</span>    
 				</div>
 				<div class="nome-coletor">

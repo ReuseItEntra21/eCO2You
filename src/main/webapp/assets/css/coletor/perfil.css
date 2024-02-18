@@ -1,168 +1,186 @@
-body{
-  background-color: #ffffff;
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
 }
-nav{
-  background-color: #ffffff;
-  padding: 20px 20px 20px 20px;
-  font-size: 30px;
-  margin-top: -80px;
-}
-.link-nav{
-  padding-left: 100px;
-  text-decoration: none;
-  color: #000000;
-}
-.link-nav-div{
-  text-align: center;
-}
-.perfil-coletor{
-  border-radius: 50%;
-  height: 213px;
-  width: 213px;
-  margin-top: -110px;
-  margin-left: 100px;
-  margin-bottom: 100px;
 
+body {
+	background-color: #FFFFFF;
+	min-height: 100vh;
 }
-.eco2you-logo{
-  height: 58.6px;
-  width: 80.5px;
-  margin-top: 70px;
-  margin-bottom: -50px;
 
+.perfil-coletor {
+	border-radius: 50%;
+	height: 213px;
+	width: 213px;
+	margin-top: -110px;
+	margin-left: 100px;
+	margin-bottom: 100px;
 }
-.tresPontos-icon{
-  text-align: right;
-  padding-right: 20px;
-  padding-top: 10px;
-  background-color: #E8EDDE;
-  margin: -10px;
-  padding-bottom: 217px;
+
+.eco2you-logo {
+	height: 58.6px;
+	width: 80.5px;
+	margin-top: 70px;
+	margin-bottom: -50px;
 }
-.user-icon{
-  background-color: #50806B;
-  border-radius: 50%;
-  margin-left: 100px;
-  padding: 10px 15px;
-  display: inline;
-  color: #fff;
+
+.tresPontos-icon {
+	text-align: right;
+	padding-right: 20px;
+	padding-top: 10px;
+	background-color: #E8EDDE;
+	margin: -10px;
+	padding-bottom: 217px;
 }
-.nome-coletor{
-  padding-top: 10px;
-  padding-bottom: 20px;
-  font-size: 30px;
-  margin-left: 100px;
+
+.user-icon {
+	background-color: #50806B;
+	border-radius: 50%;
+	margin-left: 100px;
+	padding: 10px 15px;
+	display: inline;
+	color: #fff;
 }
-.id-coletor{
-  padding-bottom: 20px;
-  font-size: 20px;
-  margin-left: 100px;
+
+.nome-coletor {
+	padding-top: 10px;
+	padding-bottom: 20px;
+	font-size: 30px;
+	margin-left: 100px;
 }
-.endereco-coletor{
-  padding-bottom: 20px;
-  font-size: 20.15px;
-  margin-left: 100px;
+
+.id-coletor {
+	padding-bottom: 20px;
+	font-size: 20px;
+	margin-left: 100px;
 }
-.coletor-bairro{
-  padding-bottom: 20px;
-  font-size: 20.15px;
-  margin-left: 100px;
+
+.endereco-coletor {
+	padding-bottom: 20px;
+	font-size: 20.15px;
+	margin-left: 100px;
 }
-.funcao-perfil{
-  text-align: right;
-  margin-top: -50px;
-  margin-bottom: 20px;
+
+.coletor-bairro {
+	padding-bottom: 20px;
+	font-size: 20.15px;
+	margin-left: 100px;
 }
-#editarPerfil{
-  text-decoration: none;
-  background-color: #50806B;
-  color: #fff;
-  padding: 5px 30px;
-  border-radius: 8px;
-  font-size: 25px;
+
+.funcao-perfil {
+	text-align: right;
+	margin-top: -50px;
+	margin-bottom: 20px;
 }
-.relogio-icon{
-  display: inline;
-  text-decoration: none;
-  background-color: #50806B;
-  color: #fff;
-  padding: 5px 75px;
-  border-radius: 8px;
-  font-size: 25px;
+
+#editarPerfil {
+	text-decoration: none;
+	background-color: #50806B;
+	color: #fff;
+	padding: 5px 30px;
+	border-radius: 8px;
+	font-size: 25px;
 }
-#ranking{
-  text-decoration: none;
-  background-color: #50806B;
-  color: #fff;
-  padding: 5px 43px;
-  border-radius: 8px;
-  font-size: 25px;
+
+.relogio-icon {
+	display: inline;
+	text-decoration: none;
+	background-color: #50806B;
+	color: #fff;
+	padding: 5px 75px;
+	border-radius: 8px;
+	font-size: 25px;
 }
-#pontos-coletor{
-  text-decoration: none;
-  background-color: #50806B;
-  color: #fff;
-  padding: 5px 55px;
-  border-radius: 8px;
-  font-size: 25px;
+
+#ranking-button {
+	text-decoration: none;
+	background-color: #50806B;
+	color: #fff;
+	padding: 5px 43px;
+	border-radius: 8px;
+	font-size: 25px;
 }
-.container-select{
-  font-size: 30px;
-  border-bottom: 1px solid #50806B;
-  margin: 10px -10px 60px -10px;
-  color: #50806B;
+
+#pontos-coletor {
+	text-decoration: none;
+	background-color: #50806B;
+	color: #fff;
+	padding: 5px 55px;
+	border-radius: 8px;
+	font-size: 25px;
 }
-.Próximo-Depósito{
-  padding-left: 200px;
-  padding-right: 250px;
-  font-weight: bolder;
+
+.container-select {
+	font-size: 30px;
+	border-bottom: 1px solid #50806B;
+	margin: 10px -10px 60px -10px;
+	color: #50806B;
 }
-.Historico{
-  padding-right: 250px;
+
+.Próximo-Depósito {
+	padding-left: 200px;
+	padding-right: 250px;
+	font-weight: bolder;
 }
-.Pendentes{
-  padding-right: 250px;
+
+.Historico {
+	padding-right: 250px;
 }
-.armazem-logo{
-  margin-left: 10px;
-  border: 1px solid #000000;
-  border-radius: 50%;
-  display: inline;
-  margin-top: 20px;
+
+.Pendentes {
+	padding-right: 250px;
 }
-.container-armazens{
-  background-color: #E8EDDE;
-  font-size: 25px;
-  margin-left: 100px;
-  margin-right: 100px;
-  padding-bottom: 100px;
-  border-radius: 11px;
-  padding-left: 30px;
+
+.armazem-logo {
+	margin-left: 10px;
+	border: 1px solid #000000;
+	border-radius: 50%;
+	display: inline;
+	margin-top: 20px;
 }
-.informacao-armazem{
-  margin-left: 300px;
-  margin-top: -50px;
-  display: inline;
-  font-size: 30px;
+
+.container-armazens {
+	background-color: #E8EDDE;
+	font-size: 25px;
+	margin-left: 100px;
+	margin-right: 100px;
+	padding-bottom: 100px;
+	border-radius: 11px;
+	padding-left: 30px;
 }
-.nome-armazem{
-  margin-top: -100px;
-  margin-bottom: -50px;
+
+.informacao-armazem {
+	margin-left: 300px;
+	margin-top: -50px;
+	display: inline;
+	font-size: 30px;
 }
-.posicao-informacao-armazem{
-  margin-top: -120px;
-  margin-bottom: 100px;
-  text-align: left;
+
+.nome-armazem {
+	margin-top: -100px;
+	margin-bottom: -50px;
 }
-#endereco-amarzem-numero{
-  padding-left: 100px;
+
+.posicao-informacao-armazem {
+	margin-top: -120px;
+	margin-bottom: 100px;
+	text-align: left;
 }
-#endereco-amarzem-bairro{
-  padding-left: 65px;
+
+#endereco-amarzem-numero {
+	padding-left: 100px;
 }
-#nome-reciclavel{
-  padding-left: 55px;
+
+#endereco-amarzem-bairro {
+	padding-left: 65px;
 }
-#volume-reciclavel{
-  padding-left: 10px;
+
+#nome-reciclavel {
+	padding-left: 55px;
+}
+
+#volume-reciclavel {
+	padding-left: 10px;
 }
