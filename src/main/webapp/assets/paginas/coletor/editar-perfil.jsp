@@ -11,7 +11,7 @@
 		
 	</head>
     <body>
-        <a href="home-coletor" id=voltar><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+        <a href="perfil-coletor" id=voltar><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
         <form action="atualizar-coletor">
             <h1> Informações </h1>
             <br>

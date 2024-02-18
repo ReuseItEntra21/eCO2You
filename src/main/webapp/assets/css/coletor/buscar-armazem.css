@@ -43,7 +43,7 @@
   
   .container-armazem {
 	  display: flex;
-	  flex-flow: row nowrap;
+	  flex-flow: row wrap;
 	  height: 60vh;
 	  width: 100vw;
 	  justify-content: space-evenly;
@@ -55,8 +55,7 @@
   	max-width: 25vw;
 	height: 50vh;
 	background-color: #F4F2F0;
-	border: solid 1px;
-	border-radius: 5px;
+	border-radius: 10px;
 	align-items: center;
 	justify-content: center;
 	flex-shrink: 1;
