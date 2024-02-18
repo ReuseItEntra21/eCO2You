@@ -744,7 +744,7 @@ public class Servlet extends HttpServlet {
 		Usuario usuario = usuarioDAO.buscarUsuarioPorId(id);
 		sessao.setAttribute("usuario", usuario);
 
-		response.sendRedirect("/eCO2You/home-coletor");
+		response.sendRedirect("/eCO2You/perfil-coletor");
 	}
 
 	private void deletarColetor(HttpServletRequest request, HttpServletResponse response)
@@ -979,7 +979,7 @@ public class Servlet extends HttpServlet {
 		int quantidadeReciclaveis = Integer.parseInt(request.getParameter("quantidade-reciclaveis"));
 		deposito.inserirItemDeposito(new ItemDeposito(reciclavel, quantidadeReciclaveis));
 		itemDepositoDAO.inserirItemDeposito(new ItemDeposito(reciclavel, quantidadeReciclaveis));
-		response.sendRedirect("/eCO2You/home-coletor");
+		response.sendRedirect("/eCO2You/perfil-coletor");
 
 	}
 
@@ -995,7 +995,7 @@ public class Servlet extends HttpServlet {
 		Reciclavel reciclavel = reciclavelDAO.buscarReciclavelPorId(Long.parseLong(request.getParameter("reciclavel")));
 		int quantidadeReciclaveis = Integer.parseInt(request.getParameter("quantidade-reciclaveis"));
 		itemDepositoDAO.inserirItemDeposito(new ItemDeposito(reciclavel, quantidadeReciclaveis));
-		response.sendRedirect("/eCO2You/home-coletor");
+		response.sendRedirect("/eCO2You/perfil-coletor");
 
 	}
 

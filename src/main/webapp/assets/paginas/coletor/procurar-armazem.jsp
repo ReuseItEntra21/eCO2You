@@ -43,18 +43,6 @@
 		    	</div>
 			</c:forEach>
 		</div>
-		<c:forEach var="armazem" items="${armazens}">
-		    	<div class="item-armazem">
-		    		<div id="image-armazem">
-		    			
-		    		</div>
-			    	<span id="nome-armazem">${armazem.nome}</span>
-		            <span>${armazem.endereco.tipoVia}</span>
-			    	<span>${armazem.endereco.logradouro}</span>
-		            <span>${armazem.endereco.bairro}</span>
-		            
-		    	</div>
-			</c:forEach>
-		 <%@ include file="../footer.jsp"%>
+		<%@ include file="../footer.jsp"%>
     </body>
 </html>

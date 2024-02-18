@@ -9,7 +9,7 @@
 	</head>
 	<body>
 	<br>
-		<a href="home-coletor" class="dropbtn" id=voltar>Voltar</a>
+		<a href="perfil-coletor" class="dropbtn" id=voltar>Voltar</a>
 		<table id="tabela-contato">
 			<thead>
 				<tr>

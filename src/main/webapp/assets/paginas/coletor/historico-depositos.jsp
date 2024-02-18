@@ -8,7 +8,7 @@
 		<title>Histórico</title>
 	</head>
 	<body>
-    	<a href="home-coletor" class="dropbtn" id=voltar>Voltar</a>
+    	<a href="perfil-coletor" class="dropbtn" id=voltar>Voltar</a>
     	<table border="1" style="width: 99vw;">
 			<thead>
 				<tr>
