@@ -12,7 +12,7 @@
 		<style><%@include file="../../css/footer.css"%></style>
     </head>
     <body>
-	    <%@ include file="../../../assets/paginas/coletor/menu.jsp"%>
+	    <%@ include file="../../../assets/paginas/cooperativa/menu.jsp"%>
 	    <div class="text-box">
 	    	<span> Armazéns</span>
 		    <span>Encontre o melhor ponto de entrega para você</span>
