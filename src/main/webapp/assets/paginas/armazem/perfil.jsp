@@ -187,7 +187,7 @@
 					<tr>
                     	<td>${retirada.cooperativa.nome}</td>
 						<td>${retirada.data}</td>
-	                	<td>${itemRetirada.quantidadeReciclaveis} ${itemRetirada.reciclavel.nome} ${itemRetirada.reciclavel.volume}</td>
+	                	<td>${itemRetirada.material.nome} ${itemRetirada.material.peso}</td>
 					</tr>
 				</c:forEach>
 			</table>
