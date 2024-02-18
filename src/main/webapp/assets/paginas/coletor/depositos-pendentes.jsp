@@ -7,7 +7,7 @@
 	</head>
 	<body>
 	<br>
-	<a href="home-coletor" id=voltar>Voltar</a>
+	<a href="perfil-coletor" id=voltar>Voltar</a>
 		<form action="principal-coletor">
 			<h2> Depósitos agendados </h2>
 			
