@@ -30,6 +30,10 @@
   <input type="checkbox" name="reciclavel" id=reciclavel value="Lata"> Lata
 						</div>
 					</div>
+                    <span> Escolha a Reciclavel </span>
+    					<c:forEach var="reciclavel" items="${reciclaveis}">
+        					<input type="checkbox" name="reciclavel" value=>${reciclavel.nome} Garrafa PET
+    					</c:forEach>
 					<div>
 						<label>Quantidade GarrafaPET</label>
 				    	<input type="number" min=1 oninput="this.className = ''" name="quantidade" id=quantidade1>
