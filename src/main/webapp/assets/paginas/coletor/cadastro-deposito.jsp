@@ -24,15 +24,9 @@
     			<c:forEach var="armazem" items="${armazens}">
         			<option value="${armazem.id}">${armazem.nome}</option>
     			</c:forEach>
-						<div>
-							<label for="reciclavel">Reciclavel</label>
-  <input type="checkbox" name="reciclavel" id=reciclavel value="Garrafa PET"> Garrafa PET
-  <input type="checkbox" name="reciclavel" id=reciclavel value="Lata"> Lata
-						</div>
-					</div>
                     <span> Escolha a Reciclavel </span>
     					<c:forEach var="reciclavel" items="${reciclaveis}">
-        					<input type="checkbox" name="reciclavel" value=>${reciclavel.nome} Garrafa PET
+        					<input type="checkbox" name="reciclavel" value=>${reciclavel.nome}
     					</c:forEach>
 					<div>
 						<label>Quantidade GarrafaPET</label>
