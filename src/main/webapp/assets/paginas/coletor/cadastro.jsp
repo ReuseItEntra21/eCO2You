@@ -22,61 +22,61 @@
 						<input type="text" placeholder="user name" oninput="this.className = ''" name="nome" id=nome >
 					</div>
 					<div class="item-cadastro">
-						<label for="sobrenome" class="informacao-cadastro">Sobrenome</label>
-				    	<p><input type="text" placeholder="user last name" oninput="this.className = ''" name="sobrenome" id=sobrenome ></p>
+						<label for="sobrenome">Sobrenome</label>
+				    	<input type="text" placeholder="user last name" oninput="this.className = ''" name="sobrenome" id=sobrenome >
 					</div>
 					<div class="item-cadastro">
-						<label for="cpf" class="informacao-cadastro">CPF</label>
-				    	<p><input type="text" placeholder="000.000.000-00" oninput="this.className = ''" name="cpf" id=cpf ></p>
+						<label for="cpf">CPF</label>
+				    	<input type="text" placeholder="000.000.000-00" oninput="this.className = ''" name="cpf" id=cpf >
 					</div>
 					<div class="item-cadastro">
 						<div>
-							<label for="nascimento" class="informacao-cadastro">Data de Nascimento</label>
-					    	<p><input type="date" oninput="this.className = ''" name="dataNascimento" id=nascimento></p>
+							<label for="nascimento">Data de Nascimento</label>
+					    	<input type="date" oninput="this.className = ''" name="dataNascimento" id=nascimento>
 						</div>
 						<div>
-							<label for="telefone" class="informacao-cadastro">Telefone</label>
-					    	<p><input type="text" placeholder="Telefone" oninput="this.className = ''" name="telefone" id=telefone></p>
+							<label for="telefone">Telefone</label>
+					    	<input type="text" placeholder="Telefone" oninput="this.className = ''" name="telefone" id=telefone>
 						</div>
 					</div>
 					<div class="item-cadastro">
-						<label for="email" class="informacao-cadastro">E-mail</label>
-				    	<p><input type="email" placeholder="E-mail" oninput="this.className = ''" name="email" id=email></p>
+						<label for="email">E-mail</label>
+				    	<input type="email" placeholder="E-mail" oninput="this.className = ''" name="email" id=email>
 					</div>
 					<div class="item-cadastro">
-						<label for="senha" class="informacao-cadastro">Senha</label>
-				    	<p><input type="password" placeholder="Senha" oninput="this.className = ''" name="senha" id=senha></p>
+						<label for="senha">Senha</label>
+				    	<input type="password" placeholder="Senha" oninput="this.className = ''" name="senha" id=senha>
 					</div>
 				</div>
 				<div class="tab">
 					<div class="item-cadastro">
-						<label for="cep" class="informacao-cadastro">CEP</label>
-						<p><input type="text" placeholder="CEP" oninput="this.className = ''" name="cep" id=cep></p>
+						<label for="cep">CEP</label>
+						<input type="text" placeholder="CEP" oninput="this.className = ''" name="cep" id=cep>
 					</div>
 					<div class="item-cadastro">
-						<label for="cidade" class="informacao-cadastro">Cidade</label>
-				    	<p><input type="text" placeholder="Cidade" oninput="this.className = ''" name="cidade" id=cidade></p>
+						<label for="cidade">Cidade</label>
+				    	<input type="text" placeholder="Cidade" oninput="this.className = ''" name="cidade" id=cidade>
 				    </div>
 				    <div class="item-cadastro">
-				    	<label for="bairro" class="informacao-cadastro">Bairro</label>
-				    	<p><input type="text" placeholder="Bairro" oninput="this.className = ''" name="bairro" id=bairro></p>
+				    	<label for="bairro">Bairro</label>
+				    	<input type="text" placeholder="Bairro" oninput="this.className = ''" name="bairro" id=bairro>
 				    </div>
 				    <div class="item-cadastro">
-				    	<label for="tipoVia" class="informacao-cadastro">Tipo da Via</label>
-				    	<p><input type="text" placeholder="Tipo da Via" oninput="this.className = ''" name="tipoVia" id=tipoVia></p>
+				    	<label for="tipoVia">Tipo da Via</label>
+				    	<input type="text" placeholder="Tipo da Via" oninput="this.className = ''" name="tipoVia" id=tipoVia>
 				    </div>
 				    <div class="item-cadastro">
 				    	<label for="logradouro">Logradouro</label>
-				    	<p><input type="text" placeholder="Logradouro" oninput="this.className = ''" name="logradouro" id=logradouro></p>
+				    	<input type="text" placeholder="Logradouro" oninput="this.className = ''" name="logradouro" id=logradouro>
 				    </div>
 				    <div class="item-cadastro">
-				    	<label for="numero" class="informacao-cadastro">Número da Residencia</label>
-				   		<p><input type="text" placeholder="Número" oninput="this.className = ''" name="numero" id=numero></p>
+				    	<label for="numero">Número da Residencia</label>
+				   		<input type="text" placeholder="Número" oninput="this.className = ''" name="numero" id=numero>
 				    </div>
 				    <div class="item-cadastro">
-				    	<label for="complemento" class="informacao-cadastro">Complemento</label>
-				    	<p><input type="text" placeholder="Complemento" oninput="this.className = ''" name="complemento" id=complemento></p>
-					</div>
+				    	<label for="complemento">Complemento</label>
+				    	<input type="text" placeholder="Complemento" oninput="this.className = ''" name="complemento" id=complemento>
+				   </div>
 				</div>
 			</form>
 		</div>
