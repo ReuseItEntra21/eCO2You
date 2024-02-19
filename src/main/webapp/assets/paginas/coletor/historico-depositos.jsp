@@ -21,6 +21,8 @@
 					<tr>
 						<td>${deposito.data}</td>
 						<td>${deposito.armazem.nome}</td>
+						<td><a href="editar-deposito?id=<c:out value='${deposito.id}'/>">Editar</a></td>
+						<td><a href="deletar?id=<c:out value='${deposito.id}'/>">Deletar</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
