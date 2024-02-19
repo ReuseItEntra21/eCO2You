@@ -23,7 +23,7 @@
           </div>
           <div>
               <span>${armazem.statusArmazem}</span>
-              <a href="/editar-perfil-armazem" id=editarPerfil>Editar Perfil</a>
+              <a href="editar-perfil-armazem" id=editarPerfil>Editar Perfil</a>
               <img src="#" name=imagem id=imagem2>
           </div>
       <div class="container-select">
@@ -72,7 +72,7 @@
           </div>
           <div>
               <span>${armazem.statusArmazem}</span>
-              <a href="/editar-perfil-armazem" id=editarPerfil>Editar Perfil</a>
+              <a href="editar-perfil-armazem" id=editarPerfil>Editar Perfil</a>
               <img src="#" name=imagem id=imagem2>
           </div>
       <div class="container-select">
@@ -121,7 +121,7 @@
           </div>
           <div>
               <span>${armazem.statusArmazem}</span>
-              <a href="/editar-perfil-armazem" id=editarPerfil>Editar Perfil</a>
+              <a href="editar-perfil-armazem" id=editarPerfil>Editar Perfil</a>
               <img src="#" name=imagem id=imagem2>
           </div>
       <div class="container-select">
@@ -164,7 +164,7 @@
           </div>
           <div>
               <span>${armazem.statusArmazem}</span>
-              <a href="/editar-perfil-armazem" id=editarPerfil>Editar Perfil</a>
+              <a href="editar-perfil-armazem" id=editarPerfil>Editar Perfil</a>
               <img src="#" name=imagem id=imagem2>
           </div>
       <div class="container-select">

@@ -1,40 +1,50 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page isELIgnored="false" %>
- 
 <!DOCTYPE html>
 <html>
-    <head>
-	    <meta charset="UTF-8">
-		<title>Cadastro</title>
-		<style><%@include file="../../css/coletor/cadastro-deposito.css"%></style>
-		<style><%@include file="../../css/menu.css"%></style>
-		<style><%@include file="../../css/footer.css"%></style>
-    </head>
-    <body>
-	    <%@ include file="../../../assets/paginas/coletor/menu.jsp"%>
-	    <div class="title">Oferta de Depósito</div>
-	    <div class="container-form">
-	    	<form action="">
-		    	<div class="item-form">
-		    		<label></label>
-		    		<input type="date">
-		    	</div>
-		    	<div class="item-form">
-		    		<label></label>
-		    		<input type="text">
-		    	</div>
-		    	<div class="item-form">
-		    		<label></label>
-		    		<input type="text">
-		    	</div>
-		    	<div class="item-form">
-		    		<label></label>
-		    		<input type="text">
-		    	</div>
-	    		<button type="submit">Agendar</button>
-	    	</form>
-	    </div>
-		<%@ include file="../footer.jsp"%>
-    </body>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cadastro Depósito</title>
+<style><%@include file="../../../assets/css/coletor/cadastro-deposito.css"%></style>
+</head>
+<body>
+	<a href="perfil-coletor" id=voltar>Voltar</a>
+	    <div style="text-align:center;">
+			<span class="step"></span>
+			<span class="step"></span>
+		</div>
+				Nova Depósito
+					<div>
+						<div>
+							<label for="deposito">Data de Depósito</label>
+					    	<input type="date" oninput="this.className = ''" name="dataDeposito" id=deposito>
+						</div>
+						<div>
+							<label for="reciclavel">Reciclavel</label>
+  <input type="checkbox" name="reciclavel" id=reciclavel value="Garrafa PET"> Garrafa PET
+  <input type="checkbox" name="reciclavel" id=reciclavel value="Lata"> Lata
+						</div>
+					</div>
+					<div>
+						<label>Quantidade GarrafaPET</label>
+				    	<input type="number" min=1 oninput="this.className = ''" name="quantidade" id=quantidade1>
+					</div>
+                    <div>
+						<label>Quantidade Lata</label>
+				    	<input type="number" min=1 oninput="this.className = ''" name="quantidade" id=quantidade2>
+					</div>
+                    <div>
+						<label>Volume GarrafaPET</label>
+				    	<input type="number" min=1 oninput="this.className = ''" name="volume" id=volume1>
+                        <span>cm³</span>
+					</div>
+                    <div>
+						<label>Volume Lata</label>
+				    	<input type="number" min=1 oninput="this.className = ''" name="volume" id=volume2>
+                        <span>cm³</span>
+					</div>
+		<div style="margin-top: 1.5vw;">
+				<button type="button" name=avancar id="nextBtn" onclick="nextPrev(1)">Depositar</button>
+		</div>
+</body>
 </html>
