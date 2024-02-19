@@ -19,6 +19,11 @@
 							<label for="deposito">Data de Depósito</label>
 					    	<input type="date" oninput="this.className = ''" name="dataDeposito" id=deposito>
 						</div>
+                        <span> Escolha o Armazem </span>
+	        <select name="armazem">
+    			<c:forEach var="armazem" items="${armazens}">
+        			<option value="${armazem.id}">${armazem.nome}</option>
+    			</c:forEach>
 						<div>
 							<label for="reciclavel">Reciclavel</label>
   <input type="checkbox" name="reciclavel" id=reciclavel value="Garrafa PET"> Garrafa PET
