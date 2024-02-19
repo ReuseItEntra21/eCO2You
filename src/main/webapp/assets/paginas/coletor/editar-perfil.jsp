@@ -42,12 +42,14 @@
 					<input type="submit" value="Salvar" id="salvar">
 					<br>
 					<div id="atualizar">
-					<input type="submit" value="Deslogar" id="Deslogar">
+					
 					<br>
 					<input type="submit" value="Excluir conta" id="excConta">
 					<br>
 					<input type="submit" value="Atualizar senha" id="AtualizarSenha">
 				</div>
-                </form>    
+                </form> 
+                
+                <a href="deslogar">deslogar</a>   
     </body>
 </html>

@@ -18,7 +18,6 @@ import br.senac.eco2you.modelo.dao.armazem.ArmazemDAO;
 import br.senac.eco2you.modelo.dao.armazem.ArmazemDAOImpl;
 import br.senac.eco2you.modelo.dao.conquista.ConquistaDAO;
 import br.senac.eco2you.modelo.dao.conquista.ConquistaDAOImpl;
-import br.senac.eco2you.modelo.dao.cooperativa.CooperativaDAOImpl;
 import br.senac.eco2you.modelo.dao.deposito.DepositoDAO;
 import br.senac.eco2you.modelo.dao.deposito.DepositoDAOImpl;
 import br.senac.eco2you.modelo.dao.endereco.EnderecoDAO;
@@ -74,7 +73,6 @@ public class Servlet extends HttpServlet {
 		depositoDAO = new DepositoDAOImpl();
 		conquistaDAO = new ConquistaDAOImpl();
 		armazemDAO = new ArmazemDAOImpl();
-		new CooperativaDAOImpl();
 		retiradaDAO = new RetiradaDAOImpl();
 		itemRetiradaDAO = new ItemRetiradaDAOImpl();
 	}
@@ -387,7 +385,7 @@ public class Servlet extends HttpServlet {
 		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
 		request.setAttribute("coletor", coletor);
 
-		List<Deposito> depositos = depositoDAO.buscarDepositos();
+		List<Deposito> depositos = depositoDAO.buscarDepositoPeloColetor(coletor);
 		request.setAttribute("depositos", depositos);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/historico-depositos.jsp");
