@@ -26,7 +26,7 @@
     			</c:forEach>
                     <span> Escolha a Reciclavel </span>
     					<c:forEach var="reciclavel" items="${reciclaveis}">
-        					<input type="checkbox" name="reciclavel" value=>${reciclavel.nome}
+        					<input type="checkbox" name="reciclavel">${reciclavel.nome}
     					</c:forEach>
 					<div>
 						<label>Quantidade GarrafaPET</label>
