@@ -22,7 +22,7 @@
               <span>${cooperativa.endereco.cidade}, SC</span>
           </div>
           <div>
-              <a href="/editar-perfil-cooperativa" id=editarPerfil>Editar Perfil</a>
+              <a href="editar-perfil-cooperativa" id=editarPerfil>Editar Perfil</a>
               <img src="#" name=imagem id=imagem2>
           </div>
       <div class="container-select">
@@ -60,7 +60,7 @@
               <span>${cooperativa.endereco.cidade}, SC</span>
           </div>
           <div>
-              <a href="/editar-perfil-armazem" id=editarPerfil>Editar Perfil</a>
+              <a href="editar-perfil-armazem" id=editarPerfil>Editar Perfil</a>
               <img src="#" name=imagem id=imagem2>
           </div>
       <div class="container-select">
