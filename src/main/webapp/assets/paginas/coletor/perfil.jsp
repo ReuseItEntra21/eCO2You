@@ -17,9 +17,9 @@
 			<div class="item-perfil">
 				<img src="" alt="foto coletor" class="perfil-coletor">
 				<div class="funcao-perfil">
-					<a href="/editar-perfil-coletor" id=editarPerfil>Editar Perfil</a>
+					<a href="editar-perfil-coletor" id=editarPerfil>Editar Perfil</a>
 					<div class="relogio-icon"><i class="fa-regular fa-clock"></i></div>
-					<a href="/ranking-coletor" id=ranking-button>Primeiro</a>
+					<a href="ranking-coletor" id=ranking-button>Primeiro</a>
 					<span id="pontos-coletor">859Pts</span>    
 				</div>
 				<div class="nome-coletor">
