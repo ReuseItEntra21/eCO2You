@@ -10,53 +10,68 @@
 <body>
     <a href="apresentacao" name="voltar" id=voltar>Voltar</a>
     <div style="text-align:center;">
-		<span class="step"></span>
-		<span class="step"></span>
-	</div>
-	<form id="regForm" action="inserir-cooperativa">
-		<span class="Cadastro-cooperativa-Font50">Cadastro</span>
+			<span class="step"></span>
+			<span class="step"></span>
+		</div>
+	<div class="container-cadastro">
+			<form id="regForm" action="inserir-coletor">
+				<span class="item-CriarConta">CADASTRO</span>
 		<div class="tab">
-			<div>
-				<label for="nome">Nome</label>
+			<div class="item-cadastro">
+				<label for="nome" class="informacao-cadastro">Nome</label>
 				<input type="text" placeholder="user name" oninput="this.className = ''" name="nome" id=nome >
 			</div>
-		    <label for="cnpj">CNPJ</label>
-		    <input type="text" placeholder="00.000.000/0000-00" oninput="this.className = ''" name="cnpj" id=cnpj >
-		    <label for="telefone">Telefone</label>
-		    <input type="text" oninput="this.className = ''" name="telefone" id=telefone>
-		    <label for="email">E-mail</label>
-		    <input type="email" placeholder="username@gmail.com" oninput="this.className = ''" name="email" id=email>
-		    <label for="senha">Senha</label>
-		    <input type="password" placeholder="Senha" oninput="this.className = ''" name="senha" id=senha>
-            <button type="button" name=avancar id="nextBtn" onclick="nextPrev(1)">Próximo</button>
-            <span>Já tem uma Conta?</span>
-    <a href="login" name="entre" id=entre1>Entre</a>
-		</div>
-        <span class="Cadastro-cooperativa-Font50">Cadastro</span>
+			<div class="item-cadastro">
+			    <label for="cnpj" class="informacao-cadastro">CNPJ</label>
+			    <input type="text" placeholder="00.000.000/0000-00" oninput="this.className = ''" name="cnpj" id=cnpj >
+		    </div>
+		    <div class="item-cadastro">
+			    <label for="telefone" class="informacao-cadastro">Telefone</label>
+			    <input type="text" oninput="this.className = ''" name="telefone" id=telefone>
+		    </div>
+		    <div class="item-cadastro">
+			    <label for="email" class="informacao-cadastro">E-mail</label>
+			    <input type="email" placeholder="username@gmail.com" oninput="this.className = ''" name="email" id=email>
+		    </div>
+		    <div class="item-cadastro">
+			    <label for="senha" class="informacao-cadastro">Senha</label>
+			    <input type="password" placeholder="Senha" oninput="this.className = ''" name="senha" id=senha>
+		    </div>
+		</div>	    
 		<div class="tab">
-			<label for="cep">CEP</label>
-			<input type="text" oninput="this.className = ''" name="cep" id=cep>
-			<label for="cidade">Cidade</label>
-		    <input type="text" oninput="this.className = ''" name="cidade" id=cidade>
-		    <label for="bairro">Bairro</label>
-		    <input type="text" oninput="this.className = ''" name="bairro" id=bairro>
-		    <label for="tipoVia">Via</label>
-		    <input type="text" oninput="this.className = ''" name="tipoVia" id=tipoVia>
-		    <label for="logradouro">Logradouro</label>
-		    <input type="text" oninput="this.className = ''" name="logradouro" id=logradouro>
-		    <label for="numero">Número</label>
-		    <input type="text" oninput="this.className = ''" name="numero" id=numero>
-		    <label for="complemento">Complemento</label>
-		    <input type="text" oninput="this.className = ''" name="complemento" id=complemento>
-		    
+			<div class="item-cadastro">
+				<label for="cep" class="informacao-cadastro">CEP</label>
+				<input type="text" placeholder="CEP" oninput="this.className = ''" name="cep" id=cep>
+			</div>
+			<div class="item-cadastro">
+				<label for="cidade" class="informacao-cadastro">Cidade</label>
+			    <input type="text" placeholder="Cidade" oninput="this.className = ''" name="cidade" id=cidade>
+			</div>
+			<div class="item-cadastro">    
+			    <label for="bairro" class="informacao-cadastro">Bairro</label>
+			    <input type="text" placeholder="Bairro" oninput="this.className = ''" name="bairro" id=bairro>
+			</div>
+				<div class="item-cadastro1">
+				    <label for="tipoVia" class="informacao-cadastro">Via</label>
+				    <input type="text" placeholder="Via" oninput="this.className = ''" name="tipoVia" id=tipoVia>  
+				    <label for="logradouro" class="informacao-cadastro">Logradouro</label>
+				    <input type="text" placeholder="Logradouro" oninput="this.className = ''" name="logradouro" id=logradouro>
+				</div>
+			<div class="item-cadastro">
+			    <label for="numero" class="informacao-cadastro">Número</label>
+			    <input type="text" placeholder="Número" oninput="this.className = ''" name="numero" id=numero>
+			</div>
+			<div class="item-cadastro">
+			    <label for="complemento" class="informacao-cadastro">Complemento</label>
+			    <input type="text" placeholder="Complementos" oninput="this.className = ''" name="complemento" id=complemento>
+		    </div>
 		</div>
 	</form>
-	<div>
-		<button type="button" name=voltar id="prevBtn" onclick="nextPrev(-1)">Voltar</button>
-		<button type="button" name=confirmar id="nextBtn" onclick="nextPrev(1)">Confirmar</button>
-	</div>
-    <span>Já tem uma Conta?</span>
-    <a href="login" name="entre" id=entre2>Entre</a>
+		<div class="container-prev">
+				<button type="button" name=voltar id="prevBtn" class=ant onclick="nextPrev(-1)">Anterior</button>
+				<button type="button" name=avancar id="nextBtn" class=prox onclick="nextPrev(1)">Próximo</button>
+		</div>
+    </div>
 	<script>
 		var currentTab = 0;
 		showTab(currentTab);

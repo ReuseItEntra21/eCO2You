@@ -30,7 +30,7 @@
 					<span>${armazem.nome}</span>
 					<span>${armazem.endereco.cidade}</span>
 			    	<span>${armazem.endereco.bairro}</span>
-			    	<p>${armazem.endereco.tipoVia} ${armazem.endereco.logradouro} ${armazem.endereco.numeroEndereco}</p>
+			    	<span>${armazem.endereco.tipoVia} ${armazem.endereco.logradouro} ${armazem.endereco.numeroEndereco}</span>
 			    	<a href="cadastro-deposito">Depositar</a>
 		    	</div>
 			</c:forEach>
