@@ -9,10 +9,6 @@
 </head>
 <body>
 	<a href="perfil-coletor" id=voltar>Voltar</a>
-	    <div style="text-align:center;">
-			<span class="step"></span>
-			<span class="step"></span>
-		</div>
 				Nova Depósito
 					<div>
 						<div>
@@ -24,30 +20,27 @@
     			<c:forEach var="armazem" items="${armazens}">
         			<option value="${armazem.id}">${armazem.nome}</option>
     			</c:forEach>
+                </select>
                     <span> Escolha a Reciclavel </span>
     					<c:forEach var="reciclavel" items="${reciclaveis}">
         					<input type="checkbox" name="reciclavel">${reciclavel.nome}
     					</c:forEach>
 					<div>
-						<label>Quantidade GarrafaPET</label>
-				    	<input type="number" min=1 oninput="this.className = ''" name="quantidade" id=quantidade1>
+                    	<c:forEach var="reciclavel" items="${reciclaveis}">
+						<label>Quantidade ${reciclavel.nome}</label>
+				    	<input type="number" min=1 oninput="this.className = ''" name="quantidade">		   </c:forEach>
 					</div>
                     <div>
-						<label>Quantidade Lata</label>
-				    	<input type="number" min=1 oninput="this.className = ''" name="quantidade" id=quantidade2>
-					</div>
-                    <div>
-						<label>Volume GarrafaPET</label>
-				    	<input type="number" min=1 oninput="this.className = ''" name="volume" id=volume1>
+                    	<c:forEach var="reciclavel" items="${reciclaveis}">
+						<label>Volume ${reciclavel.nome}</label>
+				    	<input type="number" min=1 oninput="this.className = ''" name="volume">
                         <span>cm³</span>
-					</div>
-                    <div>
-						<label>Volume Lata</label>
-				    	<input type="number" min=1 oninput="this.className = ''" name="volume" id=volume2>
-                        <span>cm³</span>
+                        </c:forEach>
 					</div>
 		<div style="margin-top: 1.5vw;">
+        	<form action="inserir-retirada" method="post">
 				<button type="button" name=avancar id="nextBtn" onclick="nextPrev(1)">Depositar</button>
+            </form>
 		</div>
 </body>
 </html>
