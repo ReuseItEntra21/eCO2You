@@ -23,7 +23,7 @@
           </div>
           <div>
               <span>${armazem.statusArmazem}</span>
-              <a href="/editar-perfil-armazem" id=editarPerfil>Editar Perfil</a>
+              <a href="editar-perfil-armazem" id=editarPerfil>Editar Perfil</a>
               <img src="#" name=imagem id=imagem2>
           </div>
       <div class="container-select">
@@ -72,7 +72,7 @@
           </div>
           <div>
               <span>${armazem.statusArmazem}</span>
-              <a href="/editar-perfil-armazem" id=editarPerfil>Editar Perfil</a>
+              <a href="editar-perfil-armazem" id=editarPerfil>Editar Perfil</a>
               <img src="#" name=imagem id=imagem2>
           </div>
       <div class="container-select">
@@ -81,16 +81,15 @@
           <div class="item-select"> Histórico de depósitos</div>
           <div class="item-select"> Histórico de retiradas </div>
       </div>
-          <div class="container-depositos">
+          <div class="container-retiradas">
           <span> Retiradas á serem aceitas </span>
           <c:forEach var="retirada" items="${retiradas}">
               <img src="#" alt="Imagem ItemRetirada" name="imagem" id=imagem7>
               <c:forEach var="itemRetirada" items="${itemRetiradas}">
-                  <span>${itemRetirada.quantidadeReciclaveis}</span>
-                  <span>${itemRetirada.reciclavel.nome}</span>
-                  <span>${itemRetirada.reciclavel.volume}</span>
+                  <span>${itemRetirada.material.nome}</span>
+                  <span>${itemRetirada.material.peso}</span>
               </c:forEach>
-              <span>${deposito.data}</span>
+              <span>${retirada.data}</span>
               <button type=submit>Aceitar</button>
               <button type=button>Rejeitar</button>
           </c:forEach>
@@ -98,9 +97,8 @@
           <c:forEach var="retirada" items="${retiradas}">
               <img src="#" alt="Imagem ItemRetirada" name="imagem" id=imagem8>
               <c:forEach var="itemRetirada" items="${itemRetiradas}">
-                  <span>${itemRetirada.quantidadeReciclaveis}</span>
-                  <span>${itemRetirada.reciclavel.nome}</span>
-                  <span>${itemRetirada.reciclavel.volume}</span>
+                  <span>${itemRetirada.material.nome}</span>
+                  <span>${itemRetirada.material.peso}</span>
               </c:forEach>
               <span>${retirada.data}</span>
               <span>${retirada.cooperativa}</span>
@@ -121,7 +119,7 @@
           </div>
           <div>
               <span>${armazem.statusArmazem}</span>
-              <a href="/editar-perfil-armazem" id=editarPerfil>Editar Perfil</a>
+              <a href="editar-perfil-armazem" id=editarPerfil>Editar Perfil</a>
               <img src="#" name=imagem id=imagem2>
           </div>
       <div class="container-select">
@@ -164,7 +162,7 @@
           </div>
           <div>
               <span>${armazem.statusArmazem}</span>
-              <a href="/editar-perfil-armazem" id=editarPerfil>Editar Perfil</a>
+              <a href="editar-perfil-armazem" id=editarPerfil>Editar Perfil</a>
               <img src="#" name=imagem id=imagem2>
           </div>
       <div class="container-select">

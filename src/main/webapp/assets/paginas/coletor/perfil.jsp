@@ -12,15 +12,14 @@
 		<style><%@include file="../../css/coletor/menu.css"%></style>
 	</head>
 	<body>
-		<%@ include file="../../../assets/paginas/coletor/menu.jsp"%>
 		<div class="tresPontos-icon"><i class="fa-solid fa-ellipsis"></i></div>
 		<div class="container-perfil">
 			<div class="item-perfil">
-				<img src="../../images/perfil-coletor.svg" alt="foto coletor" class="perfil-coletor">
+				<img src="" alt="foto coletor" class="perfil-coletor">
 				<div class="funcao-perfil">
-					<a href="/editar-perfil-coletor" id=editarPerfil>Editar Perfil</a>
+					<a href="editar-perfil-coletor" id=editarPerfil>Editar Perfil</a>
 					<div class="relogio-icon"><i class="fa-regular fa-clock"></i></div>
-					<a href="/ranking-coletor" id=ranking-button>Primeiro</a>
+					<a href="ranking-coletor" id=ranking-button>Primeiro</a>
 					<span id="pontos-coletor">859Pts</span>    
 				</div>
 				<div class="nome-coletor">
@@ -43,7 +42,7 @@
 			
 			<c:forEach var="armazem" items="${armazens}">
 		    	<div class="item-armazens">
-					<img src="Mask group.svg" alt="foto armazem" class="armazem-logo">
+					<img src="" alt="foto armazem" class="armazem-logo">
 					<br>
 					<div class="posicao-informacao-armazem">
 						<span class="informacao-armazem">${armazem.endereco.cep}</span>

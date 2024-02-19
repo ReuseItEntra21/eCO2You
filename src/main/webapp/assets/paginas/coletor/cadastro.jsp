@@ -15,10 +15,10 @@
 		</div>
 		<div class="container-cadastro">
 			<form id="regForm" action="inserir-coletor">
-				Nova Conta
+				<span class="item-CriarConta">CADASTRO</span>
 				<div class="tab">
 					<div class="item-cadastro">
-						<label for="nome">Nome</label>
+						<label for="nome" class="informacao-cadastro">Nome</label>
 						<input type="text" placeholder="user name" oninput="this.className = ''" name="nome" id=nome >
 					</div>
 					<div class="item-cadastro">
@@ -80,7 +80,7 @@
 				</div>
 			</form>
 		</div>
-		<div style="margin-top: 1.5vw;">
+		<div style="margin-top: 1.5vw;" class="container-prev">
 				<button type="button" name=voltar id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
 				<button type="button" name=avancar id="nextBtn" onclick="nextPrev(1)">Próximo</button>
 		</div>
