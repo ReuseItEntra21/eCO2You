@@ -279,9 +279,9 @@ public class Servlet extends HttpServlet {
 				atualizarDeposito(request, response);
 				break;
 
-//			case "/deletar-Deposito":
-//				deletarDeposito(request, response);
-//				break;
+			case "/deletar-Deposito":
+				deletarDeposito(request, response);
+				break;
 
 			case "/cadastro-retirada":
 				mostrarCadastroRetirada(request, response);
@@ -750,7 +750,8 @@ public class Servlet extends HttpServlet {
 	private void deletarColetor(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException {
 
-		long id = Long.parseLong(request.getParameter("id"));
+		Coletor coletor = (Coletor) request.getSession().getAttribute("usuario");
+		Long id = coletor.getId();
 		Usuario usuario = usuarioDAO.buscarUsuarioPorId(id);
 		usuarioDAO.deletarUsuario(usuario);
 		response.sendRedirect("eCO2You/");
@@ -820,7 +821,8 @@ public class Servlet extends HttpServlet {
 	private void deletarArmazem(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException {
 
-		Long id = Long.parseLong(request.getParameter("id"));
+		Armazem armazem = (Armazem) request.getSession().getAttribute("usuario");
+		Long id = armazem.getId();
 		Usuario usuario = usuarioDAO.buscarUsuarioPorId(id);
 		usuarioDAO.deletarUsuario(usuario);
 		response.sendRedirect("eCO2You/");
@@ -888,7 +890,8 @@ public class Servlet extends HttpServlet {
 	private void deletarCooperativa(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException {
 
-		long id = Long.parseLong(request.getParameter("id"));
+		Cooperativa cooperativa = (Cooperativa) request.getSession().getAttribute("usuario");
+		Long id = cooperativa.getId();
 		Usuario usuario = usuarioDAO.buscarUsuarioPorId(id);
 		usuarioDAO.deletarUsuario(usuario);
 		response.sendRedirect("eCO2You/");
@@ -999,14 +1002,14 @@ public class Servlet extends HttpServlet {
 
 	}
 
-//	private void deletarDeposito(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
-//		
-//		long id = Long.parseLong(request.getParameter("id"));
-//		Material material = materialDAO.recuperarMaterialPorId(id);
-//		materialDAO.deletarMaterial(material);
-//		response.sendRedirect("/home");
-//		
-//	}
+	private void deletarDeposito(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+		
+		long id = Long.parseLong(request.getParameter("id"));
+		Deposito deposito = depositoDAO.buscarDepositoPeloId(id);
+		depositoDAO.deletarDeposito(deposito);;
+		response.sendRedirect("/perfil-coletor");
+		
+	}
 
 	private void inserirRetirada(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
@@ -1031,7 +1034,6 @@ public class Servlet extends HttpServlet {
 		LocalDate data = LocalDate.parse(request.getParameter("data"));
 		Cooperativa cooperativa = (Cooperativa) request.getSession().getAttribute("usuario");
 		Armazem armazem = armazemDAO.buscarArmazemPorId(Long.parseLong(request.getParameter("armazem")));
-		;
 		retiradaDAO.inserirRetirada(new Retirada(id, data, cooperativa, armazem));
 
 		Material material = materialDAO.buscarMaterialPorId(Long.parseLong(request.getParameter("material")));
@@ -1040,6 +1042,15 @@ public class Servlet extends HttpServlet {
 		response.sendRedirect("/eCO2You/home-cooperativa");
 
 	}
+	
+//	private void deletarRetirada(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+//		
+//		long id = Long.parseLong(request.getParameter("id"));
+//		Retirada retirada = retiradaDAO.buscar;
+//		retiradaDAO.deletarRetirada(retirada);;
+//		response.sendRedirect("/eCO2You/perfil-cooperativa");
+//		
+//	}	
 
 	private void inserirConquista(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
@@ -1060,32 +1071,6 @@ public class Servlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/procurar-armazem.jsp");
 		dispatcher.forward(request, response);
 		
-		
-		
 	}
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+						
 }
