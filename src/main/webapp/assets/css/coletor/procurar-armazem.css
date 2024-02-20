@@ -15,10 +15,16 @@ a {
 	color: #FFFFFF;
 }
 
+.text-box {
+	display: flex;
+	background-color: #E8EDDE;
+	height: 8vh;
+}
+
 .container-search-armazem {
 	display: flex;
 	flex-flow: row nowrap;
-	height: 10vh;
+	height: 8vh;
 	align-items: center;
 	justify-content: center;
 	margin: 1vw 0vw 1vw 0vw;
