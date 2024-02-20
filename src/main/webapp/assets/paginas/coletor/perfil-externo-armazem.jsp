@@ -26,9 +26,9 @@
               		<span>${armazem.horarioAbertura} - ${armazem.horarioFechamento}</span>
 				</div>
 				<div class="endereco-armazem">
-					<span>${armazem.endereco.tipovia} ${armazem.endereco.logradouro}</span>
+					<span>${armazem.endereco.tipoVia} ${armazem.endereco.logradouro}</span>
               		<span>${armazem.endereco.bairro}</span>
-             		<span>${armazem.endereco.numeros}</span>
+             		<span>${armazem.endereco.numeroEndereco}</span>
               		<span>${armazem.endereco.cidade}, SC</span>
               	</div>>
 			</div>
