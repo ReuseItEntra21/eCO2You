@@ -9,19 +9,15 @@
 			<a class="item-menu" href="depositos-pendentes-coletor" id=pendentes>
 				<img alt="Pendentes" src="">
 			</a>
-			<div class="vl"></div>
 			<a class="item-menu" href="procurar-armazem" id=novoDeposito>
 				<img alt="Novo Deposito" src="">
 			</a>
-			<div class="vl"></div>
 		    <a class="item-menu" href="historico-depositos-coletor" id=historico>
 				<img alt="Histórico" src="">
 			</a>
-			<div class="vl"></div>
 		    <a class="item-menu" href="ranking-coletor" id=ranking>
 				<img alt="Ranking" src="">
 			</a>
-			<div class="vl"></div>
 			<a class="item-menu" href="editar-perfil-coletor" class="dropbtn" id=perfil>
 				<img alt="Olá ${usuario.nome}" src="">
 			</a>
