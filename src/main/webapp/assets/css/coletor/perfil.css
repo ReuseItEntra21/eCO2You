@@ -17,61 +17,9 @@ a {
 
 .perfil-coletor {
 	border-radius: 50%;
-	height: 19vh;
+	height: 10vh;
 	width: 10vw;
-	margin-top: -110px;
-	margin-left: 100px;
-	margin-bottom: 100px;
     border: 1px solid #fff;
-}
-
-.tresPontos-icon {
-	text-align: right;
-	padding-right: 20px;
-	padding-top: 10px;
-	background-color: #E8EDDE;
-	margin: -80px;
-	padding-bottom: 217px;
-}
-
-.user-icon {
-	background-color: #50806B;
-	border-radius: 50%;
-	margin-left: 100px;
-	padding: 10px 15px;
-	display: inline;
-	color: #fff;
-}
-
-.nome-coletor {
-	padding-top: 10px;
-	padding-bottom: 20px;
-	font-size: 20px;
-	margin-left: 100px;
-}
-
-.id-coletor {
-	padding-bottom: 20px;
-	font-size: 16px;
-	margin-left: 100px;
-}
-
-.endereco-coletor {
-	padding-bottom: 20px;
-	font-size: 16px;
-	margin-left: 100px;
-}
-
-.coletor-bairro {
-	padding-bottom: 20px;
-	font-size: 16px;
-	margin-left: 100px;
-}
-
-.funcao-perfil {
-	text-align: right;
-	margin-top: -50px;
-	margin-bottom: 20px;
 }
 
 #editarPerfil {
