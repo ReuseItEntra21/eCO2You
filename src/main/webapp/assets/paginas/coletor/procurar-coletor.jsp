@@ -31,7 +31,7 @@
 				    	<img alt="Imagem" src="">
 			    	</div>
 					<span id="nome-coletor">${coletor.nome}</span>
-			    	<span style="background-color:black;"><a href="perfil-externo-coletor?id=${usuario.id}">Ver perfil</a></span>
+			    	<span style="background-color:black;"><a href="perfil-externo-coletor?id=<c:out value='${coletor.id}'/>">Ver perfil</a></span>
 		    	</div>
 			</c:forEach>
 		</div>

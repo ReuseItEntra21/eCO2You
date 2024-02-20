@@ -36,6 +36,7 @@
 			    	<span>${armazem.endereco.bairro}</span>
 			    	<p>${armazem.endereco.tipoVia} ${armazem.endereco.logradouro} ${armazem.endereco.numeroEndereco}</p>
 			    	<a href="cadastro-deposito">Faça um Depósito</a>
+			    	<a href="perfil-externo-armazem?id=<c:out value='${armazem.id}'/>">Ver Perfil</a>
 		    	</div>
 			</c:forEach>
 		</div>

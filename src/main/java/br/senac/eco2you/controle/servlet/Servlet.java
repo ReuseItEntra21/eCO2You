@@ -727,7 +727,7 @@ public class Servlet extends HttpServlet {
 		Armazem armazem = (Armazem) usuarioDAO.buscarUsuarioPorId(Long.parseLong(request.getParameter("id")));
 		request.setAttribute("armazem", armazem);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/perfil-externo-coletor.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/perfil-externo-armazem.jsp");
 		dispatcher.forward(request, response);
 	}
 
