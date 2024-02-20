@@ -12,24 +12,26 @@
 	</head>
 	<body>
 		<a href="perfil-coletor" id=voltar>Voltar</a>
-		<form action="inserir-deposito">
-			<span>Nova Depósito</span>
-			<div>
-				<label for="deposito">Data de Depósito</label>
-				<input type="date" oninput="this.className = ''" name="dataDeposito" id=deposito>
-			</div>
-			<div>
-				<label> Escolha a Reciclavel </label>
-				<select name="reciclavel">
-			    	<c:forEach var="reciclavel" items="${reciclaveis}">
-			        	<option value="${reciclavel.id}">${reciclavel.nome}</option>
-			    	</c:forEach>
-		    	</select>
-			</div>
-			<div>
-				<label></label>
-				<input type="number" oninput="this.className = ''" name="quantidade" id=deposito>
-			</div>
-		</form>
+		<div class="container-cadastro">
+			<form action="inserir-deposito">
+				<span>Nova Depósito</span>
+				<div>
+					<label for="deposito">Data de Depósito</label>
+					<input type="date" oninput="this.className = ''" name="dataDeposito" id=deposito>
+				</div>
+				<div>
+					<label> Escolha a Reciclavel </label>
+					<select name="reciclavel">
+				    	<c:forEach var="reciclavel" items="${reciclaveis}">
+				        	<option value="${reciclavel.id}">${reciclavel.nome}</option>
+				    	</c:forEach>
+			    	</select>
+				</div>
+				<div>
+					<label>Quantidade</label>
+					<input type="number" oninput="this.className = ''" name="quantidade" id=deposito>
+				</div>
+			</form>
+		</div>
 	</body>
 </html>
