@@ -48,7 +48,6 @@ import br.senac.eco2you.modelo.entidade.usuario.Usuario;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
 import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
-import br.senac.eco2you.modelo.enumeracao.status.armazem.StatusArmazem;
 
 @WebServlet("/")
 public class Servlet extends HttpServlet {
@@ -597,7 +596,6 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 
 		HttpSession sessao = request.getSession();
-
 		Cooperativa cooperativa = (Cooperativa) sessao.getAttribute("usuario");
 
 		request.setAttribute("cooperativa", cooperativa);
@@ -751,8 +749,12 @@ public class Servlet extends HttpServlet {
 	
 	private void mostrarConquistasColetor(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		
+		HttpSession sessao = request.getSession();
+		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
 
-		List<Conquista> conquistas = conquistaDAO.buscarListaConquistaPeloIdColetor(Long.parseLong(request.getParameter("id")));
+		List<Conquista> conquistas = conquistaDAO.buscarListaConquistaPeloIdColetor(coletor.getId());
+		request.setAttribute("conquistas", conquistas);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/conquista.jsp");
 		dispatcher.forward(request, response);
