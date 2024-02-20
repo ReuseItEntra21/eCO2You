@@ -34,33 +34,9 @@
 		</div>
 	    <div class="container-select">
 		    <a href="proximos-depositos">Próximo Depósito</a>
-		    <a href="historico-depositos">Histórico</a>
-		    <a href="depositos-pendentes">Pendente</a>
-		    <a href="conquista">Conquista</a>
-	    </div>
-		
-	    <div class="container-armazens">
-			
-			<c:forEach var="armazem" items="${armazens}">
-		    	<div class="item-armazens">
-					<img src="" alt="foto armazem" class="armazem-logo">
-					<br>
-					<div class="posicao-informacao-armazem">
-						<span class="informacao-armazem">${armazem.endereco.cep}</span>
-						<span class="informacao-armazem" id="endereco-amarzem-numero">${armazem.endereco.numero}</span>
-						<br>
-						<span class="informacao-armazem">${armazem.endereco.cidade}</span>
-						<span class="informacao-armazem" id="endereco-amarzem-bairro">${armazem.endereco.bairro}</span>
-						<br>
-						<span class="informacao-armazem">${armazem.endereco.tipoVia}</span>
-						<span  class="informacao-armazem" id="nome-reciclavel">${itemDeposito.reciclavel.nome}</span>
-						<br>
-						<span class="informacao-armazem">${armazem.endereco.logradouro}</span>
-						<span class="informacao-armazem" id="volume-reciclavel">${itemDeposito.reciclavel.volume}</span>
-					</div>
-					<div class="nome-armazem"><span>${armazem.nome}</span></div>
-		    	</div>
-	    	</c:forEach>
+		    <a href="historico-depositos-coletor">Histórico</a>
+		    <a href="depositos-pendentes-coletor">Pendente</a>
+		    <a href="conquistas-coletor">Conquista</a>
 	    </div>
 	</body>
 </html>

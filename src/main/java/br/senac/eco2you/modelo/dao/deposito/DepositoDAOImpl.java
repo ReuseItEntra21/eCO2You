@@ -554,9 +554,8 @@ public class DepositoDAOImpl implements DepositoDAO {
 	        CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 	        CriteriaQuery<Deposito> criteria = construtor.createQuery(Deposito.class);
 	        Root<Deposito> raizDeposito= criteria.from(Deposito.class);
-
 	       
-	        raizDeposito.fetch("itensDeposito", JoinType.LEFT);
+	        raizDeposito.fetch(Deposito_.ITENS_DEPOSITO, JoinType.LEFT);
 
 	        criteria.select(raizDeposito).where(construtor.equal(raizDeposito.get("id"), id));
 

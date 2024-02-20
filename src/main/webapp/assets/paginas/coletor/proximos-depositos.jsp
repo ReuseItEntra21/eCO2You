@@ -7,6 +7,7 @@
 		<title>Proximo Depósito</title>
 	</head>
 	<body>	
+	<h1>Próximos Depósitos<h1>
 		<c:forEach var="deposito" items="${deposito}">
 				<tr>
 					<td>${deposito.armazem.nome}</td>

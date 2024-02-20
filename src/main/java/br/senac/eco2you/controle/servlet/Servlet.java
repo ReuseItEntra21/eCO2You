@@ -113,7 +113,7 @@ public class Servlet extends HttpServlet {
 			case "/cadastro-coletor":
 				mostrarCadastroColetor(request, response);
 				break;
-				
+
 			case "/perfil-coletor":
 				mostrarPerfilColetor(request, response);
 				break;
@@ -189,7 +189,7 @@ public class Servlet extends HttpServlet {
 			case "/editar-perfil-cooperativa":
 				mostrarEditarPerfilCooperativa(request, response);
 				break;
-				
+
 			case "/inserir-coletor":
 				inserirColetor(request, response);
 				break;
@@ -313,29 +313,37 @@ public class Servlet extends HttpServlet {
 			case "/recuperar-senha":
 				mostrarRecuperarSenha(request, response);
 				break;
-				
+
 			case "/procurar-armazem":
 				mostrarProcurarArmazem(request, response);
 				break;
-				
+
 			case "/resultado-procurar-armazem":
 				resultadoProcurarArmazem(request, response);
 				break;
-				
+
 			case "/procurar-coletor":
 				mostrarProcurarColetor(request, response);
 				break;
-				
+
 			case "/resultado-procurar-coletor":
 				resultadoProcurarColetor(request, response);
 				break;
-				
+
 			case "/perfil-externo-coletor":
 				mostrarPerfilExternoColetor(request, response);
 				break;
-				
+
 			case "/perfil-externo-armazem":
 				mostrarPerfilExternoArmazem(request, response);
+				break;
+				
+			case "/proximos-depositos":
+				mostrarProximosDepositos(request, response);
+				break;
+				
+			case "/conquistas-coletor":
+				mostrarConquistasColetor(request, response);
 				break;
 
 			default:
@@ -375,9 +383,9 @@ public class Servlet extends HttpServlet {
 
 		HttpSession sessao = request.getSession();
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
-		
+
 		if (usuario instanceof Coletor) {
-			
+
 			Coletor coletor = (Coletor) sessao.getAttribute("usuario");
 			request.setAttribute("coletor", coletor);
 
@@ -389,9 +397,9 @@ public class Servlet extends HttpServlet {
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/perfil.jsp");
 			dispatcher.forward(request, response);
-			
+
 		} else {
-			
+
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/login.jsp");
 			dispatcher.forward(request, response);
 
@@ -633,23 +641,23 @@ public class Servlet extends HttpServlet {
 
 		HttpSession sessao = request.getSession();
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
-		
-		if (usuario instanceof Coletor) {
-		
-		List<Reciclavel> reciclaveis = reciclavelDAO.buscarReciclaveis();
-		List<Armazem> armazens = armazemDAO.buscarArmazens();
-		List<Material> materiais = materialDAO.buscarMateriais();
-		request.setAttribute("reciclaveis", reciclaveis);
-		request.setAttribute("materiais", materiais);
-		request.setAttribute("armazens", armazens);
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/cadastro-deposito.jsp");
-		dispatcher.forward(request, response);
-		
+
+		if (sessao != null && usuario instanceof Coletor) {
+
+			List<Reciclavel> reciclaveis = reciclavelDAO.buscarReciclaveis();
+			List<Armazem> armazens = armazemDAO.buscarArmazens();
+			List<Material> materiais = materialDAO.buscarMateriais();
+			request.setAttribute("reciclaveis", reciclaveis);
+			request.setAttribute("materiais", materiais);
+			request.setAttribute("armazens", armazens);
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/cadastro-deposito.jsp");
+			dispatcher.forward(request, response);
+
 		} else {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/login.jsp");
 			dispatcher.forward(request, response);
-			
+
 		}
 	}
 
@@ -658,21 +666,22 @@ public class Servlet extends HttpServlet {
 
 		HttpSession sessao = request.getSession();
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
-		
-		if (usuario instanceof Cooperativa) {
-			
-		List<Armazem> armazens = armazemDAO.buscarArmazens();
-		request.setAttribute("armazens", armazens);
-		List<Material> materiais = materialDAO.buscarMateriais();
-		request.setAttribute("materiais", materiais);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cooperativa/cadastro-retirada.jsp");
-		dispatcher.forward(request, response);
-		
+
+		if (sessao != null && usuario instanceof Cooperativa) {
+
+			List<Armazem> armazens = armazemDAO.buscarArmazens();
+			request.setAttribute("armazens", armazens);
+			List<Material> materiais = materialDAO.buscarMateriais();
+			request.setAttribute("materiais", materiais);
+			RequestDispatcher dispatcher = request
+					.getRequestDispatcher("assets/paginas/cooperativa/cadastro-retirada.jsp");
+			dispatcher.forward(request, response);
+
 		} else {
-			
+
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/login.jsp");
 			dispatcher.forward(request, response);
-			
+
 		}
 	}
 
@@ -690,44 +699,62 @@ public class Servlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/recuperar-senha.jsp");
 		dispatcher.forward(request, response);
 	}
-	
+
 	private void mostrarProcurarArmazem(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		
+
 		List<Armazem> armazens = armazemDAO.buscarArmazens();
 		request.setAttribute("armazens", armazens);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/procurar-armazem.jsp");
 		dispatcher.forward(request, response);
 	}
-	
+
 	private void mostrarProcurarColetor(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		
+
 		List<Coletor> coletores = coletorDAO.buscarColetores();
 		request.setAttribute("coletores", coletores);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/procurar-coletor.jsp");
 		dispatcher.forward(request, response);
 	}
-	
+
 	private void mostrarPerfilExternoColetor(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		
+
 		Coletor coletor = (Coletor) usuarioDAO.buscarUsuarioPorId(Long.parseLong(request.getParameter("id")));
 		request.setAttribute("coletor", coletor);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/perfil-externo-coletor.jsp");
+		RequestDispatcher dispatcher = request
+				.getRequestDispatcher("assets/paginas/coletor/perfil-externo-coletor.jsp");
 		dispatcher.forward(request, response);
 	}
-	
+
 	private void mostrarPerfilExternoArmazem(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		
+
 		Armazem armazem = (Armazem) usuarioDAO.buscarUsuarioPorId(Long.parseLong(request.getParameter("id")));
 		request.setAttribute("armazem", armazem);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/perfil-externo-armazem.jsp");
+		RequestDispatcher dispatcher = request
+				.getRequestDispatcher("assets/paginas/coletor/perfil-externo-armazem.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void mostrarProximosDepositos(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/proximos-depositos.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void mostrarConquistasColetor(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+
+		List<Conquista> conquistas = conquistaDAO.buscarListaConquistaPeloIdColetor(Long.parseLong(request.getParameter("id")));
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/conquista.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -1044,14 +1071,14 @@ public class Servlet extends HttpServlet {
 	private void inserirDeposito(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
-//		Armazem armazem = armazemDAO.buscarArmazemPorId(Long.parseLong(request.getParameter("armazem")));
-		Endereco endereco = new Endereco("Blumenau", "Garcia", "49740-390", "Rua", "Amazonas", "2094", "Cooper",
-				"(47) 97789-3035");
-		enderecoDAO.inserirEndereco(endereco);
-
-		Armazem armazem = new Armazem("Cooper", "cooper@gmail.com", "123458", "", endereco, "29320241000108",
-				LocalTime.of(8, 0), LocalTime.of(21, 0), 2000, StatusArmazem.LOTADO);
-		usuarioDAO.inserirUsuario(armazem);
+		Armazem armazem = armazemDAO.buscarArmazemPorId(Long.parseLong(request.getParameter("armazem")));
+//		Endereco endereco = new Endereco("Blumenau", "Garcia", "49740-390", "Rua", "Amazonas", "2094", "Cooper",
+//				"(47) 97789-3035");
+//		enderecoDAO.inserirEndereco(endereco);
+//
+//		Armazem armazem = new Armazem("Cooper", "cooper@gmail.com", "123458", "", endereco, "29320241000108",
+//				LocalTime.of(8, 0), LocalTime.of(21, 0), 2000, StatusArmazem.LOTADO);
+//		usuarioDAO.inserirUsuario(armazem);
 		Coletor coletor = (Coletor) request.getSession().getAttribute("usuario");
 		LocalDate data = LocalDate.parse(request.getParameter("data"));
 		Deposito deposito = new Deposito(data, armazem, coletor);
@@ -1081,13 +1108,15 @@ public class Servlet extends HttpServlet {
 
 	}
 
-	private void deletarDeposito(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
-		
+	private void deletarDeposito(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException {
+
 		long id = Long.parseLong(request.getParameter("id"));
 		Deposito deposito = depositoDAO.buscarDepositoPeloId(id);
-		depositoDAO.deletarDeposito(deposito);;
+		depositoDAO.deletarDeposito(deposito);
+		;
 		response.sendRedirect("/perfil-coletor");
-		
+
 	}
 
 	private void inserirRetirada(HttpServletRequest request, HttpServletResponse response)
@@ -1121,7 +1150,7 @@ public class Servlet extends HttpServlet {
 		response.sendRedirect("/eCO2You/home-cooperativa");
 
 	}
-	
+
 //	private void deletarRetirada(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 //		
 //		long id = Long.parseLong(request.getParameter("id"));
@@ -1140,27 +1169,27 @@ public class Servlet extends HttpServlet {
 		conquistaDAO.inserirConquista(new Conquista(nome, pontos, descricao));
 		response.sendRedirect("landing-page");
 	}
-	
-	public void resultadoProcurarArmazem (HttpServletRequest request, HttpServletResponse response)
+
+	public void resultadoProcurarArmazem(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		
+
 		List<Armazem> armazens = armazemDAO.buscarArmazensPorNome(request.getParameter("pesquisar"));
 		request.setAttribute("armazens", armazens);
-		
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/procurar-armazem.jsp");
 		dispatcher.forward(request, response);
-		
+
 	}
-	
-	public void resultadoProcurarColetor (HttpServletRequest request, HttpServletResponse response)
+
+	public void resultadoProcurarColetor(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		
+
 		List<Coletor> coletores = coletorDAO.buscarListaColetorPeloNomeParcial(request.getParameter("pesquisar"));
 		request.setAttribute("coletores", coletores);
-		
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/procurar-coletor.jsp");
 		dispatcher.forward(request, response);
-		
+
 	}
-						
+
 }

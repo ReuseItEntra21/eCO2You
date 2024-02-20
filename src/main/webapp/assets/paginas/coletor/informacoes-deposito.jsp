@@ -28,7 +28,7 @@
 				<tr>
 					<c:forEach var="itemDeposito" items="${deposito.itensDeposito}">
 						<tr>
-							<td><c:out value="${deposito.itensDeposito.nome}" /></td>
+							<td><c:out value="${itemDeposito.nome}" /></td>
 						</tr>
 					</c:forEach>
 				</tr>
