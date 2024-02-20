@@ -329,6 +329,14 @@ public class Servlet extends HttpServlet {
 			case "/resultado-procurar-coletor":
 				resultadoProcurarColetor(request, response);
 				break;
+				
+			case "/perfil-externo-coletor":
+				mostrarPerfilExternoColetor(request, response);
+				break;
+				
+			case "/perfil-externo-armazem":
+				mostrarPerfilExternoArmazem(request, response);
+				break;
 
 			default:
 				mostrarLandingPage(request, response);
@@ -699,7 +707,27 @@ public class Servlet extends HttpServlet {
 		List<Coletor> coletores = coletorDAO.buscarColetores();
 		request.setAttribute("coletores", coletores);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/procurar-armazem.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/procurar-coletor.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void mostrarPerfilExternoColetor(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		
+		Coletor coletor = (Coletor) usuarioDAO.buscarUsuarioPorId(Long.parseLong(request.getParameter("id")));
+		request.setAttribute("coletor", coletor);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/perfil-externo-coletor.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void mostrarPerfilExternoArmazem(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		
+		Armazem armazem = (Armazem) usuarioDAO.buscarUsuarioPorId(Long.parseLong(request.getParameter("id")));
+		request.setAttribute("armazem", armazem);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/perfil-externo-coletor.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -1127,7 +1155,7 @@ public class Servlet extends HttpServlet {
 	public void resultadoProcurarColetor (HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 		
-		List<Coletor> coletores = coletorDAO.buscarListaColetorPeloNome(request.getParameter("peaquisar"));
+		List<Coletor> coletores = coletorDAO.buscarListaColetorPeloNomeParcial(request.getParameter("pesquisar"));
 		request.setAttribute("coletores", coletores);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/procurar-coletor.jsp");
