@@ -12,6 +12,7 @@
 		<style><%@include file="../../css/coletor/menu.css"%></style>
 	</head>
 	<body>
+		<%@include file="menu.jsp"%>
 		<div class="tresPontos-icon"><i class="fa-solid fa-ellipsis"></i></div>
 		<div class="container-perfil">
 			<div class="item-perfil">
@@ -32,10 +33,10 @@
 			</div>
 		</div>
 	    <div class="container-select">
-		    <span class="Próximo-Depósito"><a href="proximos-depositos">Próximo Depósito</a></span>
-		    <span class="Historico"><a href="historico-depositos">Histórico</a></span>
-		    <span class="Pendentes"><a href="depositos-pendentes">Pendente</a></span>
-		    <span class="Conquistas"><a href="conquista">Conquista</a></span>
+		    <a href="proximos-depositos">Próximo Depósito</a>
+		    <a href="historico-depositos">Histórico</a>
+		    <a href="depositos-pendentes">Pendente</a>
+		    <a href="conquista">Conquista</a>
 	    </div>
 		
 	    <div class="container-armazens">

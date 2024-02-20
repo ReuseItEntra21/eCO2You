@@ -10,6 +10,11 @@ body {
 	min-height: 100vh;
 }
 
+a {
+	text-decoration: none;
+	color: #000000;
+}
+
 .perfil-coletor {
 	border-radius: 50%;
 	height: 19vh;
@@ -18,13 +23,6 @@ body {
 	margin-left: 100px;
 	margin-bottom: 100px;
     border: 1px solid #fff;
-}
-
-.eco2you-logo {
-	height: 58.6px;
-	width: 80.5px;
-	margin-top: 70px;
-	margin-bottom: -50px;
 }
 
 .tresPontos-icon {
@@ -189,4 +187,11 @@ body {
 }
 .item-perfil{
     background-color: #E8EDDE;
+}
+
+.container-select {	
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	background-color: #FFFFFF;
 }

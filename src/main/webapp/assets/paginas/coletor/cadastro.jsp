@@ -15,7 +15,7 @@
 		</div>
 		<div class="container-cadastro">
 			<form id="regForm" action="inserir-coletor">
-				<span class="item-CriarConta">CADASTRO</span>
+				<span class="titulo-cadastro">Cadastro</span>
 				<div class="tab">
 					<div class="item-cadastro">
 						<label for="nome" class="informacao-cadastro">Nome</label>
@@ -29,12 +29,12 @@
 						<label for="cpf">CPF</label>
 				    	<input type="text" placeholder="000.000.000-00" oninput="this.className = ''" name="cpf" id=cpf >
 					</div>
-					<div class="item-cadastro">
-						<div>
+					<div class="container-cadastro-row">
+						<div class="item-cadastro-row">
 							<label for="nascimento">Data de Nascimento</label>
 					    	<input type="date" oninput="this.className = ''" name="dataNascimento" id=nascimento>
 						</div>
-						<div>
+						<div class="item-cadastro-row">
 							<label for="telefone">Telefone</label>
 					    	<input type="text" placeholder="Telefone" oninput="this.className = ''" name="telefone" id=telefone>
 						</div>
