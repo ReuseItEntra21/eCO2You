@@ -7,7 +7,7 @@
     <head>
 	    <meta charset="UTF-8">
 		<title>Cadastro</title>
-		<style><%@include file="../../css/coletor/procurar-armazem.css"%></style>
+		<style><%@include file="../../css/cooperativa/buscar-armazem.css"%></style>
 		<style><%@include file="../../css/menu.css"%></style>
 		<style><%@include file="../../css/footer.css"%></style>
     </head>
@@ -34,8 +34,8 @@
 					<span id="nome-armazem">${armazem.nome}</span>
 					<span>${armazem.endereco.cidade}</span>
 			    	<span>${armazem.endereco.bairro}</span>
-			    	<p>${armazem.endereco.tipoVia} ${armazem.endereco.logradouro} ${armazem.endereco.numeroEndereco}</p>
-			    	<a href="cadastro-deposito">Faça um Depósito</a>
+			    	<span>${armazem.endereco.tipoVia} ${armazem.endereco.logradouro} ${armazem.endereco.numeroEndereco}</span>
+			    	<a href="cadastro-retirada">Faça uma Retirada</a>
 		    	</div>
 			</c:forEach>
 		</div>
