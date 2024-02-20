@@ -18,6 +18,12 @@
 		    <a class="item-menu" href="ranking-coletor" id=ranking>
 				<img alt="Ranking" src="">
 			</a>
+			<a class="item-menu" href="procurar-coletor" id=procurarColetor>
+				<img alt="Pesquisar Coletor" src="">
+			</a>
+			<a class="item-menu" href="procurar-armazem" id=procurarArmazem>
+				<img alt="Pesquisar Coletor" src="">
+			</a>
 			<a class="item-menu" href="editar-perfil-coletor" class="dropbtn" id=perfil>
 				<img alt="Olá ${usuario.nome}" src="">
 			</a>

@@ -12,6 +12,6 @@ public interface ConquistaDAO {
 
 	void atualizarConquista(Conquista conquista);
 	
-	List<Conquista> buscarListaConquistaPeloId(long id);
+	List<Conquista> buscarListaConquistaPeloIdColetor(Long id);
 	
 }

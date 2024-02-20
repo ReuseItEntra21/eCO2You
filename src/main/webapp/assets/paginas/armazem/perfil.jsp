@@ -15,10 +15,10 @@
           <div>
               <img src="#" alt="Imagem Perfil" name="imagem" id=imagem1>
               <span>${armazem.nome}</span>
-              <span>"FECHADO - abre" ${armazem.horarioAbertura}</span>
-              <span>${armazem.endereco.tipovia} ${armazem.endereco.logradouro}</span>
+              <span>${armazem.horarioAbertura} - ${armazem.horarioFechamento}</span>
+              <span>${armazem.endereco.tipoVia} ${armazem.endereco.logradouro}</span>
               <span>${armazem.endereco.bairro}</span>
-              <span>${armazem.endereco.numeros}</span>
+              <span>${armazem.endereco.numeroEndereco}</span>
               <span>${armazem.endereco.cidade}, SC</span>
           </div>
           <div>

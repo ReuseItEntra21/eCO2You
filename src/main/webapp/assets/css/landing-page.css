@@ -31,7 +31,8 @@
   
   .vl {
     border-left: 2px solid black;
-    height: 35vh;
+    height: 20vh;
+    margin-right: 20px;
   }
   
   .usuarios {
@@ -77,8 +78,8 @@
   .perguntas-frequentes {
   	background-color: #E8EDDE;
   	border-radius: 8px;
-  	margin: 2vw 4vw 2vw 4vw;
-  	padding: 1vw;
+  	margin: 2vw 6vw 2vw 6vw;
+  	height: 25vh;
   }
   
   .container-perguntas-frequentes {
@@ -89,8 +90,33 @@
   	height: 35vh;
   	margin: 1vw;
   	padding: 1vw;
+  	margin-top: -100px;
   }
   
   .items-perguntas-frequentes {
   	width: 30vw;
+  	font-size: 20px;
+  }
+  .intens-respostas-perguntas-frequentes{
+	  padding-top: 20px;
+  }
+  #titulo-perguntas-frequentes{
+	  padding-left: 10px;
+	  padding-top: 10px;
+  }
+  h2{
+	  padding-bottom: 10px;
+  }
+  #sub-titulo{
+	  padding-bottom: 20px;
+  }
+  #container-texto{
+	font-size: 20px;
+  }
+  .itens-usuario{
+	  padding-bottom: 10px;
+	  font-size: 25px;
+  }
+  .descricao-usuario{
+	  padding-bottom: 10px;
   }
