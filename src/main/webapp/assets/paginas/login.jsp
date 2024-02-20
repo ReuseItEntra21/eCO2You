@@ -13,7 +13,7 @@
 			<form action="logar" method="post">
 				<div class="item-login">
 					<p>Email</p>
-					<input type="email" id="email" name="email" placeholder="username@gmail.com" maxlength="25" class="e-mailEsenha">
+					<input type="email" id="email" name="email" placeholder="username@gmail.com" maxlength="65" class="e-mailEsenha">
 				</div>
 				<div class="item-login">
 					<p>Senha</p>

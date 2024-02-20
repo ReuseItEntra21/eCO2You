@@ -332,7 +332,7 @@ public class Main {
 
 		// =============================================================================================================
 
-		Deposito deposito02 = new Deposito(armazem02, coletor02, StatusDeposito.PENDENTE, LocalDate.of(1333, 12, 2));
+		Deposito deposito02 = new Deposito(armazem02, coletor02, StatusDeposito.AGENDADO, LocalDate.of(1333, 12, 2));
 
 		DepositoDAO depositoDAO02 = new DepositoDAOImpl();
 		depositoDAO02.inserirDeposito(deposito02);

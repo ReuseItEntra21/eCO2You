@@ -34,13 +34,3 @@ nav {
 	margin: 1vh;
 	color: #000000;
 }
-
-.vl {
-	border-left: 1px solid #0D0D0D;
-	height: 3vh;
-}
-
-hr {
-	width: 100%;
-	border-bottom: 1px solid #0D0D0D;
-}

@@ -16,9 +16,10 @@ import javax.servlet.http.HttpSession;
 
 import br.senac.eco2you.modelo.dao.armazem.ArmazemDAO;
 import br.senac.eco2you.modelo.dao.armazem.ArmazemDAOImpl;
+import br.senac.eco2you.modelo.dao.coletor.ColetorDAO;
+import br.senac.eco2you.modelo.dao.coletor.ColetorDAOImpl;
 import br.senac.eco2you.modelo.dao.conquista.ConquistaDAO;
 import br.senac.eco2you.modelo.dao.conquista.ConquistaDAOImpl;
-import br.senac.eco2you.modelo.dao.cooperativa.CooperativaDAOImpl;
 import br.senac.eco2you.modelo.dao.deposito.DepositoDAO;
 import br.senac.eco2you.modelo.dao.deposito.DepositoDAOImpl;
 import br.senac.eco2you.modelo.dao.endereco.EnderecoDAO;
@@ -64,6 +65,7 @@ public class Servlet extends HttpServlet {
 	private ArmazemDAO armazemDAO;
 	private RetiradaDAO retiradaDAO;
 	private ItemRetiradaDAO itemRetiradaDAO;
+	private ColetorDAO coletorDAO;
 
 	public void init() {
 		usuarioDAO = new UsuarioDAOImpl();
@@ -74,9 +76,9 @@ public class Servlet extends HttpServlet {
 		depositoDAO = new DepositoDAOImpl();
 		conquistaDAO = new ConquistaDAOImpl();
 		armazemDAO = new ArmazemDAOImpl();
-		new CooperativaDAOImpl();
 		retiradaDAO = new RetiradaDAOImpl();
 		itemRetiradaDAO = new ItemRetiradaDAOImpl();
+		coletorDAO = new ColetorDAOImpl();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -187,6 +189,7 @@ public class Servlet extends HttpServlet {
 			case "/editar-perfil-cooperativa":
 				mostrarEditarPerfilCooperativa(request, response);
 				break;
+				
 			case "/inserir-coletor":
 				inserirColetor(request, response);
 				break;
@@ -318,6 +321,14 @@ public class Servlet extends HttpServlet {
 			case "/resultado-procurar-armazem":
 				resultadoProcurarArmazem(request, response);
 				break;
+				
+			case "/procurar-coletor":
+				mostrarProcurarColetor(request, response);
+				break;
+				
+			case "/resultado-procurar-coletor":
+				resultadoProcurarColetor(request, response);
+				break;
 
 			default:
 				mostrarLandingPage(request, response);
@@ -387,7 +398,7 @@ public class Servlet extends HttpServlet {
 		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
 		request.setAttribute("coletor", coletor);
 
-		List<Deposito> depositos = depositoDAO.buscarDepositos();
+		List<Deposito> depositos = depositoDAO.buscarDepositoPeloColetor(coletor);
 		request.setAttribute("depositos", depositos);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/historico-depositos.jsp");
@@ -675,12 +686,18 @@ public class Servlet extends HttpServlet {
 	private void mostrarProcurarArmazem(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 		
-		List<Reciclavel> reciclaveis = reciclavelDAO.buscarReciclaveis();
 		List<Armazem> armazens = armazemDAO.buscarArmazens();
-		List<Material> materiais = materialDAO.buscarMateriais();
-		request.setAttribute("reciclaveis", reciclaveis);
-		request.setAttribute("materiais", materiais);
 		request.setAttribute("armazens", armazens);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/procurar-armazem.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void mostrarProcurarColetor(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		
+		List<Coletor> coletores = coletorDAO.buscarColetores();
+		request.setAttribute("coletores", coletores);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/procurar-armazem.jsp");
 		dispatcher.forward(request, response);
@@ -1103,6 +1120,17 @@ public class Servlet extends HttpServlet {
 		request.setAttribute("armazens", armazens);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/procurar-armazem.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	public void resultadoProcurarColetor (HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		
+		List<Coletor> coletores = coletorDAO.buscarListaColetorPeloNome(request.getParameter("peaquisar"));
+		request.setAttribute("coletores", coletores);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/procurar-coletor.jsp");
 		dispatcher.forward(request, response);
 		
 	}
