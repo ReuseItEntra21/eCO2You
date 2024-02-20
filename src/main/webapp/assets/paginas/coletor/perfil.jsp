@@ -32,10 +32,10 @@
 			</div>
 		</div>
 	    <div class="container-select">
-		    <span class="Próximo-Depósito">Próximo Depósito</span>
-		    <span class="Historico">Histórico</span>
-		    <span class="Pendentes">Pendentes</span>
-		    <span class="Conquistas">Conquistas</span>
+		    <span class="Próximo-Depósito"><a href="proximos-depositos">Próximo Depósito</a></span>
+		    <span class="Historico"><a href="historico-depositos">Histórico</a></span>
+		    <span class="Pendentes"><a href="depositos-pendentes">Pendente</a></span>
+		    <span class="Conquistas"><a href="conquista">Conquista</a></span>
 	    </div>
 		
 	    <div class="container-armazens">

@@ -1,56 +1,28 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+	<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false" %><!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>Pendentes</title>
 	</head>
-	<body>
-	<br>
-	<a href="perfil-coletor" id=voltar>Voltar</a>
-		<form action="principal-coletor">
+	<body>		
 			<h2> Depósitos agendados </h2>
 			
-			<div>
-				<input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem1>
-				2x latinhas de 220ml
-		
-				<br>
-				<input type="date" id="data" name="dataDeposito">
-				<input type="text" placeholder="Empresa" name="empresa" id=empresa>
-			</div>
-			
-			<div>
-				<input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem2>
-				2x garrafas de 220ml
-				
-				
-				<br>
-				<input type="date" id="data" name="dataDeposito">
-				<input type="text" placeholder="Empresa" name="empresa" id=empresa2 >
-			</div>
-			
-			<h2> Depósitos à serem aceitos </h2>
-			
-			<div>
-				<input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem3>
-				2x latinhas de 220ml
-
-				<br>
-				<input type="date" id="data" name="dataDeposito">
-				<input type="text" placeholder="Empresa" name="empresa" id=empresa3>
-			</div>
-			
-			<div>
-				<input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem4>
-				2x garrafas de 220ml
-				
-				<br>
-				<input type="date" id="data" name="dataDeposito">
-				<input type="text" placeholder="Empresa" name="empresa" id=empresa4>
-			</div>
-		</form>
-		<br>
-		<a href="cadastro-deposito" class="dropbtn" id=voltar>Criar Depósito</a>
+			<c:forEach var="deposito" items="${deposito}">
+					<tr>
+						<td>${deposito.data}</td>
+						<td>${deposito.armazem.nome}</td>
+						<td><a href="deletar?id=<c:out value='${deposito.id}'/>">Excluir</a></td>							
+					</tr>
+			</c:forEach>
+			<h2> Depósitos à serem aceitos </h2>	
+			<c:forEach var="deposito" items="${deposito}">
+					<tr>
+						<td>${deposito.data}</td>
+						<td>${deposito.armazem.nome}</td>
+						<td><a href="deletar?id=<c:out value='${deposito.id}'/>">Excluir</a></td>							
+					</tr>
+			</c:forEach>			
 	</body>
 </html>
