@@ -122,7 +122,7 @@ public class Deposito implements Serializable{
 		this.data = data;
 	}
 	
-	public List<ItemDeposito> getItemDeposito() {
+	public List<ItemDeposito> getItensDeposito() {
 		return itensDeposito;
 	}
 	

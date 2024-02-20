@@ -22,7 +22,13 @@
 				<img alt="Pesquisar Coletor" src="">
 			</a>
 			<a class="item-menu" href="procurar-armazem" id=procurarArmazem>
-				<img alt="Pesquisar Coletor" src="">
+				<img alt="Pesquisar Armazem" src="">
+			</a>
+			<a class="item-menu" href="editar-perfil-coletor" id=editarPerfil>
+				<img alt="Editar Perfil" src="">
+			</a>
+			<a class="item-menu" href="deslogar" id=deslogar>
+				<img alt="Sair da Conta" src="">
 			</a>
 			<a class="item-menu" href="editar-perfil-coletor" class="dropbtn" id=perfil>
 				<img alt="Olá ${usuario.nome}" src="">

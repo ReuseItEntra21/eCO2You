@@ -15,8 +15,8 @@
 		<div class="box">
 			<h2>CONECTANDO DOADORES COM PONTOS DE COLETA.</h2 >
 			<p>Transfomando sua contribuição em impacto sustentável.</p>
-			<a href="<%=request.getContextPath()%>/cadastro-coletor">Ser um Coletor</a>
-			<a href="<%=request.getContextPath()%>/cadastro-coletor">Ser um Coletor</a>
+			<a href="<%=request.getContextPath()%>/cadastro-coletor">Seja um Coletor</a>
+			<a href="<%=request.getContextPath()%>/procurar-armazem">Procure um Armazém</a>
 			<img alt="Imagem" src="">
 		</div>
 		<p>Descubra uma nova maneira de fazer a diferença no mundo. Na eCO2You, estamos unindo comunidades em prol da sustentabilidade. Conectamos pessoas que desejam contribuir com materiais recicláveis a armazéns comprometidos com o meio ambiente. Nosso objetivo é criar um impacto positivo e duradouro em nosso planeta.</p>
