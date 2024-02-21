@@ -9,7 +9,7 @@
 	<br>
 	<a href="home-coletor" id=voltar>Voltar</a>
 		<form action="principal-coletor">
-			<h2> Depósitos agendados </h2>
+			<h2> DEPÓSITOS A SEREM ACEITOS </h2>
 			
 			<div>
 				<input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem1>
@@ -30,7 +30,7 @@
 				<input type="text" placeholder="Empresa" name="empresa" id=empresa2 >
 			</div>
 			
-			<h2> Depósitos à serem aceitos </h2>
+			<h2> DEPÓSITOS AGENDADOS </h2>
 			
 			<div>
 				<input type="image" src="caminho/da/imagem.jpg" name="imagem" id=imagem3>
