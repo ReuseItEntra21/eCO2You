@@ -958,11 +958,9 @@ public class Servlet extends HttpServlet {
 		String senha = request.getParameter("senha");
 		
 		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento,	telefone);
-		Cooperativa cooperativa = new Cooperativa(nome, cnpj, horarioFechamento, horarioAbertura, endereco, email, senha);
-		
 		enderecoDAO.inserirEndereco(endereco);
-		usuarioDAO.inserirUsuario(cooperativa);
 		
+		usuarioDAO.inserirUsuario(new Cooperativa(nome, cnpj, horarioFechamento, horarioAbertura, endereco, email, senha));
 		response.sendRedirect("/eCO2You/login");
 		
 	}
