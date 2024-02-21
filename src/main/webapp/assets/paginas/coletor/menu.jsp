@@ -34,7 +34,7 @@
 				</a>
 			</div>
 			<div class="item-menu">
-				<a href="editar-perfil-coletor" class="dropbtn" id=perfil>
+				<a class="perfil" href="editar-perfil-coletor" id=perfil>
 					<svg><%@include file="../../images/perfil.jsp"%></svg> Olá ${coletor.nome}
 				</a>
 			</div>

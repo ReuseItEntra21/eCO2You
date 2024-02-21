@@ -1015,7 +1015,7 @@ public class Servlet extends HttpServlet {
 
 		String nome = request.getParameter("nome");
 		materialDAO.inserirMaterial(new Material(nome));
-		response.sendRedirect("/eCO2You/home");
+		response.sendRedirect("landing-page");
 	}
 
 	private void atualizarMaterial(HttpServletRequest request, HttpServletResponse response)
