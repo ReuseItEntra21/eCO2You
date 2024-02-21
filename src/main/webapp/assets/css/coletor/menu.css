@@ -21,6 +21,11 @@ nav {
 	color: #000000;
 }
 
+.item-menu svg {
+	width: 2vw;
+	height: 2vh;
+}
+
 .container-logo {
 	display: flex;
 	background-color: #FFFFFF;
