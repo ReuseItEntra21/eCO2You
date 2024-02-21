@@ -11,23 +11,34 @@
     <br>
    <a href="perfil-cooperativa" class="dropbtn" id=voltar>Voltar</a>
     <body>
-	        <span> Nova Retirada </span>
-	        <span> Insira a Data da Retirada</span>
-	        <input type="date" id="data" name="data" autofocus placeholder="Data para Depositar" maxlength="25" size="20">
-	        <span> Escolha o Armazem </span>
-	        <select name="armazem">
-    			<c:forEach var="armazem" items="${armazens}">
-        			<option value="${armazem.id}">${armazem.nome}</option>
-    			</c:forEach>
-			</select>
-			<span> Escolha o Material </span>
-    					<c:forEach var="material" items="${materiais}">
-        					<input type="radio" name="material">${material.nome}
-    					</c:forEach>
-	        <span> Insira o Peso que Deseja Retirar daquele Material</span>
-	        <input type="number" id="peso" name="peso" autofocus placeholder="Peso em Quilogramas" maxlength="25" size="20">
-	    <form action="inserir-retirada" method="post">
-	        <button type="submit" name="depositar" id=depositar class="ButtonEntrar">Fazer Retirada</button>
-        </form>
+	     <a href="perfil-coletor" id=voltar>Voltar</a>
+		<div class="container-cadastro">
+			<form action="inserir-retirada">
+				<span>Nova Retirada</span>
+				<div>
+					<label for="retirada">Data da Retirada</label>
+					<input type="date" oninput="this.className = ''" name="data" id=retirada>
+				</div>
+				<div>
+					<label for="retirada">Armazém</label>
+					<input type="text" value="${armazem.id}" name="id">
+				</div>
+				<div>
+					<label> Escolha o Reciclavel </label>
+					<select name="reciclavel">
+				    	<c:forEach var="reciclavel" items="${reciclaveis}">
+				        	<option value="${reciclavel.id}">${reciclavel.nome}</option>
+				    	</c:forEach>
+			    	</select>
+				</div>
+				<div>
+					<label>Quantidade</label>
+					<input type="number" oninput="this.className = ''" name="quantidade-reciclavel" id=deposito>
+				</div>
+				<div>
+					<button type="submit">Agendar</button>
+				</div>
+			</form>
+		</div>
     </body>
 </html>
