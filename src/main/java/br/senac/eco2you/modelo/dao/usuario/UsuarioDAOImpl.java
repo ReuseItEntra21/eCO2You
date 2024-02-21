@@ -287,5 +287,36 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	    }
 
 	    return usuario;
+	}public Usuario buscarUsuarioPorNome(String nome) {
+	    Session sessao = null;
+	    Usuario usuario = null;
+
+	    try {
+	        sessao = fabrica.getConexao().openSession();
+	        sessao.beginTransaction();
+
+	        CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+	        CriteriaQuery<Usuario> criteria = construtor.createQuery(Usuario.class);
+	        Root<Usuario> raizUsuario = criteria.from(Usuario.class);
+
+	        criteria.select(raizUsuario)
+	                .where(construtor.like(raizUsuario.get(Usuario_.NOME), "%" + nome + "%"));
+	        
+	        usuario = sessao.createQuery(criteria).uniqueResult();
+
+	        sessao.getTransaction().commit();
+
+	    } catch (Exception sqlException) {
+	        sqlException.printStackTrace();
+	        if (sessao.getTransaction() != null) {
+	            sessao.getTransaction().rollback();
+	        }
+	    } finally {
+	        if (sessao != null) {
+	            sessao.close();
+	        }
+	    }
+	    return usuario;
 	}
+
 }
