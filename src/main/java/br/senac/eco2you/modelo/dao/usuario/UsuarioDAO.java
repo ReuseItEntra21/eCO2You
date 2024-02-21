@@ -21,4 +21,6 @@ public interface UsuarioDAO {
 	Usuario buscarUsuarioPorId(Long id);
 
 	Usuario recuperarUsuarioComEnderecoPorId(Long id);
+	
+	Usuario buscarUsuarioPorNome(String nome);
 }

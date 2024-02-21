@@ -24,12 +24,12 @@
                                 <c:forEach var="material" items="${materiais}">
                                     <option value="${material.id}">${material.nome}</option>
                                 </c:forEach>
-                            </select>
-                            <input type="number" autofocus placeholder="Volume do Reciclável (ml)">
+                </select>
+                <input type="number" id="volume" name="volume" placeholder="Volume do Reciclável (ml)">
             </div>
 			<div>
-                <input type="number" autofocus placeholder="Quantidade de pontos">
-                <input type="text" autofocus placeholder="Instrução de depósito">
+                <input type="number" id="pontos-carbono" name="pontos-carbono" placeholder="Quantidade de pontos">
+                <input type="text" id="instrucao-reciclavel" name="instrucao-reciclavel" placeholder="Instrução de depósito">
             </div>
 	        <div><button type="submit" >Cadastrar Reciclável</button></div>
         </form>

@@ -37,7 +37,7 @@ public class Cooperativa extends Empresa implements Serializable {
 	}
 	
 	public Cooperativa(String nome, String cnpj, LocalTime horarioFechamento, LocalTime horarioAbertura, Endereco endereco, String email, String senha) {
-		super(nome, cnpj,email, senha, horarioAbertura, horarioFechamento);
+		super(nome, cnpj,email, senha, horarioAbertura, horarioFechamento, endereco);
 		retiradas = new ArrayList<>();
 	}
 	
