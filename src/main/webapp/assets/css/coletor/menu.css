@@ -23,6 +23,17 @@ a {
 	margin: 0vh 1vw 0vh 1vw;
 }
 
+.perfil {
+	display: flex;
+	flex-flow: row nowrap;
+	background-color: #E8EDDE;
+	border-radius: 6px;
+	border: none;
+	padding: 1vh;
+	justify-content: center;
+	align-items: baseline;
+}
+
 .item-menu svg {
 	width: 2vw;
 	height: 2vh;
