@@ -2,7 +2,7 @@
 	<nav>
 		<div class="container-logo">
 			<a class="item-logo" href="perfil-coletor">
-				<svg>
+				<svg class="imagem-eco2you">
 		        	<%@include file="../../images/eCO2You.jsp"%>
 		        </svg>
 			</a>
