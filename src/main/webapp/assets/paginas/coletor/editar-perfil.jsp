@@ -46,7 +46,7 @@
 	        	<input type="submit" value="Salvar" id="salvar">
 	        </div>
         </div>
-		<div>
+		<div class="conteiner-buttons">
 			<a href="deslogar" id="deslogar">Deslogar</a>
 			<a href="deletar-coletor" id="excuir">Excluir Conta</a>
 			<a href="recuperar-senha" id="recuperar">Atualizar Senha</a>
