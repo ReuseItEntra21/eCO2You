@@ -117,12 +117,12 @@ public class Servlet extends HttpServlet {
 				mostrarPerfilColetor(request, response);
 				break;
 
-			case "/home-armazem":
-				mostrarHomeArmazem(request, response);
+			case "/perfil-armazem":
+				mostrarPerfilArmazem(request, response);
 				break;
 
-			case "/home-cooperativa":
-				mostrarHomeCooperativa(request, response);
+			case "/perfil-cooperativa":
+				mostrarPerfilCooperativa(request, response);
 				break;
 
 			case "/historico-depositos-coletor":
@@ -567,7 +567,7 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-	private void mostrarHomeArmazem(HttpServletRequest request, HttpServletResponse response)
+	private void mostrarPerfilArmazem(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
 		HttpSession sessao = request.getSession();
@@ -581,7 +581,7 @@ public class Servlet extends HttpServlet {
 		List<Retirada> retiradas = retiradaDAO.buscarRetiradasPeloArmazem(armazem);
 		request.setAttribute("retiradas", retiradas);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/home.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/perfil.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -592,7 +592,7 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-	private void mostrarHomeCooperativa(HttpServletRequest request, HttpServletResponse response)
+	private void mostrarPerfilCooperativa(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
 		HttpSession sessao = request.getSession();
@@ -603,7 +603,7 @@ public class Servlet extends HttpServlet {
 		List<Retirada> retiradas = retiradaDAO.buscarRetiradasPelaCooperativa(cooperativa);
 		request.setAttribute("retiradas", retiradas);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cooperativa/home.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cooperativa/perfil.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -943,9 +943,7 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 
 		String nome = request.getParameter("nome");
-		String email = request.getParameter("email");
 		String cnpj = request.getParameter("cnpj");
-		String senha = request.getParameter("senha");
 		LocalTime horarioAbertura = LocalTime.parse(request.getParameter("horarioAbertura"));
 		LocalTime horarioFechamento = LocalTime.parse(request.getParameter("horarioFechamento"));
 		String cep = request.getParameter("cep");
@@ -956,13 +954,17 @@ public class Servlet extends HttpServlet {
 		String numeroEndereco = request.getParameter("numeroEndereco");
 		String complemento = request.getParameter("complemento");
 		String telefone = request.getParameter("telefone");
-		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento,
-				telefone);
+		String email = request.getParameter("email");
+		String senha = request.getParameter("senha");
+		
+		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento,	telefone);
+		Cooperativa cooperativa = new Cooperativa(nome, cnpj, horarioFechamento, horarioAbertura, endereco, email, senha);
+		
 		enderecoDAO.inserirEndereco(endereco);
-		usuarioDAO.inserirUsuario(
-				new Cooperativa(nome, cnpj, horarioAbertura, horarioFechamento, endereco, email, senha));
-
+		usuarioDAO.inserirUsuario(cooperativa);
+		
 		response.sendRedirect("/eCO2You/login");
+		
 	}
 
 	private void atualizarCooperativa(HttpServletRequest request, HttpServletResponse response)
@@ -994,7 +996,7 @@ public class Servlet extends HttpServlet {
 		Usuario usuario = usuarioDAO.buscarUsuarioPorId(id);
 		sessao.setAttribute("usuario", usuario);
 
-		response.sendRedirect("/eCO2You/home-cooperativa");
+		response.sendRedirect("/eCO2You/perfil-cooperativa");
 	}
 
 	private void deletarCooperativa(HttpServletRequest request, HttpServletResponse response)

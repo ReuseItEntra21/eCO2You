@@ -14,7 +14,7 @@
 			<span class="step"></span>
 		</div>
 		<div class="container-cadastro">
-			<form id="regForm" action="inserir-cooperativa">
+			<form id="regForm" action="inserir-cooperativa" method="post">
 				<span class="titulo-cadastro">Cadastro</span>
 				<div class="tab">
 					<div class="item-cadastro">
@@ -24,11 +24,11 @@
 					<div class="container-cadastro-row">
 						<div class="item-cadastro-row">
 							<label for="horarioAbertura">Horario Abertura</label>
-					    	<input type="text" placeholder="Horario Abertura" oninput="this.className = ''" name="horarioAbertura" id=horarioAbertura >
+					    	<input type="time" placeholder="Horario Abertura" oninput="this.className = ''" name="horarioAbertura" id=horarioAbertura >
 						</div>
 						<div class="item-cadastro-row">
 							<label for="horarioFechamento">Horario Fechamento</label>
-					    	<input type="text" placeholder="Horario Fechamento" oninput="this.className = ''" name="horarioFechamento" id=horarioFechamento >
+					    	<input type="time" placeholder="Horario Fechamento" oninput="this.className = ''" name="horarioFechamento" id=horarioFechamento >
 						</div>
 					</div>
 					<div class="item-cadastro">
