@@ -1,29 +1,35 @@
-	<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page isELIgnored="false" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false"%>
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Histórico Deposito</title>
-	</head>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Histórico de Depósito</title>
+</head>
 	<body>
-    	<a href="home-armazem" class="dropbtn" id=voltar>Voltar</a>
-    	<table border="1" style="width: 99vw;">
-			<thead>
-				<tr>
-					<th>Data</th>
-					<th>Coletor</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="deposito" items="${deposito}">
+		<a href="perfil-armazem" class="dropbtn" id=voltar>Voltar</a>
+		<%@include file="menu.jsp"%>
+		<h1>Histórico de Depósito</h1>
+      	<div class="container-depositos">
+			<table border="1" style="width: 99vw;">
+				<thead>
 					<tr>
+						<th>Nome</th>
+						<th>Data</th>
+	                    <th>Resumo</th>
+					</tr>
+				</thead>
+				<c:forEach var="deposito" items="${depositos}">
+					<tr>
+                    	<td>${deposito.coletor.nome}</td>
 						<td>${deposito.data}</td>
-						<td>${deposito.coletor.cpf}</td>
+	                	<td>${itemDeposito.quantidadeReciclaveis} ${itemDeposito.reciclavel.nome} ${itemDeposito.reciclavel.volume}</td>
 					</tr>
 				</c:forEach>
-			</tbody>
-		</table>
+			</table>
+	   	</div>
 	</body>
 </html>
