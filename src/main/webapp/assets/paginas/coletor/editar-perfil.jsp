@@ -20,7 +20,7 @@
 	        		</div>
 	        		<div class="item-head">
 	        			<div id="back">
-	        				<a href="perfil-coletor" id="voltar">X</a>
+	        				<a href="perfil-coletor" id="voltar"><svg><%@include file="../../images/xmark.jsp"%></svg></a>
 	        			</div>
 	        		</div>
 	        	</div>

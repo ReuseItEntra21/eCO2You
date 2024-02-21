@@ -23,17 +23,9 @@ body {
 	margin: 0 1vw 0 1vw;
 }
 
-#back {
-	display: flex;
-	background-color: #E8EDDE;
-	color: #000000;
+#back svg{
 	width: 2vw;
-	height: 2vw;
-	justify-content: center;
-	align-items: center;
-	text-decoration: none;
-	border: solid 1px;
-	border-radius: 10px;
+	height: 2vh;
 }
 
 .container-form {

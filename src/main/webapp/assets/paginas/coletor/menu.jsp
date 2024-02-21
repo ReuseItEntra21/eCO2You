@@ -9,25 +9,25 @@
 		</div>
 		<div class="container-menu">
 			<a class="item-menu" href="depositos-pendentes-coletor" id=pendentes>
-				<img alt="Pendentes" src="">
+				<svg><%@include file="../../images/pendente.jsp"%></svg>
 			</a>
 		    <a class="item-menu" href="historico-depositos-coletor" id=historico>
-				<img alt="Histórico" src="">
+				<svg><%@include file="../../images/historico.jsp"%></svg>
 			</a>
 		    <a class="item-menu" href="ranking-coletor" id=ranking>
-				<img alt="Ranking" src="">
+				<svg><%@include file="../../images/ranking.jsp"%></svg>
 			</a>
 			<a class="item-menu" href="procurar-coletor" id=procurarColetor>
-				<img alt="Pesquisar Coletor" src="">
+				<svg><%@include file="../../images/lupa.jsp"%></svg>
 			</a>
 			<a class="item-menu" href="procurar-armazem" id=procurarArmazem>
-				<img alt="Pesquisar Armazem" src="">
+				<svg><%@include file="../../images/lupa.jsp"%></svg>
 			</a>
 			<a class="item-menu" href="deslogar" id=deslogar>
-				<img alt="Sair da Conta" src="">
+				<svg><%@include file="../../images/logout.jsp"%></svg>
 			</a>
 			<a class="item-menu" href="editar-perfil-coletor" class="dropbtn" id=perfil>
-				<img alt="Olá ${usuario.nome}" src="">
+				<svg><%@include file="../../images/perfil.jsp"%></svg>
 			</a>
 		</div>
     </nav>
