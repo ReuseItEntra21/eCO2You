@@ -7,11 +7,11 @@
 		<meta charset="UTF-8">
 		<title>Procurar-coletor</title>
 		<style><%@include file="../../css/coletor/procurar-coletor.css"%></style>
-		<style><%@include file="../../css/menu.css"%></style>
+		<style><%@include file="../../css/coletor/menu.css"%></style>
 		<style><%@include file="../../css/footer.css"%></style>
 	</head>
 	<body>
-	    <%@ include file="../../../assets/paginas/coletor/menu.jsp"%>
+	    <%@ include file="menu.jsp"%>
 	    <div class="text-box">
 	    	<span> Coletores</span>
 		    <span>Conheça os coletores cadastrados</span>

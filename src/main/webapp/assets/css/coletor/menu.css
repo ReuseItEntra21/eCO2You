@@ -5,6 +5,11 @@ nav {
 	justify-content: space-between;
 }
 
+a {
+	color: #000000;
+	text-decoration: none;
+}
+
 .container-menu {
 	display: flex;
 	flex-flow: row nowrap;
@@ -25,7 +30,6 @@ nav {
 
 .container-logo {
 	display: flex;
-	background-color: #FFFFFF;
 }
 
 .item-logo svg {
