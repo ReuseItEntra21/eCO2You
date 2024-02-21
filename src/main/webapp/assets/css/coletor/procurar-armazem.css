@@ -10,11 +10,6 @@ body {
 	min-height: 100vh;
 }
 
-a {
-	text-decoration: none;
-	color: #FFFFFF;
-}
-
 .text-box {
 	display: flex;
 	background-color: #E8EDDE;
@@ -104,6 +99,8 @@ a {
 	margin: 1vw;
 	padding: 0.5vw;
 	cursor: pointer;
+	text-decoration: none;
+	color: #FFFFFF;
 }
 
 .image-armazem {
