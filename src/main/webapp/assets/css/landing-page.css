@@ -43,7 +43,7 @@
   .container-usuarios {
   	display: flex;
   	flex-flow: row nowrap;
-  	justify-content: space-evenly;
+  	justify-content: space-around;
   	align-items: center;
   	height: 50vh;
   }
@@ -75,6 +75,11 @@
     width: 10vw;
   }
   
+  .items-usuarios svg{
+  	width: 20vw;
+  	height: 20vh;
+  }
+  
   .perguntas-frequentes {
   	background-color: #E8EDDE;
   	border-radius: 8px;
@@ -85,7 +90,7 @@
   .container-perguntas-frequentes {
   	display: flex;
   	flex-flow: row nowrap;
-  	justify-content: space-evenly;
+  	justify-content: space-around;
   	align-items: center;
   	height: 35vh;
   	margin: 1vw;

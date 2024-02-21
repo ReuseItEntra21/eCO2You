@@ -26,7 +26,9 @@
 			<h2>Venha reciclar com a Gente</h2>
 			<div class="container-usuarios">
 	        	<div class="items-usuarios">
-	        		<img alt="Imagem Coletor" src="">
+	        		<svg>
+		        		<%@include file="../images/eCO2You.jsp"%>
+		        	</svg>
 		        	<h3 class="itens-usuario"> Coletor </h3>
 			       <p class="descricao-usuario"> Os coletores são os usuários comuns,
 			        pessoas que recolhem e
@@ -35,7 +37,9 @@
 			        <a href="<%=request.getContextPath()%>/cadastro-coletor">Ser um Coletor</a>
 		        </div>
 		        <div class="items-usuarios">
-		        	<img alt="Imagem Armazém" src="">
+		        	<svg>
+		        		<%@include file="../images/eCO2You.jsp"%>
+		        	</svg>
 			        <h3 class="itens-usuario"> Armazém </h3>
 				   <p> Os armazéns são as empresas,
 				    que se dispõem a armazenar
@@ -43,7 +47,9 @@
 				    <a href="<%=request.getContextPath()%>/cadastro-armazem">Ser um Armazém</a>
 		        </div>
 		        <div class="items-usuarios">
-		        	<img alt="Imagem Cooperativa" src="">
+		        <svg>
+		        	<%@include file="../images/eCO2You.jsp"%>
+		        </svg>
 			        <h3 class="itens-usuario">Cooperativa</h3>
 					   <p> As cooperativas são as empresas que retiram o material armazenado e, posteriormente, realizam a reciclagem. </p>
 					<a href="<%=request.getContextPath()%>/cadastro-cooperativa">Ser uma Cooperativa</a>

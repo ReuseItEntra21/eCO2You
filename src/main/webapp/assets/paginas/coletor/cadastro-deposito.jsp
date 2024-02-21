@@ -17,7 +17,11 @@
 				<span>Nova Depósito</span>
 				<div>
 					<label for="deposito">Data de Depósito</label>
-					<input type="date" oninput="this.className = ''" name="dataDeposito" id=deposito>
+					<input type="date" oninput="this.className = ''" name="data" id=deposito>
+				</div>
+				<div>
+					<label for="deposito">Armazém</label>
+					<input type="text" value="${armazem.id}" name="id">
 				</div>
 				<div>
 					<label> Escolha a Reciclavel </label>
@@ -29,7 +33,10 @@
 				</div>
 				<div>
 					<label>Quantidade</label>
-					<input type="number" oninput="this.className = ''" name="quantidade" id=deposito>
+					<input type="number" oninput="this.className = ''" name="quantidade-reciclavel" id=deposito>
+				</div>
+				<div>
+					<button type="submit">Agendar</button>
 				</div>
 			</form>
 		</div>

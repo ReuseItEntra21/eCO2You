@@ -641,14 +641,17 @@ public class Servlet extends HttpServlet {
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
 		if (sessao != null && usuario instanceof Coletor) {
-
+			
+			Armazem armazem = (Armazem) usuarioDAO.buscarUsuarioPorId(Long.parseLong(request.getParameter("id")));
+			request.setAttribute("armazem", armazem);
+			
 			List<Reciclavel> reciclaveis = reciclavelDAO.buscarReciclaveis();
-			List<Armazem> armazens = armazemDAO.buscarArmazens();
-			List<Material> materiais = materialDAO.buscarMateriais();
 			request.setAttribute("reciclaveis", reciclaveis);
-			request.setAttribute("materiais", materiais);
+			
+			List<Armazem> armazens = armazemDAO.buscarArmazens();
 			request.setAttribute("armazens", armazens);
-
+			
+			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/cadastro-deposito.jsp");
 			dispatcher.forward(request, response);
 
@@ -735,8 +738,7 @@ public class Servlet extends HttpServlet {
 		Armazem armazem = (Armazem) usuarioDAO.buscarUsuarioPorId(Long.parseLong(request.getParameter("id")));
 		request.setAttribute("armazem", armazem);
 
-		RequestDispatcher dispatcher = request
-				.getRequestDispatcher("assets/paginas/coletor/perfil-externo-armazem.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/perfil-externo-armazem.jsp");
 		dispatcher.forward(request, response);
 	}
 	
@@ -1072,24 +1074,20 @@ public class Servlet extends HttpServlet {
 
 	private void inserirDeposito(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-
-		Armazem armazem = armazemDAO.buscarArmazemPorId(Long.parseLong(request.getParameter("armazem")));
-//		Endereco endereco = new Endereco("Blumenau", "Garcia", "49740-390", "Rua", "Amazonas", "2094", "Cooper",
-//				"(47) 97789-3035");
-//		enderecoDAO.inserirEndereco(endereco);
-//
-//		Armazem armazem = new Armazem("Cooper", "cooper@gmail.com", "123458", "", endereco, "29320241000108",
-//				LocalTime.of(8, 0), LocalTime.of(21, 0), 2000, StatusArmazem.LOTADO);
-//		usuarioDAO.inserirUsuario(armazem);
+		
 		Coletor coletor = (Coletor) request.getSession().getAttribute("usuario");
+		
+		Reciclavel reciclavel = reciclavelDAO.buscarReciclavelPorId(Long.parseLong(request.getParameter("reciclavel")));
+		
+		Armazem armazem = (Armazem) usuarioDAO.buscarUsuarioPorId(Long.parseLong(request.getParameter("id")));
+		
 		LocalDate data = LocalDate.parse(request.getParameter("data"));
 		Deposito deposito = new Deposito(data, armazem, coletor);
 		depositoDAO.inserirDeposito(deposito);
 
-		Reciclavel reciclavel = reciclavelDAO.buscarReciclavelPorId(Long.parseLong(request.getParameter("reciclavel")));
-		int quantidadeReciclaveis = Integer.parseInt(request.getParameter("quantidade-reciclaveis"));
-		deposito.inserirItemDeposito(new ItemDeposito(reciclavel, quantidadeReciclaveis));
-		itemDepositoDAO.inserirItemDeposito(new ItemDeposito(reciclavel, quantidadeReciclaveis));
+		int quantidadeReciclavel = Integer.parseInt(request.getParameter("quantidade-reciclavel"));
+		deposito.inserirItemDeposito(new ItemDeposito(reciclavel, quantidadeReciclavel));
+		itemDepositoDAO.inserirItemDeposito(new ItemDeposito(reciclavel, quantidadeReciclavel));
 		response.sendRedirect("/eCO2You/perfil-coletor");
 
 	}
