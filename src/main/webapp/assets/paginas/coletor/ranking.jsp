@@ -7,10 +7,13 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Ranking</title>
-		<style><%@include file="../../css/coletor/menu.css"%></style>
 		<style><%@include file="../../css/coletor/ranking.css"%></style>
 	</head>
 	<body>
-		<%@ include file="../../../assets/paginas/coletor/menu.jsp"%>
+		<a href="perfil-coletor">
+			<svg>
+				<%@ include file="../../images/voltar.jsp"%>
+			</svg>
+		</a>
 	</body>
 </html>
