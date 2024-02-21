@@ -8,22 +8,26 @@
 		<title>Histórico Retirada</title>
 	</head>
 	<body>
-    	<a href="home-cooperativa" class="dropbtn" id=voltar>Voltar</a>
-    	<table border="1" style="width: 99vw;">
-			<thead>
-				<tr>
-					<th>Data</th>
-					<th>Cooperativa</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="retirada" items="${retirada}">
+    	<a href="perfil-armazem" class="dropbtn" id=voltar>Voltar</a>
+    	<%@ include file="../../../assets/paginas/armazem/menu.jsp"%>
+    	<h1>Histórico de Retirada</h1>
+    	<div class="container-retiradas">
+			<table border="1" style="width: 99vw;">
+				<thead>
 					<tr>
+						<th>Comprador</th>
+						<th>Data</th>
+	                    <th>Resumo</th>
+					</tr>
+				</thead>
+				<c:forEach var="retirada" items="${retiradas}">
+					<tr>
+                    	<td>${retirada.cooperativa.nome}</td>
 						<td>${retirada.data}</td>
-						<td>${retirada.cooperativa.cnpj}</td>
+	                	<td>${itemRetirada.material.nome} ${itemRetirada.material.peso}</td>
 					</tr>
 				</c:forEach>
-			</tbody>
-		</table>
+			</table>
+	    </div>
 	</body>
 </html>
