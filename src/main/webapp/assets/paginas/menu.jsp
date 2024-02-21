@@ -1,8 +1,10 @@
 <header>
 	<nav>
 		<div class="container-logo">
-			<a class="item-logo" href="perfil-coletor">
-				<img alt="Home" src="">
+			<a class="item-logo" href="landing-page">
+				<svg style="height: 4vh; width: 4vw;">
+		        	<%@include file="../images/eCO2You.jsp"%>
+		        </svg>
 			</a>
 		</div>
 		<div class="container-menu">

@@ -6,7 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Procurar-coletor</title>
-		<style><%@include file="../../css/coletor/procurar-armazem.css"%></style>
+		<style><%@include file="../../css/coletor/procurar-coletor.css"%></style>
 		<style><%@include file="../../css/menu.css"%></style>
 		<style><%@include file="../../css/footer.css"%></style>
 	</head>
@@ -30,7 +30,7 @@
 			    	<div id="image-coletor">
 				    	<img alt="Imagem" src="">
 			    	</div>
-					<span id="nome-coletor">${coletor.nome}</span>
+					<span id="nome-coletor">${coletor.nome} ${coletor.sobrenome}</span>
 			    	<span style="background-color:black;"><a href="perfil-externo-coletor?id=<c:out value='${coletor.id}'/>">Ver perfil</a></span>
 		    	</div>
 			</c:forEach>

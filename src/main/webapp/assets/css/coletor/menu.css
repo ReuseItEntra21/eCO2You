@@ -26,11 +26,7 @@ nav {
 	background-color: #FFFFFF;
 }
 
-.item-logo {
-	flex-flow: row nowrap;
-	align-items: center;
-	justify-content: flex-start;
-	align-content: center;
-	margin: 1vh;
-	color: #000000;
+.item-logo svg {
+	width: 4vw;
+	height: 4vh;
 }

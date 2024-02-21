@@ -2,15 +2,14 @@
 	<nav>
 		<div class="container-logo">
 			<a class="item-logo" href="perfil-coletor">
-				<img alt="Home" src="">
+				<svg>
+		        	<%@include file="../../images/eCO2You.jsp"%>
+		        </svg>
 			</a>
 		</div>
 		<div class="container-menu">
 			<a class="item-menu" href="depositos-pendentes-coletor" id=pendentes>
 				<img alt="Pendentes" src="">
-			</a>
-			<a class="item-menu" href="procurar-armazem" id=novoDeposito>
-				<img alt="Novo Deposito" src="">
 			</a>
 		    <a class="item-menu" href="historico-depositos-coletor" id=historico>
 				<img alt="Histórico" src="">
@@ -23,9 +22,6 @@
 			</a>
 			<a class="item-menu" href="procurar-armazem" id=procurarArmazem>
 				<img alt="Pesquisar Armazem" src="">
-			</a>
-			<a class="item-menu" href="editar-perfil-coletor" id=editarPerfil>
-				<img alt="Editar Perfil" src="">
 			</a>
 			<a class="item-menu" href="deslogar" id=deslogar>
 				<img alt="Sair da Conta" src="">
