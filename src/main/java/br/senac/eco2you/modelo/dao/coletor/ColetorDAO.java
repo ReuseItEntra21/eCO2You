@@ -11,5 +11,7 @@ public interface ColetorDAO {
 	List <Coletor> buscarListaColetorPeloNomeParcial(String nome);
 
 	List<Coletor> buscarListaColetorPeloNome(String nome); 
+	
+	List<Coletor> buscarColetores();
 	   
 }

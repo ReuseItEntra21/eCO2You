@@ -4,24 +4,29 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Login</title>
+		<style><%@ include file="../css/login.css" %></style>
 	</head>
-		<body>
-		<div>
-			<div style="float:left">
-			<h1 id="login">Login</h1>
-				<form action="logar" method="post">
-                	<h4> Email </h4>
-					<input type="email" id="email" name="email" placeholder="username@gmail.com" maxlength="25" class="e-mailEsenha">
-                    <h4> Senha </h4>
+	<body>
+		<a href="landing-page" class=""> Voltar</a>
+		<div class="container-login">
+			<span>Login</span>
+			<form action="logar" method="post">
+				<div class="item-login">
+					<p>Email</p>
+					<input type="email" id="email" name="email" placeholder="username@gmail.com" maxlength="65" class="e-mailEsenha">
+				</div>
+				<div class="item-login">
+					<p>Senha</p>
 					<input type="password" id="senha" name="senha" placeholder="senha" maxlength="25" class="e-mailEsenha">
-					<a href="recuperar-senha" target="_blank" id="esqueceuSenha">Esqueceu a senha?</a>
-					<button type="submit" name="entrar" id=entrar class="ButtonEntrar">Confirmar</button>
-                    <h5>Não tem um Conta?</h5>
-                    <a href="cadastro-coletor" target="_blank" id="cadastrar">Cadastre-se</a>
-				</form>
-			</div>
-			<div style="float:right">
-			</div>
+					<div class="esqueceuSenha"><a href="recuperar-senha" target="_blank" id="esqueceuSenha">Esqueceu a senha?</a></div>
+				</div>
+				<div class="item-login">
+					<button type="submit">Entrar</button>
+	            	<div class="registrar">
+                        <p>Não tem um Conta? <a href="cadastro-coletor">Registre-se</a></p>
+                    </div>
+				</div>
+			</form>
 		</div>
 	</body>
 </html>

@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -7,25 +9,31 @@
 	</head>
 	<body>
 	<br>
-		<a href="home-coletor" class="dropbtn" id=voltar>Voltar</a>
-            <form action="informacoes-deposito">
-			<h1>Informações deposito</h1>
-            <br>
-            <h2>Armazem</h2>
-            <h3>${deposito.armazem.nome}</h3>
-            <br>
-            <h2>Data</h2>
-            <h3>${deposito.data}</h3>
-            <br>
-            <h2>Coletor</h2>
-            <h3>${deposito.coletor.nome}</h3>
-			<br>	
-			<h2>reciclavel</h2>
-			<h3></h3>
-			<br>
-			<h2>Quantidade do Reciclável</h2>
-			<h3></h3>
-			<br>
-		</form>
+		<a href="perfil-coletor" class="dropbtn" id=voltar>Voltar</a>
+		<table id="tabela-contato">
+			<thead>
+				<tr>
+					<th>Data</th>
+					<th>Local</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><c:out value="${deposito.data}" /></td>					
+					<td><c:out value="${deposito.armazem}" /></td>
+					<td><c:out value="${deposito.statusDeDeposito}" /></td>
+				</tr>
+				
+				<tr>
+					<c:forEach var="itemDeposito" items="${deposito.itensDeposito}">
+						<tr>
+							<td><c:out value="${itemDeposito.nome}" /></td>
+						</tr>
+					</c:forEach>
+				</tr>
+				
+			</tbody>
+		</table>
 	</body>
 </html>

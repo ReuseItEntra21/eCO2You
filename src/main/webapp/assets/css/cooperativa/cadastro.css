@@ -1,0 +1,115 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+
+body {
+	background-color: #E8EDDE;
+}
+
+.tab {
+	display: none;
+}
+
+.container-cadastro {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	background-color: #EEF2E7;
+	width: 35vw;
+	height: 70vh;
+	margin-left: 650px;
+	margin-top: 40px;
+}
+
+.item-cadastro {
+	margin: 1vw;
+}
+
+.container-cadastro-row {
+	display: flex;
+	flex-flow: row nowrap;
+}
+
+.item-cadastro-row {
+	margin: 0 0 0 1vw;
+}
+
+.item-cadastro-row input {
+	display: block;
+	width: 10vw;
+	height: 5vh;
+	border-radius: 5px;
+	border: 0;
+	padding: 0 0.5vw 0 0.5vw;
+}
+
+.item-cadastro input {
+	display: block;
+	width: 22vw;
+	height: 5vh;
+	border-radius: 5px;
+	border: 0;
+	padding: 0 0.5vw 0 0.5vw;
+}
+
+#nextBtn {
+	border: none;
+	border-radius: 5px;
+	color: #FFFFFF;
+	background-color: #50806B;
+	font-size: 20px;
+	display: inline;
+	float: right;
+	height: 5vh;
+	width: 15vw;
+	margin-right: 600px;
+	padding: 5px 10px;
+}
+
+#prevBtn {
+	border: none;
+	border-radius: 5px;
+	color: #FFFFFF;
+	background-color: #50806B;
+	font-size: 20px;
+	display: inline;
+	float: left;
+	height: 5vh;
+	width: 15vw;
+	margin-left: 650px;
+}
+
+.step {
+	height: 15px;
+	width: 15px;
+	margin: 20px 5px;
+	background-color: #439E6F;
+	border: none;
+	border-radius: 50%;
+	display: inline-block;
+	opacity: 0.75;
+}
+
+.step.active {
+	opacity: 1;
+}
+
+.step.finish {
+	background-color: #439E6F;
+}
+
+.titulo-cadastro {
+	font-size: 30px;
+	text-align: center;
+	display: block;
+}
+
+.informacao-cadastro {
+	padding-bottom: 5px;
+	display: block;
+	padding-top: 10px;
+}

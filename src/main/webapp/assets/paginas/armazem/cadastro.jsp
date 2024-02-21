@@ -1,58 +1,98 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-	    <meta charset="UTF-8">
-		<title>Cadastro Armazem</title>
-    </head>
-    <body>
-    <div style="float: left">
-    	<a href="apresenteacao" class="dropbtn" id=voltar>Voltar</a>
-		<h2>Faça parte dessa mudança!</h2>
-		Conecte-se a uma comunidade comprometida com a sustentabilidade e
-		preservação do meio ambiente
-	</div>
-	<div style="float: right">
-    			<form id="regForm" action="inserir-armazem" method="post">
-          			<h1>Criar Conta</h1>
-				  <div class="tab">
-				    <p><input type="text" placeholder="Nome" oninput="this.className = ''" name="nome" id=nome></p>
-				    <p><input type="text" placeholder="CNPJ" oninput="this.className = ''" name="cnpj" id=cnpj></p>
-				  </div>
-				 <div class="tab">
-				 	<p><input type="number" placeholder="Capacidade de Armazenagem" oninput="this.className = ''" name="capacidadeArmazenagem" id=capacidade></p>
-				 	<p><input type="time" placeholder="Horario de Abertura" oninput="this.className = ''" name=horarioAbertura id=abertura></p>
-				 	<p><input type="time" placeholder="Horario de Fechamento" oninput="this.className = ''" name="horarioFechamento" id=fechamento></p>
-				 </div>
-				 <div class="tab">
-				 	<p><input type="text" placeholder="CEP" oninput="this.className = ''" name="cep" id=cep></p>
-				 	<p><input type="text" placeholder="Cidade" oninput="this.className = ''" name="cidade" id=cidade></p>
-				 	<p><input type="text" placeholder="Bairro" oninput="this.className = ''" name="bairro" id=bairro></p>
-				 	<p><input type="text" placeholder="Tipo da Via" oninput="this.className = ''" name="tipoVia" id=via></p>
-				 	<p><input type="text" placeholder="Logradouro" oninput="this.className = ''" name="logradouro" id=logradouro></p>
-				 	<p><input type="text" placeholder="Número" oninput="this.className = ''" name="numeroEndereco" id=numero></p>
-				    <p><input type="text" placeholder="Complemento" oninput="this.className = ''" name="complemento" id=complemento></p>
-				    <p><input type="text" placeholder="Telefone" oninput="this.className = ''" name="telefone" id=telefone></p>
-				  </div>
-		  		<div class="tab">
-				    <p><input type="email" placeholder="E-mail" oninput="this.className = ''" name="email" id=email></p>
-				    <p><input type="password" placeholder="Senha" oninput="this.className = ''" name="senha" id=senha></p>
-			  </div>
-			  <div style="text-align:center;">
-				    <span class="step"></span>
-				    <span class="step"></span>
-		    		<span class="step"></span>
-		    		<span class="step"></span>
-		  		</div>
-		  		<div style="overflow:auto;">
-		    	<div>
-		      		<button type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
-		      		<button type="button" id="nextBtn" onclick="nextPrev(1)">Próximo</button>
-		    	</div>
-		  		</div>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cadastro Armazem</title>
+	<style><%@include file="../../../assets/css/armazem/cadastro.css"%></style>
+</head>
+<body>
+	<a href="apresentacao" id=voltar>Voltar</a>
+	    <div style="text-align:center;">
+			<span class="step"></span>
+			<span class="step"></span>
+		</div>
+		<div class="container-cadastro">
+			<form id="regForm" action="inserir-armazem">
+				<span class="titulo-cadastro">Cadastro</span>
+				<div class="tab">
+					<div class="item-cadastro">
+						<label for="nome" class="informacao-cadastro">Nome</label>
+						<input type="text" placeholder="user name" oninput="this.className = ''" name="nome" id=nome >
+					</div>
+					<div class="container-cadastro-row">
+						<div class="item-cadastro-row">
+							<label for="horarioAbertura">Horario Abertura</label>
+					    	<input type="text" placeholder="Horario Abertura" oninput="this.className = ''" name="horarioAbertura" id=horarioAbertura >
+						</div>
+						<div class="item-cadastro-row">
+							<label for="horarioFechamento">Horario Fechamento</label>
+					    	<input type="text" placeholder="Horario Fechamento" oninput="this.className = ''" name="horarioFechamento" id=horarioFechamento >
+						</div>
+					</div>
+					<div class="item-cadastro">
+						<label for="cnpj">CNPJ</label>
+				    	<input type="text" placeholder="00.000.000/0000-00" oninput="this.className = ''" name="cnpj" id=cnpj >
+					</div>
+					<div class="container-cadastro-row">
+						<div class="item-cadastro-row">
+							<label for="capacidadeArmazenagem">Capacidade Armazenagem</label>
+					    	<input type="text" placeholder="Capacidade Armazenagem" oninput="this.className = ''" name="capacidadeArmazenagem" id=capacidadeArmazenagem>
+						</div>
+						<div class="item-cadastro-row">
+							<label for="telefone">Telefone</label>
+					    	<input type="text" placeholder="Telefone" oninput="this.className = ''" name="telefone" id=telefone>
+						</div>
+					</div>	
+					<div class="item-cadastro">
+						<label for="email">E-mail</label>
+				    	<input type="email" placeholder="E-mail" oninput="this.className = ''" name="email" id=email>
+					</div>
+					<div class="item-cadastro">
+						<label for="senha">Senha</label>
+				    	<input type="password" placeholder="Senha" oninput="this.className = ''" name="senha" id=senha>
+					</div>
+				</div>
+				<div class="tab">
+					<div class="item-cadastro">
+						<label for="cep">CEP</label>
+						<input type="text" placeholder="CEP" oninput="this.className = ''" name="cep" id=cep>
+					</div>
+					<div class="item-cadastro">
+						<label for="cidade">Cidade</label>
+				    	<input type="text" placeholder="Cidade" oninput="this.className = ''" name="cidade" id=cidade>
+				    </div>
+				    <div class="item-cadastro">
+				    	<label for="bairro">Bairro</label>
+				    	<input type="text" placeholder="Bairro" oninput="this.className = ''" name="bairro" id=bairro>
+				    </div>
+				   <div class="container-cadastro-row">
+						<div class="item-cadastro-row">
+							<label for="tipoVia">Tipo da Via</label>
+					    	<input type="text" placeholder="Tipo da Via" oninput="this.className = ''" name="tipoVia" id=tipoVia>
+						</div>
+						<div class="item-cadastro-row">
+							<label for="logradouro">Logradouro</label>
+					    	<input type="text" placeholder="Logradouro" oninput="this.className = ''" name="logradouro" id=logradouro>
+						</div>
+					</div>
+				    <div class="item-cadastro">
+				    	<label for="numeroEndereco">Número da Residencia</label>
+				   		<input type="text" placeholder="Número" oninput="this.className = ''" name="numeroEndereco" id=numeroEndereco>
+				    </div>
+				    <div class="item-cadastro">
+				    	<label for="complemento">Complemento</label>
+				    	<input type="text" placeholder="Complemento" oninput="this.className = ''" name="complemento" id=complemento>
+				   </div>
+				</div>
 			</form>
 		</div>
-		<script>
+		<div style="margin-top: 1.5vw;" class="container-prev">
+				<button type="button" name=voltar id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
+				<button type="button" name=avancar id="nextBtn" onclick="nextPrev(1)">Próximo</button>
+		</div>
+	<script>
 		var currentTab = 0;
 		showTab(currentTab);
 		
@@ -108,5 +148,5 @@
 		  x[n].className += " active";
 		}
 	</script>
-    </body>
+</body>
 </html>

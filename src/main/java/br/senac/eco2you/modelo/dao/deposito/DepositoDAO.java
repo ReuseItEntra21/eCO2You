@@ -10,8 +10,7 @@ import br.senac.eco2you.modelo.enumeracao.status.deposito.StatusDeposito;
 
 public interface DepositoDAO {
 
- 
-    void inserirDeposito(Deposito deposito);
+	void inserirDeposito(Deposito deposito);
  
     void deletarDeposito(Deposito deposito);
  
@@ -31,9 +30,9 @@ public interface DepositoDAO {
  
     List<Deposito> buscarDepositoPeloArmazemEColetor(String nomeDoArmazem, String nomeDoColetor);
 
-	  List<Deposito> buscarDepositoPeloArmazemEColetorEStatus(String nomeDoArmazem, String nomeDoColetor, StatusDeposito status);
+	List<Deposito> buscarDepositoPeloArmazemEColetorEStatus(String nomeDoArmazem, String nomeDoColetor, StatusDeposito status);
 
-	  List<Deposito> buscarDepositoPeloArmazemEColetorEData(String nomeDoColetor, String nomeDoArmazem, LocalDate data);
+	List<Deposito> buscarDepositoPeloArmazemEColetorEData(String nomeDoColetor, String nomeDoArmazem, LocalDate data);
   
     List<Deposito> buscarDepositoPeloColetor(Coletor coletor);
     
@@ -42,7 +41,11 @@ public interface DepositoDAO {
     List<Deposito> buscarDepositoPeloColetorEArmazemEStatus(String nomeDoColetor, String nomeDoArmazem, StatusDeposito status);
     
     List<Deposito> buscarDepositoPeloColetorEArmazemEData(String nomeDoColetor, String nomeDoArmazem, LocalDate data);
+    
+    List<Deposito> buscarProximoDeposito(StatusDeposito statusDeposito, LocalDate data);
+
+	Deposito buscarDepositoComItemDepositoPorId(Long id);
+	
+	List<Deposito> buscarDepositoPeloColetorEStatus(Long id, StatusDeposito status);
 
 }
-
-

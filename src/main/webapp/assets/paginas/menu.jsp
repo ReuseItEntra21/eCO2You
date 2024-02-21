@@ -1,14 +1,18 @@
 <header>
 	<nav>
-		<a>
-			<img alt="Logo" src="">
-		</a>
-		<a class="*flex-item" href="<%=request.getContextPath()%>/login">Coletas</a>
-		<a class="*flex-item" href="<%=request.getContextPath()%>/login">Ranking</a>
-		<a class="*flex-item" href="<%=request.getContextPath()%>/">Cadastrar-se</a>
-		<a class="*flex-item" href="<%=request.getContextPath()%>/login">Entrar</a>
-		<a>
-			<img alt="Foto" src="">
-		</a>
-	</nav>
+		<div class="container-logo">
+			<a class="item-logo" href="landing-page">
+				<svg style="height: 4vh; width: 4vw;">
+		        	<%@include file="../images/eCO2You.jsp"%>
+		        </svg>
+			</a>
+		</div>
+		<div class="container-menu">
+		    <a class="item-menu" href="cadastro-coletor" id=ranking>Cadastre-se</a>
+			<a class="item-menu" href="login" class="dropbtn" id=login>
+			<img alt="Imagem" src=""> Entrar
+			</a>
+		</div>
+    </nav>
+    <hr/>
 </header>

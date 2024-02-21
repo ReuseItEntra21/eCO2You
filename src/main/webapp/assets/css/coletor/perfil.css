@@ -1,48 +1,145 @@
-@charset "UTF-8";
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
 
 body {
-	background-color: #FEFEFE;
-}
-h2 {
-	font-size: 30px;
+	background-color: #FFFFFF;
+	min-height: 100vh;
 }
 
-.conquistas-container {
-	background-color: #FEFEFE;
-	width: 60vw;
-	padding: 0vw 0.5vw 0vw 0.5vw;
-	border-radius: 12px;
-	border: 1px solid #0D0D0D;
+a {
+	text-decoration: none;
+	color: #000000;
 }
 
-.informacoes-box {
+.perfil-coletor {
+	border-radius: 50%;
+	height: 10vh;
+	width: 10vw;
+    border: 1px solid #fff;
+}
+
+#editarPerfil {
+	text-decoration: none;
+	background-color: #50806B;
+	color: #fff;
+	padding: 5px 5px;
+	border-radius: 10px;
+	font-size: 20px;
+}
+
+.relogio-icon {
+	display: inline;
+	text-decoration: none;
+	background-color: #50806B;
+	color: #fff;
+	padding: 5px 15px;
+	border-radius: 10px;
+	font-size: 20px;
+}
+
+#ranking-button {
+	text-decoration: none;
+	background-color: #50806B;
+	color: #fff;
+	padding: 5px 16px;
+	border-radius: 10px;
+	font-size: 20px;
+}
+
+#pontos-coletor {
+	text-decoration: none;
+	background-color: #50806B;
+	color: #fff;
+	padding: 5px 16px;
+	border-radius: 10px;
+	font-size: 20px;
+}
+
+.container-select {
+	font-size: 20px;
+	border-bottom: 1px solid #50806B;
+	margin: 10px -10px 60px -10px;
+	color: #50806B;
+}
+
+.Próximo-Depósito {
+	padding-left: 200px;
+	padding-right: 250px;
+	font-weight: bolder;
+}
+
+.Historico {
+	padding-right: 250px;
+}
+
+.Pendentes {
+	padding-right: 250px;
+}
+
+.armazem-logo {
+	margin-left: 10px;
+	border: 1px solid #000000;
+	border-radius: 50%;
+	display: inline;
+	margin-top: 20px;
+    height: 19vh;
+	width: 10vw;
+}
+
+.container-armazens {
+	background-color: #E8EDDE;
+	font-size: 16px;
+	margin-left: 100px;
+	margin-right: 100px;
+	padding-bottom: 100px;
+	border-radius: 11px;
+	padding-left: 30px;
+}
+
+.informacao-armazem {
+	margin-left: 300px;
+	margin-top: -50px;
+	display: inline;
+	font-size: 16px;
+}
+
+.nome-armazem {
+	margin-top: -100px;
+	margin-bottom: -50px;
+}
+
+.posicao-informacao-armazem {
+	margin-top: -120px;
+	margin-bottom: 100px;
+	text-align: left;
+}
+
+#endereco-amarzem-numero {
+	padding-left: 100px;
+}
+
+#endereco-amarzem-bairro {
+	padding-left: 65px;
+}
+
+#nome-reciclavel {
+	padding-left: 55px;
+}
+
+#volume-reciclavel {
+	padding-left: 10px;
+}
+.item-perfil{
+    background-color: #E8EDDE;
+}
+
+.container-select {	
 	display: flex;
-	background-color: #FEFEFE;
-	height: 1vw;
-	width: 7.5vw;
-	padding: 0.5vw;
-	border-radius: 12px;
-	border: 1px solid #0D0D0D;
-	text-align: center;
 	align-items: center;
-}
-
-.conquista-box {
-	background-color: #FEFEFE;
-	height: 4vw;
-	width: 25vw;
-	margin: 0.5vw 0vw 0.5vw 0vw;
-	padding: 0.5vw;
-	border-radius: 12px;
-	border: 1px solid #0D0D0D;
-}
-
-.image-conquista-box {
-	background-color: #FEFEFE;
-	height: 2.5vw;
-	width: 2vw;
-	margin: 0.1vw 0.1vw 0.1vw 0.1vw;
-	padding: 0.5vw;
-	border-radius: 12px;
-	border: 1px solid #0D0D0D;
+	justify-content: space-around;
+	background-color: #FFFFFF;
 }

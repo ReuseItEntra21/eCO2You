@@ -1,4 +1,4 @@
-	<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page isELIgnored="false" %>
 <!DOCTYPE html>
@@ -8,7 +8,7 @@
 		<title>Histórico</title>
 	</head>
 	<body>
-    	<a href="home-coletor" class="dropbtn" id=voltar>Voltar</a>
+    	<a href="perfil-coletor" class="dropbtn" id=voltar>Voltar</a>
     	<table border="1" style="width: 99vw;">
 			<thead>
 				<tr>
@@ -21,6 +21,8 @@
 					<tr>
 						<td>${deposito.data}</td>
 						<td>${deposito.armazem.nome}</td>
+						<td><a href="editar-deposito?id=<c:out value='${deposito.id}'/>">Editar</a></td>
+						<td><a href="deletar?id=<c:out value='${deposito.id}'/>">Deletar</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
