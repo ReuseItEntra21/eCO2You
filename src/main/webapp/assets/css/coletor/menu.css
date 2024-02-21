@@ -3,22 +3,24 @@ nav {
 	flex-flow: row nowrap;
 	align-items: center;
 	justify-content: space-between;
-	height: 5vh;
-	padding: 1vh;
 }
 
 .container-menu {
 	display: flex;
 	flex-flow: row nowrap;
-	align-items: center;
+	align-items: baseline;
 	justify-content: flex-end;
-	align-content: center;
 	background-color: #FFFFFF;
 }
 
 .item-menu {
-	margin: 1vh 2vw 1vh 2vw;
-	color: #000000;
+	display: flex;
+	margin: 0vh 1vw 0vh 1vw;
+}
+
+.item-menu svg {
+	width: 2vw;
+	height: 2vh;
 }
 
 .container-logo {
@@ -27,6 +29,7 @@ nav {
 }
 
 .item-logo svg {
+	margin: 1vh;
 	width: 4vw;
 	height: 4vh;
 }

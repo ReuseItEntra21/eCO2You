@@ -1,0 +1,64 @@
+body{
+	background-color: #ffffff;
+}
+.imagem-eco2you{ 
+	width: 4.1vw;
+	height: 5.4vh;
+	display: block;
+}
+.container-menu{
+	display: block;
+	text-align: right;
+	margin-right: 50px;
+}
+#pendentes{
+	margin-right: 50px;
+	text-decoration: none;
+	color: #000000;
+	font-size: 20px;
+}
+#historico{
+	margin-right: 50px;
+	text-decoration: none;
+	color: #000000;
+	font-size: 20px;
+}
+#ranking{
+	margin-right: 50px;
+	text-decoration: none;
+	color: #000000;
+	font-size: 20px;
+}
+#procurarColetor{
+	margin-right: 50px;
+	text-decoration: none;
+	color: #000000;
+	font-size: 20px;
+}
+#procurarArmazem{
+	margin-right: 50px;
+	text-decoration: none;
+	color: #000000;
+	font-size: 20px;
+}
+#deslogar{
+	margin-right: 50px;
+	text-decoration: none;
+	color: #000000;
+	font-size: 20px;
+}
+#perfil{
+	margin-right: 50px;
+	text-decoration: none;
+	color: #000000;
+	font-size: 20px;
+}
+.container-ranking{
+	text-align: center;
+}
+.item-coletor{
+	background-color: #F4F2F0;
+	margin: 30px 700px;
+	padding: 5px;
+	
+}

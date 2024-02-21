@@ -2,33 +2,47 @@
 	<nav>
 		<div class="container-logo">
 			<a class="item-logo" href="perfil-coletor">
-				<svg>
+				<svg class="imagem-eco2you">
 		        	<%@include file="../../images/eCO2You.jsp"%>
 		        </svg>
 			</a>
 		</div>
 		<div class="container-menu">
-			<a class="item-menu" href="depositos-pendentes-coletor" id=pendentes>
-				<img alt="Pendentes" src="">
-			</a>
-		    <a class="item-menu" href="historico-depositos-coletor" id=historico>
-				<img alt="Histórico" src="">
-			</a>
-		    <a class="item-menu" href="ranking-coletor" id=ranking>
-				<img alt="Ranking" src="">
-			</a>
-			<a class="item-menu" href="procurar-coletor" id=procurarColetor>
-				<img alt="Pesquisar Coletor" src="">
-			</a>
-			<a class="item-menu" href="procurar-armazem" id=procurarArmazem>
-				<img alt="Pesquisar Armazem" src="">
-			</a>
-			<a class="item-menu" href="deslogar" id=deslogar>
-				<img alt="Sair da Conta" src="">
-			</a>
-			<a class="item-menu" href="editar-perfil-coletor" class="dropbtn" id=perfil>
-				<img alt="Olá ${usuario.nome}" src="">
-			</a>
+			<div class="item-menu">
+				<a  href="depositos-pendentes-coletor" id=pendentes>
+					<svg><%@include file="../../images/pendente.jsp"%></svg>Pendentes
+				</a>
+			</div>
+			<div class="item-menu">
+				<a href="historico-depositos-coletor" id=historico>
+					<svg><%@include file="../../images/historico.jsp"%></svg>Histórico
+				</a>
+			</div>
+			<div class="item-menu">
+				<a href="ranking-coletor" id=ranking>
+					<svg><%@include file="../../images/ranking.jsp"%></svg>Ranking
+				</a>
+			</div>
+			<div class="item-menu">
+				<a href="procurar-coletor" id=procurarColetor>
+					<svg><%@include file="../../images/lupa.jsp"%></svg>Procurar Coletor
+				</a>
+			</div>
+			<div class="item-menu">
+				<a href="procurar-armazem" id=procurarArmazem>
+					<svg><%@include file="../../images/lupa.jsp"%></svg>Procurar Armazém
+				</a>
+			</div>
+			<div class="item-menu">
+				<a href="editar-perfil-coletor" class="dropbtn" id=perfil>
+					<svg><%@include file="../../images/perfil.jsp"%></svg> Olá ${coletor.nome}
+				</a>
+			</div>
+			<div class="item-menu">
+				<a class="item-menu" href="deslogar" id=deslogar>
+					<svg><%@include file="../../images/logout.jsp"%></svg>
+				</a>
+			</div>
 		</div>
     </nav>
     <hr/>
