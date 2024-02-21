@@ -8,7 +8,11 @@
 	<style><%@include file="../../../assets/css/cooperativa/cadastro.css"%></style>
 </head>
 <body>
-	<a href="apresentacao" id=voltar>Voltar</a>
+	<a href="landing-page" id=voltar>
+		<svg>
+			<%@include file="../../images/voltar.jsp"%>
+		</svg>
+	</a>
 	    <div style="text-align:center;">
 			<span class="step"></span>
 			<span class="step"></span>
