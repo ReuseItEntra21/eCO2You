@@ -6,7 +6,7 @@
 <html>
     <head>
 	    <meta charset="UTF-8">
-		<title>Cadastro</title>
+		<title>Procurar Armazém</title>
 		<style><%@include file="../../css/coletor/procurar-armazem.css"%></style>
 		<style><%@include file="../../css/coletor/menu.css"%></style>
 		<style><%@include file="../../css/footer.css"%></style>

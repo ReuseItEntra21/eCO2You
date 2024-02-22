@@ -6,12 +6,16 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Editar Perfil</title>
+		<style><%@include file="../../css/cooperativa/editar-perfil.css"%></style>
         <script src="https://kit.fontawesome.com/9b206050e6.js" crossorigin="anonymous"></script>
 	</head>
     <body>
-    <br>
+    <a href="perfil-cooperativa" id="voltar">
+			<svg>
+				<%@include file="../../images/voltar.jsp"%>
+			</svg>
+		</a>
       <form action="atualizar-cooperativa">
-      <button type="submit" name="voltar" id="voltar"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
 			<h1> Informações </h1>
 			<br>
 		    <input type="text" value="<c:out value='${cooperativa.nome}' />" id="nome" name="nome" autofocus placeholder="Informe o seu Nome">
