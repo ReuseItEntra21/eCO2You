@@ -1,6 +1,4 @@
  * {
- 	padding: 0;
- 	margin: 0;
  	box-sizing: border-box;
  	font-family: "Poppins", sans-serif;
  }
@@ -13,8 +11,41 @@
  .container-cadastro {
 	 display: flex;
 	 background-color: #EEF2E7;
-	 padding: 1vw;
-	 align-items: center;
-	 width: 35vw;
-	 height: 70vh;
+	 padding: 1vw; 
+	 width: 30.8vw;
+	 height: 50vh;
+	 margin-left: 35vw;
+	 margin-top: 20vh;
+	 
+ }
+ #item-deposito-titulo{
+	 display: flex;
+	 font-size: 2.2vw;
+	 padding-left: 9vw;
+ }
+ .item-deposito{
+	 font-size: 0.8vw;
+	 padding-top: 1vh;
+	 padding-bottom: 1vh;
+	 margin-left: 6vw;
+ }
+ input{
+	 height: 5.8vh;
+	 width: 14.3vw;
+	 border-radius: 0.4vw;
+	 border: none;
+ }
+ .item-deposito-input{
+	 padding-left: 6vw;
+ }
+ #recilcavel{
+	 padding-left: 5vw;
+ }
+ #nextBtn{
+	  margin-left: 44vw;
+	  width: 10vw;
+	  height: 4vh;
+	  background-color: #50806B;
+	  border: none;
+	  border-radius: 0.4vw; 
  }
