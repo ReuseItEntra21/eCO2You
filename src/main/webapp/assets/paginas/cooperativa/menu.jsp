@@ -26,7 +26,7 @@
 			</div>
 			<div class="item-menu">
 				<a class="perfil" href="editar-perfil-cooperativa" id=perfil>
-					<svg><%@include file="../../images/perfil.jsp"%></svg> perfil ${cooperativa.nome}
+					<svg><%@include file="../../images/perfil.jsp"%></svg> Olá ${cooperativa.nome}
 				</a>
 			</div>
 			<div class="item-menu">
