@@ -8,7 +8,7 @@
 		<title>Cadastro</title>
 		<style><%@include file="../../css/administrador/cadastro-reciclavel.css"%></style>
     </head>
-    <form action="apresentacao">
+    <form action="landing-page">
 	</form>
     <body>
     	 <h1 id="titulo01"> Novo Reciclável </h1>

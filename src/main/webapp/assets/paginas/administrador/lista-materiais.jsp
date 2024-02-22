@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<form action="/">
-			<a href="./home-coletor">
+			<a href="landing-page">
 				<button type="button" name="voltar" id=voltar>Voltar</button>
 			</a>
 			<h1>Histórico de Reciclável/Material</h1>

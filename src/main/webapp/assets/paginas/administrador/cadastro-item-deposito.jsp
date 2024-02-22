@@ -7,7 +7,7 @@
 	    <meta charset="UTF-8">
 		<title>Cadastro</title>
     </head>
-    <form action="apresentacao">
+    <form action="landing-page">
 		<button type="submit" name="voltar" id=voltar>Voltar</button>
 	</form>
     <body>
