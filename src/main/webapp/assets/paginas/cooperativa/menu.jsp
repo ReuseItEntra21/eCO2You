@@ -1,8 +1,5 @@
 <header>
 	<nav class="flex-container">
-		<a class="flex-item" id="" href="home-cooperativa"id=home>
-			<img alt="Home" src="">
-		</a>
 		<a class="flex-item" href="retiradasPendentes-cooperativa" id=pendentes>
 			<img alt="Retiradas Pendentes" src="">
 		</a>

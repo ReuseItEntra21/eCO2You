@@ -23,7 +23,7 @@
 				<div class="tab">
 					<div class="item-cadastro">
 						<label for="nome" class="informacao-cadastro">Nome</label>
-						<input type="text" placeholder="user name" oninput="this.className = ''" name="nome" id=nome >
+						<input type="text" placeholder="Nome" oninput="this.className = ''" name="nome" id=nome >
 					</div>
 					<div class="container-cadastro-row">
 						<div class="item-cadastro-row">

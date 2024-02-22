@@ -11,7 +11,7 @@
 	<style><%@include file="../../../assets/css/coletor/cadastro.css"%></style>
 </head>
 <body>
-	<a href="apresentacao" id=voltar>Voltar</a>
+	<a href="landing-page" id=voltar>Voltar</a>
 	    <div style="text-align:center;">
 			<span class="step"></span>
 			<span class="step"></span>
