@@ -5,9 +5,15 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Proximo Depósito</title>
+		<style><%@include file="../../css/coletor/proximos-depositos.css"%></style>	
 	</head>
-	<body>	
-	<h1>Próximos Depósitos<h1>
+	<body>
+	<a href="perfil-coletor" id="voltar">
+		<svg>
+			<%@include file="../../images/voltar.jsp"%>
+		</svg>
+	</a>
+	<h1>Próximos Depósitos</h1>
 		<c:forEach var="deposito" items="${deposito}">
 				<tr>
 					<td>${deposito.armazem.nome}</td>
