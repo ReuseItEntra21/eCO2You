@@ -35,42 +35,50 @@ public abstract class Empresa extends Usuario implements Serializable {
 		setCnpj(cnpj);
 	}
 	
-	public Empresa(String nome, String cnpj, String email, String senha, LocalTime horarioAbertura, LocalTime horarioFechamento, Endereco endereco) {
-		super(nome, email, senha, endereco);
-		setCnpj(cnpj);
-		setHorarioAbertura(horarioAbertura);
-		setHorarioFechamento(horarioFechamento);
-	}
-	
-	public Empresa(long id, String nome, String cnpj, LocalTime horarioAbertura, LocalTime horarioFechamento, Endereco endereco, String email, String senha) {
-		super(id, nome, email, senha, endereco);
-		setCnpj(cnpj);
-		setHorarioAbertura(horarioAbertura);
-		setHorarioFechamento(horarioFechamento);
-	}
-	
-	public Empresa(String nome, String cnpj, String email, String senha, LocalTime horarioAbertura, LocalTime horarioFechamento) {
+	public Empresa(String nome, String cnpj, LocalTime horarioFechamento, LocalTime horarioAbertura, String email, String senha) {
 		super(nome, email, senha);
 		setCnpj(cnpj);
 		setHorarioAbertura(horarioAbertura);
 		setHorarioFechamento(horarioFechamento);
 	}
 	
-	public Empresa(String nome, String cnpj, String email, String senha, LocalTime horarioAbertura, LocalTime horarioFechamento, String descricao, Endereco endereco) {
-		super(nome, email, senha, endereco);
+	public Empresa(String nome, String cnpj, LocalTime horarioFechamento, LocalTime horarioAbertura, Endereco endereco, String email, String senha) {
+		super(nome, endereco, email, senha);
 		setCnpj(cnpj);
 		setHorarioAbertura(horarioAbertura);
 		setHorarioFechamento(horarioFechamento);
 	}
 	
-	public Empresa(String nome, String cnpj, String email, String senha, LocalTime horarioAbertura, LocalTime horarioFechamento, String descricao) {
+	public Empresa(long id, String nome, String cnpj, LocalTime horarioFechamento, LocalTime horarioAbertura, Endereco endereco, String descricao, String email, String senha) {
+		super(nome, endereco, email, senha);
+		setCnpj(cnpj);
+		setHorarioAbertura(horarioAbertura);
+		setHorarioFechamento(horarioFechamento);
+		setDescricao(descricao);
+	}
+	
+	public Empresa(String nome, String cnpj, LocalTime horarioFechamento, LocalTime horarioAbertura, Endereco endereco, String descricao, String email, String senha) {
+		super(nome, endereco, email, senha);
+		setCnpj(cnpj);
+		setHorarioAbertura(horarioAbertura);
+		setHorarioFechamento(horarioFechamento);
+		setDescricao(descricao);
+	}
+	
+	public Empresa(long id, String nome, String cnpj, LocalTime horarioFechamento, LocalTime horarioAbertura, Endereco endereco, String email, String senha) {
+		super(nome, endereco, email, senha);
+		setCnpj(cnpj);
+		setHorarioAbertura(horarioAbertura);
+		setHorarioFechamento(horarioFechamento);
+	}
+	
+	public Empresa(String nome, String cnpj, LocalTime horarioFechamento, LocalTime horarioAbertura, String descricao, String email, String senha) {
 		super(nome, email, senha);
 		setCnpj(cnpj);
 		setHorarioAbertura(horarioAbertura);
 		setHorarioFechamento(horarioFechamento);
+		setDescricao(descricao);
 	}
-	
-	
 
 	public String getCnpj() {
 		return cnpj;

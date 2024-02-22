@@ -886,11 +886,9 @@ public class Servlet extends HttpServlet {
 		String telefone = request.getParameter("telefone");
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento,
-				telefone);
+		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento,telefone);
 		enderecoDAO.inserirEndereco(endereco);
-		usuarioDAO.inserirUsuario(new Armazem(nome, cnpj, email, senha, capacidadeArmazenagem, horarioAbertura,
-				horarioFechamento, endereco));
+		usuarioDAO.inserirUsuario(new Armazem(nome, cnpj, email, senha, capacidadeArmazenagem, horarioAbertura, horarioFechamento, endereco));
 
 		response.sendRedirect("/eCO2You/login");
 	}
@@ -957,13 +955,11 @@ public class Servlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
 		
-		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento,
-				telefone);
+		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento, telefone);
 		enderecoDAO.inserirEndereco(endereco);
-		
 		usuarioDAO.inserirUsuario(new Cooperativa(nome, cnpj, horarioFechamento, horarioAbertura, endereco, email, senha));
+		
 		response.sendRedirect("/eCO2You/login");
-
 	}
 
 	private void atualizarCooperativa(HttpServletRequest request, HttpServletResponse response)
@@ -1080,7 +1076,7 @@ public class Servlet extends HttpServlet {
 		
 		Reciclavel reciclavel = reciclavelDAO.buscarReciclavelPorId(Long.parseLong(request.getParameter("reciclavel")));
 		
-		Armazem armazem = (Armazem) usuarioDAO.buscarUsuarioPorId(Long.parseLong(request.getParameter("id")));
+		Armazem armazem = (Armazem) usuarioDAO.buscarUsuarioPorNome(request.getParameter("nome"));
 		
 		LocalDate data = LocalDate.parse(request.getParameter("data"));
 		Deposito deposito = new Deposito(data, armazem, coletor);

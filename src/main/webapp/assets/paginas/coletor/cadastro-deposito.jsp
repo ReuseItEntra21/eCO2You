@@ -21,7 +21,7 @@
 				</div>
 				<div>
 					<label for="deposito">Armazém</label>
-					<input type="text" value="${armazem.id}" name="id">
+					<input type="text" value="${armazem.nome}" name="nome">
 				</div>
 				<div>
 					<label> Escolha a Reciclavel </label>

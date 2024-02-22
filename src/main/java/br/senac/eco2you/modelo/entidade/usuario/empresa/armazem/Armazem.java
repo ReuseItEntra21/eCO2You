@@ -52,21 +52,21 @@ public class Armazem extends Empresa implements Serializable {
 	}
 	
 	public Armazem(String nome, String cnpj, String email, String senha, float capacidadeArmazenagem, LocalTime horarioAbertura, LocalTime horarioFechamento, Endereco endereco) {
-		super(nome, cnpj, email, senha, horarioAbertura, horarioFechamento, endereco);
+		super(nome, cnpj, horarioFechamento, horarioAbertura, endereco, email, senha);
 		setCapacidadeArmazenagem(capacidadeArmazenagem);
 		depositos = new ArrayList<>();
 		retiradas = new ArrayList<>();
 	}
 	
 	public Armazem(long id, String nome, String cnpj, String email, String senha, float capacidadeArmazenagem, LocalTime horarioAbertura, LocalTime horarioFechamento, Endereco endereco) {
-		super(id, nome, cnpj, horarioAbertura, horarioFechamento, endereco, email, senha);
+		super(id, nome, cnpj, horarioFechamento, horarioAbertura, endereco, email, senha);
 		setCapacidadeArmazenagem(capacidadeArmazenagem);
 		depositos = new ArrayList<>();
 		retiradas = new ArrayList<>();
 	}
 	
 	public Armazem(String nome, String email, String senha, String descricao, Endereco endereco, String cnpj, LocalTime horarioFechamento, LocalTime horarioAbertura, float capacidadeArmazem, StatusArmazem statusArmazem) {
-		super(nome, cnpj, email, senha, horarioAbertura, horarioFechamento, descricao, endereco);
+		super(nome, cnpj, horarioFechamento, horarioAbertura, endereco, descricao, email, senha);
 		setCapacidadeArmazenagem(capacidadeArmazem);
 		setStatusArmazem(statusArmazem);
 		depositos = new ArrayList<>();
@@ -74,7 +74,7 @@ public class Armazem extends Empresa implements Serializable {
 	}
 	
 	public Armazem(String nome, String email, String senha, String descricao, String cnpj, LocalTime horarioFechamento, LocalTime horarioAbertura, float capacidadeArmazem) {
-		super(nome, cnpj, email, senha, horarioAbertura, horarioFechamento, descricao);
+		super(nome, cnpj, horarioFechamento, horarioAbertura, descricao, email, senha);
 		setCapacidadeArmazenagem(capacidadeArmazem);
 		depositos = new ArrayList<>();
 		retiradas = new ArrayList<>();
