@@ -1,9 +1,6 @@
 <header>
 	<nav class="flex-container">
 		<div class="container-logo">
-			<a class="item-logo" href="perfil-coletor">
-				<img alt="Home" src="">
-			</a>
 		</div>
 		<div class="container-menu">
 			<a class="item-menu" href="depositos-agendados" id=depositos>
