@@ -16,20 +16,16 @@
 					<th>Data</th>
 					<th>Local</th>
 					<th>Status</th>
+					<th>Reciclavel</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<td><c:out value="${deposito.data}" /></td>					
-					<td><c:out value="${deposito.armazem}" /></td>
+					<td><c:out value="${deposito.armazem.nome}" /></td>
 					<td><c:out value="${deposito.statusDeDeposito}" /></td>
-				</tr>
-				
-				<tr>
-					<c:forEach var="itemDeposito" items="${deposito.itensDeposito}">
-						<tr>
-							<td><c:out value="${itemDeposito.nome}" /></td>
-						</tr>
+					<c:forEach var="itemDeposito" items="${deposito.itensDeposito}">		
+							<td><c:out value="${itemDeposito.reciclavel.nome}" /></td>				
 					</c:forEach>
 				</tr>
 				
