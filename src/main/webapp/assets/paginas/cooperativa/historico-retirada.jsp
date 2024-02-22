@@ -24,7 +24,7 @@
 					<tr>
                     	<td>${retirada.armazem.nome}</td>
 						<td>${retirada.data}</td>
-	                	<td>${itemRetirada.material.nome} ${itemRetirada.material.peso}</td>
+	                	<td>${itemRetirada.material.nome} ${itemRetirada.peso}</td>
 					</tr>
 				</c:forEach>
 			</table>
