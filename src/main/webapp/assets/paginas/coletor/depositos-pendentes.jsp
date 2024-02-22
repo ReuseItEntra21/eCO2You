@@ -9,7 +9,6 @@
 	    <style><%@include file="../../css/coletor/depositos-pendentes.css"%></style>
 	</head>
 	<body>
-	<br>
 	<a href="perfil-coletor" id="voltar">
 		<svg>
 			<%@include file="../../images/voltar.jsp"%>

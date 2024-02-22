@@ -15,5 +15,6 @@
 				<%@ include file="../../images/voltar.jsp"%>
 			</svg>
 		</a>
+		<h1>Ranking</h1>
 	</body>
 </html>
