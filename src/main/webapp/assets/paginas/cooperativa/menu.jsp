@@ -1,20 +1,40 @@
 <header>
-	<nav class="flex-container">
-		<a class="flex-item" id="" href="home-cooperativa"id=home>
-			<img alt="Home" src="">
-		</a>
-		<a class="flex-item" href="retiradasPendentes-cooperativa" id=pendentes>
-			<img alt="Retiradas Pendentes" src="">
-		</a>
-	    <a class="flex-item" href="historicoRetirada-cooperativa" id=historico>
-			<img alt="HistÃ³rico de Retiradas" src="">
-		</a>
-		<a class="flex-item" href="cadastro-retirada" id=cadastro-retirada>
-			<img alt="Nova Retirada" src="">
-		</a>
-	    <input class="flex-item" type="search" id="consulta-nome" placeholder="Buscar ArmazÃ©m">
-		<a class="flex-item" href="editar-perfil-cooperativa" class="dropbtn" id=perfil>
-			<img alt="OlÃ¡ ${usuario.nome}" src="">
-		</a>
-    </nav>	
+	<nav>
+		<div class="container-logo">
+			<a class="item-logo" href="perfil-coletor">
+				<svg class="imagem-eco2you">
+		        	<%@include file="../../images/eCO2You.jsp"%>
+		        </svg>
+			</a>
+		</div>
+		<div class="container-menu">
+			<div class="item-menu">
+				<a  href="depositos-pendentes-coletor" id=pendentes>
+					<svg><%@include file="../../images/pendente.jsp"%></svg>Pendentes
+				</a>
+			</div>
+			<div class="item-menu">
+				<a href="historico-depositos-coletor" id=historico>
+					<svg><%@include file="../../images/historico.jsp"%></svg>Histórico
+				</a>
+			</div>
+			
+			<div class="item-menu">
+				<a href="procurar-armazem" id=procurarArmazem>
+					<svg><%@include file="../../images/lupa.jsp"%></svg>Procurar Armazém
+				</a>
+			</div>
+			<div class="item-menu">
+				<a class="perfil" href="editar-perfil-coletor" id=perfil>
+					<svg><%@include file="../../images/perfil.jsp"%></svg> Olá ${coletor.nome}
+				</a>
+			</div>
+			<div class="item-menu">
+				<a class="item-menu" href="deslogar" id=deslogar>
+					<svg><%@include file="../../images/logout.jsp"%></svg>
+				</a>
+			</div>
+		</div>
+    </nav>
+    <hr/>
 </header>
