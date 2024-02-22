@@ -8,16 +8,19 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Perfil Coletor</title>
 		<script src="https://kit.fontawesome.com/9b206050e6.js" crossorigin="anonymous"></script>
-		<style><%@include file="../../css/coletor/perfil.css"%></style>
+		<style><%@include file="../../css/coletor/perfil-externo-coletor.css"%></style>
 		<style><%@include file="../../css/coletor/menu.css"%></style>
 	</head>
 	<body>
-		<div class="tresPontos-icon"><i class="fa-solid fa-ellipsis"></i></div>
+		<a href="procurar-coletor" >
+			<svg>
+				<%@ include file="../../images/voltar.jsp" %>
+			</svg>
+		</a>
 		<div class="container-perfil">
 			<div class="item-perfil">
 				<img src="" alt="foto coletor" class="perfil-coletor">
 				<div class="funcao-perfil">
-					<div class="relogio-icon"><i class="fa-regular fa-clock"></i></div>
 					<a href="ranking-coletor" id=ranking-button>Primeiro</a>
 					<span id="pontos-coletor">859Pts</span>    
 				</div>

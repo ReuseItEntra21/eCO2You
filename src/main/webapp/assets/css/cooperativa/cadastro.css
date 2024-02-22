@@ -4,20 +4,15 @@
 	box-sizing: border-box;
 	font-family: "Poppins", sans-serif;
 }
-
+ 
 body {
 	background-color: #E8EDDE;
 }
-
-a svg {
-	height: 2vh;
-	width: 2vw;
-}
-
+ 
 .tab {
 	display: none;
 }
-
+ 
 .container-cadastro {
 	display: flex;
 	flex-flow: column nowrap;
@@ -25,24 +20,24 @@ a svg {
 	align-items: center;
 	background-color: #EEF2E7;
 	width: 35vw;
-	height: 70vh;
-	margin-left: 650px;
-	margin-top: 40px;
+	height: 80vh;
+	margin-left: 33vw; 
+	padding-top: 10vh;
 }
-
+ 
 .item-cadastro {
 	margin: 1vw;
 }
-
+ 
 .container-cadastro-row {
 	display: flex;
 	flex-flow: row nowrap;
 }
-
+ 
 .item-cadastro-row {
 	margin: 0 0 0 1vw;
 }
-
+ 
 .item-cadastro-row input {
 	display: block;
 	width: 10vw;
@@ -51,7 +46,7 @@ a svg {
 	border: 0;
 	padding: 0 0.5vw 0 0.5vw;
 }
-
+ 
 .item-cadastro input {
 	display: block;
 	width: 22vw;
@@ -60,61 +55,80 @@ a svg {
 	border: 0;
 	padding: 0 0.5vw 0 0.5vw;
 }
-
+ 
 #nextBtn {
 	border: none;
 	border-radius: 5px;
 	color: #FFFFFF;
 	background-color: #50806B;
-	font-size: 20px;
+	font-size: 1vw;
 	display: inline;
 	float: right;
 	height: 5vh;
 	width: 15vw;
-	margin-right: 600px;
-	padding: 5px 10px;
+	margin-right: 31vw;
+	padding: 0.4vw 0.7vw;
 }
-
+ 
 #prevBtn {
 	border: none;
 	border-radius: 5px;
 	color: #FFFFFF;
 	background-color: #50806B;
-	font-size: 20px;
+	font-size: 1vw;
 	display: inline;
 	float: left;
 	height: 5vh;
 	width: 15vw;
-	margin-left: 650px;
+	margin-left: 47.6vw;
 }
-
+ 
 .step {
-	height: 15px;
-	width: 15px;
-	margin: 20px 5px;
+	height: 2.3vh;
+	width: 1.1vw;
+	margin: 1.5vw 0.4vw;
 	background-color: #439E6F;
 	border: none;
 	border-radius: 50%;
 	display: inline-block;
 	opacity: 0.75;
 }
-
+ 
 .step.active {
 	opacity: 1;
 }
-
+ 
 .step.finish {
 	background-color: #439E6F;
 }
-
+ 
 .titulo-cadastro {
-	font-size: 30px;
+	font-size: 1.5vw;
 	text-align: center;
 	display: block;
 }
-
+ 
 .informacao-cadastro {
-	padding-bottom: 5px;
+	padding-bottom: 0.8vh;
 	display: block;
-	padding-top: 10px;
+	padding-top: 1.6vh;
+	font-size: 0.9vw;
+}
+#senha{
+	margin-bottom: 13vh;
+}
+::placeholder{
+	font-size: 0.9vw;
+	display: flex;
+}
+input{
+	font-size: 1.5vh;
+}
+#voltar{
+	font-size: 2vh;
+	text-decoration: none;
+}
+#item-dois-pontos{
+	text-align: center;
+	font-size: 2vh;
 }

@@ -6,9 +6,14 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Conquistas</title>
-		
+		<style><%@include file="../../css/coletor/conquistas.css"%></style>
 	</head>
 	<body>
+	<a href="perfil-coletor" id="voltar">
+		<svg>
+			<%@include file="../../images/voltar.jsp"%>
+		</svg>
+	</a>
 		<h1>Conquistas</h1>>
 		<c:forEach var="conquista" items="${conquistas}">
 				<tr>

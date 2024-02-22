@@ -15,18 +15,18 @@
 			</div>
 			<div class="item-menu">
 				<a href="historico-depositos-coletor" id=historico>
-					<svg><%@include file="../../images/historico.jsp"%></svg>Histórico
+					<svg><%@include file="../../images/historico.jsp"%></svg>Histï¿½rico
 				</a>
 			</div>
 			
 			<div class="item-menu">
 				<a href="procurar-armazem" id=procurarArmazem>
-					<svg><%@include file="../../images/lupa.jsp"%></svg>Procurar Armazém
+					<svg><%@include file="../../images/lupa.jsp"%></svg>Procurar Armazï¿½m
 				</a>
 			</div>
 			<div class="item-menu">
 				<a class="perfil" href="editar-perfil-coletor" id=perfil>
-					<svg><%@include file="../../images/perfil.jsp"%></svg> Olá ${coletor.nome}
+					<svg><%@include file="../../images/perfil.jsp"%></svg> Olï¿½ ${coletor.nome}
 				</a>
 			</div>
 			<div class="item-menu">

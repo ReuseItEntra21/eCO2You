@@ -30,7 +30,7 @@
 					<tr>
 						<td>${deposito.data}</td>
 						<td>${deposito.armazem.nome}</td>
-	                	<td>${deposito.reciclavel.pontosCarbono}</td>
+	                	<td>12</td>
 	                	<td>${itemDeposito.quantidadeReciclaveis} ${itemDeposito.reciclavel.nome} ${itemDeposito.reciclavel.volume}</td>
 					</tr>
 				</c:forEach>
