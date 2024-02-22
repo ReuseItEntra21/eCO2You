@@ -6,10 +6,14 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Histórico Retirada</title>
+		<style><%@include file="../../css/armazem/historico-retirada.css"%></style>
 	</head>
 	<body>
-    	<a href="perfil-armazem" class="dropbtn" id=voltar>Voltar</a>
-    	<%@ include file="../../../assets/paginas/armazem/menu.jsp"%>
+    	<a href="perfil-armazem" id="voltar">
+			<svg>
+				<%@include file="../../images/voltar.jsp"%>
+			</svg>
+		</a>
     	<h1>Histórico de Retirada</h1>
     	<div class="container-retiradas">
 			<table border="1" style="width: 99vw;">
@@ -24,7 +28,7 @@
 					<tr>
                     	<td>${retirada.cooperativa.nome}</td>
 						<td>${retirada.data}</td>
-	                	<td>${itemRetirada.material.nome} ${itemRetirada.material.peso}</td>
+	                	<td>${itemRetirada.material.nome} ${itemRetirada.peso}</td>
 					</tr>
 				</c:forEach>
 			</table>

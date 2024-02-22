@@ -8,7 +8,7 @@
 	<style><%@include file="../../../assets/css/armazem/cadastro.css"%></style>
 </head>
 <body>
-	<a href="apresentacao" id=voltar>Voltar</a>
+	<a href="landing-page" id=voltar>Voltar</a>
 	    <div id="item-dois-pontos">
 			<span class="step"></span>
 			<span class="step"></span>
