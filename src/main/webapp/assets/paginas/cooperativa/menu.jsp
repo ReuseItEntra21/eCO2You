@@ -9,7 +9,7 @@
 		</div>
 		<div class="container-menu">
 			<div class="item-menu">
-				<a  href="depositos-pendentes-cooperativa" id=pendentes>
+				<a  href="retiradas-pendentes-cooperativa" id=pendentes>
 					<svg><%@include file="../../images/pendente.jsp"%></svg>Pendentes
 				</a>
 			</div>
