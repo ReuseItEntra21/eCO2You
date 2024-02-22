@@ -6,10 +6,14 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Histórico Retirada</title>
+		<style><%@include file="../../css/cooperativa/historico-retirada.css"%></style>
 	</head>
 	<body>
-    	<a href="perfil-cooperativa" class="dropbtn" id=voltar>Voltar</a>
-    	<%@ include file="../../../assets/paginas/cooperativa/menu.jsp"%>
+    	<a href="perfil-cooperativa" id="voltar">
+			<svg>
+				<%@include file="../../images/voltar.jsp"%>
+			</svg>
+		</a>
     	<h1>Histórico de Retirada</h1>
     	<div class="container-retiradas">
 			<table border="1" style="width: 99vw;">

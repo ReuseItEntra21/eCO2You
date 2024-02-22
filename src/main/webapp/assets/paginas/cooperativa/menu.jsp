@@ -20,7 +20,7 @@
 			</div>
 			
 			<div class="item-menu">
-				<a href="procurar-armazem" id=procurarArmazem>
+				<a href="procurar-armazem-cooperativa" id=procurarArmazem>
 					<svg><%@include file="../../images/lupa.jsp"%></svg>Procurar Armazém
 				</a>
 			</div>
