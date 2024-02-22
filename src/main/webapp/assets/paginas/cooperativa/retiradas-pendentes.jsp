@@ -4,37 +4,16 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Pendentes</title>
+		<style><%@include file="../../css/cooperativa/retiradas-pendentes.css"%></style>
+		
 	</head>
 	<body>
-	<br>
-	<a href="home-cooperativa" class="dropbtn" id=voltar>Voltar</a>
-		<nav>
-    	<ul>
-    		<li>
-			<a href="home-cooperativa" class="dropbtn" id=home>Home</a>
-			</li>
-        </ul>
-        <ul>
-        	<li>
-			<a href="retiradasPendentes-cooperativa" class="dropbtn" id=pendentes>Pendentes</a>
-			</li>
-        </ul>
-        <ul>
-        	<li>
-            <a href="historicoRetirada-cooperativa" class="dropbtn" id=historico>Histórico</a>
-        	</li>
-        </ul>
-        <ul>
-        	<li>
-        	<input type="search" id="consulta-nome" name= lupa placeholder="Buscar Armazem por nome">
-        	</li>
-        </ul>
-        <ul>
-        	<li>
-            <a href="perfil-cooperativa" class="dropbtn" id=perfil>Perfil</a>
-            </li>
-        </ul>    
-    </nav>
+	<a href="perfil-cooperativa" id="voltar">
+			<svg>
+				<%@include file="../../images/voltar.jsp"%>
+			</svg>
+		</a>
+				
 		<form action="principal-cooperativa">
 			<h2> Retiradas agendadas </h2>
 			
