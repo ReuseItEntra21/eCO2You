@@ -19,18 +19,17 @@
 	    <c:forEach var="deposito" items="${listaDepositosAceitos}">
 	        <div>
 	            <input type="image" src="caminho/da/imagem.jpg" name="imagem" id="imagem1">
-	            <p>${deposito.quantidade}x ${deposito.tipo}</p>
-	            <p>${deposito.data}"</p>
-	            <p>${deposito.empresa}"</p>
+	            <p>${deposito.itemDeposito.quantidadeReciclaveis}x ${deposito.itemDeposito.reciclavel.nome}</p>
+	            <p>${deposito.data}</p>
+	            <p>${deposito.armazem}</p>
 	        </div>
 	    </c:forEach>
 	    <h2>DEPÓSITOS AGENDADOS</h2>
 	    <c:forEach var="deposito" items="${listaDepositosAgendados}">
 	        <div>
-	            <input type="image" src="caminho/da/imagem.jpg" name="imagem" id="imagem1">
-	            ${deposito.quantidade}x ${deposito.tipo}
-	            <input type="date" id="data" name="dataDeposito" value="${deposito.data}">
-	            <input type="text" placeholder="Empresa" name="empresa" id="empresa" value="${deposito.empresa}">
+	            <p>${deposito.itemDeposito.quantidadeReciclaveis}x ${deposito.itemDeposito.reciclavel.nome}</p>
+	            <p>${deposito.data}</p>
+	            <p>${deposito.armazem}</p>
 	        </div>
 	    </c:forEach>
 	</form>
