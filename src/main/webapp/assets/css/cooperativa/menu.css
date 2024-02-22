@@ -1,0 +1,50 @@
+nav {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: space-between;
+}
+
+a {
+	color: #000000;
+	text-decoration: none;
+}
+
+.container-menu {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: baseline;
+	justify-content: flex-end;
+	background-color: #FFFFFF;
+}
+
+.item-menu {
+	display: flex;
+	margin: 0vh 1vw 0vh 1vw;
+}
+
+.perfil {
+	display: flex;
+	flex-flow: row nowrap;
+	background-color: #E8EDDE;
+	border-radius: 6px;
+	border: none;
+	padding: 1vh;
+	justify-content: center;
+	align-items: baseline;
+}
+
+.item-menu svg {
+	width: 2vw;
+	height: 2vh;
+}
+
+.container-logo {
+	display: flex;
+}
+
+.item-logo svg {
+	margin: 1vh;
+	width: 4vw;
+	height: 4vh;
+}
