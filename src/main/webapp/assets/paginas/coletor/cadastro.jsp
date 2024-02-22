@@ -11,7 +11,7 @@
 	<style><%@include file="../../../assets/css/coletor/cadastro.css"%></style>
 </head>
 <body>
-	<a href="landing-page" id=voltar>Voltar</a>
+	<a href="apresentacao" id=voltar><svg><%@include file="../../images/xmark.jsp"%></svg></a>
 	    <div style="text-align:center;">
 			<span class="step"></span>
 			<span class="step"></span>
@@ -66,15 +66,16 @@
 				    </div>
 				     
 				     
-				   
-				    <div class="item-cadastro">
+				   <div class="container-items">
+				    <div class="item-cadastro-row">
 				    <label for="tipoVia">Tipo da Via</label>
 				    	<input type="text" placeholder="Tipo da Via" oninput="this.className = ''" name="tipoVia" id=tipoVia>
-				  
-				    <div class="item-cadastro">
+				
+				</div>
+				    <div class="item-cadastro-row">
 				    	<label for="logradouro">Logradouro</label>
 				    	<input type="text" placeholder="Logradouro" oninput="this.className = ''" name="logradouro" id=logradouro>
-				    
+		
 				    </div>
 				    	  </div>
 				   

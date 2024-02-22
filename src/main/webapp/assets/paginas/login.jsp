@@ -7,7 +7,11 @@
 		<style><%@ include file="../css/login.css" %></style>
 	</head>
 	<body>
-		<a href="landing-page" class=""> Voltar</a>
+		<a href="landing-page" class="">
+			<svg>
+				<%@ include file="../images/voltar.jsp" %>
+			</svg>
+		</a>
 		<div class="container-login">
 			<span>Login</span>
 			<form action="logar" method="post">

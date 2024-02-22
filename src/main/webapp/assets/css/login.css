@@ -11,6 +11,11 @@ body {
     min-height: 100vh;
 }
 
+a svg {
+	width: 2vw;
+	height: 2vh;
+}
+
 .container-login {
     justify-content: center;
     align-items: center;
