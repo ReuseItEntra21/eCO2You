@@ -15,13 +15,13 @@
 			</div>
 			<div class="item-menu">
 				<a href="historico-retiradas-cooperativa" id=historico>
-					<svg><%@include file="../../images/historico.jsp"%></svg>Historico
+					<svg><%@include file="../../images/historico.jsp"%></svg>Histórico
 				</a>
 			</div>
 			
 			<div class="item-menu">
 				<a href="procurar-armazem" id=procurarArmazem>
-					<svg><%@include file="../../images/lupa.jsp"%></svg>Procurar Armazem
+					<svg><%@include file="../../images/lupa.jsp"%></svg>Procurar Armazém
 				</a>
 			</div>
 			<div class="item-menu">
