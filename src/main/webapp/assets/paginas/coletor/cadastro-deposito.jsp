@@ -49,7 +49,7 @@
 		</div>
 		<div style="margin-top: 1.5vw;" class="container-prev">
 				<button type="button" name=voltar id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
-				<button type="button" name=avancar id="nextBtn" onclick="nextPrev(1)">Próximo</button>
+				<button type="button" name=avancar id="nextBtn" onclick="nextPrev(1)">Próximo</button> 
 		</div>
 	<script>
 		var currentTab = 0;
