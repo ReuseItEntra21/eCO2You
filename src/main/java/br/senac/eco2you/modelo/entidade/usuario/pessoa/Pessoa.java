@@ -35,14 +35,14 @@ public abstract class Pessoa extends Usuario implements Serializable {
 	}
 	
 	public Pessoa(String nome, String sobrenome, String cpf, LocalDate dataNascimento, String email, String senha, Endereco endereco) {
-		super(nome, email, senha, endereco);
+		super(nome, endereco, email, senha);
 		this.sobrenome = sobrenome;
 		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
 	}
 	
 	public Pessoa(long id, String nome, String sobrenome, String cpf, LocalDate dataNascimento, String email, String senha, Endereco endereco) {
-		super(id, nome, email, senha, endereco);
+		super(id, nome, endereco, email, senha);
 		this.sobrenome = sobrenome;
 		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;

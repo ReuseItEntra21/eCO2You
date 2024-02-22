@@ -7,6 +7,7 @@
 
 body {
 	background-color: #E8EDDE;
+	
 }
 
 .tab {
@@ -16,13 +17,13 @@ body {
 .container-cadastro {
 	display: flex;
 	flex-flow: column nowrap;
-	justify-content: center;
 	align-items: center;
+	justify-content: center;
 	background-color: #EEF2E7;
-	width: 35vw;
-	height: 70vh;
-	margin-left: 650px;
-	margin-top: 40px;
+	margin:0 auto;
+	width: 30vw;
+	height: 75vh;
+	
 }
 
 .item-cadastro {
@@ -32,7 +33,9 @@ body {
 .container-cadastro-row {
 	display: flex;
 	flex-flow: row nowrap;
+	margin: 0 auto;
 }
+
 
 .item-cadastro-row {
 	margin: 0 0 0 1vw;
@@ -103,9 +106,11 @@ body {
 }
 
 .titulo-cadastro {
-	font-size: 30px;
+	font-weight: 600;
+	font-size: 5vh;
 	text-align: center;
 	display: block;
+	color: #0B3B3C;
 }
 
 .informacao-cadastro {

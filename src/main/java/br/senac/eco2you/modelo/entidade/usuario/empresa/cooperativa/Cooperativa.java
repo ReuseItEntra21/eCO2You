@@ -30,24 +30,24 @@ public class Cooperativa extends Empresa implements Serializable {
 		super(nome, cnpj, email, senha);
 		retiradas = new ArrayList<>();
 	}
-
-	public Cooperativa(String nome, String cnpj, LocalTime horarioFechamento, LocalTime horarioAbertura, String descricao, Endereco endereco, String email, String senha) {
-		super(nome, cnpj,email, senha, horarioAbertura, horarioFechamento, descricao);
-		retiradas = new ArrayList<>();
-	}
 	
 	public Cooperativa(String nome, String cnpj, LocalTime horarioFechamento, LocalTime horarioAbertura, Endereco endereco, String email, String senha) {
-		super(nome, cnpj,email, senha, horarioAbertura, horarioFechamento);
+		super(nome, cnpj, horarioAbertura, horarioFechamento, endereco,  email, senha);
 		retiradas = new ArrayList<>();
 	}
 	
 	public Cooperativa(long id, String nome, String cnpj, LocalTime horarioFechamento, LocalTime horarioAbertura, Endereco endereco, String email, String senha) {
-		super(id, nome, cnpj, horarioAbertura, horarioFechamento, endereco, email, senha);
+		super(id, nome, cnpj, horarioFechamento, horarioAbertura, endereco,  email, senha);
+		retiradas = new ArrayList<>();
+	}
+	
+	public Cooperativa(String nome, String cnpj, LocalTime horarioFechamento, LocalTime horarioAbertura, Endereco endereco, String descricao, String email, String senha) {
+		super(nome, cnpj, horarioFechamento, horarioAbertura, endereco, descricao, email, senha);
 		retiradas = new ArrayList<>();
 	}
 	
 	public Cooperativa(String nome, String cnpj, LocalTime horarioFechamento, LocalTime horarioAbertura, String descricao, String email, String senha) {
-		super(nome, cnpj,email, senha, horarioAbertura, horarioFechamento, descricao);
+		super(nome, cnpj, horarioAbertura, horarioFechamento, descricao, email, senha);
 		retiradas = new ArrayList<>();
 	}
 

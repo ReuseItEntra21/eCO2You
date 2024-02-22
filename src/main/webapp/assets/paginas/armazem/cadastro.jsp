@@ -24,11 +24,11 @@
 					<div class="container-cadastro-row">
 						<div class="item-cadastro-row">
 							<label for="horarioAbertura">Horario Abertura</label>
-					    	<input type="text" placeholder="Horario Abertura" oninput="this.className = ''" name="horarioAbertura" id=horarioAbertura >
+					    	<input type="time" placeholder="Horario Abertura" oninput="this.className = ''" name="horarioAbertura" id=horarioAbertura >
 						</div>
 						<div class="item-cadastro-row">
 							<label for="horarioFechamento">Horario Fechamento</label>
-					    	<input type="text" placeholder="Horario Fechamento" oninput="this.className = ''" name="horarioFechamento" id=horarioFechamento >
+					    	<input type="time" placeholder="Horario Fechamento" oninput="this.className = ''" name="horarioFechamento" id=horarioFechamento >
 						</div>
 					</div>
 					<div class="item-cadastro">

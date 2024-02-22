@@ -48,15 +48,14 @@ public abstract class Usuario implements Serializable {
 		setSenha(senha);
 	}
 
-	public Usuario(String nome, String email, String senha, Endereco endereco) {
+	public Usuario(String nome, Endereco endereco, String email, String senha) {
 		setNome(nome);
 		setEmail(email);
 		setSenha(senha);
 		setEndereco(endereco);
 	}
 	
-	public Usuario(long id, String nome, String email, String senha, Endereco endereco) {
-		setId(id);
+	public Usuario(long id, String nome, Endereco endereco, String email, String senha) {
 		setNome(nome);
 		setEmail(email);
 		setSenha(senha);

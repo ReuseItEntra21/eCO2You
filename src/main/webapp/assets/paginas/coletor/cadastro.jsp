@@ -2,6 +2,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Cadastro Coletor</title>
@@ -19,11 +22,11 @@
 				<div class="tab">
 					<div class="item-cadastro">
 						<label for="nome" class="informacao-cadastro">Nome</label>
-						<input type="text" placeholder="user name" oninput="this.className = ''" name="nome" id=nome >
+						<input type="text" placeholder="Nome" oninput="this.className = ''" name="nome" id=nome >
 					</div>
 					<div class="item-cadastro">
 						<label for="sobrenome">Sobrenome</label>
-				    	<input type="text" placeholder="user last name" oninput="this.className = ''" name="sobrenome" id=sobrenome >
+				    	<input type="text" placeholder="Sobrenome" oninput="this.className = ''" name="sobrenome" id=sobrenome >
 					</div>
 					<div class="item-cadastro">
 						<label for="cpf">CPF</label>
@@ -61,14 +64,20 @@
 				    	<label for="bairro">Bairro</label>
 				    	<input type="text" placeholder="Bairro" oninput="this.className = ''" name="bairro" id=bairro>
 				    </div>
+				     
+				     
+				   
 				    <div class="item-cadastro">
-				    	<label for="tipoVia">Tipo da Via</label>
+				    <label for="tipoVia">Tipo da Via</label>
 				    	<input type="text" placeholder="Tipo da Via" oninput="this.className = ''" name="tipoVia" id=tipoVia>
-				    </div>
+				  
 				    <div class="item-cadastro">
 				    	<label for="logradouro">Logradouro</label>
 				    	<input type="text" placeholder="Logradouro" oninput="this.className = ''" name="logradouro" id=logradouro>
+				    
 				    </div>
+				    	  </div>
+				   
 				    <div class="item-cadastro">
 				    	<label for="numero">Número da Residencia</label>
 				   		<input type="text" placeholder="Número" oninput="this.className = ''" name="numero" id=numero>

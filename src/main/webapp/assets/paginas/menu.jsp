@@ -10,7 +10,7 @@
 		<div class="container-menu">
 		    <a class="item-menu" href="cadastro-coletor" id=ranking>Cadastre-se</a>
 			<a class="item-menu" href="login" class="dropbtn" id=login>
-			<img alt="Imagem" src=""> Entrar
+			<svg><%@include file="../images/perfil.jsp"%></svg>Entrar
 			</a>
 		</div>
     </nav>
