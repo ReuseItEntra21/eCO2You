@@ -25,11 +25,5 @@
 				<div class="coletor-bairro"><span>${coletor.endereco.bairro}</span></div>
 			</div>
 		</div>
-	    <div class="container-select">
-		    <a href="proximos-depositos">Próximo Depósito</a>
-		    <a href="historico-depositos-coletor">Histórico</a>
-		    <a href="depositos-pendentes-coletor">Pendente</a>
-		    <a href="conquistas-coletor">Conquista</a>
-	    </div>
 	</body>
 </html>
