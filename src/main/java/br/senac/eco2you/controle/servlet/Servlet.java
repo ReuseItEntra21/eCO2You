@@ -48,6 +48,7 @@ import br.senac.eco2you.modelo.entidade.usuario.Usuario;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
 import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
+import br.senac.eco2you.modelo.enumeracao.status.deposito.StatusDeposito;
 
 @WebServlet("/")
 public class Servlet extends HttpServlet {
@@ -1079,7 +1080,7 @@ public class Servlet extends HttpServlet {
 		Armazem armazem = (Armazem) usuarioDAO.buscarUsuarioPorNome(request.getParameter("nome"));
 		
 		LocalDate data = LocalDate.parse(request.getParameter("data"));
-		Deposito deposito = new Deposito(data, armazem, coletor);
+		Deposito deposito = new Deposito(armazem, coletor, StatusDeposito.AGENDADO, data);
 		depositoDAO.inserirDeposito(deposito);
 
 		int quantidadeReciclavel = Integer.parseInt(request.getParameter("quantidade-reciclavel"));

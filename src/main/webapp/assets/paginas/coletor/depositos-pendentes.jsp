@@ -16,13 +16,10 @@
 	</a>
 	<form action="principal-coletor">
 	    <h2>DEPÓSITOS A SEREM ACEITOS</h2>
-	    <c:forEach var="deposito" items="${listaDepositosAceitos}">
-	        <div>
-	            <input type="image" src="caminho/da/imagem.jpg" name="imagem" id="imagem1">
-	            <p>${deposito.quantidade}x ${deposito.tipo}</p>
-	            <p>${deposito.data}"</p>
-	            <p>${deposito.empresa}"</p>
-	        </div>
+	    <c:forEach var="deposito" items="${deposito}">
+	            <span>${deposito.quantidade}x ${deposito.itemDeposito.reciclavel.nome}</span>
+	            <span>${deposito.data}"</span>
+	            <span>${deposito.empresa}"</span>
 	    </c:forEach>
 	    <h2>DEPÓSITOS AGENDADOS</h2>
 	    <c:forEach var="deposito" items="${listaDepositosAgendados}">
