@@ -24,14 +24,16 @@
 						<th>Armazém</th>
 	                    <th>Pontuação</th>
 	                    <th>Resumo</th>
+	                    <th>Ações</th>
 					</tr>
 				</thead>
 				<c:forEach var="deposito" items="${depositos}">
-					<tr>
+					<tr>			
 						<td>${deposito.data}</td>
 						<td>${deposito.armazem.nome}</td>
 	                	<td>12</td>
 	                	<td>${itemDeposito.quantidadeReciclaveis} ${itemDeposito.reciclavel.nome} ${itemDeposito.reciclavel.volume}</td>
+	                	<td><a href="editar-deposito?id=<c:out value='${deposito.id}'/>">Editar</a> <a href="deletar?id=<c:out value='${deposito.id}'/>">Deletar</a></td>
 					</tr>
 				</c:forEach>
 			</table>

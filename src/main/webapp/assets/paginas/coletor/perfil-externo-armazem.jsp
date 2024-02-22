@@ -8,13 +8,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Perfil Armazem</title>
 		<script src="https://kit.fontawesome.com/9b206050e6.js" crossorigin="anonymous"></script>
+		<style><%@include file="../../css/coletor/perfil-externo-armazem.css"%></style>
 	</head>
 	<body>
-		<div class="tresPontos-icon"><i class="fa-solid fa-ellipsis"></i></div>
+		<a href="procurar-armazem" >
+			<svg>
+				<%@ include file="../../images/voltar.jsp" %>
+			</svg>
+		</a>
 		<div class="container-perfil">
 			<div class="item-perfil">
 				<div class="funcao-perfil">
-					<div class="relogio-icon"><i class="fa-regular fa-clock"></i></div>
 				</div>
 				<div class="nome-armazem">
 					<img src="#" alt="Imagem Perfil" name="imagem" id=imagem1>
@@ -26,16 +30,15 @@
               		<span>${armazem.horarioAbertura} - ${armazem.horarioFechamento}</span>
 				</div>
 				<div class="endereco-armazem">
+					<span>${armazem.descricao}</span>
 					<span>${armazem.endereco.tipoVia} ${armazem.endereco.logradouro}</span>
-              		<span>${armazem.endereco.bairro}</span>
+              		<span>${armazem.endereco.bairro} </span>
              		<span>${armazem.endereco.numeroEndereco}</span>
               		<span>${armazem.endereco.cidade}, SC</span>
-              	</div>>
+              	</div>
 			</div>
 		</div>			
 	</body>
 </html>
-
-
              
           
