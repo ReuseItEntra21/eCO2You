@@ -8,10 +8,9 @@
 	    <meta charset="UTF-8">
 		<title>Cadastro</title>
     </head>
-    <br>
    <a href="perfil-cooperativa" class="dropbtn" id=voltar>Voltar</a>
     <body>
-	     <a href="perfil-coletor" id=voltar>Voltar</a>
+	 
 		<div class="container-cadastro">
 			<form action="inserir-retirada">
 				<span>Nova Retirada</span>

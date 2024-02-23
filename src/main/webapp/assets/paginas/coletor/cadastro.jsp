@@ -25,66 +25,66 @@
 						<input type="text" placeholder="Nome" oninput="this.className = ''" name="nome" id=nome >
 					</div>
 					<div class="item-cadastro">
-						<label for="sobrenome">Sobrenome</label>
+						<label for="sobrenome" class="informacao-cadastro">Sobrenome</label>
 				    	<input type="text" placeholder="Sobrenome" oninput="this.className = ''" name="sobrenome" id=sobrenome >
 					</div>
 					<div class="item-cadastro">
-						<label for="cpf">CPF</label>
+						<label for="cpf" class="informacao-cadastro">CPF</label>
 				    	<input type="text" placeholder="000.000.000-00" oninput="this.className = ''" name="cpf" id=cpf >
 					</div>
 					<div class="container-cadastro-row">
 						<div class="item-cadastro-row">
-							<label for="nascimento">Data de Nascimento</label>
+							<label for="nascimento" class="informacao-cadastro">Data de Nascimento</label>
 					    	<input type="date" oninput="this.className = ''" name="dataNascimento" id=nascimento>
 						</div>
 						<div class="item-cadastro-row">
-							<label for="telefone">Telefone</label>
+							<label for="telefone" class="informacao-cadastro">Telefone</label>
 					    	<input type="text" placeholder="Telefone" oninput="this.className = ''" name="telefone" id=telefone>
 						</div>
 					</div>
 					<div class="item-cadastro">
-						<label for="email">E-mail</label>
+						<label for="email" class="informacao-cadastro">E-mail</label>
 				    	<input type="email" placeholder="E-mail" oninput="this.className = ''" name="email" id=email>
 					</div>
 					<div class="item-cadastro">
-						<label for="senha">Senha</label>
+						<label for="senha" class="informacao-cadastro">Senha</label>
 				    	<input type="password" placeholder="Senha" oninput="this.className = ''" name="senha" id=senha>
 					</div>
 				</div>
 				<div class="tab">
 					<div class="item-cadastro">
-						<label for="cep">CEP</label>
+						<label for="cep" class="informacao-cadastro">CEP</label>
 						<input type="text" placeholder="CEP" oninput="this.className = ''" name="cep" id=cep>
 					</div>
 					<div class="item-cadastro">
-						<label for="cidade">Cidade</label>
+						<label for="cidade" class="informacao-cadastro">Cidade</label>
 				    	<input type="text" placeholder="Cidade" oninput="this.className = ''" name="cidade" id=cidade>
 				    </div>
 				    <div class="item-cadastro">
-				    	<label for="bairro">Bairro</label>
+				    	<label for="bairro" class="informacao-cadastro">Bairro</label>
 				    	<input type="text" placeholder="Bairro" oninput="this.className = ''" name="bairro" id=bairro>
 				    </div>
 				     
 				     
 				   <div class="container-items">
 				    <div class="item-cadastro-row">
-				    <label for="tipoVia">Tipo da Via</label>
+				    <label for="tipoVia" class="informacao-cadastro">Tipo da Via</label>
 				    	<input type="text" placeholder="Tipo da Via" oninput="this.className = ''" name="tipoVia" id=tipoVia>
 				
 				</div>
 				    <div class="item-cadastro-row">
-				    	<label for="logradouro">Logradouro</label>
+				    	<label for="logradouro" class="informacao-cadastro">Logradouro</label>
 				    	<input type="text" placeholder="Logradouro" oninput="this.className = ''" name="logradouro" id=logradouro>
 		
 				    </div>
 				    	  </div>
 				   
 				    <div class="item-cadastro">
-				    	<label for="numero">Número da Residencia</label>
+				    	<label for="numero" class="informacao-cadastro">Número da Residencia</label>
 				   		<input type="text" placeholder="Número" oninput="this.className = ''" name="numero" id=numero>
 				    </div>
 				    <div class="item-cadastro">
-				    	<label for="complemento">Complemento</label>
+				    	<label for="complemento" class="informacao-cadastro">Complemento</label>
 				    	<input type="text" placeholder="Complemento" oninput="this.className = ''" name="complemento" id=complemento>
 				   </div>
 				</div>
