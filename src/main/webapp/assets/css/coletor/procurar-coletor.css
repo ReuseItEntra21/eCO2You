@@ -12,71 +12,105 @@ body {
 
 .text-box {
 	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	height: 10vh;
+	padding-left: 1vw;
 	background-color: #E8EDDE;
-	height: 8vh;
 }
+
+.text-box span{
+	margin: 0 1vw 0 1vw;
+}
+
+.vl {
+  height: 5vh;
+  border-left: 1px solid;
+}
+
 
 .container-search-coletor {
 	display: flex;
 	flex-flow: row nowrap;
-	height: 8vh;
 	align-items: center;
 	justify-content: center;
+	height: 10vh;
 	margin: 1vw 0vw 1vw 0vw;
 }
 
 .item-search-coletor input {
-	width: 45vw;
-	height: 5vh;
+	width: 50vw;
+	height: 6vh;
 	border-radius: 10px;
 	border: 0;
 	background-color: #F4F2F0;
-	margin: 1vw;
-	padding: 1vw;
+	margin: 0.5vw;
+	padding: 0.5vw;
 }
 
 .button-search-coletor input {
-	width: 5vw;	
-	height: 5vh;
+	width: 6vw;	
+	height: 6vh;
 	border-radius: 10px;
 	border: 0;
 	background-color: #F4F2F0;
-	margin: 1vw;
-	padding: 1vw;
+	margin: 0.5vw;
+	padding: 0.5vw;
 	cursor: pointer;
-	transition: background-color 0.5s ease;
+	transition: all 0.3s ease;
 }
 
 .button-search-coletor input:hover {
 	background-color: #50806B;
-	color: #FFFFFF;
+	color: #F4F3F2;
 }
-
- form {
- 	margin: 0;
- 	padding: 0;
- }
 
 .container-coletor {
 	display: flex;
 	flex-flow: row wrap;
 	height: 100vh;
-	justify-content: space-evenly;
-	margin: 1vw;
+	justify-content: space-around;
 }
 
 .item-coletor {
 	display: flex;
-	flex-flow: column nowrap;
-	width: 12vw;
-	height: 25vh;
-	background-color: #F4F2F0;
-	border-radius: 10px;
 	align-items: center;
+	justify-content: space-evenly;
+	flex-flow: column nowrap;
+	width: 15vw;
+	height: 30vh;
+	border-radius: 5px;
+	background-color: #F4F2F0;
 }
 
 .image-coletor {
-	height: 60%;
+	height: 40%;
 	width: 100%;
-	padding: 1vh;
+}
+
+.container-buttons-item-coletor {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 5vh
+}
+
+.container-buttons-item-coletor a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 5vh;
+	width: 6vw;
+	background-color: #50806B;
+	border-radius: 5px;
+	cursor: pointer;
+	text-decoration: none;
+	color: #FFFFFF;
+	transition: all 0.3s ease;
+}
+
+.container-buttons-item-coletor a:hover {
+	opacity: 0.8;
 }

@@ -708,6 +708,9 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarProcurarArmazemColetor(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
 		List<Armazem> armazens = armazemDAO.buscarArmazens();
 		request.setAttribute("armazens", armazens);
