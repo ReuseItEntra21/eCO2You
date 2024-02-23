@@ -26,13 +26,12 @@
 		</form>
 	    <div class="container-coletor">
 			<c:forEach var="coletor" items="${coletores}">
-				<div class="item-coletor">
-			    	<div id="image-coletor">
-				    	<img alt="Imagem" src="">
-			    	</div>
+				<a class="item-coletor" href="perfil-externo-coletor?id=<c:out value='${coletor.id}'/>">
+					<svg class="image-coletor">
+						<%@include file="../../images/perfil.jsp"%>
+					</svg>
 					<span id="nome-coletor">${coletor.nome} ${coletor.sobrenome}</span>
-			    	<span style="background-color:black;"><a href="perfil-externo-coletor?id=<c:out value='${coletor.id}'/>">Ver perfil</a></span>
-		    	</div>
+			    </a>
 			</c:forEach>
 		</div>
 		<%@ include file="../footer.jsp"%>
