@@ -23,19 +23,20 @@
 		    	<input type="text" placeholder="Pesquisar Armazém" oninput="this.className = ''" name="pesquisar" id=pesquisar>
 		    </div>
 		    <div class="button-search-armazem">
-		    	<input type="submit">
+		    	<input type="submit" value="Buscar">
 		    </div>
 		</form>
 	    <div class="container-armazem">
 			<c:forEach var="armazem" items="${armazens}">
 				<div class="item-armazem">
-			    	<svg class="image-armazem"></svg>
+					<a href="perfil-externo-armazem?id=<c:out value='${armazem.id}'/>">
+						<svg class="image-armazem"></svg>
+					</a>
 					<span id="nome-armazem">${armazem.nome}</span>
 					<span>${armazem.endereco.tipoVia}. ${armazem.endereco.logradouro} ${armazem.endereco.numeroEndereco}</span>
 					<span>${armazem.endereco.bairro}, ${armazem.endereco.cidade}</span>
 			    	<div class="container-buttons-item-armazem">
 			    		<a href="cadastro-deposito?id=<c:out value='${armazem.id}'/>">Deposite</a>
-			    		<a href="perfil-externo-armazem?id=<c:out value='${armazem.id}'/>">Sobre</a>
 			    	</div>
 		    	</div>
 			</c:forEach>

@@ -64,6 +64,12 @@ body {
 	color: #F4F3F2;
 }
 
+svg {
+	height: 3vh;
+	width: 3vw;
+}
+
+
 .container-armazem {
 	display: flex;
 	flex-flow: row wrap;
@@ -77,13 +83,14 @@ body {
 	justify-content: space-evenly;
 	flex-flow: column nowrap;
 	width: 20vw;
-	height: 40vh;
+	height: 45vh;
 	border-radius: 5px;
 	background-color: #F4F2F0;
 }
 
 .image-armazem {
-	height: 40%;
+	margin: 1vw;
+	height: 50%;
 	width: 100%;
 }
 
@@ -91,7 +98,7 @@ body {
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
 	width: 100%;
 	height: 5vh
 }
@@ -101,10 +108,10 @@ body {
 	justify-content: center;
 	align-items: center;
 	height: 5vh;
-	width: 8vw;
+	width: 100%;
 	background-color: #50806B;
 	border-radius: 5px;
-	margin: 1vw;
+	margin: 2vw;
 	cursor: pointer;
 	text-decoration: none;
 	color: #FFFFFF;
