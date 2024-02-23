@@ -14,6 +14,7 @@
 	    <%@ include file="menu.jsp"%>
 	    <div class="text-box">
 	    	<span> Coletores</span>
+	    	<div class="vl"></div>
 		    <span>Conheça os coletores cadastrados</span>
 	    </div>
 	    <form class="container-search-coletor" action="resultado-procurar-coletor">
@@ -26,12 +27,13 @@
 		</form>
 	    <div class="container-coletor">
 			<c:forEach var="coletor" items="${coletores}">
-				<a class="item-coletor" href="perfil-externo-coletor?id=<c:out value='${coletor.id}'/>">
-					<svg class="image-coletor">
-						<%@include file="../../images/perfil.jsp"%>
-					</svg>
+				<div class="item-coletor">
+					<svg class="image-coletor"><%@include file="../../images/perfil.jsp"%></svg>
 					<span id="nome-coletor">${coletor.nome} ${coletor.sobrenome}</span>
-			    </a>
+					<div class="container-buttons-item-coletor">
+						<a href="perfil-externo-coletor?id=<c:out value='${coletor.id}'/>">Sobre</a>
+					</div>
+				</div>
 			</c:forEach>
 		</div>
 		<%@ include file="../footer.jsp"%>

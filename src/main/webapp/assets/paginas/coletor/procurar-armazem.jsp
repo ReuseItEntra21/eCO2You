@@ -14,7 +14,8 @@
     <body>
 	    <%@ include file="menu.jsp"%>
 	    <div class="text-box">
-	    	<span> Armazéns</span>
+			<span> Armazéns</span>
+	    	<div class="vl"></div>
 		    <span>Encontre o melhor ponto de entrega para você</span>
 	    </div>
 	    <form class="container-search-armazem" action="resultado-procurar-armazem">
@@ -28,15 +29,14 @@
 	    <div class="container-armazem">
 			<c:forEach var="armazem" items="${armazens}">
 				<div class="item-armazem">
-			    	<div id="image-armazem">
-				    	<img alt="Imagem" src="">
-			    	</div>
+			    	<svg class="image-armazem"></svg>
 					<span id="nome-armazem">${armazem.nome}</span>
-					<span>${armazem.endereco.cidade}</span>
-			    	<span>${armazem.endereco.bairro}</span>
-			    	<p>${armazem.endereco.tipoVia} ${armazem.endereco.logradouro} ${armazem.endereco.numeroEndereco}</p>
-			    	<a href="cadastro-deposito?id=<c:out value='${armazem.id}'/>">Faça um Depósito</a>
-			    	<a href="perfil-externo-armazem?id=<c:out value='${armazem.id}'/>">Ver Perfil</a>
+					<span>${armazem.endereco.tipoVia}. ${armazem.endereco.logradouro} ${armazem.endereco.numeroEndereco}</span>
+					<span>${armazem.endereco.bairro}, ${armazem.endereco.cidade}</span>
+			    	<div class="container-buttons-item-armazem">
+			    		<a href="cadastro-deposito?id=<c:out value='${armazem.id}'/>">Deposite</a>
+			    		<a href="perfil-externo-armazem?id=<c:out value='${armazem.id}'/>">Sobre</a>
+			    	</div>
 		    	</div>
 			</c:forEach>
 		</div>
