@@ -22,18 +22,15 @@
 		    	<input type="text" placeholder="Pesquisar Coletor" oninput="this.className = ''" name="pesquisar" id=pesquisar>
 		    </div>
 		    <div class="button-search-coletor">
-		    	<input type="submit">
+		    	<input type="submit" value="Buscar">
 		    </div>
 		</form>
 	    <div class="container-coletor">
 			<c:forEach var="coletor" items="${coletores}">
-				<div class="item-coletor">
+				<a class="item-coletor" href="perfil-externo-coletor?id=<c:out value='${coletor.id}'/>">
 					<svg class="image-coletor"><%@include file="../../images/perfil.jsp"%></svg>
 					<span id="nome-coletor">${coletor.nome} ${coletor.sobrenome}</span>
-					<div class="container-buttons-item-coletor">
-						<a href="perfil-externo-coletor?id=<c:out value='${coletor.id}'/>">Sobre</a>
-					</div>
-				</div>
+				</a>
 			</c:forEach>
 		</div>
 		<%@ include file="../footer.jsp"%>

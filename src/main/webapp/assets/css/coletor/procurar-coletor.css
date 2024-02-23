@@ -77,8 +77,8 @@ body {
 	align-items: center;
 	justify-content: space-evenly;
 	flex-flow: column nowrap;
-	width: 15vw;
-	height: 30vh;
+	width: 16vw;
+	height: 35vh;
 	border-radius: 5px;
 	background-color: #F4F2F0;
 }
@@ -86,31 +86,4 @@ body {
 .image-coletor {
 	height: 40%;
 	width: 100%;
-}
-
-.container-buttons-item-coletor {
-	display: flex;
-	flex-flow: row nowrap;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	height: 5vh
-}
-
-.container-buttons-item-coletor a {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 5vh;
-	width: 6vw;
-	background-color: #50806B;
-	border-radius: 5px;
-	cursor: pointer;
-	text-decoration: none;
-	color: #FFFFFF;
-	transition: all 0.3s ease;
-}
-
-.container-buttons-item-coletor a:hover {
-	opacity: 0.8;
 }
