@@ -17,7 +17,9 @@
 	<c:forEach var="armazem" items="${armazens}">
 		    	<div class="item-armazem">
 		    		<div id="image-armazem">
+		    			<svg>
 		    			
+		    			</svg>
 		    		</div>
 			    	<span id="nome-armazem">${armazem.nome}</span>
 		            <span>${armazem.endereco.tipoVia}</span>

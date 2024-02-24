@@ -7,7 +7,6 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Perfil Coletor</title>
-		<script src="https://kit.fontawesome.com/9b206050e6.js" crossorigin="anonymous"></script>
 		<style><%@include file="../../css/coletor/perfil.css"%></style>
 		<style><%@include file="../../css/coletor/menu.css"%></style>
 	</head>
