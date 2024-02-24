@@ -8,13 +8,10 @@
 		<meta charset="UTF-8">
 		<title>Ranking</title>
 		<style><%@include file="../../css/coletor/ranking.css"%></style>
+		<style><%@include file="../../css/coletor/menu.css"%></style>
 	</head>
 	<body>
-		<a href="perfil-coletor">
-			<svg>
-				<%@ include file="../../images/voltar.jsp"%>
-			</svg>
-		</a>
+		<%@ include file="menu.jsp"%>
 		<h1>Ranking</h1>
 	</body>
 </html>

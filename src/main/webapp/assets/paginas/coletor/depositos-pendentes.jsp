@@ -30,6 +30,8 @@
 						<p>${deposito.armazem}</p>
 					</div>
 				</c:forEach>
+				<a href="editar-deposito?id=<c:out value='${deposito.id}'/>">Editar</a>
+				<a href="deletar?id=<c:out value='${deposito.id}'/>">Deletar</a>
 			</div>
 		</div>
 	</body>
