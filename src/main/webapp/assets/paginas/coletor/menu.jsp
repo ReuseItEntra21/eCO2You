@@ -19,11 +19,6 @@
 				</a>
 			</div>
 			<div class="item-menu">
-				<a href="ranking-coletor" id=ranking>
-					<svg><%@include file="../../images/ranking.jsp"%></svg>Ranking
-				</a>
-			</div>
-			<div class="item-menu">
 				<a href="procurar-coletor" id=procurarColetor>
 					<svg><%@include file="../../images/lupa.jsp"%></svg>Procurar Coletor
 				</a>

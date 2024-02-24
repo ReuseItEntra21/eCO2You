@@ -571,7 +571,7 @@ public class DepositoDAOImpl implements DepositoDAO {
 
 	}
 
-	public List<Deposito> buscarProximoDeposito(StatusDeposito statusDeposito, LocalDate data) {
+	public List<Deposito> buscarProximoDeposito(StatusDeposito statusDeposito, LocalDate data, Long coletorId) {
 		
 		Session sessao = null;
 		List<Deposito> depositos = null;
@@ -586,11 +586,42 @@ public class DepositoDAOImpl implements DepositoDAO {
 				
 			criteria.where(
 				    construtor.equal(raizDeposito.get(Deposito_.STATUS_DE_DEPOSITO), statusDeposito),
+				    construtor.equal(raizDeposito.get(Deposito_.COLETOR), coletorId),				    
 				    construtor.greaterThan(raizDeposito.get(Deposito_.DATA), data));
 
 			criteria.orderBy(construtor.asc(raizDeposito.get(Deposito_.DATA)));
 			
-			depositos = sessao.createQuery(criteria).setMaxResults(1).getResultList();
+			depositos = sessao.createQuery(criteria).setMaxResults(3).getResultList();
+	
+			sessao.getTransaction().commit();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return depositos;
+
+	}
+	
+public List<Deposito> buscarDepositosPeloStatus(StatusDeposito statusDeposito, Long coletorId) {
+		
+		Session sessao = null;
+		List<Deposito> depositos = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+		    sessao.beginTransaction();
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Deposito> criteria = construtor.createQuery(Deposito.class);
+			Root<Deposito> raizDeposito = criteria.from(Deposito.class);
+
+				
+			criteria.where(
+				    construtor.equal(raizDeposito.get(Deposito_.STATUS_DE_DEPOSITO), statusDeposito),
+				    construtor.equal(raizDeposito.get(Deposito_.COLETOR), coletorId));
+
+			criteria.orderBy(construtor.asc(raizDeposito.get(Deposito_.DATA)));
+			
+			depositos = sessao.createQuery(criteria).getResultList();
 	
 			sessao.getTransaction().commit();
 
