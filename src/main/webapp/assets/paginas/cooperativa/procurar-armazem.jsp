@@ -7,14 +7,15 @@
     <head>
 	    <meta charset="UTF-8">
 		<title>Procurar Armazém</title>
-		<style><%@include file="../../css/cooperativa/buscar-armazem.css"%></style>
-		<style><%@include file="../../css/menu.css"%></style>
+		<style><%@include file="../../css/cooperativa/procurar-armazem.css"%></style>
+		<style><%@include file="../../css/cooperativa/menu.css"%></style>
 		<style><%@include file="../../css/footer.css"%></style>
     </head>
     <body>
-	    <%@ include file="../../../assets/paginas/cooperativa/menu.jsp"%>
+	    <%@ include file="menu.jsp"%>
 	    <div class="text-box">
-	    	<span> Armazéns</span>
+			<span> Armazéns</span>
+	    	<div class="vl"></div>
 		    <span>Encontre o melhor ponto de entrega para você</span>
 	    </div>
 	    <form class="container-search-armazem" action="resultado-procurar-armazem">
@@ -22,20 +23,21 @@
 		    	<input type="text" placeholder="Pesquisar Armazém" oninput="this.className = ''" name="pesquisar" id=pesquisar>
 		    </div>
 		    <div class="button-search-armazem">
-		    	<input type="submit">
+		    	<input type="submit" value="Buscar">
 		    </div>
 		</form>
 	    <div class="container-armazem">
 			<c:forEach var="armazem" items="${armazens}">
 				<div class="item-armazem">
-			    	<div id="image-armazem">
-				    	<img alt="Imagem" src="">
-			    	</div>
+					<a href="perfil-armazem?id=<c:out value='${armazem.id}'/>">
+						<svg class="image-armazem"></svg>
+					</a>
 					<span id="nome-armazem">${armazem.nome}</span>
-					<span>${armazem.endereco.cidade}</span>
-			    	<span>${armazem.endereco.bairro}</span>
-			    	<span>${armazem.endereco.tipoVia} ${armazem.endereco.logradouro} ${armazem.endereco.numeroEndereco}</span>
-			    	<a href="cadastro-retirada">Faça uma Retirada</a>
+					<span>${armazem.endereco.tipoVia}. ${armazem.endereco.logradouro} ${armazem.endereco.numeroEndereco}</span>
+					<span>${armazem.endereco.bairro}, ${armazem.endereco.cidade}</span>
+			    	<div class="container-buttons-item-armazem">
+			    		<a href="cadastro-retirada?id=<c:out value='${armazem.id}'/>">Faça uma Retirada</a>
+			    	</div>
 		    	</div>
 			</c:forEach>
 		</div>

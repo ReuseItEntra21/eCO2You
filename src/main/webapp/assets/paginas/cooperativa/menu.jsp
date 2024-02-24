@@ -15,18 +15,18 @@
 			</div>
 			<div class="item-menu">
 				<a href="historico-retiradas-cooperativa" id=historico>
-					<svg><%@include file="../../images/historico.jsp"%></svg>Hist√≥rico
+					<svg><%@include file="../../images/historico.jsp"%></svg>HistÛrico
 				</a>
 			</div>
 			
 			<div class="item-menu">
 				<a href="procurar-armazem-cooperativa" id=procurarArmazem>
-					<svg><%@include file="../../images/lupa.jsp"%></svg>Procurar Armaz√©m
+					<svg><%@include file="../../images/lupa.jsp"%></svg>Procurar ArmazÈm
 				</a>
 			</div>
 			<div class="item-menu">
 				<a class="perfil" href="editar-perfil-cooperativa" id=perfil>
-					<svg><%@include file="../../images/perfil.jsp"%></svg> Ol√° ${cooperativa.nome}
+					<svg><%@include file="../../images/perfil.jsp"%></svg> Ol· ${cooperativa.nome}
 				</a>
 			</div>
 			<div class="item-menu">
