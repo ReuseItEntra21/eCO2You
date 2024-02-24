@@ -142,10 +142,6 @@ public class Servlet extends HttpServlet {
 				mostrarHistoricoRetiradasCooperativa(request, response);
 				break;
 
-			case "/ranking-coletor":
-				mostrarRankingColetor(request, response);
-				break;
-
 			case "/depositos-pendentes-coletor":
 				mostrarDepositosPendentesColetor(request, response);
 				break;
@@ -466,18 +462,32 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-	private void mostrarRankingColetor(HttpServletRequest request, HttpServletResponse response)
-			throws SQLException, IOException, ServletException {
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/ranking.jsp");
-		dispatcher.forward(request, response);
-	}
-
 	private void mostrarDepositosPendentesColetor(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/depositos-pendentes.jsp");
-		dispatcher.forward(request, response);
+		if (usuario instanceof Coletor) {
+
+			Coletor coletor = (Coletor) sessao.getAttribute("usuario");
+			request.setAttribute("coletor", coletor);
+			
+			List<Deposito> depositosAgendados= depositoDAO.buscarDepositosPeloStatus(StatusDeposito.AGENDADO, coletor.getId());
+			request.setAttribute("depositosAgendados", depositosAgendados);
+			
+			List<Deposito> depositosPendentes = depositoDAO.buscarDepositosPeloStatus(StatusDeposito.PENDENTE, coletor.getId());
+			request.setAttribute("depositosPendentes", depositosPendentes);
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/depositos-pendentes.jsp");
+			dispatcher.forward(request, response);
+
+		} else {
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/login.jsp");
+			dispatcher.forward(request, response);
+
+		}
 	}
 
 	private void mostrarRetiradasPendentesCooperativa(HttpServletRequest request, HttpServletResponse response)
@@ -1091,12 +1101,12 @@ public class Servlet extends HttpServlet {
 		Armazem armazem = (Armazem) usuarioDAO.buscarUsuarioPorNome(request.getParameter("nome"));
 
 		LocalDate data = LocalDate.parse(request.getParameter("data"));
-		Deposito deposito = new Deposito(armazem, coletor, StatusDeposito.AGENDADO, data);
+		Deposito deposito = new Deposito(armazem, coletor, StatusDeposito.PENDENTE, data);
 		depositoDAO.inserirDeposito(deposito);
 
 		int quantidadeReciclavel = Integer.parseInt(request.getParameter("quantidade-reciclavel"));
-		deposito.inserirItemDeposito(new ItemDeposito(reciclavel, quantidadeReciclavel));
 		itemDepositoDAO.inserirItemDeposito(new ItemDeposito(reciclavel, quantidadeReciclavel));
+		deposito.inserirItemDeposito(new ItemDeposito(reciclavel, quantidadeReciclavel));
 		response.sendRedirect("/eCO2You/perfil-coletor");
 
 	}
