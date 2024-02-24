@@ -15,16 +15,16 @@
 				<%@include file="../../images/voltar.jsp"%>
 			</svg>
 		</a>
-    	<h1>Histórico de Depósito</h1>
     	<div class="container-depositos">
-			<table border="1" style="width: 99vw;">
+			<table>
+			<caption>Histórico de Depósitos</caption>
 				<thead>
 					<tr>
-						<th>Data</th>
-						<th>Armazém</th>
-	                    <th>Pontuação</th>
-	                    <th>Resumo</th>
-	                    <th>Ações</th>
+						<th id="coluna-data">Data</th>
+						<th id="coluna-armazem">Armazém</th>
+	                    <th id="coluna-pontuacao">Pontuação</th>
+	                    <th id="coluna-status">Status</th>
+	                    <th id="coluna-resumo">Resumo</th>
 					</tr>
 				</thead>
 				<c:forEach var="deposito" items="${depositos}">
@@ -32,8 +32,12 @@
 						<td>${deposito.data}</td>
 						<td>${deposito.armazem.nome}</td>
 	                	<td>12</td>
-	                	<td>${itemDeposito.quantidadeReciclaveis} ${itemDeposito.reciclavel.nome} ${itemDeposito.reciclavel.volume}</td>
-	                	<td><a href="editar-deposito?id=<c:out value='${deposito.id}'/>">Editar</a> <a href="deletar?id=<c:out value='${deposito.id}'/>">Deletar</a></td>
+	                	<td>${deposito.statusDeDeposito}</td>
+	                	<td>
+	                	<c:forEach var="itemDeposito" items="${deposito.itensDeposito}">		
+							${itemDeposito.quantidadeReciclaveis}x ${itemDeposito.reciclavel.nome} ${itemDeposito.reciclavel.volume}ml		
+						</c:forEach>
+	                	</td>
 					</tr>
 				</c:forEach>
 			</table>
