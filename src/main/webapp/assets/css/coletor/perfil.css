@@ -18,7 +18,7 @@ a {
 
 .vl {
 	height: 12vh;
-	border-left: 1px solid;
+	border-left: 2px solid;
 	margin: 0 2vw 0 2vw;
 }
 
@@ -57,6 +57,7 @@ a {
 	height: 16vh;
 	width: 8vw;
 	background-color: #FFFFFF;
+	border: 2px solid balck;
 }
 
 .nome-coletor {
@@ -66,7 +67,7 @@ a {
 }
 
 .endereco-coletor {
-	font-size: 2vh;
+	font-size: 2.5vh;
 	margin-top: 1vh;
 }
 
@@ -90,6 +91,12 @@ a {
 	border-radius: 10px;
 }
 
+.proximo-deposito span {
+	font-weight: bold;
+	font-size: 2.5vh;
+	margin: 3vh 0 3vh 0;
+}
+
 #title {
 	align-self: flex-start;
 	margin-left: 1vw;
@@ -104,10 +111,6 @@ a {
 	padding: 1vh;
 	height: 27.5%;
 	width: 95%;
-}
-
-.info-item-deposito {
-	
 }
 
 .container-acoes {
