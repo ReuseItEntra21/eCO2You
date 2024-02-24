@@ -10,9 +10,11 @@
 		<style><%@include file="../../css/coletor/cadastro-deposito.css"%></style>
 	</head>
 	<body>
-		<a href="perfil-coletor">
-			<svg><%@include file="../../images/voltar.jsp"%></svg>
-		</a>
+		<div class="button-voltar">
+			<a href="perfil-coletor">
+				<svg><%@include file="../../images/voltar.jsp"%></svg>
+			</a>
+		</div>
 		<form class="container-cadastro" action="inserir-deposito">
 			<span>Depósito</span>
 			<div class="item-deposito">

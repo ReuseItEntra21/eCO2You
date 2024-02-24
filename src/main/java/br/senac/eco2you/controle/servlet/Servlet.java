@@ -342,10 +342,6 @@ public class Servlet extends HttpServlet {
 				mostrarPerfilExternoArmazem(request, response);
 				break;
 
-			case "/proximos-depositos":
-				mostrarProximosDepositos(request, response);
-				break;
-
 			case "/conquistas-coletor":
 				mostrarConquistasColetor(request, response);
 				break;
@@ -393,11 +389,11 @@ public class Servlet extends HttpServlet {
 			Coletor coletor = (Coletor) sessao.getAttribute("usuario");
 			request.setAttribute("coletor", coletor);
 
-			List<Deposito> depositos = depositoDAO.buscarDepositoPeloColetor(coletor);
-			request.setAttribute("depositos", depositos);
-
 			List<Conquista> conquistas = conquistaDAO.buscarListaConquistaPeloIdColetor(coletor.getId());
 			request.setAttribute("conquistas", conquistas);
+			
+			List<Deposito> deposito = depositoDAO.buscarProximoDeposito(StatusDeposito.AGENDADO, LocalDate.now(), coletor.getId());
+			request.setAttribute("deposito", deposito);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/perfil.jsp");
 			dispatcher.forward(request, response);
@@ -710,8 +706,9 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 		
 		HttpSession sessao = request.getSession();
-		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
-
+		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
+		request.setAttribute("coletor", coletor);
+		
 		List<Armazem> armazens = armazemDAO.buscarArmazens();
 		request.setAttribute("armazens", armazens);
 
@@ -758,13 +755,6 @@ public class Servlet extends HttpServlet {
 
 		RequestDispatcher dispatcher = request
 				.getRequestDispatcher("assets/paginas/coletor/perfil-externo-armazem.jsp");
-		dispatcher.forward(request, response);
-	}
-
-	private void mostrarProximosDepositos(HttpServletRequest request, HttpServletResponse response)
-			throws SQLException, IOException, ServletException {
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/proximos-depositos.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -836,8 +826,7 @@ public class Servlet extends HttpServlet {
 		String telefone = request.getParameter("telefone");
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento,
-				telefone);
+		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento, telefone);
 		enderecoDAO.inserirEndereco(endereco);
 		usuarioDAO.inserirUsuario(new Coletor(nome, sobrenome, cpf, dataNascimento, email, senha, endereco));
 
