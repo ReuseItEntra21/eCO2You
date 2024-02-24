@@ -2,3 +2,19 @@ a svg {
 	height: 2vh;
 	width: 2vw;
 }
+
+.container-deposito-pendente {
+	display: flex;
+	flex-flow: row nowrap;
+}
+
+.item-deposito-pendente {
+	background: #F4F3F2;
+	width: 20vw;
+	height: 15vh;
+}
+
+.container-deposito-agendado {
+	display: flex;
+	flex-flow: row nowrap;
+}
