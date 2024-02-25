@@ -9,30 +9,72 @@
 	    <style><%@include file="../../css/cooperativa/retiradas-pendentes.css"%></style>
 	</head>
 	<body>
-	<a href="perfil-cooperativa" id="voltar">
-		<svg>
-			<%@include file="../../images/voltar.jsp"%>
-		</svg>
-	</a>
-	<form action="principal-cooperativa">
-	    <h2>RETIRADAS A SEREM ACEITAS</h2>
-	    <c:forEach var="retirada" items="${listaRetiradasAceitas}">
-	        <div>
-	            <input type="image" src="caminho/da/imagem.jpg" name="imagem" id="imagem1">
-	            <p>${retirada.itemRetirada.peso}x ${retirada.itemRetirada.material.nome}</p>
-	            <p>${retirada.data}</p>
-	            <p>${retirada.armazem}</p>
-	        </div>
-	    </c:forEach>
-	    <h2>RETIRADAS AGENDADAS</h2>
-	    <c:forEach var="retirada" items="${listaRetiradasAgendadas}">
-	        <div>
-	            <p>${retirada.itemRetirada.peso}x ${retirada.itemRetirada.material.nome}</p>
-	            <p>${retirada.data}</p>
-	            <p>${retirada.armazem}</p>
-	        </div>
-	    </c:forEach>
-	</form>
-	<a href="cadastro-retirada" class="dropbtn" id="voltar">Criar Retirada</a>
+		<a href="perfil-cooperativa" id="voltar"><svg><%@include file="../../images/voltar.jsp"%></svg></a>
+		<div class="container-retiradas">
+			<div class="title">
+				<span>Retiradas Agendados</span>
+			</div>
+			<div class="retiradas-agendadas">
+				<c:forEach var="retirada" items="${retiradasAgendadas}">
+					<div class="item-retirada-agendada">
+						<div class="info">
+							<svg class="foto-armazem">
+								<%@include file="../../images/perfil.jsp"%>
+							</svg>
+							<div class="vl"></div>
+							<div class="retirada-info">
+								<p>Retirada #${retirada.id}</p>
+								<p>${retirada.armazem.nome}</p>
+								<p>Data: ${retirada.data}</p>
+							</div>
+						</div>
+						<p>Endereço:</p>
+						<div class="endereco-info">
+							<p>${retirada.armazem.endereco.tipoVia}. ${retirada.armazem.endereco.logradouro}, ${retirada.armazem.endereco.numeroEndereco}</p>
+							<p>${retirada.armazem.endereco.bairro}, ${retirada.armazem.endereco.cidade}, ${retirada.armazem.endereco.cep}</p>
+							<p>${retirada.armazem.endereco.complemento}</p>
+						</div>
+						<p>Resumo:</p>
+						<div class="resumo-info">
+							<c:forEach var="itemRetirada" items="${retirada.itensRetirada}">		
+								${itemRetirada.quantidadeReciclaveis}x ${itemRetirada.reciclavel.nome} ${itemRetirada.reciclavel.volume}ml		
+							</c:forEach>
+						</div>
+					</div>
+				</c:forEach>
+			</div>
+			<div class="title">
+				<span>Retirada Pendentes</span>
+			</div>
+			<div class="retiradas-pendentes">
+				<c:forEach var="retirada" items="${retiradasPendentes}">
+					<div class="item-retirada-agendada">
+						<div class="info">
+							<svg class="foto-armazem">
+								<%@include file="../../images/perfil.jsp"%>
+							</svg>
+							<div class="vl"></div>
+							<div class="retirada-info">
+								<p>Retirada #${retirada.id}</p>
+								<p>Retirada: ${retirada.armazem.nome}</p>
+								<p>Data: ${retirada.data}</p>
+							</div>
+						</div>
+						<p>Endereço:</p>
+						<div class="endereco-info">
+							<p>${retirada.armazem.endereco.tipoVia}. ${retirada.armazem.endereco.logradouro}, ${retirada.armazem.endereco.numeroEndereco}</p>
+							<p>${retirada.armazem.endereco.bairro}, ${retirada.armazem.endereco.cidade}, ${retirada.armazem.endereco.cep}</p>
+							<p>${retirada.armazem.endereco.complemento}</p>
+						</div>
+						<p>Resumo:</p>
+						<div class="resumo-info">
+							<c:forEach var="itemRetirada" items="${retirada.itensRetirada}">		
+								${itemRetirada.quantidadeReciclaveis}x ${itemRetirada.reciclavel.nome} ${itemRetirada.reciclavel.volume}ml		
+							</c:forEach>
+						</div>
+					</div>
+				</c:forEach>
+			</div>
+		</div>
 	</body>
 </html>
