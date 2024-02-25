@@ -19,7 +19,7 @@
 				<div class="tab">
 					<div class="item-cadastro">
 						<label for="nome" class="informacao-cadastro">Nome</label>
-						<input type="text" placeholder="user name" oninput="this.className = ''" name="nome" id=nome >
+						<input type="text" placeholder="Nome" oninput="this.className = ''" name="nome" id=nome >
 					</div>
 					<div class="item-cadastro">
 						<label for="cnpj" class="informacao-cadastro">CNPJ</label>
@@ -28,7 +28,7 @@
 					<div class="container-cadastro-row">
 						<div class="item-cadastro-row">
 							<label for="capacidadeArmazenagem" class="informacao-cadastro">Capacidade Armazenagem</label>
-					    	<input type="text" placeholder="Capacidade Armazenagem" oninput="this.className = ''" name="capacidadeArmazenagem" id=capacidadeArmazenagem>
+					    	<input type="text" placeholder="Capacidade" oninput="this.className = ''" name="capacidadeArmazenagem" id=capacidadeArmazenagem>
 						</div>
 						<div class="item-cadastro-row">
 							<label for="telefone" class="informacao-cadastro">Telefone</label>
