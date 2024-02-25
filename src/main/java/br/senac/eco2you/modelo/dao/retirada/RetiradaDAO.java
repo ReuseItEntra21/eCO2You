@@ -19,6 +19,8 @@ public interface RetiradaDAO {
 	void atualizarRetirada(Retirada retirada);
 
 	List<Retirada> buscarRetiradaPelaData(LocalDate data);
+	
+	List<Retirada> buscarProximaRetirada(StatusRetirada statusRetirada, LocalDate data, Long cooperativaId);
 
 	List<Retirada> buscarRetiradaPelaCooperativa(String nome);
 	

@@ -49,6 +49,7 @@ import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
 import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
 import br.senac.eco2you.modelo.enumeracao.status.deposito.StatusDeposito;
+import br.senac.eco2you.modelo.enumeracao.status.retirada.StatusRetirada;
 
 @WebServlet("/")
 public class Servlet extends HttpServlet {
@@ -568,17 +569,27 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarPerfilCooperativa(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-
+		
 		HttpSession sessao = request.getSession();
-		Cooperativa cooperativa = (Cooperativa) sessao.getAttribute("usuario");
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
-		request.setAttribute("cooperativa", cooperativa);
+		if (usuario instanceof Cooperativa) {
 
-		List<Retirada> retiradas = retiradaDAO.buscarRetiradasPelaCooperativa(cooperativa);
-		request.setAttribute("retiradas", retiradas);
+			Cooperativa cooperativa = (Cooperativa) sessao.getAttribute("usuario");
+			request.setAttribute("cooperativa", cooperativa);
+			
+			List<Retirada> retirada = retiradaDAO.buscarProximaRetirada(StatusRetirada.AGENDADO, LocalDate.now(), cooperativa.getId());
+			request.setAttribute("retirada", retirada);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cooperativa/perfil.jsp");
-		dispatcher.forward(request, response);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cooperativa/perfil.jsp");
+			dispatcher.forward(request, response);
+
+		} else {
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/login.jsp");
+			dispatcher.forward(request, response);
+
+		}
 	}
 
 	private void mostrarCadastroMaterial(HttpServletRequest request, HttpServletResponse response)

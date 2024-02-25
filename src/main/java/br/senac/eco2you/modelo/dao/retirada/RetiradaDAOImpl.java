@@ -183,6 +183,37 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 		return retiradas;
 
 	}
+	
+	public List<Retirada> buscarProximaRetirada(StatusRetirada statusRetirada, LocalDate data, Long cooperativaId) {
+		
+		Session sessao = null;
+		List<Retirada> retiradas = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+		    sessao.beginTransaction();
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Retirada> criteria = construtor.createQuery(Retirada.class);
+			Root<Retirada> raizRetirada = criteria.from(Retirada.class);
+
+				
+			criteria.where(
+				    construtor.equal(raizRetirada.get(Retirada_.STATUS_DE_RETIRADA), statusRetirada),
+				    construtor.equal(raizRetirada.get(Retirada_.COOPERATIVA), cooperativaId),				    
+				    construtor.greaterThan(raizRetirada.get(Retirada_.DATA), data));
+
+			criteria.orderBy(construtor.asc(raizRetirada.get(Retirada_.DATA)));
+			
+			retiradas = sessao.createQuery(criteria).setMaxResults(3).getResultList();
+	
+			sessao.getTransaction().commit();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return retiradas;
+
+	}
 
 	public List<Retirada> buscarRetiradaPelaCooperativa(String nome) {
 

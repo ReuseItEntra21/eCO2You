@@ -152,7 +152,7 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 			ParameterExpression<StatusArmazem> statusDeArmazem = construtor.parameter(StatusArmazem.class);
 
 			criteria.select(raizArmazem)
-					.where(construtor.equal(raizArmazem.get(Armazem_.STATUS_ARMAZEM), statusDeArmazem));
+					.where(construtor.equal(raizArmazem.get(Armazem_.STATUS_DE_ARMAZEM), statusDeArmazem));
 			armazens = sessao.createQuery(criteria).setParameter(statusDeArmazem, statusArmazem).getResultList();
 
 			sessao.getTransaction().commit();
