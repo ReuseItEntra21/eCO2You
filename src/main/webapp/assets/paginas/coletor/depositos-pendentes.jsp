@@ -24,7 +24,7 @@
 							<div class="vl"></div>
 							<div class="deposito-info">
 								<p>Depósito #${deposito.id}</p>
-								<p>Armazém: ${deposito.armazem.nome}</p>
+								<p>${deposito.armazem.nome}</p>
 								<p>Data: ${deposito.data}</p>
 							</div>
 						</div>
@@ -34,6 +34,7 @@
 							<p>${deposito.armazem.endereco.bairro}, ${deposito.armazem.endereco.cidade}, ${deposito.armazem.endereco.cep}</p>
 							<p>${deposito.armazem.endereco.complemento}</p>
 						</div>
+						<p>Resumo:</p>
 						<div class="resumo-info">
 							<c:forEach var="itemDeposito" items="${deposito.itensDeposito}">		
 								${itemDeposito.quantidadeReciclaveis}x ${itemDeposito.reciclavel.nome} ${itemDeposito.reciclavel.volume}ml		
@@ -59,11 +60,17 @@
 								<p>Data: ${deposito.data}</p>
 							</div>
 						</div>
+						<p>Endereço:</p>
 						<div class="endereco-info">
-							<p>Endereço</p>
+							<p>${deposito.armazem.endereco.tipoVia}. ${deposito.armazem.endereco.logradouro}, ${deposito.armazem.endereco.numeroEndereco}</p>
+							<p>${deposito.armazem.endereco.bairro}, ${deposito.armazem.endereco.cidade}, ${deposito.armazem.endereco.cep}</p>
+							<p>${deposito.armazem.endereco.complemento}</p>
 						</div>
+						<p>Resumo:</p>
 						<div class="resumo-info">
-							<p>reusmo</p>
+							<c:forEach var="itemDeposito" items="${deposito.itensDeposito}">		
+								${itemDeposito.quantidadeReciclaveis}x ${itemDeposito.reciclavel.nome} ${itemDeposito.reciclavel.volume}ml		
+							</c:forEach>
 						</div>
 					</div>
 				</c:forEach>
