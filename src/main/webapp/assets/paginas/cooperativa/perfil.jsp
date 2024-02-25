@@ -8,58 +8,52 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Perfil Cooperativa</title>
 		<style><%@ include file="../../css/cooperativa/menu.css"%></style>
+		<style><%@ include file="../../css/cooperativa/perfil.css"%></style>
 	</head>
 	<body>
-    <div>
-        <%@ include file="menu.jsp"%>
-        <div>
-            <img src="#" alt="Imagem Perfil" name="imagem" id="imagem1"> <span>${cooperativa.nome}</span>
-            <span>"FECHADO - abre" ${cooperativa.horarioAbertura}</span> <span>${cooperativa.endereco.tipovia}
-                ${cooperativa.endereco.logradouro}</span> <span>${cooperativa.endereco.bairro}</span>
-            <span>${cooperativa.endereco.numeros}</span> <span>${cooperativa.endereco.cidade},
-                SC</span>
-        </div>
-        <div>
-            <a href="editar-perfil-cooperativa" id="editarPerfil">Editar Perfil</a>
-            <img src="#" name="imagem" id="imagem2">
-        </div>
-        <div class="container-select">
-            <div class="item-select">Requerimentos</div>
-            <div class="item-select">Histórico de retiradas</div>
-        </div>
-        <div class="container-retiradas">
-            <span> Pedidos de requerimento recentes </span>
-            <c:forEach var="retirada" items="${retiradas}">
-                <img src="#" alt="Imagem ItemRetirada" name="imagem" id="imagem7">
-                <c:forEach var="itemRetirada" items="${retirada.itensRetirada}">
-                    <span>${itemRetirada.material.peso}</span>
-                    <span>${itemRetirada.material.nome}</span>
-                </c:forEach>
-                <span>${retirada.armazem.nome}</span>
-                <span>${retirada.data}</span>
-                <button type="button">Excluir</button>
-            </c:forEach>
-        </div>
-        <span>Armazéns Recomendados</span>
-        <c:forEach var="armazem" items="${armazens}">
-            <span>${armazem.foto}</span>
-            <span>${armazem.nome}</span>
-        </c:forEach>
-        <div>
-            <div class="container-retiradas">
-                    <c:forEach var="retirada" items="${retiradas}">
-                        <tr>
-                            <td>${retirada.armazem.nome}</td>
-                            <td>${retirada.data}</td>
-                            <td>
-                                <c:forEach var="itemRetirada" items="${retirada.itensRetirada}">
-                                    ${itemRetirada.material.nome} ${itemRetirada.material.peso}
-                                </c:forEach>
-                            </td>
-                        </tr>
-                    </c:forEach>
-            </div>
-        </div>
-    </div>
-</body>
+		<%@include file="menu.jsp"%>
+		<div class="container-info">
+			<div class="container-perfil-ranking">
+				<div class="container-perfil">
+					<div class="item-perfil">
+						<svg id="foto-cooperativa">
+							<%@include file="../../images/perfil.jsp"%>
+						</svg>
+					</div>
+					<div class="vl"></div>
+					<div class="item-perfil">
+						<div class="nome-cooperativa">
+							<span>${cooperativa.nome} / #${cooperativa.id}</span>
+						</div>
+						<div class="endereco-coletor">
+							<span>${cooperativa.endereco.bairro}, ${cooperativa.endereco.cidade}</span>
+						</div>
+					</div>
+				</div>
+				<div  class="ranking">
+					Ranking
+				</div>
+			</div>
+			<div class="proxima-retirada"> 
+				<span>Próximas Retiradas</span>
+				<c:forEach var="retirada" items="${retiradas}">
+					<div class="item-retirada">
+						<div class="container-info-retirada">
+							
+							<div class="info-item-retirada">
+								<p>${retirada.armazem.nome} ${retirada.data}</p>
+								<p>${retirada.armazem.endereco.tipoVia}. ${retirada.armazem.endereco.logradouro}, ${retirada.armazem.endereco.numeroEndereco}</p>
+								<p>${retirada.armazem.endereco.bairro}, ${retirada.armazem.endereco.cidade}, ${retirada.armazem.endereco.cep}</p>
+								<p>${retirada.armazem.endereco.complemento}</p>
+							</div>
+						</div>
+						<div class="container-acoes">
+							<a id="lapis" href="editar-deposito?id=<c:out value='${retirada.id}'/>"><svg><%@include file="../../images/lapis.jsp"%></svg></a>
+							<a id="lixeira" href="deletar?id=<c:out value='${retirada.id}'/>"><svg><%@include file="../../images/trash.jsp"%></svg></a>
+						</div>
+					</div>
+				</c:forEach>
+			</div>
+		</div>
+	</body>
 </html>

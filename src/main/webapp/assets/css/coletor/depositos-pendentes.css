@@ -109,16 +109,14 @@ a svg {
 .endereco-info {
 	display: flex;
 	flex-flow: column;
-	justify-content: space-around;
-	background-color: #FeFeFe;
+	justify-content: space-evenly;
 	border-radius: 5px;
 	width: 100%;
-	height: 25%;
+	height: 20%;
 }
 
 .resumo-info {
-	background-color: #FeFeFe;
 	border-radius: 5px;
 	width: 100%;
-	height: 35%;
+	height: 40%;
 }

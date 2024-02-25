@@ -33,8 +33,7 @@ public class Retirada implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_retirada")
-    private Long id;
-    
+    private Long id;   
 	
     @Column(name = "data_retirada", nullable = false)
     private LocalDate data;

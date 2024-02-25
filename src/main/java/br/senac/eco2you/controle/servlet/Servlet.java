@@ -410,7 +410,7 @@ public class Servlet extends HttpServlet {
 		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
 		request.setAttribute("coletor", coletor);
 
-		List<Deposito> depositos = depositoDAO.buscarDepositoPeloColetor(coletor);
+		List<Deposito> depositos = depositoDAO.buscarDepositosPeloStatus(StatusDeposito.CONCLUIDO, coletor.getId());
 		request.setAttribute("depositos", depositos);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/historico-depositos.jsp");
