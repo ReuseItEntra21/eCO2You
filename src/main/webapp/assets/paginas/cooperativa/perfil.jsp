@@ -39,7 +39,21 @@
 				<c:forEach var="retirada" items="${retiradas}">
 					<div class="item-retirada">
 						<div class="container-info-retirada">
-							
+							<div class="container-foto-retirada">
+								<c:choose>
+									<c:when test="${retirada.itensDeposito.material eq 'Aluminio'}">
+										<svg id="foto-item-retirada">
+									    	<%@ include file="../../images/garrafa-plastico.jsp"%>
+										</svg>
+									</c:when>
+									<c:when test="${retirada.itensDeposito.material eq 'Plastico'}">
+									    <%@ include file="../../images/garrafa-plastico.jsp"%>
+									</c:when>
+									<c:otherwise>
+										<p>Opção inválida.</p>
+									</c:otherwise>
+								</c:choose>
+							</div>
 							<div class="info-item-retirada">
 								<p>${retirada.armazem.nome} ${retirada.data}</p>
 								<p>${retirada.armazem.endereco.tipoVia}. ${retirada.armazem.endereco.logradouro}, ${retirada.armazem.endereco.numeroEndereco}</p>
