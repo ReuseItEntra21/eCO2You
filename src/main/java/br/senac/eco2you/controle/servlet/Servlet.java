@@ -1052,7 +1052,7 @@ public class Servlet extends HttpServlet {
 
 		Reciclavel reciclavel = reciclavelDAO.buscarReciclavelPorId(Long.parseLong(request.getParameter("reciclavel")));
 
-		Armazem armazem = (Armazem) usuarioDAO.buscarUsuarioPorNome(request.getParameter("nome"));
+		Armazem armazem = (Armazem) usuarioDAO.buscarUsuarioPorId(Long.parseLong(request.getParameter("id")));
 
 		LocalDate data = LocalDate.parse(request.getParameter("data"));
 		Deposito deposito = new Deposito(armazem, coletor, StatusDeposito.PENDENTE, data);
@@ -1087,7 +1087,6 @@ public class Servlet extends HttpServlet {
 		long id = Long.parseLong(request.getParameter("id"));
 		Deposito deposito = depositoDAO.buscarDepositoPeloId(id);
 		depositoDAO.deletarDeposito(deposito);
-		;
 		response.sendRedirect("/perfil-coletor");
 
 	}
