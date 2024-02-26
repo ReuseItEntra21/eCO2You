@@ -16,11 +16,11 @@
 			<form action="logar" method="post">
 				<span>Login</span>
 				<div class="item-login">
-					<p>Email</p>
+					<label>E-mail</label>
 					<input type="email" id="email" name="email" placeholder="username@gmail.com" maxlength="65" class="e-mailEsenha">
 				</div>
 				<div class="item-login">
-					<p>Senha</p>
+					<label>Senha</label>
 					<input type="password" id="senha" name="senha" placeholder="senha" maxlength="25" class="e-mailEsenha">
 					<p class="esqueceuSenha">Esqueceu a senha? <a href="recuperar-senha" id="esqueceuSenha">Recuperar</a></p>
 				</div>

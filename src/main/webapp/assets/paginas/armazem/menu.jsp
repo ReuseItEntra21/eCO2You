@@ -10,12 +10,22 @@
 		<div class="container-menu">
 			<div class="item-menu">
 				<a  href="depositos-pendentes-armazem">
-					<svg><%@include file="../../images/pendente.jsp"%></svg>Pendentes
+					<svg><%@include file="../../images/pendente.jsp"%></svg>Depositos
 				</a>
 			</div>
 			<div class="item-menu">
 				<a href="historico-armazem">
-					<svg><%@include file="../../images/historico.jsp"%></svg>Histórico
+					<svg><%@include file="../../images/historico.jsp"%></svg>Histórico Depositos
+				</a>
+			</div>
+			<div class="item-menu">
+				<a  href="retiradas-pendentes-armazem">
+					<svg><%@include file="../../images/pendente.jsp"%></svg>Retiradas
+				</a>
+			</div>
+			<div class="item-menu">
+				<a href="historico-armazem">
+					<svg><%@include file="../../images/historico.jsp"%></svg>Histórico Reiradas
 				</a>
 			</div>
 			<div class="item-menu">
