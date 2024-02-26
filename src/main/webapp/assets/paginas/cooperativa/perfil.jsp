@@ -41,13 +41,15 @@
 						<div class="container-info-retirada">
 							<div class="container-foto-retirada">
 								<c:choose>
-									<c:when test="${retirada.itensDeposito.material eq 'Aluminio'}">
+									<c:when test="${retirada.itemRetirada.material.nome eq 'Alumínio'}">
 										<svg id="foto-item-retirada">
 									    	<%@ include file="../../images/garrafa-plastico.jsp"%>
 										</svg>
 									</c:when>
-									<c:when test="${retirada.itensDeposito.material eq 'Plastico'}">
-									    <%@ include file="../../images/garrafa-plastico.jsp"%>
+									<c:when test="${retirada.itemRetirada.material.nome eq 'Plástico'}">
+									    <svg id="foto-item-retirada">
+									    	<%@ include file="../../images/garrafa-plastico.jsp"%>
+										</svg>
 									</c:when>
 									<c:otherwise>
 										<p>Opção inválida.</p>

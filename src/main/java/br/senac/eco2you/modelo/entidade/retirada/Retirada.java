@@ -17,7 +17,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
 
 import br.senac.eco2you.modelo.entidade.item.retirada.ItemRetirada;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
@@ -46,9 +49,9 @@ public class Retirada implements Serializable{
 	@JoinColumn(name = "id_armazem")
 	private Armazem armazem;
     
-    @OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	@JoinTable(name = "retirada_itemRetirada", joinColumns = @JoinColumn(name = "id_retirada"), inverseJoinColumns = @JoinColumn(name = "id_itemRetirada"))
-	private List<ItemRetirada> ItensRetirada;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_item_retirada", referencedColumnName = "id_item_retirada")
+	private ItemRetirada itemRetirada;
     
     @Enumerated(EnumType.STRING)
     @Column(name = "status_retirada", nullable = true)
@@ -56,39 +59,34 @@ public class Retirada implements Serializable{
     
     public Retirada() {}
     
-    public Retirada(LocalDate data, Cooperativa cooperativa, Armazem armazem, StatusRetirada statusDeRetirada) {
+    public Retirada(LocalDate data, Cooperativa cooperativa, Armazem armazem, StatusRetirada statusDeRetirada, ItemRetirada itemRetirada) {
     	setData(data);
     	setStatusDeRetirada(statusDeRetirada);
         setCooperativa(cooperativa);
         setArmazem(armazem);
-        ItensRetirada = new ArrayList<>();
+        setItemRetirada(itemRetirada);
     }
-    
-    public Retirada(LocalDate data, Cooperativa cooperativa, Armazem armazem) {
+    public Retirada(LocalDate data, Cooperativa cooperativa, Armazem armazem, ItemRetirada itemRetirada) {
     	setData(data);
     	setStatusDeRetirada(statusDeRetirada);
         setCooperativa(cooperativa);
         setArmazem(armazem);
-        ItensRetirada = new ArrayList<>();
+        setItemRetirada(itemRetirada);
     }
-    
-    public Retirada(Long id, LocalDate data, Cooperativa cooperativa, Armazem armazem) {
+    public Retirada(Long id, LocalDate data, Cooperativa cooperativa, Armazem armazem, ItemRetirada itemRetirada) {
     	setId(id);
     	setData(data);
     	setStatusDeRetirada(statusDeRetirada);
         setCooperativa(cooperativa);
         setArmazem(armazem);
-        ItensRetirada = new ArrayList<>();
+        setItemRetirada(itemRetirada);
     }
-    
     public Long getId() {
 		return id;
-	}
-    
+	}    
     public void setId(Long id) {
 		this.id = id;
-	}
-    
+	}    
     public Cooperativa getCooperativa() {
         return cooperativa;
     }
@@ -107,19 +105,15 @@ public class Retirada implements Serializable{
     public void setData(LocalDate data) {
         this.data = data;
     }
-    public List<ItemRetirada> getItensRetirada() {
-        return ItensRetirada;
+    public ItemRetirada setItemRetirada(ItemRetirada itemRetirada) {
+        return this.itemRetirada = itemRetirada;
     }
-    public boolean inserirItemRetirada(ItemRetirada itemRetirada) {
-        return ItensRetirada.add(itemRetirada);
-    }
-    public boolean removerItemRetirada(ItemRetirada itemRetirada) {
-        return ItensRetirada.remove(itemRetirada);
+    public ItemRetirada getItemRetirada() {
+        return this.itemRetirada;
     }
     public StatusRetirada getStatusDeRetirada() {
 		return statusDeRetirada;
-	}
-    
+	}    
     public void setStatusDeRetirada(StatusRetirada statusDeRetirada) {
 		this.statusDeRetirada = statusDeRetirada;
 	}

@@ -8,7 +8,6 @@
 		<title>Procurar-coletor</title>
 		<style><%@include file="../../css/coletor/procurar-coletor.css"%></style>
 		<style><%@include file="../../css/coletor/menu.css"%></style>
-		<style><%@include file="../../css/footer.css"%></style>
 	</head>
 	<body>
 	    <%@ include file="menu.jsp"%>
@@ -33,6 +32,5 @@
 				</a>
 			</c:forEach>
 		</div>
-		<%@ include file="../footer.jsp"%>
 	</body>
 </html>

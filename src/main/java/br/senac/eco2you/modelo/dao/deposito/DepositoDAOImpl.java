@@ -571,7 +571,7 @@ public class DepositoDAOImpl implements DepositoDAO {
 
 	}
 
-	public List<Deposito> buscarProximoDeposito(StatusDeposito statusDeposito, LocalDate data, Long coletorId) {
+	public List<Deposito> buscarProximosDepositos(StatusDeposito statusDeposito, LocalDate data, Long coletorId) {
 		
 		Session sessao = null;
 		List<Deposito> depositos = null;
@@ -602,7 +602,7 @@ public class DepositoDAOImpl implements DepositoDAO {
 
 	}
 	
-public List<Deposito> buscarDepositosPeloStatus(StatusDeposito statusDeposito, Long coletorId) {
+	public List<Deposito> buscarDepositosPeloStatus(StatusDeposito statusDeposito, Long coletorId) {
 		
 		Session sessao = null;
 		List<Deposito> depositos = null;
@@ -613,7 +613,6 @@ public List<Deposito> buscarDepositosPeloStatus(StatusDeposito statusDeposito, L
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 			CriteriaQuery<Deposito> criteria = construtor.createQuery(Deposito.class);
 			Root<Deposito> raizDeposito = criteria.from(Deposito.class);
-
 				
 			criteria.where(
 				    construtor.equal(raizDeposito.get(Deposito_.STATUS_DE_DEPOSITO), statusDeposito),
@@ -631,33 +630,5 @@ public List<Deposito> buscarDepositosPeloStatus(StatusDeposito statusDeposito, L
 		return depositos;
 
 	}
-
-	public List<Deposito> buscarDepositoPeloColetorEStatus(Long id, StatusDeposito statusDeposito) {
-		
-		Session sessao = null;
-		List<Deposito> depositos = null;
-
-		try {
-			sessao = fabrica.getConexao().openSession();
-		    sessao.beginTransaction();
-			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-			CriteriaQuery<Deposito> criteria = construtor.createQuery(Deposito.class);
-			Root<Deposito> raizDeposito = criteria.from(Deposito.class);
-			
-			criteria.where(
-				    construtor.equal(raizDeposito.get(Deposito_.COLETOR), id),
-				    construtor.equal(raizDeposito.get(Deposito_.STATUS_DE_DEPOSITO), statusDeposito ));
-			
-			
-			depositos = sessao.createQuery(criteria).getResultList();
-		
-			sessao.getTransaction().commit();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return depositos;
-	}
-
 
 }

@@ -9,7 +9,6 @@
 		<title>Procurar Armazém</title>
 		<style><%@include file="../../css/coletor/procurar-armazem.css"%></style>
 		<style><%@include file="../../css/coletor/menu.css"%></style>
-		<style><%@include file="../../css/footer.css"%></style>
     </head>
     <body>
 	    <%@ include file="menu.jsp"%>
@@ -41,6 +40,5 @@
 		    	</div>
 			</c:forEach>
 		</div>
-		<%@ include file="../footer.jsp"%>
     </body>
 </html>

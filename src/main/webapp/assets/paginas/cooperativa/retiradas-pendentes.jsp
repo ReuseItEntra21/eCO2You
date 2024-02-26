@@ -35,10 +35,8 @@
 							<p>${retirada.armazem.endereco.complemento}</p>
 						</div>
 						<p>Resumo:</p>
-						<div class="resumo-info">
-							<c:forEach var="itemRetirada" items="${retirada.itensRetirada}">		
-								${itemRetirada.quantidadeReciclaveis}x ${itemRetirada.reciclavel.nome} ${itemRetirada.reciclavel.volume}ml		
-							</c:forEach>
+						<div class="resumo-info">	
+							${retirada.itemRetirada.peso}kg ${retirada.itemRetirada.material.nome}		
 						</div>
 					</div>
 				</c:forEach>
@@ -67,10 +65,8 @@
 							<p>${retirada.armazem.endereco.complemento}</p>
 						</div>
 						<p>Resumo:</p>
-						<div class="resumo-info">
-							<c:forEach var="itemRetirada" items="${retirada.itensRetirada}">		
-								${itemRetirada.quantidadeReciclaveis}x ${itemRetirada.reciclavel.nome} ${itemRetirada.reciclavel.volume}ml		
-							</c:forEach>
+						<div class="resumo-info">	
+							${retirada.itemRetirada.peso}kg ${retirada.itemRetirada.material.nome}		
 						</div>
 					</div>
 				</c:forEach>

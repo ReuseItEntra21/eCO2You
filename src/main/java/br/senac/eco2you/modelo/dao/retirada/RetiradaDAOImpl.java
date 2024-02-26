@@ -11,12 +11,15 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
+import br.senac.eco2you.modelo.entidade.deposito.Deposito;
+import br.senac.eco2you.modelo.entidade.deposito.Deposito_;
 import br.senac.eco2you.modelo.entidade.retirada.Retirada;
 import br.senac.eco2you.modelo.entidade.retirada.Retirada_;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem_;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa_;
+import br.senac.eco2you.modelo.enumeracao.status.deposito.StatusDeposito;
 import br.senac.eco2you.modelo.enumeracao.status.retirada.StatusRetirada;
 import br.senac.eco2you.modelo.factory.conexao.ConexaoFactory;
 
@@ -596,6 +599,66 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 		}
 
 		return retiradas;
+	}
+	
+	public List<Retirada> buscarProximasRetiradas(StatusRetirada statusRetirada, LocalDate data, Long id) {
+		
+		Session sessao = null;
+		List<Retirada> retiradas = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+		    sessao.beginTransaction();
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Retirada> criteria = construtor.createQuery(Retirada.class);
+			Root<Retirada> raizDeposito = criteria.from(Retirada.class);
+
+				
+			criteria.where(
+				    construtor.equal(raizDeposito.get(Retirada_.STATUS_DE_RETIRADA), statusRetirada),
+				    construtor.equal(raizDeposito.get(Retirada_.COOPERATIVA), id),				    
+				    construtor.greaterThan(raizDeposito.get(Deposito_.DATA), data));
+
+			criteria.orderBy(construtor.asc(raizDeposito.get(Deposito_.DATA)));
+			
+			retiradas = sessao.createQuery(criteria).setMaxResults(3).getResultList();
+	
+			sessao.getTransaction().commit();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return retiradas;
+
+	}
+	
+	public List<Retirada> buscarRetiradasPeloStatus(StatusRetirada statusRetirada, Long id) {
+		
+		Session sessao = null;
+		List<Retirada> retiradas = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+		    sessao.beginTransaction();
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Retirada> criteria = construtor.createQuery(Retirada.class);
+			Root<Retirada> raizDeposito = criteria.from(Retirada.class);
+				
+			criteria.where(
+				    construtor.equal(raizDeposito.get(Retirada_.STATUS_DE_RETIRADA), statusRetirada),
+				    construtor.equal(raizDeposito.get(Retirada_.COOPERATIVA), id));
+
+			criteria.orderBy(construtor.asc(raizDeposito.get(Deposito_.DATA)));
+			
+			retiradas = sessao.createQuery(criteria).getResultList();
+	
+			sessao.getTransaction().commit();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return retiradas;
+
 	}
 
 }

@@ -49,6 +49,7 @@ import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
 import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
 import br.senac.eco2you.modelo.enumeracao.status.deposito.StatusDeposito;
+import br.senac.eco2you.modelo.enumeracao.status.retirada.StatusRetirada;
 
 @WebServlet("/")
 public class Servlet extends HttpServlet {
@@ -376,11 +377,8 @@ public class Servlet extends HttpServlet {
 
 			Coletor coletor = (Coletor) sessao.getAttribute("usuario");
 			request.setAttribute("coletor", coletor);
-
-			List<Conquista> conquistas = conquistaDAO.buscarListaConquistaPeloIdColetor(coletor.getId());
-			request.setAttribute("conquistas", conquistas);
 			
-			List<Deposito> deposito = depositoDAO.buscarProximoDeposito(StatusDeposito.AGENDADO, LocalDate.now(), coletor.getId());
+			List<Deposito> deposito = depositoDAO.buscarProximosDepositos(StatusDeposito.AGENDADO, LocalDate.now(), coletor.getId());
 			request.setAttribute("deposito", deposito);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/perfil.jsp");
@@ -448,9 +446,15 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarHistoricoRetiradasCooperativa(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		
+		HttpSession sessao = request.getSession();
+		Cooperativa cooperativa = (Cooperativa) sessao.getAttribute("usuario");
+		
+		List<Retirada> retiradas= retiradaDAO.buscarRetiradasPeloStatus(StatusRetirada.CONCLUIDO, cooperativa.getId());
+		request.setAttribute("retiradas", retiradas);
 
 		RequestDispatcher dispatcher = request
-				.getRequestDispatcher("assets/paginas/cooperativa/historico-retirada.jsp");
+				.getRequestDispatcher("assets/paginas/cooperativa/historico-retiradas.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -484,10 +488,30 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarRetiradasPendentesCooperativa(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
-		RequestDispatcher dispatcher = request
-				.getRequestDispatcher("assets/paginas/cooperativa/retiradas-pendentes.jsp");
+		if (usuario instanceof Cooperativa) {
+
+			Cooperativa cooperativa = (Cooperativa) sessao.getAttribute("usuario");
+			request.setAttribute("cooperativa", cooperativa);
+			
+			List<Retirada> retiradasAgendadas= retiradaDAO.buscarRetiradasPeloStatus(StatusRetirada.AGENDADO, cooperativa.getId());
+			request.setAttribute("retiradasAgendadas", retiradasAgendadas);
+			
+			List<Retirada> retiradasPendentes = retiradaDAO.buscarRetiradasPeloStatus(StatusRetirada.PENDENTE, cooperativa.getId());
+			request.setAttribute("retiradasPendentes", retiradasPendentes);
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cooperativa/retiradas-pendentes.jsp");
+			dispatcher.forward(request, response);
+
+		} else {
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/login.jsp");
 		dispatcher.forward(request, response);
+		
+		}
 	}
 
 	private void mostrarDepositosAgendadosArmazem(HttpServletRequest request, HttpServletResponse response)
@@ -574,7 +598,7 @@ public class Servlet extends HttpServlet {
 
 		request.setAttribute("cooperativa", cooperativa);
 
-		List<Retirada> retiradas = retiradaDAO.buscarRetiradasPelaCooperativa(cooperativa);
+		List<Retirada> retiradas = retiradaDAO.buscarProximasRetiradas(StatusRetirada.AGENDADO, LocalDate.now(), cooperativa.getId());
 		request.setAttribute("retiradas", retiradas);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cooperativa/perfil.jsp");
@@ -690,6 +714,10 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarProcurarArmazemCooperativa(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		
+		HttpSession sessao = request.getSession();
+		Cooperativa cooperativa = (Cooperativa) sessao.getAttribute("usuario");
+		request.setAttribute("cooperativa", cooperativa);
 
 		List<Armazem> armazens = armazemDAO.buscarArmazens();
 		request.setAttribute("armazens", armazens);
@@ -1097,12 +1125,12 @@ public class Servlet extends HttpServlet {
 		LocalDate data = LocalDate.parse(request.getParameter("data"));
 		Cooperativa cooperativa = (Cooperativa) request.getSession().getAttribute("usuario");
 		Armazem armazem = armazemDAO.buscarArmazemPorId(Long.parseLong(request.getParameter("armazem")));
-		;
-		retiradaDAO.inserirRetirada(new Retirada(data, cooperativa, armazem));
-
 		Material material = materialDAO.buscarMaterialPorId(Long.parseLong(request.getParameter("material")));
 		float peso = Float.parseFloat(request.getParameter("peso"));
-		itemRetiradaDAO.inserirItemRetirada(new ItemRetirada(material, peso));
+		ItemRetirada itemRetirada = new ItemRetirada(material, peso);
+		itemRetiradaDAO.inserirItemRetirada(itemRetirada);
+		retiradaDAO.inserirRetirada(new Retirada(data, cooperativa, armazem, itemRetirada));
+
 		response.sendRedirect("/eCO2You/home-cooperativa");
 
 	}
@@ -1114,13 +1142,13 @@ public class Servlet extends HttpServlet {
 		LocalDate data = LocalDate.parse(request.getParameter("data"));
 		Cooperativa cooperativa = (Cooperativa) request.getSession().getAttribute("usuario");
 		Armazem armazem = armazemDAO.buscarArmazemPorId(Long.parseLong(request.getParameter("armazem")));
-		retiradaDAO.inserirRetirada(new Retirada(id, data, cooperativa, armazem));
-
 		Material material = materialDAO.buscarMaterialPorId(Long.parseLong(request.getParameter("material")));
 		float peso = Float.parseFloat(request.getParameter("peso"));
-		itemRetiradaDAO.inserirItemRetirada(new ItemRetirada(material, peso));
+		ItemRetirada itemRetirada = new ItemRetirada(material, peso);
+		itemRetiradaDAO.inserirItemRetirada(itemRetirada);		
+		retiradaDAO.inserirRetirada(new Retirada(id, data, cooperativa, armazem, itemRetirada));
+		
 		response.sendRedirect("/eCO2You/home-cooperativa");
-
 	}
 
 	private void inserirConquista(HttpServletRequest request, HttpServletResponse response)

@@ -64,17 +64,10 @@ body {
 	color: #F4F3F2;
 }
 
-svg {
-	height: 3vh;
-	width: 3vw;
-}
-
-
 .container-armazem {
 	display: flex;
 	flex-flow: row wrap;
-	height: 100vh;
-	justify-content: space-around;
+	width: 100%;
 }
 
 .item-armazem {
@@ -86,6 +79,7 @@ svg {
 	height: 45vh;
 	border-radius: 5px;
 	background-color: #F4F2F0;
+	margin: 2vh 2.4vw 2vh 2.4vw;
 }
 
 .image-armazem {
