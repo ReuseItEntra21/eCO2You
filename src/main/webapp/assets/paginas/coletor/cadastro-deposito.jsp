@@ -16,7 +16,7 @@
 			</a>
 		</div>
 		<form class="container-cadastro" action="inserir-deposito">
-			<span>Depósito</span>
+			<h1>Depósito</h1>
 			<div class="item-deposito">
 				<label for="deposito">Data de Depósito</label>
 				<input type="date" oninput="this.className = ''" name="data" id=deposito>
@@ -38,7 +38,7 @@
 			</div>
 			<div class="item-deposito">
 				<label>Quantidade</label>
-				<input type="number" oninput="this.className = ''" name="quantidade-reciclavel" id=deposito>
+				<input type="number" oninput="this.className = ''" name="quantidade-reciclavel" id=deposito min=1>
 			</div>
 			<button type="submit">Agendar</button>
 		</form>
