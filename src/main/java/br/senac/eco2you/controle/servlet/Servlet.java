@@ -592,17 +592,27 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarPerfilCooperativa(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-
+		
 		HttpSession sessao = request.getSession();
-		Cooperativa cooperativa = (Cooperativa) sessao.getAttribute("usuario");
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
-		request.setAttribute("cooperativa", cooperativa);
+		if (usuario instanceof Cooperativa) {
 
-		List<Retirada> retiradas = retiradaDAO.buscarProximasRetiradas(StatusRetirada.AGENDADO, LocalDate.now(), cooperativa.getId());
-		request.setAttribute("retiradas", retiradas);
+			Cooperativa cooperativa = (Cooperativa) sessao.getAttribute("usuario");
+			request.setAttribute("cooperativa", cooperativa);
+			
+			List<Retirada> retirada = retiradaDAO.buscarProximasRetiradas(StatusRetirada.AGENDADO, LocalDate.now(), cooperativa.getId());
+			request.setAttribute("retirada", retirada);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cooperativa/perfil.jsp");
-		dispatcher.forward(request, response);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cooperativa/perfil.jsp");
+			dispatcher.forward(request, response);
+
+		} else {
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/login.jsp");
+			dispatcher.forward(request, response);
+
+		}
 	}
 
 	private void mostrarCadastroMaterial(HttpServletRequest request, HttpServletResponse response)
