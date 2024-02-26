@@ -631,4 +631,33 @@ public class DepositoDAOImpl implements DepositoDAO {
 
 	}
 
+	public Deposito buscarDepositoComItemDepositoPorIdEStatusDeposito(Long id, StatusDeposito statusDeposito) {
+		   
+		Session sessao = null;
+	    Deposito deposito = null;
+
+	    try {
+	        sessao = fabrica.getConexao().openSession();
+	        sessao.beginTransaction();
+	        CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+	        CriteriaQuery<Deposito> criteria = construtor.createQuery(Deposito.class);
+	        Root<Deposito> raizDeposito= criteria.from(Deposito.class);
+	       
+	        raizDeposito.fetch(Deposito_.ITENS_DEPOSITO, JoinType.LEFT);
+
+	        criteria.where(
+	        		construtor.equal(raizDeposito.get("id"), id),
+	        		construtor.equal(raizDeposito.get(Deposito_.STATUS_DE_DEPOSITO), statusDeposito));
+
+	        deposito = sessao.createQuery(criteria).uniqueResult();
+	        
+			sessao.getTransaction().commit();
+
+	    } catch (Exception e) {
+			e.printStackTrace();
+		}
+		return deposito;
+
+	}
+	
 }

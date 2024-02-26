@@ -47,5 +47,8 @@ public interface DepositoDAO {
     List<Deposito> buscarDepositosPeloStatus(StatusDeposito statusDeposito, Long coletorId);
 
 	Deposito buscarDepositoComItemDepositoPorId(Long id);
+	
+	Deposito buscarDepositoComItemDepositoPorIdEStatusDeposito(Long id, StatusDeposito statusDeposito);
+
 
 }
