@@ -9,28 +9,27 @@
 		</div>
 		<div class="container-menu">
 			<div class="item-menu">
-				<a  href="retiradas-pendentes-cooperativa" id=pendentes>
+				<a href="retiradas-pendentes-cooperativa">
 					<svg><%@include file="../../images/pendente.jsp"%></svg>Pendentes
 				</a>
 			</div>
 			<div class="item-menu">
-				<a href="historico-retiradas-cooperativa" id=historico>
+				<a href="historico-retiradas-cooperativa">
 					<svg><%@include file="../../images/historico.jsp"%></svg>Histórico
 				</a>
 			</div>
-			
 			<div class="item-menu">
 				<a href="procurar-armazem-cooperativa" id=procurarArmazem>
 					<svg><%@include file="../../images/lupa.jsp"%></svg>Procurar Armazém
 				</a>
 			</div>
 			<div class="item-menu">
-				<a class="perfil" href="editar-perfil-cooperativa" id=perfil>
-					<svg><%@include file="../../images/perfil.jsp"%></svg> Olá ${cooperativa.nome}
+				<a class="perfil" href="editar-perfil-cooperativa">
+					<svg><%@include file="../../images/perfil.jsp"%></svg>Olá, ${cooperativa.nome}
 				</a>
 			</div>
 			<div class="item-menu">
-				<a class="item-menu" href="deslogar" id=deslogar>
+				<a href="deslogar">
 					<svg><%@include file="../../images/logout.jsp"%></svg>
 				</a>
 			</div>

@@ -3,34 +3,56 @@ nav {
 	flex-flow: row nowrap;
 	align-items: center;
 	justify-content: space-between;
-	height: 5vh;
-	padding: 1vh;
+	height: 7vh;
+}
+
+a {
+	color: #000000;
+	text-decoration: none;
 }
 
 .container-menu {
 	display: flex;
 	flex-flow: row nowrap;
-	align-items: center;
+	align-items: baseline;
 	justify-content: flex-end;
-	align-content: center;
 	background-color: #FFFFFF;
+	font-size: 2vh;
 }
 
 .item-menu {
-	margin: 1vh 2vw 1vh 2vw;
-	color: #000000;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0vh 1vw 0vh 1vw;
+}
+
+.perfil {
+	display: flex;
+	flex-flow: row nowrap;
+	background-color: #E8EDDE;
+	border-radius: 6px;
+	border: none;
+	padding: 1vh;
+	justify-content: center;
+	align-items: center;
+}
+
+.item-menu svg {
+	width: 2vw;
+	height: 3vh;
 }
 
 .container-logo {
 	display: flex;
-	background-color: #FFFFFF;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
 }
 
-.item-logo {
-	flex-flow: row nowrap;
-	align-items: center;
-	justify-content: flex-start;
-	align-content: center;
+.item-logo svg {
 	margin: 1vh;
-	color: #000000;
+	width: 4vw;
+	height: 6vh;
 }

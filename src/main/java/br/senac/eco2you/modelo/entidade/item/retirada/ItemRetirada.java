@@ -5,13 +5,14 @@ import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import br.senac.eco2you.modelo.entidade.material.Material;
@@ -35,16 +36,16 @@ public class ItemRetirada implements Serializable {
 	@Column(name = "peso_item_retirada", nullable = false)
 	private float peso;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_retirada")
-	private Retirada retirada;
-	
+//	@OneToOne
+//	@PrimaryKeyJoinColumn
+//	private Retirada retirada;
+		
 	public ItemRetirada() {}
 
 	public ItemRetirada(Material material, float peso, Retirada retirada) {
 		setMaterial(material);
 		setPeso(peso);
-		setRetirada(retirada);
+		//setRetirada(retirada);
 	}
 	
 	public ItemRetirada(Material material, float peso) {
@@ -68,13 +69,13 @@ public class ItemRetirada implements Serializable {
 		this.peso = peso;
 	}
 
-	public Retirada getRetirada() {
-		return retirada;
-	}
-
-	public void setRetirada(Retirada retirada) {
-		this.retirada = retirada;
-	}
+//	public Retirada getRetirada() {
+//		return retirada;
+//	}
+//
+//	public void setRetirada(Retirada retirada) {
+//		this.retirada = retirada;
+//	}
 
 	public Material getMaterial() {
 		return material;

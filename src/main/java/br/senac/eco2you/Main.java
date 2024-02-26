@@ -317,7 +317,7 @@ public class Main {
 
 		// =============================================================================================================
 
-		Deposito deposito01 = new Deposito(armazem01, coletor01, StatusDeposito.CONCLUIDO, LocalDate.of(1333, 12, 2));
+		Deposito deposito01 = new Deposito(armazem01, coletor01, StatusDeposito.CONCLUIDO, LocalDate.of(2025, 12, 2));
 
 		DepositoDAO depositoDAO = new DepositoDAOImpl();
 		depositoDAO.inserirDeposito(deposito01);
@@ -332,7 +332,7 @@ public class Main {
 
 		// =============================================================================================================
 
-		Deposito deposito02 = new Deposito(armazem02, coletor02, StatusDeposito.AGENDADO, LocalDate.of(1333, 12, 2));
+		Deposito deposito02 = new Deposito(armazem02, coletor02, StatusDeposito.AGENDADO, LocalDate.of(2025, 12, 2));
 
 		DepositoDAO depositoDAO02 = new DepositoDAOImpl();
 		depositoDAO02.inserirDeposito(deposito02);
@@ -347,7 +347,7 @@ public class Main {
 
 		// =============================================================================================================
 
-		Deposito deposito03 = new Deposito(armazem03, coletor03, StatusDeposito.CONCLUIDO, LocalDate.of(1333, 12, 2));
+		Deposito deposito03 = new Deposito(armazem03, coletor03, StatusDeposito.CONCLUIDO, LocalDate.of(2025, 12, 2));
 
 		DepositoDAO depositoDAO03 = new DepositoDAOImpl();
 		depositoDAO03.inserirDeposito(deposito03);
@@ -362,7 +362,7 @@ public class Main {
 
 		// =============================================================================================================
 
-		Deposito deposito04 = new Deposito(armazem04, coletor04, StatusDeposito.CONCLUIDO, LocalDate.of(1333, 12, 2));
+		Deposito deposito04 = new Deposito(armazem04, coletor04, StatusDeposito.CONCLUIDO, LocalDate.of(2025, 12, 2));
 
 		DepositoDAO depositoDAO04 = new DepositoDAOImpl();
 		depositoDAO04.inserirDeposito(deposito04);
@@ -377,7 +377,7 @@ public class Main {
 
 		// =============================================================================================================
 
-		Deposito deposito05 = new Deposito(armazem05, coletor05, StatusDeposito.CONCLUIDO, LocalDate.of(1333, 12, 2));
+		Deposito deposito05 = new Deposito(armazem05, coletor05, StatusDeposito.CONCLUIDO, LocalDate.of(2025, 12, 2));
 
 		DepositoDAO depositoDAO05 = new DepositoDAOImpl();
 		depositoDAO05.inserirDeposito(deposito05);
@@ -392,73 +392,37 @@ public class Main {
 
 		// =============================================================================================================
 
-		Retirada retirada01 = new Retirada(LocalDate.of(1333, 5, 2), cooperativa01, armazem01,
-				StatusRetirada.CONCLUIDO);
-
-		RetiradaDAO retiradaDAO = new RetiradaDAOImpl();
-		retiradaDAO.inserirRetirada(retirada01);
-
-		ItemRetirada itemRetirada01 = new ItemRetirada(aluminio, 500, retirada01);
-		ItemRetiradaDAO itemRetiradaDAO = new ItemRetiradaDAOImpl();
-		itemRetiradaDAO.inserirItemRetirada(itemRetirada01);
-		retirada01.inserirItemRetirada(itemRetirada01);
-		retiradaDAO.atualizarRetirada(retirada01);
+		ItemRetirada itemRetirada01 = new ItemRetirada(aluminio, 500);
+		Retirada retirada01 = new Retirada(LocalDate.of(2025, 5, 2), cooperativa01, armazem01, StatusRetirada.AGENDADO, itemRetirada01);
+		RetiradaDAO retiradaDAO01 = new RetiradaDAOImpl();
+		retiradaDAO01.inserirRetirada(retirada01);
 
 		// =============================================================================================================
 
-		Retirada retirada02 = new Retirada(LocalDate.of(1333, 5, 2), cooperativa02, armazem02,
-				StatusRetirada.CONCLUIDO);
-
+		ItemRetirada itemRetirada02 = new ItemRetirada(aluminio, 500);
+		Retirada retirada02 = new Retirada(LocalDate.of(2025, 5, 2), cooperativa02, armazem02, StatusRetirada.AGENDADO, itemRetirada02);
 		RetiradaDAO retiradaDAO02 = new RetiradaDAOImpl();
 		retiradaDAO02.inserirRetirada(retirada02);
-
-		ItemRetirada itemRetirada02 = new ItemRetirada(aluminio, 500, retirada01);
-		ItemRetiradaDAO itemRetiradaDAO02 = new ItemRetiradaDAOImpl();
-		itemRetiradaDAO02.inserirItemRetirada(itemRetirada02);
-		retirada02.inserirItemRetirada(itemRetirada02);
-		retiradaDAO02.atualizarRetirada(retirada02);
-
+		
 		// =============================================================================================================
 
-		Retirada retirada03 = new Retirada(LocalDate.of(1333, 5, 2), cooperativa03, armazem03,
-				StatusRetirada.CONCLUIDO);
-
+		ItemRetirada itemRetirada03 = new ItemRetirada(aluminio, 500);
+		Retirada retirada03 = new Retirada(LocalDate.of(2025, 5, 2), cooperativa03, armazem03, StatusRetirada.AGENDADO, itemRetirada03);
 		RetiradaDAO retiradaDAO03 = new RetiradaDAOImpl();
 		retiradaDAO03.inserirRetirada(retirada03);
 
-		ItemRetirada itemRetirada03 = new ItemRetirada(aluminio, 500, retirada03);
-		ItemRetiradaDAO itemRetiradaDAO03 = new ItemRetiradaDAOImpl();
-		itemRetiradaDAO03.inserirItemRetirada(itemRetirada03);
-		retirada03.inserirItemRetirada(itemRetirada03);
-		retiradaDAO03.atualizarRetirada(retirada03);
-
 		// =============================================================================================================
 
-		Retirada retirada04 = new Retirada(LocalDate.of(1333, 5, 2), cooperativa04, armazem04,
-				StatusRetirada.CONCLUIDO);
-
+		ItemRetirada itemRetirada04 = new ItemRetirada(aluminio, 500);
+		Retirada retirada04 = new Retirada(LocalDate.of(2025, 5, 2), cooperativa04, armazem04, StatusRetirada.AGENDADO, itemRetirada04);
 		RetiradaDAO retiradaDAO04 = new RetiradaDAOImpl();
 		retiradaDAO04.inserirRetirada(retirada04);
 
-		ItemRetirada itemRetirada04 = new ItemRetirada(aluminio, 500, retirada04);
-		ItemRetiradaDAO itemRetiradaDAO04 = new ItemRetiradaDAOImpl();
-		itemRetiradaDAO04.inserirItemRetirada(itemRetirada04);
-		retirada04.inserirItemRetirada(itemRetirada04);
-		retiradaDAO04.atualizarRetirada(retirada04);
-
 		// =============================================================================================================
-
-		Retirada retirada05 = new Retirada(LocalDate.of(1333, 5, 2), cooperativa05, armazem05,
-				StatusRetirada.CONCLUIDO);
-
+		
+		ItemRetirada itemRetirada05 = new ItemRetirada(aluminio, 500);
+		Retirada retirada05 = new Retirada(LocalDate.of(2025, 5, 2), cooperativa05, armazem05, StatusRetirada.AGENDADO, itemRetirada05);
 		RetiradaDAO retiradaDAO05 = new RetiradaDAOImpl();
 		retiradaDAO05.inserirRetirada(retirada05);
-
-		ItemRetirada itemRetirada05 = new ItemRetirada(aluminio, 500, retirada05);
-		ItemRetiradaDAO itemRetiradaDAO05 = new ItemRetiradaDAOImpl();
-		itemRetiradaDAO05.inserirItemRetirada(itemRetirada05);
-		retirada05.inserirItemRetirada(itemRetirada05);
-		retiradaDAO05.atualizarRetirada(retirada05);
-
 	}
 }

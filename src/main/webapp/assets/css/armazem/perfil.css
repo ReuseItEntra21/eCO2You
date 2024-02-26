@@ -1,0 +1,23 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+
+body {
+	background-color: #FFFFFF;
+	min-height: 100vh;
+	min-width: 100vw;
+}
+
+a {
+	text-decoration: none;
+	color: #000000;
+}
+
+.vl {
+	height: 10vh;
+	border-left: 2px solid;
+	margin: 0 2vw 0 2vw;
+}
