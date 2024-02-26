@@ -12,25 +12,21 @@
 	</head>
 	<body>
 		<%@ include file="../../../assets/paginas/armazem/menu.jsp"%>
-		<div>
 			<div>
-				<img src="#" alt="Imagem Perfil" name="imagem" id=imagem1> <span>${armazem.nome}</span>
-				<span>${armazem.horarioAbertura} -
-					${armazem.horarioFechamento}</span> <span>${armazem.endereco.tipoVia}
-					${armazem.endereco.logradouro}</span> <span>${armazem.endereco.bairro}</span>
-				<span>${armazem.endereco.numeroEndereco}</span> <span>${armazem.endereco.cidade},
-					SC</span>
-			</div>
-			<div>
-				<span>${armazem.statusArmazem}</span> <a href="editar-perfil-armazem"
-					id=editarPerfil>Editar Perfil</a> <img src="#" name=imagem
-					id=imagem2>
-			</div>
-			<div class="container-select">
-				<div class="item-select">Depósitos pendentes</div>
-				<div class="item-select">Retiradas pendentes</div>
-				<div class="item-select">Histórico de depósitos</div>
-				<div class="item-select">Histórico de retiradas</div>
+				<div class="item-perfil">
+						<svg id="foto-armazem">
+							<%@include file="../../images/perfil.jsp"%>
+						</svg>
+						<div class="vl"></div>
+					<div class="nome-armazem">
+						<span>${armazem.nome}</span>
+					</div>
+					<div id="item-horario"><span>${armazem.horarioAbertura} - ${armazem.horarioFechamento}</span></div>
+					<div id="item-logradouro"><span>${armazem.endereco.tipoVia} ${armazem.endereco.logradouro}</span></div>
+					<div id="item-bairro"><span>${armazem.endereco.bairro}</span></div>
+					<div id="item-numeroEndereco"><span>${armazem.endereco.numeroEndereco}</span></div>
+					<div id="item-cidade"><span>${armazem.endereco.cidade}, SC </span></div>
+					<div id="item-status"><span>${armazem.statusArmazem}</span></div>
 			</div>
 			<div class="container-depositos">
 				<span> Depósitos á serem aceitos </span>
