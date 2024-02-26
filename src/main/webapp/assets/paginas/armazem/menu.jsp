@@ -9,28 +9,28 @@
 		</div>
 		<div class="container-menu">
 			<div class="item-menu">
-				<a  href="depositos-pendentes-armazem">
+				<a  href="depositos-agendados-armazem">
 					<svg><%@include file="../../images/pendente.jsp"%></svg>Depositos
 				</a>
 			</div>
 			<div class="item-menu">
-				<a href="historico-armazem">
+				<a href="historico-depositos-armazem">
 					<svg><%@include file="../../images/historico.jsp"%></svg>Histórico Depositos
 				</a>
 			</div>
 			<div class="item-menu">
-				<a  href="retiradas-pendentes-armazem">
+				<a  href="retiradas-agendadas-armazem">
 					<svg><%@include file="../../images/pendente.jsp"%></svg>Retiradas
 				</a>
 			</div>
 			<div class="item-menu">
-				<a href="historico-armazem">
-					<svg><%@include file="../../images/historico.jsp"%></svg>Histórico Reiradas
+				<a href="historico-retiradas-armazem">
+					<svg><%@include file="../../images/historico.jsp"%></svg>Histórico Retiradas
 				</a>
 			</div>
 			<div class="item-menu">
-				<a class="perfil" href="editar-perfil-coletor">
-					<svg><%@include file="../../images/perfil.jsp"%></svg> Olá ${coletor.nome}
+				<a class="perfil" href="editar-perfil-armazem">
+					<svg><%@include file="../../images/perfil.jsp"%></svg> Olá ${armazem.nome}
 				</a>
 			</div>
 			<div class="item-menu">
