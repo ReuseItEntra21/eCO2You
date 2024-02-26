@@ -22,8 +22,11 @@
 				<input type="date" oninput="this.className = ''" name="data" id=deposito>
 			</div>
 			<div class="item-deposito">
-				<label for="deposito">Armazém</label>
-				<input type="text" value="${armazem.nome}" name="nome">
+				<select name="id">
+					<c:forEach var="armazem" items="${armazens}">
+						<option value="${armazem.id}">${armazem.nome}</option>
+					</c:forEach>
+				</select>
 			</div>
 			<div class="item-deposito">
 				<label> Escolha a Reciclavel </label>
