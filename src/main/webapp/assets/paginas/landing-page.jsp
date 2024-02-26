@@ -14,7 +14,6 @@
 		<%@ include file="menu.jsp"%>
 		<div class="box">
 			<h2>CONECTANDO DOADORES COM PONTOS DE COLETA.</h2 >
-
 			<p>Transfomando sua contribuição em impacto sustentável.</p>
 			<a href="<%=request.getContextPath()%>/cadastro-coletor">Seja um Coletor</a>
 			<a href="<%=request.getContextPath()%>/procurar-armazem">Procure um Armazém</a>
