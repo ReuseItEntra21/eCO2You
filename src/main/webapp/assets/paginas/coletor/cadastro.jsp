@@ -11,7 +11,7 @@
 	<style><%@include file="../../../assets/css/coletor/cadastro.css"%></style>
 </head>
 <body>
-	<a href="apresentacao" id=voltar><svg><%@include file="../../images/xmark.jsp"%></svg></a>
+	<a href="landing-page" id=voltar><svg><%@include file="../../images/xmark.jsp"%></svg></a>
 	    <div style="text-align:center;">
 			<span class="step"></span>
 			<span class="step"></span>

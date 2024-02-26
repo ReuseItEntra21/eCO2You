@@ -8,18 +8,26 @@
 	<style><%@include file="../../../assets/css/cooperativa/cadastro.css"%></style>
 </head>
 <body>
-	<a href="landing-page" id=voltar>Voltar</a>
-	    <div id="item-dois-pontos">
+	<a href="landing-page" id=voltar><svg><%@include file="../../images/xmark.jsp"%></svg></a>
+	    <div style="text-align:center;">
 			<span class="step"></span>
 			<span class="step"></span>
 		</div>
 		<div class="container-cadastro">
-			<form id="regForm" action="inserir-cooperativa" method="post">
+			<form id="regForm" action="inserir-cooperativa">
 				<span class="titulo-cadastro">Cadastro</span>
 				<div class="tab">
 					<div class="item-cadastro">
 						<label for="nome" class="informacao-cadastro">Nome</label>
 						<input type="text" placeholder="Nome" oninput="this.className = ''" name="nome" id=nome >
+					</div>
+					<div class="item-cadastro">
+						<label for="cnpj" class="informacao-cadastro">CNPJ</label>
+				    	<input type="text" placeholder="00.000.000/0000-00" oninput="this.className = ''" name="cnpj" id=cnpj >
+					</div>
+					<div class="item-cadastro">
+						<label for="telefone" class="informacao-cadastro">Telefone</label>
+				    	<input type="text" placeholder="Telefone" oninput="this.className = ''" name="telefone" id=telefone>
 					</div>
 					<div class="container-cadastro-row">
 						<div class="item-cadastro-row">
@@ -30,14 +38,6 @@
 							<label for="horarioFechamento" class="informacao-cadastro">Horario Fechamento</label>
 					    	<input type="time" placeholder="Horario Fechamento" oninput="this.className = ''" name="horarioFechamento" id=horarioFechamento >
 						</div>
-					</div>
-					<div class="item-cadastro">
-						<label for="cnpj" class="informacao-cadastro">CNPJ</label>
-				    	<input type="text" placeholder="00.000.000/0000-00" oninput="this.className = ''" name="cnpj" id=cnpj >
-					</div>
-					<div class="item-cadastro">
-						<label for="telefone" class="informacao-cadastro">Telefone</label>
-				    	<input type="text" placeholder="Telefone" oninput="this.className = ''" name="telefone" id=telefone>
 					</div>
 					<div class="item-cadastro">
 						<label for="email" class="informacao-cadastro">E-mail</label>
@@ -61,19 +61,24 @@
 				    	<label for="bairro" class="informacao-cadastro">Bairro</label>
 				    	<input type="text" placeholder="Bairro" oninput="this.className = ''" name="bairro" id=bairro>
 				    </div>
-				   <div class="container-cadastro-row">
-						<div class="item-cadastro-row">
-							<label for="tipoVia" class="informacao-cadastro">Tipo da Via</label>
-					    	<input type="text" placeholder="Tipo da Via" oninput="this.className = ''" name="tipoVia" id=tipoVia>
-						</div>
-						<div class="item-cadastro-row">
-							<label for="logradouro" class="informacao-cadastro">Logradouro</label>
-					    	<input type="text" placeholder="Logradouro" oninput="this.className = ''" name="logradouro" id=logradouro>
-						</div>
-					</div>
+				     
+				     
+				   <div class="container-items">
+				    <div class="item-cadastro-row">
+				    <label for="tipoVia" class="informacao-cadastro">Tipo da Via</label>
+				    	<input type="text" placeholder="Tipo da Via" oninput="this.className = ''" name="tipoVia" id=tipoVia>
+				
+				</div>
+				    <div class="item-cadastro-row">
+				    	<label for="logradouro" class="informacao-cadastro">Logradouro</label>
+				    	<input type="text" placeholder="Logradouro" oninput="this.className = ''" name="logradouro" id=logradouro>
+		
+				    </div>
+				    	  </div>
+				   
 				    <div class="item-cadastro">
-				    	<label for="numeroEndereco" class="informacao-cadastro">Número da Residencia</label>
-				   		<input type="text" placeholder="Número" oninput="this.className = ''" name="numeroEndereco" id=numeroEndereco>
+				    	<label for="numero" class="informacao-cadastro">Número da Residencia</label>
+				   		<input type="text" placeholder="Número" oninput="this.className = ''" name="numero" id=numero>
 				    </div>
 				    <div class="item-cadastro">
 				    	<label for="complemento" class="informacao-cadastro">Complemento</label>
