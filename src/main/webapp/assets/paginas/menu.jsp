@@ -13,7 +13,7 @@
 					<button class="dropbtn">Cadastre-se</button>
 					<div class="dropdown-content">
 						<a href="cadastro-coletor">Coletor</a>
-						<a href="cadastro-Armazém">Armazém</a>
+						<a href="cadastro-armazem">Armazém</a>
 					 	<a href="cadastro-cooperativa">Cooperativa</a>
 					</div>
 				</div>

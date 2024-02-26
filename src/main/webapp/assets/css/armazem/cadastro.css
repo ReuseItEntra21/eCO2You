@@ -93,7 +93,7 @@ input.invalid {
 	color: #FFFFFF;
 	background-color: #50806B;
 	height: 5vh;
-	width: 16vw;
+	width: 14vw;
 	cursor: pointer;
 	transition: all 0.3s ease;
 }
