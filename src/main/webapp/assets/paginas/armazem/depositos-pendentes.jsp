@@ -18,7 +18,7 @@
 				<c:forEach var="deposito" items="${depositosAgendados}">
 					<div class="item-deposito-agendado">
 						<div class="info">
-							<svg class="foto-armazem">
+							<svg class="foto-coletor">
 								<%@include file="../../images/perfil.jsp"%>
 							</svg>
 							<div class="vl"></div>
@@ -47,7 +47,7 @@
 				<c:forEach var="deposito" items="${depositosPendentes}">
 					<div class="item-deposito-agendado">
 						<div class="info">
-							<svg class="foto-armazem">
+							<svg class="foto-coletor">
 								<%@include file="../../images/perfil.jsp"%>
 							</svg>
 							<div class="vl"></div>
