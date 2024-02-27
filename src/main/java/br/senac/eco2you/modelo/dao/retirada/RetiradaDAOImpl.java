@@ -632,7 +632,7 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 
 	}
 	
-	public List<Retirada> buscarRetiradasPeloStatus(StatusRetirada statusRetirada, Long id) {
+	public List<Retirada> buscarRetiradasPeloStatusECooperativa(StatusRetirada statusRetirada, Long id) {
 		
 		Session sessao = null;
 		List<Retirada> retiradas = null;
@@ -647,6 +647,35 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 			criteria.where(
 				    construtor.equal(raizDeposito.get(Retirada_.STATUS_DE_RETIRADA), statusRetirada),
 				    construtor.equal(raizDeposito.get(Retirada_.COOPERATIVA), id));
+
+			criteria.orderBy(construtor.asc(raizDeposito.get(Deposito_.DATA)));
+			
+			retiradas = sessao.createQuery(criteria).getResultList();
+	
+			sessao.getTransaction().commit();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return retiradas;
+
+	}
+	
+	public List<Retirada> buscarRetiradasPeloStatusEArmazem(StatusRetirada statusRetirada, Long id) {
+		
+		Session sessao = null;
+		List<Retirada> retiradas = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+		    sessao.beginTransaction();
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Retirada> criteria = construtor.createQuery(Retirada.class);
+			Root<Retirada> raizDeposito = criteria.from(Retirada.class);
+				
+			criteria.where(
+				    construtor.equal(raizDeposito.get(Retirada_.STATUS_DE_RETIRADA), statusRetirada),
+				    construtor.equal(raizDeposito.get(Retirada_.ARMAZEM), id));
 
 			criteria.orderBy(construtor.asc(raizDeposito.get(Deposito_.DATA)));
 			

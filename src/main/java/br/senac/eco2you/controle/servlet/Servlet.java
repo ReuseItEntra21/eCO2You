@@ -240,7 +240,7 @@ public class Servlet extends HttpServlet {
 				break;
 
 			case "/depositos-pendentes-armazem":
-				mostrarDepositosAgendadosArmazem(request, response);
+				mostrarDepositosPendentesArmazem(request, response);
 				break;
 
 			case "/editar-deposito":
@@ -248,7 +248,7 @@ public class Servlet extends HttpServlet {
 				break;
 
 			case "/retiradas-pendentes-armazem":
-				mostrarRetiradasAgendadasArmazem(request, response);
+				mostrarRetiradasPendentesArmazem(request, response);
 				break;
 
 			case "/retiradas-pendentes-cooperativa":
@@ -400,7 +400,7 @@ public class Servlet extends HttpServlet {
 		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
 		request.setAttribute("coletor", coletor);
 
-		List<Deposito> depositos = depositoDAO.buscarDepositosPeloStatus(StatusDeposito.CONCLUIDO, coletor.getId());
+		List<Deposito> depositos = depositoDAO.buscarDepositosPeloStatusEColetor(StatusDeposito.CONCLUIDO, coletor.getId());
 		request.setAttribute("depositos", depositos);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/historico-depositos.jsp");
@@ -450,7 +450,7 @@ public class Servlet extends HttpServlet {
 		HttpSession sessao = request.getSession();
 		Cooperativa cooperativa = (Cooperativa) sessao.getAttribute("usuario");
 		
-		List<Retirada> retiradas= retiradaDAO.buscarRetiradasPeloStatus(StatusRetirada.CONCLUIDO, cooperativa.getId());
+		List<Retirada> retiradas= retiradaDAO.buscarRetiradasPeloStatusECooperativa(StatusRetirada.CONCLUIDO, cooperativa.getId());
 		request.setAttribute("retiradas", retiradas);
 
 		RequestDispatcher dispatcher = request
@@ -469,10 +469,10 @@ public class Servlet extends HttpServlet {
 			Coletor coletor = (Coletor) sessao.getAttribute("usuario");
 			request.setAttribute("coletor", coletor);
 			
-			List<Deposito> depositosAgendados= depositoDAO.buscarDepositosPeloStatus(StatusDeposito.AGENDADO, coletor.getId());
+			List<Deposito> depositosAgendados= depositoDAO.buscarDepositosPeloStatusEColetor(StatusDeposito.AGENDADO, coletor.getId());
 			request.setAttribute("depositosAgendados", depositosAgendados);
 			
-			List<Deposito> depositosPendentes = depositoDAO.buscarDepositosPeloStatus(StatusDeposito.PENDENTE, coletor.getId());
+			List<Deposito> depositosPendentes = depositoDAO.buscarDepositosPeloStatusEColetor(StatusDeposito.PENDENTE, coletor.getId());
 			request.setAttribute("depositosPendentes", depositosPendentes);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/depositos-pendentes.jsp");
@@ -497,10 +497,10 @@ public class Servlet extends HttpServlet {
 			Cooperativa cooperativa = (Cooperativa) sessao.getAttribute("usuario");
 			request.setAttribute("cooperativa", cooperativa);
 			
-			List<Retirada> retiradasAgendadas= retiradaDAO.buscarRetiradasPeloStatus(StatusRetirada.AGENDADO, cooperativa.getId());
+			List<Retirada> retiradasAgendadas= retiradaDAO.buscarRetiradasPeloStatusECooperativa(StatusRetirada.AGENDADO, cooperativa.getId());
 			request.setAttribute("retiradasAgendadas", retiradasAgendadas);
 			
-			List<Retirada> retiradasPendentes = retiradaDAO.buscarRetiradasPeloStatus(StatusRetirada.PENDENTE, cooperativa.getId());
+			List<Retirada> retiradasPendentes = retiradaDAO.buscarRetiradasPeloStatusECooperativa(StatusRetirada.PENDENTE, cooperativa.getId());
 			request.setAttribute("retiradasPendentes", retiradasPendentes);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/cooperativa/retiradas-pendentes.jsp");
@@ -514,18 +514,61 @@ public class Servlet extends HttpServlet {
 		}
 	}
 
-	private void mostrarDepositosAgendadosArmazem(HttpServletRequest request, HttpServletResponse response)
+	private void mostrarDepositosPendentesArmazem(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/depositos-pendentes.jsp");
-		dispatcher.forward(request, response);
+		if (usuario instanceof Armazem) {
+
+			Armazem armazem = (Armazem) sessao.getAttribute("usuario");
+			request.setAttribute("armazem", armazem);
+			
+			List<Deposito> depositosAgendados= depositoDAO.buscarDepositosPeloStatusEArmazem(StatusDeposito.AGENDADO, armazem.getId());
+			request.setAttribute("depositosAgendados", depositosAgendados);
+			
+			List<Deposito> depositosPendentes = depositoDAO.buscarDepositosPeloStatusEArmazem(StatusDeposito.PENDENTE, armazem.getId());
+			request.setAttribute("depositosPendentes", depositosPendentes);
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/depositos-pendentes.jsp");
+			dispatcher.forward(request, response);
+
+		} else {
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/login.jsp");
+			dispatcher.forward(request, response);
+
+		}
 	}
 
-	private void mostrarRetiradasAgendadasArmazem(HttpServletRequest request, HttpServletResponse response)
+	private void mostrarRetiradasPendentesArmazem(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/retiradas-pendentes.jsp");
+		if (usuario instanceof Armazem) {
+
+			Armazem armazem = (Armazem) sessao.getAttribute("usuario");
+			request.setAttribute("armazem", armazem);
+			
+			List<Retirada> retiradasAgendadas= retiradaDAO.buscarRetiradasPeloStatusEArmazem(StatusRetirada.AGENDADO, armazem.getId());
+			request.setAttribute("retiradasAgendadas", retiradasAgendadas);
+			
+			List<Retirada> retiradasPendentes = retiradaDAO.buscarRetiradasPeloStatusEArmazem(StatusRetirada.PENDENTE, armazem.getId());
+			request.setAttribute("retiradasPendentes", retiradasPendentes);
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/retiradas-pendentes.jsp");
+			dispatcher.forward(request, response);
+
+		} else {
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/login.jsp");
 		dispatcher.forward(request, response);
+		
+		}
+
 	}
 
 	private void mostrarEditarPerfilColetor(HttpServletRequest request, HttpServletResponse response)
