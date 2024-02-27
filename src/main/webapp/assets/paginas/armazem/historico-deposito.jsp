@@ -21,7 +21,7 @@
 				<thead>
 					<tr>
 						<th id="coluna-data">Data</th>
-						<th id="coluna-armazem">Coletor</th>
+						<th id="coluna-coletor">Coletor</th>
 						<th id="coluna-status">Status</th>
 	                    <th id="coluna-resumo">Resumo</th>
 					</tr>
