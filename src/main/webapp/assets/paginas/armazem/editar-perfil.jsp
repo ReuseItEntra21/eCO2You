@@ -1,12 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page isELIgnored="false" %>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
+	<meta charset="UTF-8">
 		<title>Editar Perfil</title>
-		<style><%@include file="../../css/armazem/editar-perfil.css"%></style>
+		<script src="https://kit.fontawesome.com/9b206050e6.js" crossorigin="anonymous"></script>
+		<style><%@include file="../../../assets/css/armazem/editar-perfil.css"%></style>
 	</head>
     <body>
         <div class="container-form">
@@ -24,33 +19,32 @@
 	        	<form action="atualizar-armazem">
 					<div class="container-inputs">
 						<div>
-					<input type="text" value="<c:out value='${armazem.nome}' />" id="nome" name="nome" autofocus placeholder="Informe o seu Nome">
-					<input type="text" value="<c:out value='${armazem.endereco.cep}' />" id="cep" name="cep" placeholder="Informe o seu CEP">
-					</div>
-					<div>
-					<input type="email" value="<c:out value='${armazem.email}' />" id="email" name="email" placeholder="Informe o seu Email">
-					<input type="text" value="<c:out value='${armazem.cnpj}' />" id="cnpj" name="cnpj" placeholder="Informe o seu CNPJ">
-					</div>
-					<div>
-					<input type="tel" value="<c:out value='${armazem.endereco.telefone}' />" id="telefone" name="telefone" placeholder="Informe o seu Telefone">
-					<input type="number" value="<c:out value='${armazem.endereco.numeroEndereco}' />" id="numeroEndereco" name="numeroEndereco" placeholder="Informe o NÃºmero">
-					</div>
-					<div>
-					<input type="text" value="<c:out value='${armazem.senha}' />" id="senha" name="senha" placeholder="Informe a Senha">
-					<input type="text" value="<c:out value='${armazem.endereco.cidade}' />" id="cidade" name="cidade" placeholder="Informe a sua Cidade">
-					</div>
-					<div>			
-					<input type="time" value="<c:out value='${armazem.horarioAbertura}' />" id="horarioAbertura" name="horarioAbertura" placeholder="Informe o seu Horario de Abertura">
-					<input type="text" value="<c:out value='${armazem.endereco.bairro}' />" id="bairro" name="bairro" placeholder="Informe o seu Bairro">
-					</div>
-					<div>			
-					<input type="time" value="<c:out value='${armazem.horarioFechamento}' />" id="horarioFechamento" name="horarioFechamento" placeholder="Informe o seu Horario de Fechamento">
-					<input type="text" value="<c:out value='${armazem.endereco.logradouro}' />" id="logradouro" name="logradouro" placeholder="Informe o Logradouro">
-					</div>
-					<div>
-					<input type="number" value="<c:out value='${armazem.capacidadeArmazenagem}' />" id="capacidadeArmazenagem" name="capacidadeArmazenagem" placeholder="Informe o NÃºmero">
-					<input type="text" value="<c:out value='${armazem.endereco.complemento}' />" id="complemento" name="complemento" placeholder="Informe o complemento">
-				</div>
+							<input type="text" value="${armazem.nome}"id="nome" name="nome" placeholder="Informe seu nome">
+							<input type="text" value="${armazem.sobrenome}" id="sobrenome" name="sobrenome" placeholder="Informe seu sobrenome">
+						</div>
+				        	<input type="email" value="${armazem.email}" id="email" name="email" placeholder="Informe seu Email">
+				        	<input type="text" value="${armazem.senha}" id="senha" name="senha" placeholder="Digite uma senha">
+				        
+				       <div>
+				       		<div><input type="text" value="${armazem.cpf}" id="cpf" name="cpf" placeholder="Informe seu CPF">
+				       		<input type="tel" value="${armazem.endereco.telefone}" id="telefone" name="telefone" placeholder="Informe seu telefone">        
+				        </div> 
+				        	<div><input type="text" value="${armazem.endereco.cidade}" id="cidade" name="cidade" placeholder="Informe a sua Cidade">
+				        	<input type="text" value="${armazem.endereco.bairro}" id="bairro" name="bairro" placeholder="Informe seu bairro">
+				        </div>
+				        <div>
+				       	 	<input type="text" value="${armazem.endereco.tipoVia}" id="tipoVia" name="tipoVia" placeholder="Informe o tipo de via">
+				        	<input type="number" value="${armazem.endereco.numeroEndereco}" id="numeroEndereco" name="numeroEndereco" placeholder="Informe o número de residência">
+				        </div>
+				       	<div>
+				       		<input type="text" value="${armazem.endereco.logradouro}" id="logradouro" name="logradouro" placeholder="Informe seu logradouro">
+				        	<input type="text" value="${armazem.endereco.cep}" id="cep" name="cep" placeholder="Informe seu CEP">
+				        <div>
+				        	<input type="text" value="${armazem.endereco.complemento}" id="complemento" name="complemento" placeholder="Complementos">
+				        </div>
+				        
+				        </div>
+			        </div>
 			        </div>
 				</form>
 	        </div>      	
