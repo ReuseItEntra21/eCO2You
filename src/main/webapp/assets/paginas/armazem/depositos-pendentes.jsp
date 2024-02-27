@@ -1,48 +1,83 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page isELIgnored="false"%>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Depositos</title>
-<style><%@include file="../../css/armazem/depositos-agendados.css"%></style>
-</head>
-<body>
-	<div>
-		<a href="perfil-armazem" id="voltar">
-			<svg>
-				<%@include file="../../images/voltar.jsp"%>
-			</svg>
-		</a>
-	    <div class="container-depositos">
-		    <h2> Depósitos á serem aceitos </h2>
-		    <c:forEach var="deposito" items="${depositos}">
-		        <img src="#" alt="Imagem ItemDeposito" name="imagem" id=imagem7>
-		        <c:forEach var="itemDeposito" items="${itemDepositos}">
-		            <span>${itemDeposito.quantidadeReciclaveis}</span>
-		            <span>${itemDeposito.reciclavel.nome}</span>
-		            <span>${itemDeposito.reciclavel.volume}</span>
-		        </c:forEach>
-		        <span>${deposito.data}</span>
-		        <button type=submit>Aceitar</button>
-		        <button type=button>Rejeitar</button>
-		    </c:forEach>
-		 <h2> Depósitos Agendados </h2>
-          <c:forEach var="deposito" items="${depositos}">
-              <img src="#" alt="Imagem ItemDeposito" name="imagem" id=imagem8>
-              <c:forEach var="itemDeposito" items="${itemDepositos}">
-                  <span>${itemDeposito.quantidadeReciclaveis}</span>
-                  <span>${itemDeposito.reciclavel.nome}</span>
-                  <span>${itemDeposito.reciclavel.volume}</span>
-              </c:forEach>
-              <span>${deposito.data}</span>
-              <span>${deposito.coletor}</span>
-              <button type=button>Excluir</button>
-          </c:forEach>
-      </div>
-   </div>  
-</body>
-</html>  
+<html>
+	<head>
+	    <meta charset="UTF-8">
+	    <title>Pendentes</title>
+	    <style><%@include file="../../css/coletor/depositos-pendentes.css"%></style>
+	</head>
+	<body>
+		<a href="perfil-coletor" id="voltar"><svg><%@include file="../../images/voltar.jsp"%></svg></a>
+		<div class="container-depositos">
+			<div class="title">
+				<span>Depósitos Agendados</span>
+			</div>
+			<div class="depositos-agendados">
+				<c:forEach var="deposito" items="${depositosAgendados}">
+					<div class="item-deposito-agendado">
+						<div class="info">
+							<svg class="foto-armazem">
+								<%@include file="../../images/perfil.jsp"%>
+							</svg>
+							<div class="vl"></div>
+							<div class="deposito-info">
+								<p>Depósito #${deposito.id}</p>
+								<p>${deposito.armazem.nome}</p>
+								<p>Data: ${deposito.data}</p>
+							</div>
+						</div>
+						<p>Endereço:</p>
+						<div class="endereco-info">
+							<p>${deposito.armazem.endereco.tipoVia}. ${deposito.armazem.endereco.logradouro}, ${deposito.armazem.endereco.numeroEndereco}</p>
+							<p>${deposito.armazem.endereco.bairro}, ${deposito.armazem.endereco.cidade}, ${deposito.armazem.endereco.cep}</p>
+							<p>${deposito.armazem.endereco.complemento}</p>
+						</div>
+						<p>Resumo:</p>
+						<div class="resumo-info">
+							<c:forEach var="itemDeposito" items="${deposito.itensDeposito}">		
+								${itemDeposito.quantidadeReciclaveis}x ${itemDeposito.reciclavel.nome} ${itemDeposito.reciclavel.volume}ml		
+							</c:forEach>
+						</div>
+					</div>
+				</c:forEach>
+			</div>
+			<div class="title">
+				<span>Depósitos Pendentes</span>
+			</div>
+			<div class="depositos-pendentes">
+				<c:forEach var="deposito" items="${depositosPendentes}">
+					<div class="item-deposito-agendado">
+						<div class="info">
+							<svg class="foto-armazem">
+								<%@include file="../../images/perfil.jsp"%>
+							</svg>
+							<div class="vl"></div>
+							<div class="deposito-info">
+								<p>Depósito #${deposito.id}</p>
+								<p>Armazém: ${deposito.armazem.nome}</p>
+								<p>Data: ${deposito.data}</p>
+							</div>
+						</div>
+						<p>Endereço:</p>
+						<div class="endereco-info">
+							<p>${deposito.armazem.endereco.tipoVia}. ${deposito.armazem.endereco.logradouro}, ${deposito.armazem.endereco.numeroEndereco}</p>
+							<p>${deposito.armazem.endereco.bairro}, ${deposito.armazem.endereco.cidade}, ${deposito.armazem.endereco.cep}</p>
+							<p>${deposito.armazem.endereco.complemento}</p>
+						</div>
+						<p>Resumo:</p>
+						<div class="resumo-info">
+							<c:forEach var="itemDeposito" items="${deposito.itensDeposito}">		
+								${itemDeposito.quantidadeReciclaveis}x ${itemDeposito.reciclavel.nome} ${itemDeposito.reciclavel.volume}ml		
+							</c:forEach>
+						</div>
+					</div>
+					<div class="container-buttons-item-armazem">
+			    		<a href="editar-deposito?id=<c:out value='${deposito.id}'/>">Editar</a>
+			    	</div>
+				</c:forEach>
+			</div>
+		</div>
+	</body>
+</html>
