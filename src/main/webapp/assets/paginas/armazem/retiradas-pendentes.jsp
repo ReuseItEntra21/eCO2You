@@ -32,6 +32,9 @@
 						<div class="resumo-info">	
 							${retirada.itemRetirada.peso}kg ${retirada.itemRetirada.material.nome}		
 						</div>
+						<div>
+							<a href="atualizar-retirada?id=<c:out value='${retirada.id}'/>&status=CONCLUIDO">Aceitar</a>
+						</div>
 					</div>
 				</c:forEach>
 			</div>

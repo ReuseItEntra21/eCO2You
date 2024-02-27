@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -27,26 +28,35 @@ public class Coletor extends Pessoa implements Serializable {
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "coletor", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Deposito> depositos;
-
-	@ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-	@JoinTable(name = "coletor_conquista", joinColumns = @JoinColumn(name = "id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_conquista"))
+	
+	@Column(name = "pontos_coletor", nullable = false)
+	private Integer pontos;
+	
+	@ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST,
+	CascadeType.MERGE})
+	  
+	@JoinTable(name = "coletor_conquista", joinColumns = @JoinColumn(name =
+	"id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_conquista"))
 	private List<Conquista> conquistas = new ArrayList<Conquista>();
 	
 	public Coletor() {}
 	
-	public Coletor(String nome, String sobrenome, String cpf, LocalDate dataNascimento, String email, String senha) {
+	public Coletor(String nome, String sobrenome, String cpf, LocalDate dataNascimento, String email, String senha, int pontos) {
 		super(nome, sobrenome, cpf, dataNascimento, email, senha);
 		depositos = new ArrayList<>();
+		this.pontos = pontos;
 	}
 
-	public Coletor(String nome, String sobrenome, String cpf, LocalDate dataNascimento, String email, String senha, Endereco endereco) {
+	public Coletor(String nome, String sobrenome, String cpf, LocalDate dataNascimento, String email, String senha, Endereco endereco, int pontos) {
 		super(nome, sobrenome, cpf, dataNascimento, email, senha, endereco);
 		depositos = new ArrayList<>();
+		this.pontos = pontos;
 	}
 	
-	public Coletor(long id, String nome, String sobrenome, String cpf, LocalDate dataNascimento, String email, String senha, Endereco endereco) {
+	public Coletor(long id, String nome, String sobrenome, String cpf, LocalDate dataNascimento, String email, String senha, Endereco endereco, int pontos) {
 		super(id, nome, sobrenome, cpf, dataNascimento, email, senha, endereco);
 		depositos = new ArrayList<>();
+		this.pontos = pontos;
 	}
 	
 	public List<Deposito> getDepositos() {
@@ -60,16 +70,24 @@ public class Coletor extends Pessoa implements Serializable {
 	public void removerDeposito(Deposito deposito) {
 		this.depositos.remove(deposito);
 	}
- 
+	
 	public List<Conquista> getConquistas() {
 		return conquistas;
 	}
- 
+	
 	public void inserirConquista(Conquista conquista) {
-		this.conquistas.add(conquista);
+	this.conquistas.add(conquista);
 	}
- 
+	
 	public void removerConquista(Conquista conquista) {
-		this.conquistas.remove(conquista);
+	this.conquistas.remove(conquista);
+	}
+	
+	public Integer getPontos() {
+		return pontos;
+	}
+	
+	public void setPontos(Integer pontos) {
+		this.pontos = pontos;
 	}
 }

@@ -56,7 +56,7 @@ public class Main {
 		// =============================================================================================================
 
 		Coletor coletor01 = new Coletor("José", "Albuquerque", "321.456.789-01", LocalDate.of(1995, 10, 9),
-				"jose.albuquerque@gmail.com", "123456");
+				"jose.albuquerque@gmail.com", "123456", 0);
 		coletor01.setEndereco(endereco01);
 		UsuarioDAO usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(coletor01);
@@ -79,7 +79,7 @@ public class Main {
 		// =============================================================================================================
 
 		Coletor coletor02 = new Coletor("Carlos", "Matos", "123.456.789-01", LocalDate.of(1970, 8, 2),
-				"joao.silva@gmail.com", "123456");
+				"joao.silva@gmail.com", "123456", 0);
 		coletor02.setEndereco(endereco02);
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(coletor02);
@@ -102,7 +102,7 @@ public class Main {
 		// =============================================================================================================
 
 		Coletor coletor03 = new Coletor("Beatriz", "Krauser", "123.456.987-01", LocalDate.of(2000, 8, 2),
-				"beatriz.krauser@gmail.com", "123456");
+				"beatriz.krauser@gmail.com", "123456", 0);
 		coletor03.setEndereco(endereco03);
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(coletor03);
@@ -124,7 +124,7 @@ public class Main {
 		// =============================================================================================================
 
 		Coletor coletor04 = new Coletor("Roberto", "Da Silva", "100.456.987-01", LocalDate.of(2002, 7, 2),
-				"carlos.silva@gmail.com", "123456");
+				"carlos.silva@gmail.com", "123456", 0);
 		coletor04.setEndereco(endereco04);
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(coletor04);
@@ -145,7 +145,7 @@ public class Main {
 		// =============================================================================================================
 
 		Coletor coletor05 = new Coletor("Isabelle", "Cardoso", "100.456.987-01", LocalDate.of(1995, 10, 9),
-				"isabele.cardoso@gmail.com", "123456", endereco05);
+				"isabele.cardoso@gmail.com", "123456", endereco05, 0);
 		usuarioDAO = new UsuarioDAOImpl();
 		usuarioDAO.inserirUsuario(coletor05);
 		coletor05.inserirConquista(conquista05);
