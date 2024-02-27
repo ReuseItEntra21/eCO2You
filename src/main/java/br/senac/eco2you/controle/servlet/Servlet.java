@@ -188,11 +188,11 @@ public class Servlet extends HttpServlet {
 				break;
 
 			case "/atualizar-deposito":
-				atualizarDeposito(request, response);
+				atualizarStatusDeposito(request, response);
 				break;
 				
 			case "/atualizar-retirada":
-				atualizarRetirada(request, response);
+				atualizarStatusRetirada(request, response);
 				break;
 			
 			case "/atualizar-material":
@@ -331,10 +331,6 @@ public class Servlet extends HttpServlet {
 				mostrarPerfilExternoArmazem(request, response);
 				break;
 
-			case "/conquistas-coletor":
-				mostrarConquistasColetor(request, response);
-				break;
-
 			default:
 				mostrarLandingPage(request, response);
 				break;
@@ -432,6 +428,12 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarHistoricoDepositosArmazem(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		
+		HttpSession sessao = request.getSession();
+		Armazem armazem = (Armazem) sessao.getAttribute("usuario");
+		
+		List<Deposito> depositos= depositoDAO.buscarDepositosPeloStatusEArmazem(StatusDeposito.CONCLUIDO, armazem.getId());
+		request.setAttribute("depositos", depositos);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/historico-deposito.jsp");
 		dispatcher.forward(request, response);
@@ -812,19 +814,6 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-	private void mostrarConquistasColetor(HttpServletRequest request, HttpServletResponse response)
-			throws SQLException, IOException, ServletException {
-
-		HttpSession sessao = request.getSession();
-		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
-
-		List<Conquista> conquistas = conquistaDAO.buscarListaConquistaPeloIdColetor(coletor.getId());
-		request.setAttribute("conquistas", conquistas);
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/conquista.jsp");
-		dispatcher.forward(request, response);
-	}
-
 	private void logar(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
@@ -882,7 +871,7 @@ public class Servlet extends HttpServlet {
 		String senha = request.getParameter("senha");
 		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento, telefone);
 		enderecoDAO.inserirEndereco(endereco);
-		usuarioDAO.inserirUsuario(new Coletor(nome, sobrenome, cpf, dataNascimento, email, senha, endereco));
+		usuarioDAO.inserirUsuario(new Coletor(nome, sobrenome, cpf, dataNascimento, email, senha, endereco, 0));
 
 		response.sendRedirect("/eCO2You/login");
 
@@ -907,10 +896,11 @@ public class Servlet extends HttpServlet {
 		String telefone = request.getParameter("telefone");
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
+		int pontos = 0;
 		Endereco endereco = new Endereco(cep, cidade, bairro, tipoVia, logradouro, numeroEndereco, complemento,
 				telefone);
 		enderecoDAO.atualizarEndereco(endereco);
-		usuarioDAO.atualizarUsuario(new Coletor(id, nome, sobrenome, cpf, dataNascimento, email, senha, endereco));
+		usuarioDAO.atualizarUsuario(new Coletor(id, nome, sobrenome, cpf, dataNascimento, email, senha, endereco, pontos));
 
 		HttpSession sessao = request.getSession();
 		Usuario usuario = usuarioDAO.buscarUsuarioPorId(id);
@@ -1143,15 +1133,28 @@ public class Servlet extends HttpServlet {
 		int quantidadeReciclavel = Integer.parseInt(request.getParameter("quantidade-reciclavel"));
 		itemDepositoDAO.inserirItemDeposito(new ItemDeposito(reciclavel, quantidadeReciclavel));
 		deposito.inserirItemDeposito(new ItemDeposito(reciclavel, quantidadeReciclavel));
-		response.sendRedirect("/eCO2You/perfil-coletor");
+		response.sendRedirect("perfil-coletor");
 
 	}
 
-	private void atualizarDeposito(HttpServletRequest request, HttpServletResponse response)
+	private void atualizarStatusDeposito(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 		
-		Deposito deposito = depositoDAO.buscarDepositoPeloId(Long.parseLong(request.getParameter("id")));
+		
+		Coletor coletor = coletorDAO.buscarColetorPeloId(Long.parseLong(request.getParameter("coletor_id")));
+
 		StatusDeposito status = StatusDeposito.valueOf(request.getParameter("status"));
+		
+		int pontos = coletor.getPontos();
+		
+		if (StatusDeposito.CONCLUIDO.equals(status)) {			
+			pontos += 1;			
+		}
+		
+		coletor.setPontos(pontos);
+		usuarioDAO.atualizarUsuario(coletor);
+		
+		Deposito deposito = depositoDAO.buscarDepositoPeloId(Long.parseLong(request.getParameter("id")));		
 		deposito.setStatusDeDeposito(status);
 		depositoDAO.atualizarDeposito(deposito);
 		
@@ -1197,7 +1200,7 @@ public class Servlet extends HttpServlet {
 
 	}
 
-	private void atualizarRetirada(HttpServletRequest request, HttpServletResponse response)
+	private void atualizarStatusRetirada(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
 		Retirada retirada = retiradaDAO.buscarRetiradaPeloId(Long.parseLong(request.getParameter("id")));

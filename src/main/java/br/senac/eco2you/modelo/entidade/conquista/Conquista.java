@@ -33,10 +33,10 @@ public class Conquista implements Serializable {
 	
 	@Column(name = "descricao_conquista", nullable = false)
 	private String descricao;
-	
-	@ManyToMany(mappedBy = "conquistas")
-	private List<Coletor> coletores = new ArrayList<Coletor>();
-
+		
+	@ManyToMany(mappedBy = "conquistas") private List<Coletor> coletores = new
+	ArrayList<Coletor>();
+	 
 	public Conquista() {
 	}
 	
@@ -84,15 +84,12 @@ public class Conquista implements Serializable {
 		this.nome = nome;
 	}
 
-	public List<Coletor> getListaColetores() {
-		return coletores;
-	}
- 
-	public void inserirColetor(Coletor coletor) {
-		this.coletores.add(coletor);
-	}
- 
-	public void removerColetor(Coletor coletor) {
-		this.coletores.remove(coletor);
-	}
+
+  public List<Coletor> getListaColetores() { return coletores; }
+  
+  public void inserirColetor(Coletor coletor) { this.coletores.add(coletor); }
+  
+  public void removerColetor(Coletor coletor) { this.coletores.remove(coletor);
+	  }
+	 
 }

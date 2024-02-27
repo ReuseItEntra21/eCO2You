@@ -11,8 +11,10 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
+import br.senac.eco2you.modelo.entidade.conquista.Conquista;
 import br.senac.eco2you.modelo.entidade.deposito.Deposito;
 import br.senac.eco2you.modelo.entidade.deposito.Deposito_;
+import br.senac.eco2you.modelo.entidade.usuario.Usuario_;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor;
 import br.senac.eco2you.modelo.entidade.usuario.pessoa.coletor.Coletor_;
@@ -24,6 +26,34 @@ public class ColetorDAOImpl implements ColetorDAO {
 
 	public ColetorDAOImpl() {
 		fabrica = new ConexaoFactory();
+	}
+	
+	public void atualizarColetor(Coletor coletor) {
+		Session sessao = null;
+
+		try {
+
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			sessao.update(coletor);
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
 	}
 
 	public Coletor buscarColetorPeloNome(String nome) {
@@ -39,6 +69,30 @@ public class ColetorDAOImpl implements ColetorDAO {
 			Root<Coletor> raizColetor = criteria.from(Coletor.class);
 
 			criteria.select(raizColetor).where(construtor.equal(raizColetor.get(Coletor_.NOME), nome));
+
+			coletor = sessao.createQuery(criteria).uniqueResult();
+			
+			sessao.getTransaction().commit();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return coletor;
+	}
+	
+	public Coletor buscarColetorPeloId(Long id) {
+
+		Session sessao = null;
+		Coletor coletor = null;
+		
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Coletor> criteria = construtor.createQuery(Coletor.class);
+			Root<Coletor> raizColetor = criteria.from(Coletor.class);
+
+			criteria.select(raizColetor).where(construtor.equal(raizColetor.get(Coletor_.ID), id));
 
 			coletor = sessao.createQuery(criteria).uniqueResult();
 			
