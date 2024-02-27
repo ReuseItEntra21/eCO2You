@@ -30,7 +30,7 @@
 					</div>
 					<div class="container-cadastro-row">
 						<div class="item-cadastro-row">
-							<label for="capacidadeArmazenagem" class="informacao-cadastro">Capacidade Armazenagem</label> <input type="text" placeholder="Capacidade" oninput="this.className = ''" name="capacidadeArmazenagem" id=capacidadeArmazenagem>
+							<label for="capacidadeArmazenagem" class="informacao-cadastro">Capacidade</label> <input type="text" placeholder="Capacidade" oninput="this.className = ''" name="capacidadeArmazenagem" id=capacidadeArmazenagem>
 						</div>
 						<div class="item-cadastro-row">
 							<label for="telefone" class="informacao-cadastro">Telefone</label>
