@@ -239,7 +239,7 @@ public class Servlet extends HttpServlet {
 				mostrarDepositosPendentesColetor(request, response);
 				break;
 
-			case "/depositos-agendados-armazem":
+			case "/depositos-pendentes-armazem":
 				mostrarDepositosAgendadosArmazem(request, response);
 				break;
 
@@ -247,7 +247,7 @@ public class Servlet extends HttpServlet {
 				mostrarEditarDeposito(request, response);
 				break;
 
-			case "/retiradas-agendadas-armazem":
+			case "/retiradas-pendentes-armazem":
 				mostrarRetiradasAgendadasArmazem(request, response);
 				break;
 
@@ -517,14 +517,14 @@ public class Servlet extends HttpServlet {
 	private void mostrarDepositosAgendadosArmazem(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/depositos-agendados.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/depositos-pendentes.jsp");
 		dispatcher.forward(request, response);
 	}
 
 	private void mostrarRetiradasAgendadasArmazem(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/retiradas-agendadas.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/retiradas-pendentes.jsp");
 		dispatcher.forward(request, response);
 	}
 
