@@ -74,8 +74,17 @@ public class ColetorDAOImpl implements ColetorDAO {
 			
 			sessao.getTransaction().commit();
 
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception sqlException) {
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+			}
 		}
 		return coletor;
 	}
@@ -98,8 +107,17 @@ public class ColetorDAOImpl implements ColetorDAO {
 			
 			sessao.getTransaction().commit();
 
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception sqlException) {
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+			}
 		}
 		return coletor;
 	}
@@ -157,8 +175,17 @@ public class ColetorDAOImpl implements ColetorDAO {
 			sessao.getTransaction().commit();
 
 			
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception sqlException) {
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+			}
 		}
 		return coletores;
 	}
