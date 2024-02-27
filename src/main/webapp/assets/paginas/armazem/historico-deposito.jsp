@@ -22,6 +22,7 @@
 					<tr>
 						<th id="coluna-data">Data</th>
 						<th id="coluna-armazem">Coletor</th>
+						<th id="coluna-status">Status</th>
 	                    <th id="coluna-resumo">Resumo</th>
 					</tr>
 				</thead>
@@ -29,6 +30,7 @@
 					<tr>			
 						<td>${deposito.data}</td>
 						<td>${deposito.coletor.nome}</td>
+						<td>${deposito.statusDeDeposito}</td>
 	                	<td>
 	                	<c:forEach var="itemDeposito" items="${deposito.itensDeposito}">		
 							${itemDeposito.quantidadeReciclaveis}x ${itemDeposito.reciclavel.nome} ${itemDeposito.reciclavel.volume}ml		
