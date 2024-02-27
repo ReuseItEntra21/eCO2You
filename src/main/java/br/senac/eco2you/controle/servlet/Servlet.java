@@ -1208,7 +1208,7 @@ public class Servlet extends HttpServlet {
 		retirada.setStatusDeRetirada(status);
 		retiradaDAO.atualizarRetirada(retirada);
 		
-		response.sendRedirect("depositos-pendentes-armazem");
+		response.sendRedirect("retiradas-pendentes-armazem");
 	}
 
 	private void inserirConquista(HttpServletRequest request, HttpServletResponse response)
