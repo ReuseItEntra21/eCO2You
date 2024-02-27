@@ -191,6 +191,10 @@ public class Servlet extends HttpServlet {
 				atualizarStatusDeposito(request, response);
 				break;
 				
+			case "/atualizar-informacoes-deposito":
+				atualizarDeposito(request, response);
+				break;
+				
 			case "/atualizar-retirada":
 				atualizarStatusRetirada(request, response);
 				break;
@@ -406,9 +410,15 @@ public class Servlet extends HttpServlet {
 	private void mostrarEditarDeposito(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
-		Deposito deposito = depositoDAO.buscarDepositoComItemDepositoPorId(Long.parseLong(request.getParameter("id")));
+		Deposito deposito = depositoDAO.buscarDepositoComItemDepositoPorIdEStatusDeposito(Long.parseLong(request.getParameter("id")), StatusDeposito.PENDENTE);
 		request.setAttribute("deposito", deposito);
+		
+		List<Armazem> armazens = armazemDAO.buscarArmazens();
+		request.setAttribute("armazens", armazens);
 
+		List<Reciclavel> reciclaveis = reciclavelDAO.buscarReciclaveis();
+		request.setAttribute("reciclaveis", reciclaveis);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/informacoes-deposito.jsp");
 		dispatcher.forward(request, response);
 
@@ -879,6 +889,8 @@ public class Servlet extends HttpServlet {
 
 	private void atualizarColetor(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		
+		HttpSession sessao = request.getSession();
 
 		Coletor coletor = (Coletor) request.getSession().getAttribute("usuario");
 		Long id = coletor.getId();
@@ -902,7 +914,6 @@ public class Servlet extends HttpServlet {
 		enderecoDAO.atualizarEndereco(endereco);
 		usuarioDAO.atualizarUsuario(new Coletor(id, nome, sobrenome, cpf, dataNascimento, email, senha, endereco, pontos));
 
-		HttpSession sessao = request.getSession();
 		Usuario usuario = usuarioDAO.buscarUsuarioPorId(id);
 		sessao.setAttribute("usuario", usuario);
 
@@ -949,6 +960,8 @@ public class Servlet extends HttpServlet {
 
 	private void atualizarArmazem(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		
+		HttpSession sessao = request.getSession();
 
 		Armazem armazem = (Armazem) request.getSession().getAttribute("usuario");
 		Long id = armazem.getId();
@@ -973,7 +986,6 @@ public class Servlet extends HttpServlet {
 		usuarioDAO.atualizarUsuario(new Armazem(id, nome, cnpj, email, senha, capacidadeArmazenagem, horarioAbertura,
 				horarioFechamento, endereco));
 
-		HttpSession sessao = request.getSession();
 		Usuario usuario = usuarioDAO.buscarUsuarioPorId(id);
 		sessao.setAttribute("usuario", usuario);
 
@@ -1020,6 +1032,8 @@ public class Servlet extends HttpServlet {
 
 	private void atualizarCooperativa(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		
+		HttpSession sessao = request.getSession();
 
 		Cooperativa cooperativa = (Cooperativa) request.getSession().getAttribute("usuario");
 		Long id = cooperativa.getId();
@@ -1043,7 +1057,6 @@ public class Servlet extends HttpServlet {
 		usuarioDAO.atualizarUsuario(
 				new Cooperativa(id, nome, cnpj, horarioAbertura, horarioFechamento, endereco, email, senha));
 
-		HttpSession sessao = request.getSession();
 		Usuario usuario = usuarioDAO.buscarUsuarioPorId(id);
 		sessao.setAttribute("usuario", usuario);
 
@@ -1135,6 +1148,28 @@ public class Servlet extends HttpServlet {
 		deposito.inserirItemDeposito(new ItemDeposito(reciclavel, quantidadeReciclavel));
 		response.sendRedirect("perfil-coletor");
 
+	}
+	
+	private void atualizarDeposito(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		
+		HttpSession sessao = request.getSession();
+
+		Long id = Long.parseLong(request.getParameter("id"));
+		
+		Coletor coletor = (Coletor) sessao.getAttribute("usuario");
+		
+		LocalDate data = LocalDate.parse(request.getParameter("data"));
+		
+		Armazem armazem = armazemDAO.buscarArmazemPorId(Long.parseLong(request.getParameter("idArmazem")));
+		
+		Reciclavel reciclavel = reciclavelDAO.buscarReciclavelPorId(Long.parseLong(request.getParameter("idReciclavel")));
+		
+		int quantidadeReciclaveis = Integer.parseInt(request.getParameter("quantidadeReciclaveis"));
+		
+		Deposito deposito = new Deposito (id, armazem, coletor, StatusDeposito.PENDENTE, data );
+		
+		response.sendRedirect("depositos-pendentes-armazem");
 	}
 
 	private void atualizarStatusDeposito(HttpServletRequest request, HttpServletResponse response)
