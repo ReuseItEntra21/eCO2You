@@ -275,16 +275,10 @@ public class ArmazemDAOImpl implements ArmazemDAO {
 			
 		} catch (Exception sqlException) {
 			sqlException.printStackTrace();
-
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
-			}
-
-		} finally {
-			if (sessao != null) {
-				sessao.close();
-			}
-		}
+			}		}
+		
 		return armazens; 
 
 	}
