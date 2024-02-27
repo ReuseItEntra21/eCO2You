@@ -19,6 +19,8 @@ public interface RetiradaDAO {
 	void deletarRetirada(Retirada retirada);
 
 	void atualizarRetirada(Retirada retirada);
+	
+	Retirada buscarRetiradaPeloId(Long id);
 
 	List<Retirada> buscarRetiradaPelaData(LocalDate data);
 

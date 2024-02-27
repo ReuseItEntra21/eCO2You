@@ -207,9 +207,9 @@ public class Servlet extends HttpServlet {
 				deletarDeposito(request, response);
 				break;	
 				
-//			case "/deletar-retirada":
-//				deletarRetirada(request, response);
-//				break;	
+			case "/deletar-retirada":
+				deletarRetirada(request, response);
+				break;	
 				
 			case "/deletar-material":
 				deletarMaterial(request, response);
@@ -1149,17 +1149,13 @@ public class Servlet extends HttpServlet {
 
 	private void atualizarDeposito(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-
-		Long id = Long.parseLong(request.getParameter("id"));
-		LocalDate data = LocalDate.parse(request.getParameter("data"));
-		Armazem armazem = armazemDAO.buscarArmazemPorId(Long.parseLong(request.getParameter("armazem")));
-		Coletor coletor = (Coletor) request.getSession().getAttribute("coletor");
-		depositoDAO.inserirDeposito(new Deposito(id, data, armazem, coletor));
-
-		Reciclavel reciclavel = reciclavelDAO.buscarReciclavelPorId(Long.parseLong(request.getParameter("reciclavel")));
-		int quantidadeReciclaveis = Integer.parseInt(request.getParameter("quantidade-reciclaveis"));
-		itemDepositoDAO.inserirItemDeposito(new ItemDeposito(reciclavel, quantidadeReciclaveis));
-		response.sendRedirect("/eCO2You/perfil-coletor");
+		
+		Deposito deposito = depositoDAO.buscarDepositoPeloId(Long.parseLong(request.getParameter("id")));
+		StatusDeposito status = StatusDeposito.valueOf(request.getParameter("status"));
+		deposito.setStatusDeDeposito(status);
+		depositoDAO.atualizarDeposito(deposito);
+		
+		response.sendRedirect("depositos-pendentes-armazem");
 
 	}
 
@@ -1169,7 +1165,17 @@ public class Servlet extends HttpServlet {
 		long id = Long.parseLong(request.getParameter("id"));
 		Deposito deposito = depositoDAO.buscarDepositoPeloId(id);
 		depositoDAO.deletarDeposito(deposito);
-		response.sendRedirect("/perfil-coletor");
+		response.sendRedirect("depositos-pendentes-armazem");
+
+	}
+	
+	private void deletarRetirada(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException {
+
+		long id = Long.parseLong(request.getParameter("id"));
+		Retirada retirada = retiradaDAO.buscarRetiradaPeloId(id);
+		retiradaDAO.deletarRetirada(retirada);
+		response.sendRedirect("retiradas-pendentes-armazem");
 
 	}
 
@@ -1194,17 +1200,12 @@ public class Servlet extends HttpServlet {
 	private void atualizarRetirada(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
-		Long id = Long.parseLong(request.getParameter("id"));
-		LocalDate data = LocalDate.parse(request.getParameter("data"));
-		Cooperativa cooperativa = (Cooperativa) request.getSession().getAttribute("usuario");
-		Armazem armazem = armazemDAO.buscarArmazemPorId(Long.parseLong(request.getParameter("armazem")));
-		Material material = materialDAO.buscarMaterialPorId(Long.parseLong(request.getParameter("material")));
-		float peso = Float.parseFloat(request.getParameter("peso"));
-		ItemRetirada itemRetirada = new ItemRetirada(material, peso);
-		itemRetiradaDAO.inserirItemRetirada(itemRetirada);		
-		retiradaDAO.inserirRetirada(new Retirada(id, data, cooperativa, armazem, itemRetirada));
+		Retirada retirada = retiradaDAO.buscarRetiradaPeloId(Long.parseLong(request.getParameter("id")));
+		StatusRetirada status = StatusRetirada.valueOf(request.getParameter("status"));
+		retirada.setStatusDeRetirada(status);
+		retiradaDAO.atualizarRetirada(retirada);
 		
-		response.sendRedirect("/eCO2You/home-cooperativa");
+		response.sendRedirect("depositos-pendentes-armazem");
 	}
 
 	private void inserirConquista(HttpServletRequest request, HttpServletResponse response)

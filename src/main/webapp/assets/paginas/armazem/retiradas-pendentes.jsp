@@ -24,15 +24,9 @@
 							<div class="vl"></div>
 							<div class="retirada-info">
 								<p>Retirada #${retirada.id}</p>
-								<p>${retirada.armazem.nome}</p>
+								<p>${retirada.cooperativa.nome}</p>
 								<p>Data: ${retirada.data}</p>
 							</div>
-						</div>
-						<p>Endereço:</p>
-						<div class="endereco-info">
-							<p>${retirada.armazem.endereco.tipoVia}. ${retirada.armazem.endereco.logradouro}, ${retirada.armazem.endereco.numeroEndereco}</p>
-							<p>${retirada.armazem.endereco.bairro}, ${retirada.armazem.endereco.cidade}, ${retirada.armazem.endereco.cep}</p>
-							<p>${retirada.armazem.endereco.complemento}</p>
 						</div>
 						<p>Resumo:</p>
 						<div class="resumo-info">	
@@ -54,19 +48,17 @@
 							<div class="vl"></div>
 							<div class="retirada-info">
 								<p>Retirada #${retirada.id}</p>
-								<p>Retirada: ${retirada.armazem.nome}</p>
+								<p>${retirada.cooperativa.nome}</p>
 								<p>Data: ${retirada.data}</p>
 							</div>
-						</div>
-						<p>Endereço:</p>
-						<div class="endereco-info">
-							<p>${retirada.armazem.endereco.tipoVia}. ${retirada.armazem.endereco.logradouro}, ${retirada.armazem.endereco.numeroEndereco}</p>
-							<p>${retirada.armazem.endereco.bairro}, ${retirada.armazem.endereco.cidade}, ${retirada.armazem.endereco.cep}</p>
-							<p>${retirada.armazem.endereco.complemento}</p>
 						</div>
 						<p>Resumo:</p>
 						<div class="resumo-info">	
 							${retirada.itemRetirada.peso}kg ${retirada.itemRetirada.material.nome}		
+						</div>
+						<div>
+							<a href="atualizar-retirada?id=<c:out value='${retirada.id}'/>&status=AGENDADO">Aceitar</a>
+							<a href="deletar-retirada?id=<c:out value='${retirada.id}'/>">Rejeitar</a>
 						</div>
 					</div>
 				</c:forEach>

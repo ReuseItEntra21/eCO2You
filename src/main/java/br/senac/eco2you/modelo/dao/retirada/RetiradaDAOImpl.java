@@ -15,6 +15,7 @@ import br.senac.eco2you.modelo.entidade.deposito.Deposito;
 import br.senac.eco2you.modelo.entidade.deposito.Deposito_;
 import br.senac.eco2you.modelo.entidade.retirada.Retirada;
 import br.senac.eco2you.modelo.entidade.retirada.Retirada_;
+import br.senac.eco2you.modelo.entidade.usuario.Usuario_;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.armazem.Armazem_;
 import br.senac.eco2you.modelo.entidade.usuario.empresa.cooperativa.Cooperativa;
@@ -138,6 +139,43 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 			}
 
 		}
+
+	}
+	
+	public Retirada buscarRetiradaPeloId(Long id) {
+
+		Session sessao = null;
+		Retirada retirada = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Retirada> criteria = construtor.createQuery(Retirada.class);
+			Root<Retirada> raizUsuario = criteria.from(Retirada.class);
+
+			criteria.select(raizUsuario).where(construtor.equal(raizUsuario.get(Usuario_.ID), id));
+
+			retirada = sessao.createQuery(criteria).getSingleResult();
+
+			sessao.getTransaction().commit();
+
+			
+		} catch (Exception sqlException) {
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return retirada;
 
 	}
 

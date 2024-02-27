@@ -9,7 +9,7 @@
 	    <style><%@include file="../../css/coletor/depositos-pendentes.css"%></style>
 	</head>
 	<body>
-		<a href="perfil-coletor" id="voltar"><svg><%@include file="../../images/voltar.jsp"%></svg></a>
+		<a href="perfil-armazem" id="voltar"><svg><%@include file="../../images/voltar.jsp"%></svg></a>
 		<div class="container-depositos">
 			<div class="title">
 				<span>Depósitos Agendados</span>
@@ -56,15 +56,9 @@
 							<div class="vl"></div>
 							<div class="deposito-info">
 								<p>Depósito #${deposito.id}</p>
-								<p>Armazém: ${deposito.armazem.nome}</p>
+								<p>Coletor: ${deposito.coletor.nome}</p>
 								<p>Data: ${deposito.data}</p>
 							</div>
-						</div>
-						<p>Endereço:</p>
-						<div class="endereco-info">
-							<p>${deposito.armazem.endereco.tipoVia}. ${deposito.armazem.endereco.logradouro}, ${deposito.armazem.endereco.numeroEndereco}</p>
-							<p>${deposito.armazem.endereco.bairro}, ${deposito.armazem.endereco.cidade}, ${deposito.armazem.endereco.cep}</p>
-							<p>${deposito.armazem.endereco.complemento}</p>
 						</div>
 						<p>Resumo:</p>
 						<div class="resumo-info">
@@ -72,10 +66,11 @@
 								${itemDeposito.quantidadeReciclaveis}x ${itemDeposito.reciclavel.nome} ${itemDeposito.reciclavel.volume}ml		
 							</c:forEach>
 						</div>
+						<div>
+							<a href="atualizar-deposito?id=<c:out value='${deposito.id}'/>&status=AGENDADO">Aceitar</a>
+							<a href="deletar-deposito?id=<c:out value='${deposito.id}'/>">Rejeitar</a>
+						</div>
 					</div>
-					<div class="container-buttons-item-armazem">
-			    		<a href="editar-deposito?id=<c:out value='${deposito.id}'/>">Editar</a>
-			    	</div>
 				</c:forEach>
 			</div>
 		</div>
