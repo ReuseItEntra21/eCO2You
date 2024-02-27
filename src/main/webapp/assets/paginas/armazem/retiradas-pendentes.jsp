@@ -6,7 +6,7 @@
 	<head>
 	    <meta charset="UTF-8">
 	    <title>Pendentes</title>
-	    <style><%@include file="../../css/cooperativa/retiradas-pendentes.css"%></style>
+	    <style><%@include file="../../css/armazem/retiradas-pendentes.css"%></style>
 	</head>
 	<body>
 		<a href="perfil-armazem" id="voltar"><svg><%@include file="../../images/voltar.jsp"%></svg></a>
@@ -18,7 +18,7 @@
 				<c:forEach var="retirada" items="${retiradasAgendadas}">
 					<div class="item-retirada-agendada">
 						<div class="info">
-							<svg class="foto-armazem">
+							<svg class="foto-cooperativa">
 								<%@include file="../../images/perfil.jsp"%>
 							</svg>
 							<div class="vl"></div>
@@ -45,7 +45,7 @@
 				<c:forEach var="retirada" items="${retiradasPendentes}">
 					<div class="item-retirada-agendada">
 						<div class="info">
-							<svg class="foto-armazem">
+							<svg class="foto-cooperativa">
 								<%@include file="../../images/perfil.jsp"%>
 							</svg>
 							<div class="vl"></div>
