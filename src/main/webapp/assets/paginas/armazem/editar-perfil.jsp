@@ -3,6 +3,9 @@
 		<script src="https://kit.fontawesome.com/9b206050e6.js" crossorigin="anonymous"></script>
 		<style><%@include file="../../../assets/css/armazem/editar-perfil.css"%></style>
 	</head>
+    	<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <body>
         <div class="container-form">
         	<div class="item-form">
@@ -19,28 +22,30 @@
 	        	<form action="atualizar-armazem">
 					<div class="container-inputs">
 						<div>
-							<input type="text" value="${armazem.nome}"id="nome" name="nome" placeholder="Informe seu nome">
-							<input type="text" value="${armazem.sobrenome}" id="sobrenome" name="sobrenome" placeholder="Informe seu sobrenome">
+							<input class= "input" type="text" value="${armazem.nome}"id="nome" name="nome" placeholder="Informe seu nome">
+							<input class= "input" type="text" value="${armazem.sobrenome}" id="sobrenome" name="sobrenome" placeholder="Informe seu sobrenome">
 						</div>
-				        	<input type="email" value="${armazem.email}" id="email" name="email" placeholder="Informe seu Email">
-				        	<input type="text" value="${armazem.senha}" id="senha" name="senha" placeholder="Digite uma senha">
+				        	<input class= "input" type="email" value="${armazem.email}" id="email" name="email" placeholder="Informe seu Email">
+				        	<input class= "input" type="text" value="${armazem.senha}" id="senha" name="senha" placeholder="Digite uma senha">
 				        
 				       <div>
-				       		<div><input type="text" value="${armazem.cpf}" id="cpf" name="cpf" placeholder="Informe seu CPF">
-				       		<input type="tel" value="${armazem.endereco.telefone}" id="telefone" name="telefone" placeholder="Informe seu telefone">        
+				       		<div>
+				       		<input class= "input" type="text" value="${armazem.cpf}" id="cpf" name="cpf" placeholder="Informe seu CPF">
+				       		<input class= "input" type="tel" value="${armazem.endereco.telefone}" id="telefone" name="telefone" placeholder="Informe seu telefone">        
 				        </div> 
-				        	<div><input type="text" value="${armazem.endereco.cidade}" id="cidade" name="cidade" placeholder="Informe a sua Cidade">
-				        	<input type="text" value="${armazem.endereco.bairro}" id="bairro" name="bairro" placeholder="Informe seu bairro">
+				        	<div>
+				        	<input class= "input" type="text" value="${armazem.endereco.cidade}" id="cidade" name="cidade" placeholder="Informe a sua Cidade">
+				        	<input class= "input" type="text" value="${armazem.endereco.bairro}" id="bairro" name="bairro" placeholder="Informe seu bairro">
 				        </div>
 				        <div>
-				       	 	<input type="text" value="${armazem.endereco.tipoVia}" id="tipoVia" name="tipoVia" placeholder="Informe o tipo de via">
-				        	<input type="number" value="${armazem.endereco.numeroEndereco}" id="numeroEndereco" name="numeroEndereco" placeholder="Informe o número de residência">
+				       	 	<input class= "input" type="text" value="${armazem.endereco.tipoVia}" id="tipoVia" name="tipoVia" placeholder="Informe o tipo de via">
+				        	<input class= "input" type="number" value="${armazem.endereco.numeroEndereco}" id="numeroEndereco" name="numeroEndereco" placeholder="Informe o número de residência">
 				        </div>
 				       	<div>
-				       		<input type="text" value="${armazem.endereco.logradouro}" id="logradouro" name="logradouro" placeholder="Informe seu logradouro">
-				        	<input type="text" value="${armazem.endereco.cep}" id="cep" name="cep" placeholder="Informe seu CEP">
+				       		<input class= "input" type="text" value="${armazem.endereco.logradouro}" id="logradouro" name="logradouro" placeholder="Informe seu logradouro">
+				        	<input class= "input" type="text" value="${armazem.endereco.cep}" id="cep" name="cep" placeholder="Informe seu CEP">
 				        <div>
-				        	<input type="text" value="${armazem.endereco.complemento}" id="complemento" name="complemento" placeholder="Complementos">
+				        	<input class= "input" type="text" value="${armazem.endereco.complemento}" id="complemento" name="complemento" placeholder="Complementos">
 				        </div>
 				        
 				        </div>
