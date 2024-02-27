@@ -30,7 +30,7 @@
 			</div>
 			<div class="item-menu">
 				<a class="perfil" href="editar-perfil-coletor" id=perfil>
-					<svg><%@include file="../../images/perfil.jsp"%></svg> Olá ${coletor.nome}
+					Olá, ${coletor.nome}
 				</a>
 			</div>
 			<div class="item-menu">

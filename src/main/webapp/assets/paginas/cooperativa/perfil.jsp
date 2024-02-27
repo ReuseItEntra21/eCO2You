@@ -43,12 +43,12 @@
 								<c:choose>
 									<c:when test="${retirada.itemRetirada.material.nome eq 'Alumínio'}">
 										<svg id="foto-item-retirada">
-									    	<%@ include file="../../images/garrafa-plastico.jsp"%>
+									    	<%@ include file="../../images/aluminio.jsp"%>
 										</svg>
 									</c:when>
 									<c:when test="${retirada.itemRetirada.material.nome eq 'Plástico'}">
 									    <svg id="foto-item-retirada">
-									    	<%@ include file="../../images/garrafa-plastico.jsp"%>
+									    	<%@ include file="../../images/plastico.jsp"%>
 										</svg>
 									</c:when>
 									<c:otherwise>

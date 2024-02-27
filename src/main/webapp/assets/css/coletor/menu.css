@@ -14,7 +14,7 @@ a {
 .container-menu {
 	display: flex;
 	flex-flow: row nowrap;
-	align-items: baseline;
+	align-items: center;
 	justify-content: flex-end;
 	background-color: #FFFFFF;
 	font-size: 2vh;
@@ -25,7 +25,7 @@ a {
 	flex-flow: row nowrap;
 	align-items: center;
 	justify-content: space-between;
-	margin: 0vh 1vw 0vh 1vw;
+	margin: 0vh 0.5vw 0vh 0.5vw;
 }
 
 .perfil {
@@ -41,7 +41,7 @@ a {
 
 .item-menu svg {
 	width: 2vw;
-	height: 3vh;
+	height: 2.5vh;
 }
 
 .container-logo {
