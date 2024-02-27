@@ -42,9 +42,11 @@ public interface DepositoDAO {
     
     List<Deposito> buscarDepositoPeloColetorEArmazemEData(String nomeDoColetor, String nomeDoArmazem, LocalDate data);
     
-    List<Deposito> buscarProximosDepositos(StatusDeposito statusDeposito, LocalDate data, Long coletorId);
+    List<Deposito> buscarProximosDepositos(StatusDeposito statusDeposito, LocalDate data, Long id);
     
-    List<Deposito> buscarDepositosPeloStatus(StatusDeposito statusDeposito, Long coletorId);
+    List<Deposito> buscarDepositosPeloStatusEColetor(StatusDeposito statusDeposito, Long id);
+    
+    List<Deposito> buscarDepositosPeloStatusEArmazem(StatusDeposito statusDeposito, Long id);
 
 	Deposito buscarDepositoComItemDepositoPorId(Long id);
 	

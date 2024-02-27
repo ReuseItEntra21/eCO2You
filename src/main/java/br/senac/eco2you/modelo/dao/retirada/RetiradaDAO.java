@@ -32,22 +32,20 @@ public interface RetiradaDAO {
 
 	List<Retirada> buscarRetiradaPeloArmazemECooperativa(String nomeDoArmazem, String nomeDaCooperativa);
 
-	List<Retirada> buscarRetiradaPeloArmazemECooperativaEStatus(String nomeDoArmazem, String nomeDaCooperativa,
-			StatusRetirada status);
+	List<Retirada> buscarRetiradaPeloArmazemECooperativaEStatus(String nomeDoArmazem, String nomeDaCooperativa, StatusRetirada status);
 
-	List<Retirada> buscarRetiradaPeloArmazemECooperativaEData(String nomeDoArmazem, String nomeDaCooperativa,
-			LocalDate data);
+	List<Retirada> buscarRetiradaPeloArmazemECooperativaEData(String nomeDoArmazem, String nomeDaCooperativa, LocalDate data);
 
 	List<Retirada> buscarRetiradaPelaCooperativaEArmazem(String nomeDaCooperativa, String nomeDoArmazem);
 
-	List<Retirada> buscarRetiradaPelaCooperativaEArmazemEStatus(String nomeDaCooperativa, String nomeDoArmazem,
-			StatusRetirada status);
+	List<Retirada> buscarRetiradaPelaCooperativaEArmazemEStatus(String nomeDaCooperativa, String nomeDoArmazem, StatusRetirada status);
 
-	List<Retirada> buscarRetiradaPelaCooperativaEArmazemEData(String nomeDaCooperativa, String nomeDoArmazem,
-			LocalDate data);
+	List<Retirada> buscarRetiradaPelaCooperativaEArmazemEData(String nomeDaCooperativa, String nomeDoArmazem, LocalDate data);
 	
 	List<Retirada> buscarProximasRetiradas(StatusRetirada statusRetirada, LocalDate data, Long id);
     
-    List<Retirada> buscarRetiradasPeloStatus(StatusRetirada statusRetirada, Long id);
+    List<Retirada> buscarRetiradasPeloStatusECooperativa(StatusRetirada statusRetirada, Long id);
+    
+    List<Retirada> buscarRetiradasPeloStatusEArmazem(StatusRetirada statusRetirada, Long id);
 
 }
