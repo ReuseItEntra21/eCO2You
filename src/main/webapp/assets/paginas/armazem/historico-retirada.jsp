@@ -7,10 +7,10 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Histórico Retirada</title>
-		<style><%@include file="../../css/cooperativa/historico-retiradas.css"%></style>
+		<style><%@include file="../../css/armazem/historico-retirada.css"%></style>
 	</head>
 	<body>
-    	<a href="perfil-cooperativa" class="dropbtn" id=voltar>
+    	<a href="perfil-armazem" class="dropbtn" id=voltar>
 			<svg>
 				<%@include file="../../images/voltar.jsp"%>
 			</svg>
@@ -22,7 +22,6 @@
 					<tr>
 						<th id="coluna-data">Data</th>
 						<th id="coluna-armazem">Armazém</th>
-	                    <th id="coluna-pontuacao">Pontuação</th>
 	                    <th id="coluna-status">Status</th>
 	                    <th id="coluna-resumo">Resumo</th>
 					</tr>
@@ -30,8 +29,7 @@
 				<c:forEach var="retirada" items="${retiradas}">
 					<tr>			
 						<td>${retirada.data}</td>
-						<td>${retirada.armazem.nome}</td>
-	                	<td>12</td>
+						<td>${retirada.cooperativa.nome}</td>
 	                	<td>${retirada.statusDeRetirada}</td>
 	                	<td>${retirada.itemRetirada.peso}kg de ${retirada.itemRetirada.material.nome}</td>
 					</tr>

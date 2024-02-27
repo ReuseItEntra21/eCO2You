@@ -7,10 +7,10 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Histórico Deposito</title>
-		<style><%@include file="../../css/coletor/historico-depositos.css"%></style>
+		<style><%@include file="../../css/armazem/historico-deposito.css"%></style>
 	</head>
 	<body>
-    	<a href="perfil-coletor" class="dropbtn" id=voltar>
+    	<a href="perfil-armazem" class="dropbtn" id=voltar>
 			<svg>
 				<%@include file="../../images/voltar.jsp"%>
 			</svg>
@@ -21,18 +21,14 @@
 				<thead>
 					<tr>
 						<th id="coluna-data">Data</th>
-						<th id="coluna-armazem">Armazém</th>
-	                    <th id="coluna-pontuacao">Pontuação</th>
-	                    <th id="coluna-status">Status</th>
+						<th id="coluna-armazem">Coletor</th>
 	                    <th id="coluna-resumo">Resumo</th>
 					</tr>
 				</thead>
 				<c:forEach var="deposito" items="${depositos}">
 					<tr>			
 						<td>${deposito.data}</td>
-						<td>${deposito.armazem.nome}</td>
-	                	<td>12</td>
-	                	<td>${deposito.statusDeDeposito}</td>
+						<td>${deposito.coletor.nome}</td>
 	                	<td>
 	                	<c:forEach var="itemDeposito" items="${deposito.itensDeposito}">		
 							${itemDeposito.quantidadeReciclaveis}x ${itemDeposito.reciclavel.nome} ${itemDeposito.reciclavel.volume}ml		

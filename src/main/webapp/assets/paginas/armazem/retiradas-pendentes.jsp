@@ -9,7 +9,7 @@
 	    <style><%@include file="../../css/cooperativa/retiradas-pendentes.css"%></style>
 	</head>
 	<body>
-		<a href="perfil-cooperativa" id="voltar"><svg><%@include file="../../images/voltar.jsp"%></svg></a>
+		<a href="perfil-armazem" id="voltar"><svg><%@include file="../../images/voltar.jsp"%></svg></a>
 		<div class="container-retiradas">
 			<div class="title">
 				<span>Retiradas Agendados</span>
