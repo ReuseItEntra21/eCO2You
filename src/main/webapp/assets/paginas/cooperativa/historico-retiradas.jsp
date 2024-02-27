@@ -22,7 +22,6 @@
 					<tr>
 						<th id="coluna-data">Data</th>
 						<th id="coluna-armazem">Armazém</th>
-	                    <th id="coluna-pontuacao">Pontuação</th>
 	                    <th id="coluna-status">Status</th>
 	                    <th id="coluna-resumo">Resumo</th>
 					</tr>
@@ -31,7 +30,6 @@
 					<tr>			
 						<td>${retirada.data}</td>
 						<td>${retirada.armazem.nome}</td>
-	                	<td>12</td>
 	                	<td>${retirada.statusDeRetirada}</td>
 	                	<td>${retirada.itemRetirada.peso}kg de ${retirada.itemRetirada.material.nome}</td>
 					</tr>
