@@ -22,8 +22,11 @@
 				<input type="date" oninput="this.className = ''" name="data" id=retirada required>
 			</div>
 			<div class="item-retirada">
-				<label for="retirada">Armazém</label>
-				<input type="text" value="${armazem.nome}" name="nome" required>
+				<select name="id">
+					<c:forEach var="armazem" items="${armazens}">
+						<option value="${armazem.id}">${armazem.nome}</option>
+					</c:forEach>
+				</select>
 			</div>
 			<div class="item-retirada">
 				<label> Escolha o Material </label>
