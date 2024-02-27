@@ -1,34 +1,39 @@
-	<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page isELIgnored="false" %>
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Histórico Retirada</title>
-		<style><%@include file="../../css/armazem/historico-retirada.css"%></style>
+		<style><%@include file="../../css/cooperativa/historico-retiradas.css"%></style>
 	</head>
 	<body>
-    	<a href="perfil-armazem" id="voltar">
+    	<a href="perfil-cooperativa" class="dropbtn" id=voltar>
 			<svg>
 				<%@include file="../../images/voltar.jsp"%>
 			</svg>
 		</a>
-    	<h1>Histórico de Retirada</h1>
     	<div class="container-retiradas">
-			<table border="1" style="width: 99vw;">
+			<table>
+			<caption>Histórico de Retiradas</caption>
 				<thead>
 					<tr>
-						<th>Comprador</th>
-						<th>Data</th>
-	                    <th>Resumo</th>
+						<th id="coluna-data">Data</th>
+						<th id="coluna-armazem">Armazém</th>
+	                    <th id="coluna-pontuacao">Pontuação</th>
+	                    <th id="coluna-status">Status</th>
+	                    <th id="coluna-resumo">Resumo</th>
 					</tr>
 				</thead>
 				<c:forEach var="retirada" items="${retiradas}">
-					<tr>
-                    	<td>${retirada.cooperativa.nome}</td>
+					<tr>			
 						<td>${retirada.data}</td>
-	                	<td>${itemRetirada.material.nome} ${itemRetirada.peso}</td>
+						<td>${retirada.armazem.nome}</td>
+	                	<td>12</td>
+	                	<td>${retirada.statusDeRetirada}</td>
+	                	<td>${retirada.itemRetirada.peso}kg de ${retirada.itemRetirada.material.nome}</td>
 					</tr>
 				</c:forEach>
 			</table>
