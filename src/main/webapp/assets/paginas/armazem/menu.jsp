@@ -9,8 +9,8 @@
 		</div>
 		<div class="container-menu">
 			<div class="item-menu">
-				<a  href="depositos-agendados-armazem">
-					<svg><%@include file="../../images/pendente.jsp"%></svg>Depositos
+				<a  href="depositos-pendentes-armazem">
+					<svg><%@include file="../../images/pendente.jsp"%></svg>Depositos Pendentes
 				</a>
 			</div>
 			<div class="item-menu">
@@ -19,8 +19,8 @@
 				</a>
 			</div>
 			<div class="item-menu">
-				<a  href="retiradas-agendadas-armazem">
-					<svg><%@include file="../../images/pendente.jsp"%></svg>Retiradas
+				<a  href="retiradas-pendentes-armazem">
+					<svg><%@include file="../../images/pendente.jsp"%></svg>Retiradas Pendentes
 				</a>
 			</div>
 			<div class="item-menu">
