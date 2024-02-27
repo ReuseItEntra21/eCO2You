@@ -157,17 +157,9 @@ public class CooperativaDAOImpl implements CooperativaDAO {
 
 			sessao.getTransaction().commit();
 
-		} catch (Exception sqlException) {
-			sqlException.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 
-			if (sessao.getTransaction() != null) {
-				sessao.getTransaction().rollback();
-			}
-
-		} finally {
-			if (sessao != null) {
-				sessao.close();
-			}
 		}
 		return cooperativa;
 	}
@@ -195,17 +187,9 @@ public class CooperativaDAOImpl implements CooperativaDAO {
 
 			sessao.getTransaction().commit();
 
-		} catch (Exception sqlException) {
-			sqlException.printStackTrace();
-
-			if (sessao.getTransaction() != null) {
-				sessao.getTransaction().rollback();
-			}
-
-		} finally {
-			if (sessao != null) {
-				sessao.close();
-			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return cooperativas;
 		}
 		return cooperativas;
 	}
