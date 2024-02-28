@@ -31,7 +31,17 @@
 					</div>
 				</div>
 				<div  class="ranking">
-					Ranking
+					<span>Ranking</span>
+					<div class="container-coletor-ranking">
+						<c:forEach var="coletor" items="${coletores}"> 
+							<div class="item-coletor-ranking">
+								# ${coletor.nome} ${coletor.sobrenome} / ${coletor.pontos}pts
+							</div>
+						</c:forEach>
+					</div>
+					<div class="container">
+						# ${coletor.nome} ${coletor.sobrenome} / ${coletor.pontos}pts
+					</div>
 				</div>
 			</div>
 			<div class="proximo-deposito"> 

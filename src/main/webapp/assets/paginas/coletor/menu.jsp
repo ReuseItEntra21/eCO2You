@@ -8,14 +8,10 @@
 			</a>
 		</div>
 		<div class="container-menu">
+		
 			<div class="item-menu">
-				<a  href="depositos-pendentes-coletor" id=pendentes>
-					<svg><%@include file="../../images/pendente.jsp"%></svg>Pendentes
-				</a>
-			</div>
-			<div class="item-menu">
-				<a href="historico-depositos-coletor" id=historico>
-					<svg><%@include file="../../images/historico.jsp"%></svg>Histórico
+				<a href="cadastro-deposito" id=procurarArmazem>
+					<svg><%@include file="../../images/novo.jsp"%></svg>Depositar
 				</a>
 			</div>
 			<div class="item-menu">
@@ -26,6 +22,16 @@
 			<div class="item-menu">
 				<a href="procurar-armazem" id=procurarArmazem>
 					<svg><%@include file="../../images/lupa.jsp"%></svg>Procurar Armazém
+				</a>
+			</div>
+			<div class="item-menu">
+				<a  href="depositos-pendentes-coletor" id=pendentes>
+					<svg><%@include file="../../images/pendente.jsp"%></svg>Pendentes
+				</a>
+			</div>
+			<div class="item-menu">
+				<a href="historico-depositos-coletor" id=historico>
+					<svg><%@include file="../../images/historico.jsp"%></svg>Histórico
 				</a>
 			</div>
 			<div class="item-menu">

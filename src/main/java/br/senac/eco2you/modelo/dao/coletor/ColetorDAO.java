@@ -18,6 +18,8 @@ public interface ColetorDAO {
 
 	List<Coletor> buscarListaColetorPeloNome(String nome); 
 	
+	List<Coletor> buscarTop10Coletores();
+	
 	List<Coletor> buscarColetores();
 	   
 }

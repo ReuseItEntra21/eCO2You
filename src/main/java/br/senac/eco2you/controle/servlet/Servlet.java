@@ -380,6 +380,9 @@ public class Servlet extends HttpServlet {
 			
 			List<Deposito> deposito = depositoDAO.buscarProximosDepositos(StatusDeposito.AGENDADO, LocalDate.now(), coletor.getId());
 			request.setAttribute("deposito", deposito);
+			
+			List<Coletor> coletores = coletorDAO.buscarTop10Coletores();
+			request.setAttribute("coletores", coletores);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/coletor/perfil.jsp");
 			dispatcher.forward(request, response);
