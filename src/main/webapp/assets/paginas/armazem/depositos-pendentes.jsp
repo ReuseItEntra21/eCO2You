@@ -6,7 +6,7 @@
 	<head>
 	    <meta charset="UTF-8">
 	    <title>Pendentes</title>
-	    <style><%@include file="../../css/armazem/depositos-pendentes.css"%></style>
+	    <style><%@include file="../../css/coletor/depositos-pendentes.css"%></style>
 	</head>
 	<body>
 		<a href="perfil-armazem" id="voltar"><svg><%@include file="../../images/voltar.jsp"%></svg></a>
@@ -22,23 +22,20 @@
 								<%@include file="../../images/perfil.jsp"%>
 							</svg>
 							<div class="vl"></div>
-							<div class="deposito-info">
+							<div class="depdoisosito-info">
 								<p>Depósito #${deposito.id}</p>
-								<p>${deposito.armazem.nome}</p>
+								<p>${deposito.coletor.nome}</p>
 								<p>Data: ${deposito.data}</p>
 							</div>
-						</div>
-						<p>Endereço:</p>
-						<div class="endereco-info">
-							<p>${deposito.armazem.endereco.tipoVia}. ${deposito.armazem.endereco.logradouro}, ${deposito.armazem.endereco.numeroEndereco}</p>
-							<p>${deposito.armazem.endereco.bairro}, ${deposito.armazem.endereco.cidade}, ${deposito.armazem.endereco.cep}</p>
-							<p>${deposito.armazem.endereco.complemento}</p>
 						</div>
 						<p>Resumo:</p>
 						<div class="resumo-info">
 							<c:forEach var="itemDeposito" items="${deposito.itensDeposito}">		
 								${itemDeposito.quantidadeReciclaveis}x ${itemDeposito.reciclavel.nome} ${itemDeposito.reciclavel.volume}ml		
 							</c:forEach>
+						</div>
+						<div>
+							<a href="atualizar-deposito?id=<c:out value='${deposito.id}'/>&coletor_id=<c:out value='${deposito.coletor.id}'/>&status=CONCLUIDO">Finalizar</a>
 						</div>
 					</div>
 				</c:forEach>
@@ -67,7 +64,7 @@
 							</c:forEach>
 						</div>
 						<div>
-							<a href="atualizar-deposito?id=<c:out value='${deposito.id}'/>&status=AGENDADO">Aceitar</a>
+							<a href="atualizar-deposito?id=<c:out value='${deposito.id}'/>&coletor_id=<c:out value='${deposito.coletor.id}'/>&status=AGENDADO">Aceitar</a>
 							<a href="deletar-deposito?id=<c:out value='${deposito.id}'/>">Rejeitar</a>
 						</div>
 					</div>
