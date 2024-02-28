@@ -28,14 +28,13 @@
 					<div class="container-inputs">
 						<div>
 							<input class= "input" type="text" value="${cooperativa.nome}"id="nome" name="nome" placeholder="Informe seu nome">
-							<input class= "input" type="text" value="${cooperativa.sobrenome}" id="sobrenome" name="sobrenome" placeholder="Informe seu sobrenome">
 						</div>
 				        	<input class= "input" type="email" value="${cooperativa.email}" id="email" name="email" placeholder="Informe seu Email">
 				        	<input class= "input" type="text" value="${cooperativa.senha}" id="senha" name="senha" placeholder="Digite uma senha">
 				        
 				       <div>
 				       		<div>
-				       		<input class= "input" type="text" value="${cooperativa.cpf}" id="cpf" name="cpf" placeholder="Informe seu CPF">
+				       		<input class= "input" type="text" value="${cooperativa.cnpj}" id="cpf" name="cpf" placeholder="Informe seu CPF">
 				       		<input class= "input" type="tel" value="${cooperativa.endereco.telefone}" id="telefone" name="telefone" placeholder="Informe seu telefone">        
 				        </div> 
 				        	<div>
@@ -56,14 +55,14 @@
 				        </div>
 			        </div>
 			        </div>
+			        <div class="conteiner-buttons">
+						<a href="deslogar" id="deslogar">Deslogar</a>
+						<a href="deletar-cooperativa" id="excuir">Excluir Conta</a>
+						<a href="recuperar-senha" id="recuperar">Atualizar Senha</a>
+						<input type="submit" value="Salvar" id="salvar" class="conteiner-buttons">
+					</div>
 				</form>
 	        </div>      	
-	        </div>
-		<div class="conteiner-buttons">
-			<a href="deslogar" id="deslogar">Deslogar</a>
-			<a href="deletar-cooperativa" id="excuir">Excluir Conta</a>
-			<a href="recuperar-senha" id="recuperar">Atualizar Senha</a>
-			<input type="submit" value="Salvar" id="salvar" class="conteiner-buttons">
-		</div> 
+	 	</div>
     </body>
 </html>

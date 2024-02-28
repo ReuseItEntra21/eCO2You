@@ -13,8 +13,7 @@
 	<body>
 		<%@include file="menu.jsp"%>
 		<div class="container-info">
-			<div class="container-perfil-ranking">
-				<div class="container-perfil">
+			<div class="container-perfil">
 					<div class="item-perfil">
 						<svg id="foto-cooperativa">
 							<%@include file="../../images/perfil.jsp"%>
@@ -28,10 +27,6 @@
 						<div class="endereco-coletor">
 							<span>${cooperativa.endereco.bairro}, ${cooperativa.endereco.cidade}</span>
 						</div>
-					</div>
-				</div>
-				<div  class="ranking">
-					Ranking
 				</div>
 			</div>
 			<div class="proxima-retirada"> 
