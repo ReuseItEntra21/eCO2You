@@ -76,6 +76,11 @@ public class ColetorDAOImpl implements ColetorDAO {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
 		}
 		return coletor;
 	}
@@ -100,6 +105,11 @@ public class ColetorDAOImpl implements ColetorDAO {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
 		}
 		return coletor;
 	}
@@ -159,6 +169,11 @@ public class ColetorDAOImpl implements ColetorDAO {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
 		}
 		return coletores;
 	}
