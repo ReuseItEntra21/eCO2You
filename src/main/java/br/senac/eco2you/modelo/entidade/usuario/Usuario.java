@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,7 +14,9 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 import br.senac.eco2you.modelo.entidade.endereco.Endereco;
+import br.senac.eco2you.modelo.entidade.foto.Foto;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -40,6 +43,9 @@ public abstract class Usuario implements Serializable {
 	@JoinColumn(name = "id_endereco", referencedColumnName = "id_endereco")
 	private Endereco endereco;
 	
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	private Foto fotoUsuario;
+	
 	public Usuario() {}
 	
 	public Usuario(String nome, String email, String senha) {
@@ -60,6 +66,21 @@ public abstract class Usuario implements Serializable {
 		setEmail(email);
 		setSenha(senha);
 		setEndereco(endereco);
+	}
+	public Usuario(long id, String nome, Endereco endereco, String email, String senha, Foto fotoUsuario) {
+		setNome(nome);
+		setEmail(email);
+		setSenha(senha);
+		setEndereco(endereco);
+		setFotoUsuario(fotoUsuario);
+	}public Usuario(String nome, Endereco endereco, String email, String senha, Foto fotoUsuario) {
+		setNome(nome);
+		setEmail(email);
+		setSenha(senha);
+		setEndereco(endereco);
+		setFotoUsuario(fotoUsuario);
+		
+		
 	}
 
 	public String getNome() {

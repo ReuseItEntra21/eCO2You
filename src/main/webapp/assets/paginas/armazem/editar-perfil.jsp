@@ -47,6 +47,8 @@
 				        <div>
 				        	<input class= "input" type="text" value="${armazem.endereco.complemento}" id="complemento" name="complemento" placeholder="Complementos">
 				        </div>
+				        <label for="foto">Editar sua foto:</label>
+                		<input type="file" id="foto-editar-armazem" name="foto">
 				        
 				        </div>
 			        </div>
