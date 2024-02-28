@@ -12,15 +12,6 @@
 	</head>
 	<body>
 		<%@ include file="menu.jsp"%>
-		<div class="box">
-			<h2>CONECTANDO DOADORES COM PONTOS DE COLETA.</h2 >
-			<p>Transfomando sua contribuição em impacto sustentável.</p>
-			<a href="<%=request.getContextPath()%>/cadastro-coletor">Seja um Coletor</a>
-			<a href="<%=request.getContextPath()%>/procurar-armazem">Procure um Armazém</a>
-
-			<img alt="Imagem" src="">
-		</div>
-		<p id="container-texto">Descubra uma nova maneira de fazer a diferença no mundo. Na eCO2You, estamos unindo comunidades em prol da sustentabilidade. Conectamos pessoas que desejam contribuir com materiais recicláveis a armazéns comprometidos com o meio ambiente. Nosso objetivo é criar um impacto positivo e duradouro em nosso planeta.</p>
 		<div class="usuarios">
 			<h2>Venha reciclar com a Gente</h2>
 			<div class="container-usuarios">
@@ -29,8 +20,7 @@
 		        		<%@include file="../images/eCO2You.jsp"%>
 		        	</svg>
 		        	<h3 class="itens-usuario"> Coletor </h3>
-			       <p class="descricao-usuario"> Os coletores são os usuários comuns,
-			        pessoas que recolhem e
+			       <p class="descricao-usuario"> Os coletores são os usuários  que recolhem e
 			        guardam os recicláveis,
 			        depois enviam para os armazéns.</p>
 			        <a href="<%=request.getContextPath()%>/cadastro-coletor">Ser um Coletor</a>
