@@ -53,6 +53,8 @@
 				        <div>
 				        	<input class="complemento-input" type="text" value="${coletor.endereco.complemento}" id="complemento" name="complemento" placeholder="Complementos">
 				        </div>
+				    <label for="foto">Editar sua foto:</label>
+                	<input type="file" id="foto-editar-coletor" name="foto">
 			        </div>
 				</form>
 	        </div>      	
