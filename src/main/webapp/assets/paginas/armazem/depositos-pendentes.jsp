@@ -18,15 +18,21 @@
 				<c:forEach var="deposito" items="${depositosAgendados}">
 					<div class="item-deposito-agendado">
 						<div class="info">
-							<svg class="foto-coletor">
+							<svg class="foto-armazem">
 								<%@include file="../../images/perfil.jsp"%>
 							</svg>
 							<div class="vl"></div>
-							<div class="depdoisosito-info">
+							<div class="deposito-info">
 								<p>Depósito #${deposito.id}</p>
-								<p>${deposito.coletor.nome}</p>
+								<p>${deposito.armazem.nome}</p>
 								<p>Data: ${deposito.data}</p>
 							</div>
+						</div>
+						<p>Endereço:</p>
+						<div class="endereco-info">
+							<p>${deposito.armazem.endereco.tipoVia}. ${deposito.armazem.endereco.logradouro}, ${deposito.armazem.endereco.numeroEndereco}</p>
+							<p>${deposito.armazem.endereco.bairro}, ${deposito.armazem.endereco.cidade}, ${deposito.armazem.endereco.cep}</p>
+							<p>${deposito.armazem.endereco.complemento}</p>
 						</div>
 						<p>Resumo:</p>
 						<div class="resumo-info">
@@ -47,15 +53,21 @@
 				<c:forEach var="deposito" items="${depositosPendentes}">
 					<div class="item-deposito-agendado">
 						<div class="info">
-							<svg class="foto-coletor">
+							<svg class="foto-armazem">
 								<%@include file="../../images/perfil.jsp"%>
 							</svg>
 							<div class="vl"></div>
 							<div class="deposito-info">
 								<p>Depósito #${deposito.id}</p>
-								<p>Coletor: ${deposito.coletor.nome}</p>
+								<p>Armazém: ${deposito.armazem.nome}</p>
 								<p>Data: ${deposito.data}</p>
 							</div>
+						</div>
+						<p>Endereço:</p>
+						<div class="endereco-info">
+							<p>${deposito.armazem.endereco.tipoVia}. ${deposito.armazem.endereco.logradouro}, ${deposito.armazem.endereco.numeroEndereco}</p>
+							<p>${deposito.armazem.endereco.bairro}, ${deposito.armazem.endereco.cidade}, ${deposito.armazem.endereco.cep}</p>
+							<p>${deposito.armazem.endereco.complemento}</p>
 						</div>
 						<p>Resumo:</p>
 						<div class="resumo-info">

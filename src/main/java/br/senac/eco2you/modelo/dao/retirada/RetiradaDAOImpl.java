@@ -659,7 +659,7 @@ public class RetiradaDAOImpl implements RetiradaDAO {
 
 			criteria.orderBy(construtor.asc(raizDeposito.get(Deposito_.DATA)));
 			
-			retiradas = sessao.createQuery(criteria).setMaxResults(3).getResultList();
+			retiradas = sessao.createQuery(criteria).setMaxResults(2).getResultList();
 	
 			sessao.getTransaction().commit();
 

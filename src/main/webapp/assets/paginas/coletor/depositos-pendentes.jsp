@@ -73,9 +73,6 @@
 							</c:forEach>
 						</div>
 					</div>
-					<div class="container-buttons-item-armazem">
-			    		<a href="editar-deposito?id=<c:out value='${deposito.id}'/>">Editar</a>
-			    	</div>
 				</c:forEach>
 			</div>
 		</div>

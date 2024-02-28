@@ -631,10 +631,10 @@ public class Servlet extends HttpServlet {
 		Armazem armazem = (Armazem) sessao.getAttribute("usuario");
 		request.setAttribute("armazem", armazem);
 
-		List<Deposito> depositos = depositoDAO.buscarDepositoPeloArmazem(armazem);
+		List<Deposito> depositos = depositoDAO.buscarProximosDepositos(StatusDeposito.AGENDADO , LocalDate.now(), armazem.getId());
 		request.setAttribute("depositos", depositos);
 
-		List<Retirada> retiradas = retiradaDAO.buscarRetiradasPeloArmazem(armazem);
+		List<Retirada> retiradas = retiradaDAO.buscarProximasRetiradas(StatusRetirada.AGENDADO, LocalDate.now(), armazem.getId());
 		request.setAttribute("retiradas", retiradas);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/armazem/perfil.jsp");
@@ -707,9 +707,14 @@ public class Servlet extends HttpServlet {
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
 		if (sessao != null && usuario instanceof Coletor) {
-
+			
+			Long id = (Long) sessao.getAttribute("id");
+				
 			Armazem armazem = (Armazem) usuarioDAO.buscarUsuarioPorId(Long.parseLong(request.getParameter("id")));
 			request.setAttribute("armazem", armazem);
+	
+			Armazem armazemId = (Armazem) usuarioDAO.buscarUsuarioPorId(id);
+			request.setAttribute("armazemId", armazemId);
 
 			List<Reciclavel> reciclaveis = reciclavelDAO.buscarReciclaveis();
 			request.setAttribute("reciclaveis", reciclaveis);

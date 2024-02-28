@@ -54,14 +54,14 @@
 				        	<input class="complemento-input" type="text" value="${coletor.endereco.complemento}" id="complemento" name="complemento" placeholder="Complementos">
 				        </div>
 			        </div>
+			        <div class="conteiner-buttons">
+						<a href="deslogar" id="deslogar">Deslogar</a>
+						<a href="deletar-coletor" id="excuir">Excluir Conta</a>
+						<a href="recuperar-senha" id="recuperar">Atualizar Senha</a>
+						<input type="submit" value="Salvar" id="salvar" class="conteiner-buttons">
+					</div> 
 				</form>
 	        </div>      	
-	        </div>
-		<div class="conteiner-buttons">
-			<a href="deslogar" id="deslogar">Deslogar</a>
-			<a href="deletar-coletor" id="excuir">Excluir Conta</a>
-			<a href="recuperar-senha" id="recuperar">Atualizar Senha</a>
-			<input type="submit" value="Salvar" id="salvar" class="conteiner-buttons">
-		</div> 
+		</div>
     </body>
 </html>

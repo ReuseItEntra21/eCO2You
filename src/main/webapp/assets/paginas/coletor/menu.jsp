@@ -8,12 +8,6 @@
 			</a>
 		</div>
 		<div class="container-menu">
-		
-			<div class="item-menu">
-				<a href="cadastro-deposito" id=procurarArmazem>
-					<svg><%@include file="../../images/novo.jsp"%></svg>Depositar
-				</a>
-			</div>
 			<div class="item-menu">
 				<a href="procurar-coletor" id=procurarColetor>
 					<svg><%@include file="../../images/lupa.jsp"%></svg>Procurar Coletor
