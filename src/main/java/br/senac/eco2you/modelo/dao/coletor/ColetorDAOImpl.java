@@ -178,7 +178,48 @@ public class ColetorDAOImpl implements ColetorDAO {
 		return coletores;
 	}
 	
-public List<Coletor> buscarColetores() {
+	public List<Coletor> buscarTop10Coletores() {
+		
+		Session sessao = null;
+		List<Coletor> coletores = null;
+
+		try {
+
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Coletor> criteria = construtor.createQuery(Coletor.class);
+			Root<Coletor> raizColetor = criteria.from(Coletor.class);
+
+			criteria.select(raizColetor);
+			
+			criteria.orderBy(construtor.desc(raizColetor.get("pontos")));
+
+			coletores = sessao.createQuery(criteria).setMaxResults(10).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return coletores;
+	}
+	
+	public List<Coletor> buscarColetores() {
 		
 		Session sessao = null;
 		List<Coletor> coletores = null;
