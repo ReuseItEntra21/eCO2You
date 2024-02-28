@@ -1,6 +1,4 @@
 # eCO2You
-Projeto entra21  chamado eCO2you sobre gestão de recicláveis
-
 
 # Bem Vindo ao eCO2You!
 
