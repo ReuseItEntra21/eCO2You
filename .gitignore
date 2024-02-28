@@ -1,6 +1,8 @@
 # Compiled class file
 *.class
 
+*.metadata
+
 # Log file
 *.log
 
@@ -27,3 +29,6 @@ replay_pid*
 .project
 .settings/
 
+/.apt_generated_tests/
+/.idea/
+/bin/
